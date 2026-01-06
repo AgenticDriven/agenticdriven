@@ -21,12 +21,10 @@ Before advancing:
 3. Document exceptions
 4. Get approval
 5. Commit final work
-6. Tag completion
-7. Update to next phase
+6. Update to next phase
 
 ```bash
 git commit -m "docs: complete DESIGN exit criteria"
-git tag -a v0.2.9 -m "DESIGN complete"
 git commit -m "chore: start SETUP (v0.3.0)"
 ```
 
