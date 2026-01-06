@@ -16,9 +16,37 @@ Document before, during, after
 **EVOLVE**: evolution-plan, roadmap
 
 ## Location
-All in `docs/` at root. Use kebab-case filenames. Markdown format.
 
-Optional subdirs (complex): planning/, active/, completed/, archived/, spikes/, reports/
+**Simple Projects**: All in `docs/` at root. Use kebab-case filenames. Markdown format.
+
+**Complex Projects**: Use subdirectories:
+
+```
+docs/
+├── planning/          # Future work, proposals, ideas
+├── active/           # Work in progress
+│   └── feature-name/  # Current feature/project
+│       ├── 00-define/
+│       ├── 01-discover/
+│       ├── 02-design/
+│       └── ...
+├── completed/        # Finished features
+├── archived/         # Old/deprecated docs
+├── reports/          # Standalone reports
+├── spikes/           # Research, experiments
+├── journal.md        # Always at root
+└── decisions.md      # Always at root
+```
+
+**Workflow**:
+1. Start feature in `active/feature-name/`
+2. Organize by phases: 00-define/, 01-discover/, etc.
+3. When feature complete, move to `completed/feature-name/`
+4. Old features go to `archived/`
+
+**Always at Root**:
+- `journal.md` - Daily progress
+- `decisions.md` - Architecture decisions (ADRs)
 
 ## Updates
 Update docs in same commit as code
