@@ -25,10 +25,24 @@
   - Identified and analyzed 12 risks (docs/risks.md)
   - Documented mitigation strategies
   - ✅ **DISCOVER phase complete** - all exit criteria met
-- **Decisions**: None yet (will log in decisions.md)
+
+### DESIGN Phase (v0.2.0 → v0.2.1)
+- **Agent**: Human + Claude
+- **Progress**:
+  - Created solution design (docs/design.md)
+  - Documented 5 core components and data flows
+  - Defined architecture decisions (docs/architecture.md)
+  - Made 10 key architectural decisions with rationale
+  - Specified interfaces and contracts (docs/interfaces.md)
+  - Defined 11 interface contracts between components
+  - Removed git tags from methodology per user request
+  - Updated git-tags.md and exit-criteria.md
+  - Regenerated IDE configs without tagging references
+  - ✅ **DESIGN phase complete** - all exit criteria met
+- **Decisions**: ADR-001: Remove git tags (in progress, see below)
 - **Blockers**: None
 - **Next**:
-  - Move to DESIGN phase (v0.2.0)
-  - Design solution architecture
-  - Define interfaces
-  - Create design documentation
+  - Move to SETUP phase (v0.3.0)
+  - Configure development environment
+  - Setup testing infrastructure
+  - Define validation criteria
