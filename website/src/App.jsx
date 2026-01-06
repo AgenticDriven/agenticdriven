@@ -45,7 +45,7 @@ function App() {
       <header className="hero">
         <div className="container">
           <h1 className="hero-title">
-            Agent-Driven Development
+            Agentic Driven
             <span className="version">1.0</span>
           </h1>
           <p className="hero-subtitle">
@@ -53,7 +53,7 @@ function App() {
           </p>
           <div className="hero-cta">
             <a href="#quick-start" className="btn btn-primary">Get Started</a>
-            <a href="https://github.com/agenticdriven/add" className="btn btn-secondary">
+            <a href="https://github.com/AgenticDriven/agenticdriven" className="btn btn-secondary">
               <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
               </svg>
@@ -63,19 +63,19 @@ function App() {
         </div>
       </header>
 
-      {/* What is ADD Section */}
+      {/* What is AD Section */}
       <section className="section">
         <div className="container">
-          <h2 className="section-title">What is ADD 1.0?</h2>
+          <h2 className="section-title">What is AD 1.0?</h2>
           <div className="what-is">
             <p>
-              Agent-Driven Development (ADD) is a structured methodology for building projects
+              Agentic Driven (AD) is a structured methodology for building projects
               with AI agents. It combines proven software engineering practices with AI-first workflows,
               providing clear phases, exit criteria, and documentation standards.
             </p>
             <p>
               Whether you're building software, writing a book, launching a marketing campaign,
-              or organizing an event, ADD 1.0 provides a universal framework adaptable to any domain.
+              or organizing an event, AD 1.0 provides a universal framework adaptable to any domain.
             </p>
           </div>
         </div>
@@ -124,7 +124,7 @@ function App() {
             {ides.map((ide) => (
               <a
                 key={ide.name}
-                href={`https://agenticdriven.dev/rules/ide/${ide.file}`}
+                href={`https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/${ide.file}`}
                 className="ide-card"
                 download
               >
@@ -135,7 +135,7 @@ function App() {
           </div>
           <div className="quick-install">
             <p>Or use our quick install script:</p>
-            <pre><code>curl -sSL https://agenticdriven.dev/rules/ide/download.sh | bash -s cursor</code></pre>
+            <pre><code>curl -sSL https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/download.sh | bash -s cursor</code></pre>
           </div>
         </div>
       </section>
@@ -144,13 +144,13 @@ function App() {
       <section className="section resources-section">
         <div className="container">
           <h2 className="section-title">Learn More</h2>
-          <p className="section-subtitle">Books and courses to master ADD 1.0</p>
+          <p className="section-subtitle">Books and courses to master AD 1.0</p>
 
           <div className="resources-grid">
             <div className="resource-card">
               <div className="resource-icon">📚</div>
               <h3>Books on Amazon</h3>
-              <p>Comprehensive guides covering ADD 1.0 methodology, best practices, and real-world examples.</p>
+              <p>Comprehensive guides covering AD 1.0 methodology, best practices, and real-world examples.</p>
               <a href="https://amazon.com/dp/YOUR-BOOK-ID" className="resource-link">
                 View on Amazon →
               </a>
@@ -159,7 +159,7 @@ function App() {
             <div className="resource-card">
               <div className="resource-icon">🎓</div>
               <h3>Courses on Udemy</h3>
-              <p>Step-by-step video courses teaching you how to implement ADD 1.0 in your projects.</p>
+              <p>Step-by-step video courses teaching you how to implement AD 1.0 in your projects.</p>
               <a href="https://udemy.com/course/YOUR-COURSE-ID" className="resource-link">
                 Enroll on Udemy →
               </a>
@@ -173,14 +173,14 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <div className="footer-section">
-              <h4>ADD 1.0</h4>
-              <p>Agent-Driven Development methodology</p>
+              <h4>AD 1.0</h4>
+              <p>Agentic Driven methodology</p>
             </div>
             <div className="footer-section">
               <h4>Resources</h4>
               <ul>
-                <li><a href="https://github.com/agenticdriven/add">GitHub</a></li>
-                <li><a href="https://agenticdriven.dev/rules/ide/">IDE Configs</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven">GitHub</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven/tree/main/src/rules/ide">IDE Configs</a></li>
                 <li><a href="#quick-start">Quick Start</a></li>
               </ul>
             </div>
@@ -193,7 +193,7 @@ function App() {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2026 Agent-Driven Development. Open Source.</p>
+            <p>&copy; 2026 Agentic Driven. Open Source.</p>
           </div>
         </div>
       </footer>
