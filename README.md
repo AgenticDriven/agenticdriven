@@ -7,7 +7,7 @@
 
 ADD (Agent-Driven Development) is a structured methodology for building projects with AI agents. It combines proven engineering practices with AI-first workflows, providing clear phases, exit criteria, and documentation standards.
 
-🌐 **Website**: [agenticdriven.dev](https://agenticdriven.dev) (coming soon)
+🌐 **Website**: [agenticdriven.dev](https://agenticdriven.dev)
 
 ## ✨ Features
 
@@ -133,7 +133,7 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 
 - **Books**: Available on [Amazon](https://amazon.com/dp/YOUR-BOOK-ID) (coming soon)
 - **Courses**: Available on [Udemy](https://udemy.com/course/YOUR-COURSE-ID) (coming soon)
-- **Website**: [agenticdriven.dev](https://agenticdriven.dev) (coming soon)
+- **Website**: [agenticdriven.dev](https://agenticdriven.dev)
 
 ## 📋 Requirements
 
