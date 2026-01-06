@@ -215,6 +215,31 @@ _To be documented after launch_
 - **Repository**: github.com/AgenticDriven/agenticdriven
 - **Next**: Verify GitHub Actions deployment, test website live
 
+### 2026-01-07 - Website Redesign
+- **Time**: Post-deployment
+- **Event**: Comprehensive website redesign and enhancement
+- **Changes**:
+  - Complete UI/UX overhaul with modern gradient design
+  - Added detailed explanations for all 13 principles (cards with hover effects)
+  - Added interactive timeline for all 10 phases (click-to-expand)
+  - Added "What is Agentic Driven?" section with feature cards
+  - Added "Why Agentic Driven?" benefits section (6 benefit cards)
+  - Modern CSS animations (fadeIn, slideDown, gradientShift)
+  - Enhanced hero section with animated gradient background
+  - Added stats display (13 principles, 10 phases, 6 IDEs)
+  - Enhanced IDE section with icons and download animations
+  - Added install script section with copy-to-clipboard functionality
+  - Improved resources section with "Coming Soon" badges
+  - Simplified download URLs (agenticdriven.dev/download.sh)
+  - Deployed all IDE configs to website/public/ for direct downloads
+  - Updated all branding from "Agent-Driven Development (ADD)" to "Agentic Driven (AD)"
+  - Updated README.md with short URLs and AD branding
+- **Action**: Pushed 1 commit to origin/main (52260a7)
+- **Status**: ✅ Push successful
+- **Files Changed**: 14 files (4,419 insertions, 257 deletions)
+- **GitHub Actions**: Running for redesigned site
+- **Next**: Verify deployment with new design, test interactive features
+
 ### _Future entries will be added as launch progresses_
 
 ---
