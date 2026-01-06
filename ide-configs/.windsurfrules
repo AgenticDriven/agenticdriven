@@ -1,0 +1,351 @@
+# AGENT DRIVEN DEVELOPMENT (ADD) 2.0 PROTOCOL
+# For Windsurf IDE with Cascade
+
+version: 2.0.0
+updated: 2026-01-06
+ide: windsurf
+
+## WINDSURF CASCADE CONFIGURATION
+
+This file configures Windsurf's Cascade agents to follow ADD 2.0 Universal methodology.
+
+## CRITICAL RULES
+
+1. NEVER create/edit files outside project directory
+2. ALWAYS request permission before installations
+3. ALWAYS use Git for file operations
+4. NEVER skip initialization sequence
+5. NEVER commit across different phases
+6. ALWAYS validate exit criteria before advancing
+7. NEVER work directly on main branch
+8. ALWAYS use Contract-First in BUILD phase
+
+## CASCADE AGENT ROLES
+
+When Cascade activates multiple agents, they should coordinate:
+
+### Code Agent
+- **Responsibility**: Implementation
+- **Context**: Read docs/interfaces.md for contracts
+- **Phase focus**: BUILD, EVOLVE
+- **Output**: Working code following contracts
+
+### Search Agent
+- **Responsibility**: Find relevant code/docs
+- **Phase focus**: All phases (supporting)
+- **Output**: Context for other agents
+
+### Terminal Agent
+- **Responsibility**: Run commands, tests, git
+- **Phase focus**: PREPARE, VALIDATE, DELIVER
+- **Output**: Command execution, test results
+
+### Reasoning Agent
+- **Responsibility**: Plan and strategy
+- **Phase focus**: DISCOVER, DESIGN
+- **Output**: Plans, decisions, analysis
+
+### Review Agent
+- **Responsibility**: Validate quality
+- **Phase focus**: VALIDATE, code reviews
+- **Output**: Quality assessment, issues found
+
+## INITIALIZATION FOR CASCADE
+
+BEFORE any work, Cascade should:
+
+1. **Search Agent**: Find and read:
+   - README.md
+   - add-project.yaml
+   - docs/discovery.md
+   - docs/design.md
+   - Current phase documentation
+
+2. **Reasoning Agent**: Analyze:
+   - What phase are we in?
+   - What are exit criteria?
+   - What needs to be done?
+   - Are there contracts defined?
+
+3. **Code Agent**: Ready to implement based on analysis
+
+4. **Terminal Agent**: Verify git status
+
+## PHASES (ADD 2.0)
+
+### v0.1.x - DISCOVER
+Agents: Reasoning (lead), Search (support)
+Focus: Understanding problem, requirements
+Deliverables: discovery.md, requirements.md, stakeholders.md
+
+### v0.2.x - DESIGN
+Agents: Reasoning (lead), Code (design), Review (validate)
+Focus: Solution design, contracts definition
+Deliverables: design.md, interfaces.md, architecture.md
+⚠️ CRITICAL: Define all contracts here if using parallel agents in BUILD
+
+### v0.3.x - PREPARE
+Agents: Terminal (lead), Code (config)
+Focus: Environment setup, tools configuration
+Deliverables: setup.md, validation-criteria.md, working environment
+
+### v0.4.x - BUILD
+Agents: Code (implement), Terminal (run), Search (find context)
+⚠️ MULTI-AGENT COORDINATION:
+- Read docs/interfaces.md FIRST
+- Implement to contract exactly
+- Use mocks for dependencies
+- Commit often with clear messages
+
+### v0.5.x - VALIDATE
+Agents: Terminal (run tests), Review (validate), Code (fix)
+Focus: Testing, validation, quality assurance
+Deliverables: Test results, validation report, fixes
+
+### v0.6.x - DELIVER
+Agents: Terminal (deploy), Code (final prep), Review (check)
+Focus: Deployment, launch, monitoring
+Deliverables: Deployed solution, monitoring active
+
+### v0.7.x - SUPPORT
+Agents: All (on-demand), Terminal (investigate), Code (hotfix)
+Focus: Support, bug fixes, incidents
+Deliverables: support-log.md, hotfixes, performance reports
+
+### v0.8.x - EVOLVE
+Agents: Reasoning (plan), Code (optimize), Review (assess)
+Focus: Optimization, enhancements, roadmap
+Deliverables: evolution-plan.md, optimizations, next version plan
+
+## CASCADE COORDINATION PATTERNS
+
+### Sequential (one agent at a time)
+Phases: DISCOVER, PREPARE, DELIVER
+- Reasoning Agent → plans
+- Search Agent → finds context
+- Code Agent → implements
+- Review Agent → validates
+
+### Parallel (multiple agents simultaneously)
+Phases: BUILD (if contracts defined), VALIDATE
+- Code Agent → implements backend
+- Code Agent (2) → implements frontend
+- Terminal Agent → runs tests continuously
+- All follow same contracts from docs/interfaces.md
+
+### Collaborative (agents working together)
+Phases: DESIGN, EVOLVE
+- Reasoning Agent → proposes architecture
+- Code Agent → validates technical feasibility
+- Review Agent → identifies issues
+- Iterate until consensus
+
+## CONTRACT-FIRST FOR CASCADE
+
+**If BUILD phase with parallel work:**
+
+1. **Search Agent** finds `docs/interfaces.md`
+
+2. **Reasoning Agent** analyzes contracts:
+   ```
+   Contracts defined:
+   - POST /api/users: {input, output, validation}
+   - LoginForm component: {props, events}
+   - DatabaseSchema: {tables, fields, relations}
+   ```
+
+3. **Code Agents** (multiple) implement in parallel:
+   - Backend agent: Implements API following contract
+   - Frontend agent: Uses contract with mocks
+   - Test agent: Tests based on contract
+
+4. **Review Agent** validates all implementations match contracts
+
+5. **Terminal Agent** runs integration tests
+
+## COMMIT MESSAGES FOR CASCADE
+
+Cascade should generate commits like:
+
+```
+build(api): implement user creation endpoint
+
+Cascade agents involved:
+- Code Agent: Implementation
+- Terminal Agent: Tests
+- Review Agent: Validation
+
+Follows contract from docs/interfaces.md:
+- Input validation: name, email required
+- Output: user object with id, created_at
+- Error handling: duplicate email
+
+Tests: 5/5 passing
+```
+
+## WINDSURF-SPECIFIC FEATURES
+
+### Flows Integration
+If using Windsurf Flows, create ADD 2.0 flows:
+
+```yaml
+# .windsurf/flows/add-phase-transition.yaml
+name: "ADD Phase Transition"
+trigger: "manual"
+steps:
+  - agent: "reasoning"
+    action: "validate_exit_criteria"
+  - agent: "terminal"
+    action: "git_tag_version"
+  - agent: "code"
+    action: "update_version_files"
+  - agent: "terminal"
+    action: "commit_and_push"
+```
+
+### Supercomplete Configuration
+Enable context-aware completions from:
+- docs/interfaces.md (contracts)
+- docs/design.md (architecture)
+- Current phase documentation
+
+### Deep Codebase Understanding
+Cascade should index:
+- All docs/ files
+- Contract definitions
+- Previous phase deliverables
+- Decision history
+
+## EXIT CRITERIA VALIDATION
+
+Before Cascade considers phase complete:
+
+**Reasoning Agent should verify:**
+```
+Current Phase: BUILD (v0.4.x)
+
+Exit Criteria:
+✅ All components implemented
+✅ Contracts fulfilled
+✅ Integration successful
+✅ Basic validation passed
+✅ Documentation updated
+
+Status: READY TO ADVANCE
+Next Phase: VALIDATE (v0.5.0)
+
+Request user permission to advance.
+```
+
+## CASCADE COMMUNICATION PROTOCOL
+
+**Between Cascade agents:**
+
+1. **Share context** via workspace memory:
+   ```
+   Code Agent → Review Agent:
+   "Implemented POST /api/users at src/backend/users.ts
+   Following contract from docs/interfaces.md
+   Ready for review"
+   ```
+
+2. **Coordinate via task queue**:
+   ```
+   Reasoning Agent creates tasks:
+   - Task 1: Implement backend (Code Agent)
+   - Task 2: Implement frontend (Code Agent 2)
+   - Task 3: Run tests (Terminal Agent)
+   - Task 4: Review all (Review Agent)
+   ```
+
+3. **Resolve conflicts** automatically:
+   - Check git status before commits
+   - Pull latest changes
+   - Resolve merge conflicts
+   - Run tests after merge
+
+## QUALITY GATES FOR CASCADE
+
+**Review Agent should enforce:**
+
+### Code Quality
+- [ ] Follows contracts exactly
+- [ ] Error handling present
+- [ ] Tests included
+- [ ] Documentation updated
+
+### Phase Quality
+- [ ] Exit criteria met
+- [ ] Deliverables complete
+- [ ] No critical issues
+- [ ] Ready for next phase
+
+### Coordination Quality
+- [ ] All agents completed tasks
+- [ ] No conflicts between agents
+- [ ] Integration successful
+- [ ] Team aligned
+
+## ERROR RECOVERY
+
+**If Cascade agents fail:**
+
+1. **Terminal Agent** detects failure:
+   ```bash
+   git status  # Check state
+   git log -3  # See recent commits
+   ```
+
+2. **Reasoning Agent** analyzes:
+   - What went wrong?
+   - Which agent failed?
+   - Can we recover?
+
+3. **Code Agent** fixes:
+   - Rollback if needed
+   - Fix issue
+   - Re-run validation
+
+4. **Review Agent** confirms:
+   - Issue resolved?
+   - Tests passing?
+   - Safe to continue?
+
+## WINDSURF BEST PRACTICES
+
+1. **Use Cascade for complex tasks**:
+   - Phase transitions
+   - Multi-file refactoring
+   - Coordinated implementations
+
+2. **Use single agent for simple tasks**:
+   - Small bug fixes
+   - Documentation updates
+   - Single file edits
+
+3. **Monitor Cascade coordination**:
+   - Check agent communication
+   - Verify no conflicts
+   - Validate final result
+
+4. **Save successful patterns as Flows**:
+   - Phase transition flow
+   - Contract-first BUILD flow
+   - Integration validation flow
+
+## REFERENCE
+
+- Full ADD 2.0 Docs: /var/add/ADD-UNIVERSAL.md
+- Multi-Agent Guide: /var/add/agentes/COORDINACION-PARALELA.md
+- Framework Design: /var/add/FRAMEWORK-DESIGN.md
+
+## SUPPORT
+
+- GitHub Issues: https://github.com/add-framework/add-framework
+- Documentation: https://agentdriven.dev/2.0
+
+---
+
+**Version**: 2.0.0 for Windsurf
+**Cascade-Optimized**: Yes
+**Multi-Agent Native**: Yes

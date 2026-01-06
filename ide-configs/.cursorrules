@@ -1,0 +1,731 @@
+<!--
+title: AGENT DRIVEN DEVELOPMENT (ADD) 2.0 PROTOCOL
+description: Universal methodology for structured project development with AI agents
+version: 2.0.0
+lastUpdated: 2026-01-06
+author: AgentDriven (https://github.com/AgentDriven)
+keywords: development, workflow, guidelines, AI, agent-driven, multi-agent, universal
+-->
+
+# AGENT DRIVEN DEVELOPMENT (ADD) 2.0 PROTOCOL
+
+Agent Driven Development (ADD) 2.0 is a **universal methodology** for AI-assisted project development that works across any domain: software, books, marketing, physical products, events, and more. It provides structured phases with clear criteria while enabling multiple agents to work in parallel.
+
+> **Editor:** This protocol follows ADD 2.0 Universal methodology with multi-agent coordination.
+
+## 📡 USAGE
+
+```bash
+# Download .cursorrules file for Cursor
+curl -o .cursorrules https://agentdriven.dev/2.0/cursor.md
+```
+
+> **MANDATORY WORKFLOW FOR ALL AI AGENT INTERACTIONS IN CURSOR**
+
+## 🔴 CRITICAL RULES - ZERO EXCEPTIONS
+
+1. **NEVER** create/edit files outside project directory
+2. **ALWAYS** request permission for installations/bulk operations
+3. **ALWAYS** use Git for all file operations
+4. **NEVER** skip initialization sequence
+5. **NEVER** commit changes across different development phases
+6. **ALWAYS** get explicit permission before advancing to next phase
+7. **ALWAYS** update version numbers before creating new tag
+8. **ALWAYS** validate criteria before considering phase complete
+9. **ALWAYS** verify system date when updating documentation dates
+10. **ALWAYS** review project documentation at start of every interaction:
+    - `README.md` - Project overview
+    - `docs/discovery.md` - Problem understanding
+    - `docs/design.md` - Solution design
+    - `docs/journal.md` - Progress log
+11. **NEVER** work directly on the main branch
+12. **ALWAYS** use feature branches: `feature/v0.X.x-description`
+13. **ALWAYS** check exit criteria before advancing phase
+14. **ALWAYS** document key decisions in `docs/decisions.md`
+15. **ALWAYS** use Contract-First when working with other agents
+
+## 🚨 INITIALIZATION SEQUENCE
+
+**BEFORE ANY PROJECT WORK:**
+
+1. **VERIFY GIT**: Run `git status` (initialize if needed)
+
+2. **VERIFY PROJECT STRUCTURE**:
+   ```bash
+   ls -la
+   # Should see: docs/, src/, README.md, add-project.yaml
+   ```
+
+3. **READ PROJECT CONFIGURATION**:
+   ```bash
+   cat add-project.yaml
+   # Understand: domain, current phase, coordination strategy
+   ```
+
+4. **READ PHASE DOCUMENTATION**:
+   - Current phase requirements from `docs/`
+   - Exit criteria for current phase
+   - Contracts/interfaces if in BUILD phase
+
+5. **IDENTIFY YOUR ROLE**:
+   - What agent am I? (backend, frontend, test, etc.)
+   - What's my responsibility in this phase?
+   - Am I working in parallel with others?
+
+6. **CHECK FOR CONTRACTS** (if BUILD/VALIDATE phase):
+   ```bash
+   cat docs/interfaces.md
+   # Understand contracts before implementing
+   ```
+
+## 🔄 DEVELOPMENT PHASES (ADD 2.0 UNIVERSAL)
+
+Each phase should be completed before advancing:
+
+### Phase 1: `v0.1.x` - DISCOVER
+**Purpose:** Understand problem, context, requirements
+
+**Activities:**
+- Research and analysis
+- Stakeholder identification
+- Requirements gathering
+- Feasibility study
+- Key decisions documentation
+
+**Deliverables:**
+- `docs/discovery.md` - Problem understanding
+- `docs/requirements.md` - Requirements list
+- `docs/stakeholders.md` - Stakeholder map
+- `docs/feasibility.md` - Feasibility analysis
+- `docs/decisions.md` - Key decisions
+
+**Exit Criteria:**
+- [ ] Problem clearly understood and documented
+- [ ] Requirements defined and prioritized
+- [ ] Stakeholders identified and aligned
+- [ ] Feasibility confirmed
+- [ ] Fundamental decisions documented
+
+---
+
+### Phase 2: `v0.2.x` - DESIGN
+**Purpose:** Design the complete solution
+
+**Activities:**
+- Architecture/structure design
+- Component design
+- Interface/contract definition
+- Prototyping (if needed)
+- Design validation
+
+**Deliverables:**
+- `docs/design.md` - Solution design
+- `docs/architecture.md` - Architecture (if software)
+- `docs/interfaces.md` - Contracts/interfaces
+- Diagrams (architecture, flow, etc.)
+- Prototypes (if applicable)
+
+**Exit Criteria:**
+- [ ] Complete solution design documented
+- [ ] All interfaces/contracts defined
+- [ ] Architecture validated
+- [ ] Design approved by stakeholders
+- [ ] Prototypes validated (if applicable)
+
+**⚠️ CONTRACT-FIRST CRITICAL:**
+If you'll have parallel agents in BUILD, **define all contracts NOW**.
+
+Example `docs/interfaces.md`:
+```yaml
+# API Contracts
+POST /api/users:
+  input: {name: string, email: string}
+  output: {id: uuid, name: string, email: string, created_at: datetime}
+
+# Component Contracts
+LoginForm:
+  props: {onSubmit: function, loading: boolean}
+  events: {success: User, error: string}
+```
+
+---
+
+### Phase 3: `v0.3.x` - PREPARE
+**Purpose:** Prepare all tools, resources, environment
+
+**Activities:**
+- Environment setup
+- Tool configuration
+- Framework setup
+- Validation criteria definition
+- Process definition
+
+**Deliverables:**
+- `docs/setup.md` - Setup instructions
+- `docs/validation-criteria.md` - How to validate
+- Tool configurations
+- CI/CD setup (if software)
+- Development environment working
+
+**Exit Criteria:**
+- [ ] Development environment works
+- [ ] All tools configured
+- [ ] Validation criteria defined
+- [ ] Processes documented
+- [ ] Team can work effectively
+
+---
+
+### Phase 4: `v0.4.x` - BUILD
+**Purpose:** Build/create/execute the solution
+
+**⚠️ MULTI-AGENT COORDINATION PHASE**
+
+**If working with other agents:**
+1. **Read contracts first**: `docs/interfaces.md`
+2. **Use your assigned directory**: Check `add-project.yaml` for your `context_dirs`
+3. **Work with mocks**: Don't wait for others, use contract-based mocks
+4. **Communicate via Git**: Commit often, clear messages
+5. **Branch naming**: `feature/v0.4.x-your-component`
+
+**Branch Strategy** (if parallel agents):
+```
+main
+├── feature/v0.4.x-backend-api
+├── feature/v0.4.x-frontend-ui
+└── feature/v0.4.x-tests
+```
+
+**Activities:**
+- Implement according to design
+- Build components/modules
+- Follow contracts strictly
+- Regular commits
+- Integration (at the end)
+
+**Deliverables:**
+- Complete implementation
+- All components built
+- Integration done
+- Basic validation passed
+
+**Exit Criteria:**
+- [ ] All components implemented
+- [ ] Contracts fulfilled
+- [ ] Integration successful
+- [ ] Basic validation passed
+- [ ] Documentation updated
+
+**Commit Examples:**
+```bash
+git commit -m "build(api): implement POST /api/users endpoint
+
+- Follows contract from docs/interfaces.md
+- Input/output validation
+- Error handling
+- Unit tests included"
+```
+
+---
+
+### Phase 5: `v0.5.x` - VALIDATE
+**Purpose:** Validate solution meets requirements
+
+**Activities:**
+- Testing (unit, integration, E2E)
+- Validation against requirements
+- Quality assurance
+- Stakeholder validation
+- Preparation for delivery
+
+**Deliverables:**
+- Test results
+- Validation report
+- Bug fixes
+- Stakeholder sign-off
+- Updated documentation
+
+**Exit Criteria:**
+- [ ] All tests passing
+- [ ] Requirements validated
+- [ ] Quality gates passed
+- [ ] Stakeholder approval obtained
+- [ ] Ready for delivery
+
+---
+
+### Phase 6: `v0.6.x` - DELIVER
+**Purpose:** Deliver/launch the solution
+
+**Activities:**
+- Final preparation
+- Deployment/launch
+- Monitoring setup
+- Initial validation
+- Communication to stakeholders
+
+**Deliverables:**
+- Deployed solution
+- Monitoring active
+- Launch communication
+- Initial metrics
+
+**Exit Criteria:**
+- [ ] Solution delivered/launched
+- [ ] Monitoring working
+- [ ] Stakeholders notified
+- [ ] Initial validation successful
+- [ ] Rollback plan ready
+
+---
+
+### Phase 7: `v0.7.x` - SUPPORT
+**Purpose:** Support and maintain the solution
+
+**Activities:**
+- Monitor performance
+- Handle incidents
+- Fix bugs (hotfix branches)
+- Collect feedback
+- Document issues
+
+**Deliverables:**
+- `docs/support-log.md` - Incident log
+- Bug fixes
+- Performance reports
+- Feedback collected
+
+**Exit Criteria:**
+- [ ] No critical incidents
+- [ ] All incidents resolved < SLA
+- [ ] Performance stable
+- [ ] Feedback incorporated
+
+**Hotfix branches:**
+```bash
+git checkout -b hotfix/v1.0.1-critical-bug main
+# Fix
+git commit -m "fix(critical): resolve security vulnerability"
+git tag v1.0.1
+git push origin v1.0.1
+```
+
+---
+
+### Phase 8: `v0.8.x` - EVOLVE
+**Purpose:** Improve, optimize, plan next version
+
+**Activities:**
+- Performance optimization
+- Feature enhancements
+- Technical debt reduction
+- Roadmap planning
+- Innovation
+
+**Deliverables:**
+- `docs/evolution-plan.md` - Roadmap
+- Optimizations implemented
+- Technical debt reduced
+- Next version planned
+
+**Exit Criteria:**
+- [ ] Optimizations completed
+- [ ] Technical debt addressed
+- [ ] Roadmap defined
+- [ ] Ready for v2.0.0
+
+---
+
+### Phase 9: `v1.0.0+` - RELEASE
+**Purpose:** Stable version, production-ready
+
+**Activities:**
+- Final documentation
+- Version tagging
+- Release notes
+- Celebration! 🎉
+
+## 📋 COMMIT WORKFLOW
+
+**FOR EVERY CHANGE:**
+
+1. **PLAN** → **STATUS** → **GROUP** → **ADD** → **VERIFY** → **COMMIT** → **CONFIRM**
+
+```bash
+git status
+git add <files>
+git status  # Verify staging
+git commit -m "type: message"
+git status  # Verify clean state
+```
+
+**COMMIT MESSAGE FORMAT:**
+
+```
+type(scope): brief description
+
+Optional longer description:
+- What changed and why
+- Any breaking changes
+- Related issues
+```
+
+**TYPES (aligned with phases):**
+- `discover`: Research, analysis, requirements
+- `design`: Architecture, design, contracts
+- `prepare`: Setup, tools, configuration
+- `build`: Implementation, features
+- `validate`: Tests, validation, QA
+- `deliver`: Deployment, launch
+- `support`: Bug fixes, incidents
+- `evolve`: Optimization, enhancements
+- `docs`: Documentation only
+- `chore`: Maintenance, refactoring
+
+**SCOPE EXAMPLES**:
+- Software: `api`, `ui`, `database`, `auth`
+- Book: `chapter-1`, `intro`, `examples`
+- Marketing: `campaign`, `copy`, `design`
+- Product: `prototype`, `manufacturing`, `packaging`
+
+## 🤝 MULTI-AGENT COORDINATION RULES
+
+### Contract-First Pattern (Recommended)
+
+**If you're in BUILD phase with other agents:**
+
+1. **READ CONTRACTS FIRST** before implementing anything:
+   ```bash
+   cat docs/interfaces.md
+   ```
+
+2. **IMPLEMENT TO CONTRACT** exactly as specified:
+   - Input types
+   - Output types
+   - Error handling
+   - Validation rules
+
+3. **USE MOCKS** for dependencies:
+   ```javascript
+   // Example: Frontend uses API mock
+   const mockAPI = {
+     createUser: (data) => ({
+       id: 'mock-uuid',
+       ...data,
+       created_at: new Date()
+     })
+   };
+   ```
+
+4. **COMMIT OFTEN** with clear messages:
+   ```bash
+   git commit -m "build(api): implement user creation endpoint (contract compliant)"
+   ```
+
+5. **INTEGRATION AT END** when all agents complete:
+   - Replace mocks with real implementations
+   - Test integration
+   - Verify all contracts fulfilled
+
+### Communication Between Agents
+
+**Via Git commits:**
+```bash
+git commit -m "build(api): API ready for integration
+
+All endpoints from docs/interfaces.md implemented:
+- POST /api/users ✓
+- GET /api/users/:id ✓
+
+Frontend team: you can now replace mocks"
+```
+
+**Via Documentation:**
+```bash
+# Update docs/status.md
+echo "## Build Status
+- Backend: DONE (all endpoints ready)
+- Frontend: IN PROGRESS (using mocks)
+- Tests: PENDING (waiting for backend)
+" > docs/status.md
+
+git commit -m "docs: update build status"
+```
+
+### Your Context Boundaries
+
+**Check `add-project.yaml` for your scope:**
+```yaml
+agents:
+  - id: "backend_dev"
+    context_dirs: ["src/backend/", "docs/"]  # Stay in these dirs
+```
+
+**Respect boundaries:**
+- ✅ DO: Work in your assigned directories
+- ❌ DON'T: Touch other agents' directories
+- ✅ DO: Read shared docs
+- ❌ DON'T: Modify shared contracts without approval
+
+## 🎯 DOMAIN-SPECIFIC ADAPTATIONS
+
+### Software Projects
+- Focus on architecture, testing, deployment
+- Use semantic versioning strictly
+- CI/CD is critical in PREPARE phase
+
+### Book Projects
+- DISCOVER = Research topic
+- DESIGN = Outline and structure
+- BUILD = Write chapters
+- VALIDATE = Editorial review
+- DELIVER = Publish
+
+### Marketing Projects
+- DISCOVER = Market research
+- DESIGN = Campaign strategy
+- BUILD = Create assets
+- VALIDATE = A/B testing
+- DELIVER = Launch campaign
+
+### Physical Products
+- DISCOVER = Market need
+- DESIGN = Product design
+- PREPARE = Manufacturing setup
+- BUILD = Production
+- VALIDATE = Quality control
+- DELIVER = Distribution
+
+### Events
+- DISCOVER = Event concept
+- DESIGN = Event plan
+- PREPARE = Logistics setup
+- BUILD = Event preparation
+- VALIDATE = Rehearsals
+- DELIVER = Event execution
+
+## 📚 DOCUMENTATION REQUIREMENTS
+
+**Must exist in docs/:**
+- `discovery.md` - Problem and requirements
+- `design.md` - Solution design
+- `interfaces.md` - Contracts (if multi-agent)
+- `journal.md` - Daily progress log
+- `decisions.md` - Key decisions with rationale
+- `status.md` - Current status (if multi-agent)
+
+**Update daily:**
+```markdown
+# docs/journal.md
+
+## 2026-01-06
+- Phase: BUILD (v0.4.2)
+- Agent: Backend Developer
+- Progress:
+  - ✅ Implemented POST /api/users
+  - ✅ Implemented GET /api/users/:id
+  - 🔄 Working on PUT /api/users/:id
+- Blockers: None
+- Next: Complete remaining CRUD operations
+```
+
+## ✅ EXIT CRITERIA VALIDATION
+
+**Before requesting phase advancement:**
+
+1. **Review exit criteria** for current phase
+2. **Validate each criterion** is met
+3. **Update documentation** if needed
+4. **Request permission** to advance:
+   ```
+   "Phase DESIGN (v0.2.x) complete. Exit criteria met:
+   ✅ Complete solution design documented
+   ✅ All interfaces/contracts defined
+   ✅ Architecture validated
+   ✅ Design approved by stakeholders
+
+   Ready to advance to PREPARE phase (v0.3.0)?"
+   ```
+
+**Never assume phase is complete** without explicit validation.
+
+## 🚨 PHASE TRANSITION PROTOCOL
+
+**When advancing phases:**
+
+1. **Tag current phase:**
+   ```bash
+   git tag v0.2.9  # Last commit of DESIGN
+   git push origin v0.2.9
+   ```
+
+2. **Create new branch for next phase:**
+   ```bash
+   git checkout -b feature/v0.3.x-prepare main
+   ```
+
+3. **Update version in files:**
+   - `add-project.yaml` → `version: "0.3.0"`
+   - `README.md` → Update version badge
+   - Any other version references
+
+4. **Commit version bump:**
+   ```bash
+   git commit -m "chore: bump version to v0.3.0 (PREPARE phase)"
+   git push -u origin feature/v0.3.x-prepare
+   ```
+
+## 🔄 ROLLBACK PROTOCOL
+
+**If you discover issues requiring previous phase:**
+
+1. **Document reason** in `docs/decisions.md`:
+   ```markdown
+   ## Decision: Rollback to DESIGN
+   Date: 2026-01-06
+   Reason: Discovered critical architecture flaw in BUILD phase
+   Impact: 2 days of work, but better than wrong implementation
+   ```
+
+2. **Tag rollback point:**
+   ```bash
+   git tag v0.4.5-rollback  # Mark where we stopped BUILD
+   ```
+
+3. **Checkout DESIGN phase:**
+   ```bash
+   git checkout feature/v0.2.x-design
+   ```
+
+4. **Fix issues**, re-validate, then re-enter BUILD
+
+## 🎨 CURSOR-SPECIFIC TIPS
+
+### Use @-mentions effectively:
+```
+@file docs/interfaces.md - Read contracts
+@folder src/backend/ - Context for backend work
+@git - See what changed
+@docs - Reference documentation
+```
+
+### Use Composer for multi-file:
+- Select all files in your context
+- Make coordinated changes
+- Ensure consistency across files
+
+### Tab autocomplete:
+- Let Cursor suggest based on contracts
+- Validate suggestions match interfaces
+
+### Cmd+K for quick edits:
+- Refactor to match contracts
+- Add documentation
+- Fix style issues
+
+## 🐛 COMMON MISTAKES TO AVOID
+
+1. ❌ **Working across phases in same commit**
+   ```bash
+   # BAD
+   git commit -m "design: add contracts, build: implement API"
+   ```
+   ✅ **One phase per commit**
+
+2. ❌ **Advancing phase without exit criteria**
+   ✅ **Always validate criteria first**
+
+3. ❌ **Ignoring contracts in BUILD**
+   ✅ **Implement exactly as specified**
+
+4. ❌ **Working directly on main**
+   ✅ **Always use feature branches**
+
+5. ❌ **Not reading project docs at session start**
+   ✅ **Always review README, discovery, design first**
+
+## 📊 PROGRESS TRACKING
+
+**Use this format in commits:**
+```bash
+git commit -m "build(api): implement user CRUD (60% complete)
+
+Completed:
+- POST /api/users ✅
+- GET /api/users/:id ✅
+- GET /api/users ✅
+
+Remaining:
+- PUT /api/users/:id 🔄
+- DELETE /api/users/:id ⏳"
+```
+
+## 🎯 QUALITY GATES
+
+**Before considering phase complete:**
+
+### DISCOVER
+- [ ] Problem clearly articulated
+- [ ] Requirements prioritized
+- [ ] Stakeholders aligned
+
+### DESIGN
+- [ ] Architecture makes sense
+- [ ] Contracts are complete
+- [ ] Design is approved
+
+### PREPARE
+- [ ] Environment works for all team
+- [ ] Tools configured
+- [ ] Validation criteria clear
+
+### BUILD
+- [ ] All contracts implemented
+- [ ] Integration successful
+- [ ] Basic validation passed
+
+### VALIDATE
+- [ ] All tests passing
+- [ ] Requirements met
+- [ ] Quality gates passed
+
+### DELIVER
+- [ ] Solution launched
+- [ ] Monitoring working
+- [ ] Stakeholders notified
+
+### SUPPORT
+- [ ] No critical incidents
+- [ ] SLAs met
+- [ ] Feedback collected
+
+### EVOLVE
+- [ ] Optimizations done
+- [ ] Tech debt addressed
+- [ ] Roadmap clear
+
+---
+
+## 📖 REFERENCE
+
+- **Full ADD 2.0 Documentation**: `/var/add/ADD-UNIVERSAL.md`
+- **Multi-Agent Coordination**: `/var/add/agentes/COORDINACION-PARALELA.md`
+- **Framework Design**: `/var/add/FRAMEWORK-DESIGN.md`
+- **Migration from 1.0**: `/var/add/MIGRACION-1.0-A-2.0.md`
+
+## 🆘 WHEN IN DOUBT
+
+1. **Read the phase documentation** in `docs/`
+2. **Check exit criteria** for current phase
+3. **Review contracts** if in BUILD
+4. **Ask for permission** before advancing
+5. **Document decisions** in `docs/decisions.md`
+
+---
+
+**Version**: 2.0.0
+**Last Updated**: 2026-01-06
+**For**: Cursor IDE
+**Methodology**: ADD 2.0 Universal
+
+**Remember**: Quality over speed. Better to do it right than to rush and break things.
