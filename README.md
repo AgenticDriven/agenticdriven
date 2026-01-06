@@ -1,17 +1,17 @@
-# Agent-Driven Development (ADD) 1.0
+# Agentic Driven (AD) 1.0
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/agenticdriven/add)
+[![Version](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/AgenticDriven/agenticdriven)
 
 **Universal methodology for structured AI-assisted development**
 
-ADD (Agent-Driven Development) is a structured methodology for building projects with AI agents. It combines proven engineering practices with AI-first workflows, providing clear phases, exit criteria, and documentation standards.
+AD (Agentic Driven) is a structured methodology for building projects with AI agents. It combines proven engineering practices with AI-first workflows, providing clear phases, exit criteria, and documentation standards.
 
 🌐 **Website**: [agenticdriven.dev](https://agenticdriven.dev)
 
 ## ✨ Features
 
-- **13 Core Principles** - From Agent-Driven to Proven Solutions First
+- **13 Core Principles** - From Agentic Driven to Proven Solutions First
 - **10 Clear Phases** - DEFINE → DISCOVER → DESIGN → SETUP → BUILD → VALIDATE → MARKET → LAUNCH → SUPPORT → EVOLVE
 - **Universal** - Works for software, books, marketing, events, products, and more
 - **Phase-based Versioning** - `v0.PHASE.ITERATION` format
@@ -24,10 +24,10 @@ ADD (Agent-Driven Development) is a structured methodology for building projects
 
 ```bash
 # For Cursor
-curl -sSL https://agenticdriven.dev/rules/ide/download.sh | bash -s cursor
+curl -sSL https://agenticdriven.dev/download.sh | bash -s cursor
 
 # For Claude Code
-curl -sSL https://agenticdriven.dev/rules/ide/download.sh | bash -s claude
+curl -sSL https://agenticdriven.dev/download.sh | bash -s claude
 
 # Other IDEs: windsurf, copilot, aider, continue
 ```
@@ -40,8 +40,7 @@ echo "# My Project" > README.md
 mkdir -p docs src tests
 touch docs/journal.md
 git add .
-git commit -m "chore: initialize ADD project"
-git tag -a v0.0.0 -m "Initial commit"
+git commit -m "chore: initialize AD project"
 ```
 
 ### 3. Start First Phase
@@ -49,9 +48,8 @@ git tag -a v0.0.0 -m "Initial commit"
 ```bash
 # Create phase documentation
 echo "# DEFINE Phase" > docs/problem-statement.md
-# Work on your project following ADD principles
+# Work on your project following AD principles
 git commit -m "feat: define project objectives"
-git tag -a v0.0.1 -m "DEFINE iteration 1"
 ```
 
 ## 📚 13 Core Principles
@@ -104,7 +102,7 @@ project-root/
 
 ## 🌍 Universal Domains
 
-ADD 1.0 works for any domain:
+AD 1.0 works for any domain:
 
 - **Software** - Backend, frontend, APIs, mobile apps
 - **Books** - Chapters, editing, publishing
@@ -115,7 +113,7 @@ ADD 1.0 works for any domain:
 
 ## 📖 Documentation
 
-- **[Rules](src/rules/)** - Complete ADD 1.0 rules in markdown
+- **[Rules](src/rules/)** - Complete AD 1.0 rules in markdown
 - **[IDE Configs](src/rules/ide/)** - Pre-generated IDE configurations
 - **[Website](website/)** - Official website source code
 - **[Deployment Guide](DEPLOYMENT.md)** - How to deploy the website
@@ -124,10 +122,10 @@ ADD 1.0 works for any domain:
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting PRs.
 
-- Report bugs via [Issues](https://github.com/agenticdriven/add/issues)
-- Suggest features via [Issues](https://github.com/agenticdriven/add/issues)
-- Submit improvements via [Pull Requests](https://github.com/agenticdriven/add/pulls)
-- Ask questions in [Discussions](https://github.com/agenticdriven/add/discussions)
+- Report bugs via [Issues](https://github.com/AgenticDriven/agenticdriven/issues)
+- Suggest features via [Issues](https://github.com/AgenticDriven/agenticdriven/issues)
+- Submit improvements via [Pull Requests](https://github.com/AgenticDriven/agenticdriven/pulls)
+- Ask questions in [Discussions](https://github.com/AgenticDriven/agenticdriven/discussions)
 
 ## 📚 Learn More
 
@@ -143,7 +141,7 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 
 ## 🔒 Security
 
-Please report security vulnerabilities to security@agenticdriven.dev or via [private security advisory](https://github.com/agenticdriven/add/security/advisories).
+Please report security vulnerabilities to security@agenticdriven.dev or via [private security advisory](https://github.com/AgenticDriven/agenticdriven/security/advisories).
 
 See [SECURITY.md](SECURITY.md) for details.
 
@@ -165,6 +163,6 @@ Last Updated: 2026-01-06
 
 ---
 
-**Made with ❤️ for the ADD community**
+**Made with ❤️ for the AD community**
 
-[Website](https://agenticdriven.dev) • [GitHub](https://github.com/agenticdriven/add) • [Issues](https://github.com/agenticdriven/add/issues) • [Discussions](https://github.com/agenticdriven/add/discussions)
+[Website](https://agenticdriven.dev) • [GitHub](https://github.com/AgenticDriven/agenticdriven) • [Issues](https://github.com/AgenticDriven/agenticdriven/issues) • [Discussions](https://github.com/AgenticDriven/agenticdriven/discussions)
