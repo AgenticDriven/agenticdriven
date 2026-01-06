@@ -39,10 +39,27 @@
   - Updated git-tags.md and exit-criteria.md
   - Regenerated IDE configs without tagging references
   - ✅ **DESIGN phase complete** - all exit criteria met
-- **Decisions**: ADR-001: Remove git tags (in progress, see below)
+- **Decisions**: ADR-001: Remove git tags
+
+### SETUP Phase (v0.3.0 → v0.3.1)
+- **Agent**: Human + Claude
+- **Progress**:
+  - Documented environment setup (docs/setup.md)
+  - Verified repository structure and git configuration
+  - Confirmed IDE configs generated and in place
+  - Validated website build pipeline functional
+  - Confirmed GitHub Actions workflow ready
+  - Verified GitHub community standards 100% complete
+  - Defined validation criteria (docs/validation-criteria.md)
+  - Specified 6 functional validation tests
+  - Specified 5 non-functional validation tests
+  - Specified 2 integration validation tests
+  - ✅ **SETUP phase complete** - all exit criteria met
+- **Decisions**: None
 - **Blockers**: None
 - **Next**:
-  - Move to SETUP phase (v0.3.0)
-  - Configure development environment
-  - Setup testing infrastructure
-  - Define validation criteria
+  - Move to BUILD phase (v0.4.0)
+  - Most components already built (website, IDE configs, rules)
+  - Need to verify everything works end-to-end
+  - Update any placeholder content
+  - Ensure website ready for launch
