@@ -381,6 +381,7 @@
     "backToTop": "Volver Arriba",
     "toc": {
       "title": "Contenido",
+      "gettingStarted": "Cómo Empezar",
       "principles": "13 Principios",
       "phases": "10 Fases",
       "versioning": "Versionado",
@@ -395,6 +396,48 @@
       "aiWorkflow": "Flujo de Trabajo IA",
       "exitCriteria": "Criterios de Salida",
       "troubleshooting": "Solución de Problemas"
+    },
+    "gettingStarted": {
+      "title": "Cómo Empezar un Proyecto ADW",
+      "step1": {
+        "title": "1. Crea el proyecto",
+        "commands": "mkdir my-project\\ncd my-project\\ngit init"
+      },
+      "step2": {
+        "title": "2. Crea estructura básica",
+        "commands": "touch README.md\\nmkdir docs\\ntouch docs/journal.md",
+        "note": "README.md: Describe qué es el proyecto\\ndocs/journal.md: Registro diario de progreso"
+      },
+      "step3": {
+        "title": "3. Primer commit (v0.0.0)",
+        "commands": "git add .\\ngit commit -m \"chore: initialize project (v0.0.0)\"\\ngit tag v0.0.0",
+        "note": "v0.0.0 = Fase DEFINE comienza"
+      },
+      "step4": {
+        "title": "4. Define el problema (Fase DEFINE)",
+        "desc": "Crea en docs/:",
+        "files": "problem-statement.md - ¿Qué problema resuelves?\\nobjectives.md - ¿Qué quieres lograr?\\nscope.md - ¿Qué incluyes y qué no?",
+        "commit": "git commit -m \"docs: define problem and objectives\"\\ngit commit -m \"chore: complete DEFINE (v0.1.0)\""
+      },
+      "step5": {
+        "title": "5. Siguiente fase",
+        "desc": "Cuando completes DEFINE, avanza a DISCOVER (v0.1.x)",
+        "commands": "git tag v0.1.0\\n# Ahora investiga opciones en fase DISCOVER"
+      },
+      "multiAgent": {
+        "title": "Para Multi-Agente",
+        "desc": "Si múltiples personas/IAs trabajarán en paralelo:",
+        "commands": "# Crea adw.yaml en la raíz\\necho 'domain: \"software\"' > adw.yaml\\necho '' >> adw.yaml\\necho 'agents:' >> adw.yaml\\necho '  - id: \"backend\"' >> adw.yaml\\necho '    context: [\"src/backend/\"]' >> adw.yaml\\necho '  - id: \"frontend\"' >> adw.yaml\\necho '    context: [\"src/frontend/\"]' >> adw.yaml",
+        "commit": "git add adw.yaml\\ngit commit -m \"chore: configure multi-agent\""
+      },
+      "tips": {
+        "title": "Tips",
+        "1": "Commit después de cada tarea completada",
+        "2": "Actualiza docs/journal.md diariamente",
+        "3": "No saltes fases - son secuenciales",
+        "4": "Valida antes de avanzar (exit criteria)",
+        "5": "Las tags son opcionales en ADW 1.0"
+      }
     },
     "versioning": {
       "title": "Versionado Semántico",

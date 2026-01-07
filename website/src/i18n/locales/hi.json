@@ -449,6 +449,7 @@
     "backToTop": "ऊपर जाएं",
     "toc": {
       "title": "सामग्री",
+      "gettingStarted": "Getting Started",
       "principles": "13 सिद्धांत",
       "phases": "10 चरण",
       "versioning": "संस्करण",
@@ -958,6 +959,48 @@
       "prevention": {
         "title": "Prevention",
         "tips": "Commit frequently, Write tests, Read contracts, Update journal, Follow exit criteria, Respect boundaries"
+      }
+    },
+    "gettingStarted": {
+      "title": "How to Start an ADW Project",
+      "step1": {
+        "title": "1. Create the project",
+        "commands": "mkdir my-project\\ncd my-project\\ngit init"
+      },
+      "step2": {
+        "title": "2. Create basic structure",
+        "commands": "touch README.md\\nmkdir docs\\ntouch docs/journal.md",
+        "note": "README.md: Describe what the project is\\ndocs/journal.md: Daily progress log"
+      },
+      "step3": {
+        "title": "3. First commit (v0.0.0)",
+        "commands": "git add .\\ngit commit -m \"chore: initialize project (v0.0.0)\"\\ngit tag v0.0.0",
+        "note": "v0.0.0 = DEFINE phase begins"
+      },
+      "step4": {
+        "title": "4. Define the problem (DEFINE Phase)",
+        "desc": "Create in docs/:",
+        "files": "problem-statement.md - What problem are you solving?\\nobjectives.md - What do you want to achieve?\\nscope.md - What do you include and what don't you?",
+        "commit": "git commit -m \"docs: define problem and objectives\"\\ngit commit -m \"chore: complete DEFINE (v0.1.0)\""
+      },
+      "step5": {
+        "title": "5. Next phase",
+        "desc": "When you complete DEFINE, move to DISCOVER (v0.1.x)",
+        "commands": "git tag v0.1.0\\n# Now research options in DISCOVER phase"
+      },
+      "multiAgent": {
+        "title": "For Multi-Agent",
+        "desc": "If multiple people/AIs will work in parallel:",
+        "commands": "# Create adw.yaml at the root\\necho 'domain: \"software\"' > adw.yaml\\necho '' >> adw.yaml\\necho 'agents:' >> adw.yaml\\necho '  - id: \"backend\"' >> adw.yaml\\necho '    context: [\"src/backend/\"]' >> adw.yaml\\necho '  - id: \"frontend\"' >> adw.yaml\\necho '    context: [\"src/frontend/\"]' >> adw.yaml",
+        "commit": "git add adw.yaml\\ngit commit -m \"chore: configure multi-agent\""
+      },
+      "tips": {
+        "title": "Tips",
+        "1": "Commit after each completed task",
+        "2": "Update docs/journal.md daily",
+        "3": "Don't skip phases - they are sequential",
+        "4": "Validate before moving forward (exit criteria)",
+        "5": "Tags are optional in ADW 1.0"
       }
     }
   }
