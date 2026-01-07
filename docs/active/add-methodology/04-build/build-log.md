@@ -198,7 +198,7 @@ $ ls -1 .github/ISSUE_TEMPLATE/ | wc -l
 **Status**: Complete
 
 **Files**:
-- ✅ `add.yaml` - Project state (phase: BUILD, version: v0.4.0)
+- ✅ `adw.yaml` - Project state (phase: BUILD, version: v0.4.0)
 - ✅ `.gitignore` - Excludes `_site/`, `node_modules/`
 - ✅ `DEPLOYMENT.md` - Deployment instructions
 
@@ -217,7 +217,7 @@ $ ls -1 .github/ISSUE_TEMPLATE/ | wc -l
 
 Verifying contracts from `docs/interfaces.md`:
 
-1. **add.yaml Interface** ✅
+1. **adw.yaml Interface** ✅
    - Schema: domain (string), phase (string), version (string)
    - Current: domain="software", phase="BUILD", version="v0.4.0"
    - Contract fulfilled
@@ -274,7 +274,7 @@ Verifying contracts from `docs/interfaces.md`:
 10. **Phase Transition Interface** ✅
     - Exit criteria verified before transitions
     - Journal updated
-    - add.yaml updated
+    - adw.yaml updated
     - Commits follow format
     - Contract fulfilled
 
@@ -325,7 +325,7 @@ The only "issue" is that npm is not available in the current environment to test
 - **Change**: Eliminated git tagging from methodology
 - **Reason**: User feedback - tags add unnecessary complexity
 - **Files Updated**: git-tags.md, exit-criteria.md, all IDE configs
-- **Impact**: Simpler workflow, no loss of functionality (commits + add.yaml sufficient)
+- **Impact**: Simpler workflow, no loss of functionality (commits + adw.yaml sufficient)
 
 **Website Build Output Directory**
 - **Change**: Output to `_site/` instead of `docs/`

@@ -74,7 +74,7 @@ git remote add origin https://github.com/agenticdriven/add.git
 ├── .aider-rules.md
 ├── .continuerc.json
 ├── .continue-rules.md
-├── add.yaml              # Project configuration
+├── adw.yaml              # Project configuration
 ├── README.md
 ├── LICENSE
 ├── CONTRIBUTING.md
@@ -94,7 +94,7 @@ git status
 git log --oneline
 
 # Check current phase
-cat add.yaml
+cat adw.yaml
 ```
 
 ### IDE Configuration Setup
@@ -274,7 +274,7 @@ echo "Total docs: $(ls -1 docs/*.md | wc -l)"
 **Verification**:
 ```bash
 # Check phase and version
-cat add.yaml
+cat adw.yaml
 
 # Check commit history
 git log --oneline --graph
@@ -302,7 +302,7 @@ git tag
 **Not Required**: This project has no secrets or environment-specific configuration.
 
 All configuration is in:
-- `add.yaml` - Project state
+- `adw.yaml` - Project state
 - `website/package.json` - Dependencies
 - `website/vite.config.js` - Build config
 

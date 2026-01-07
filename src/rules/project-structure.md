@@ -5,7 +5,7 @@
 ```
 project-root/
 ├── README.md
-├── add.yaml          # Optional, multi-agent only
+├── adw.yaml          # Optional, multi-agent only
 ├── docs/
 │   ├── journal.md
 │   └── ...

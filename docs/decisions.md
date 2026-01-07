@@ -12,13 +12,13 @@ Initially, the ADD 1.0 methodology included git tagging as part of phase transit
 **Decision**:
 Remove git tags from the ADD 1.0 methodology. Use only:
 1. Commits with clear messages (Conventional Commits format)
-2. Version tracking in `add.yaml` file
+2. Version tracking in `adw.yaml` file
 3. Journal entries for progress tracking
 
 **Rationale**:
 - Simplicity: Tags add an extra step without clear benefit
 - Commits alone provide sufficient history
-- `add.yaml` version field clearly shows current state
+- `adw.yaml` version field clearly shows current state
 - Journal provides human-readable progress log
 - Reduces cognitive overhead for users
 - Aligns with "simplicity first" principle

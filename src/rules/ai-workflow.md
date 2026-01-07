@@ -3,13 +3,13 @@
 ## Session Start (9 steps)
 
 1. **Git status**: `git status`
-2. **Config**: `cat add.yaml 2>/dev/null` (if exists)
+2. **Config**: `cat adw.yaml 2>/dev/null` (if exists)
 3. **README**: `cat README.md`
 4. **Phase**: `git describe --tags --abbrev=0` (latest tag = current phase)
 5. **Phase docs**: `cat docs/journal.md` + phase-specific docs
 6. **Contracts**: `cat docs/interfaces.md` (if BUILD/VALIDATE)
 7. **Recent commits**: `git log -5 --oneline`
-8. **Role**: Check add.yaml for agent context (if multi-agent)
+8. **Role**: Check adw.yaml for agent context (if multi-agent)
 9. **Ask**: Ready to work
 
 ## During Work
@@ -24,7 +24,7 @@
 
 ## Multi-Agent
 
-If add.yaml has agents:
+If adw.yaml has agents:
 - Identify your agent ID
 - Stay in context directories
 - Read contracts before implementing

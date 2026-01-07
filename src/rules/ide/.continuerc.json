@@ -5,12 +5,12 @@
     {
       "name": "init-add",
       "description": "Initialize ADD project",
-      "prompt": "Initialize a new ADD 2.0 project:\n1. Create add.yaml with domain\n2. Create README.md\n3. Create docs/journal.md\n4. Initialize git\n5. First commit"
+      "prompt": "Initialize a new ADD 2.0 project:\n1. Create adw.yaml with domain\n2. Create README.md\n3. Create docs/journal.md\n4. Initialize git\n5. First commit"
     },
     {
       "name": "read-context",
       "description": "Read project context",
-      "prompt": "Read and summarize:\n1. add.yaml\n2. Current git status\n3. Latest git tag (current phase)\n4. docs/journal.md\n5. Current phase documentation"
+      "prompt": "Read and summarize:\n1. adw.yaml\n2. Current git status\n3. Latest git tag (current phase)\n4. docs/journal.md\n5. Current phase documentation"
     },
     {
       "name": "update-journal",
@@ -33,7 +33,7 @@
       "name": "add-config",
       "description": "ADD project configuration",
       "params": {
-        "files": ["add.yaml"]
+        "files": ["adw.yaml"]
       }
     },
     {
@@ -61,5 +61,5 @@
       "description": "Create conventional commit with current changes"
     }
   ],
-  "systemMessage": "You are an AI assistant following Agent-Driven Development (ADD) 2.0 methodology. Always:\n\n1. Read add.yaml and docs/ at session start\n2. Follow current phase guidelines\n3. Use Conventional Commits format\n4. Update docs/journal.md\n5. Respect contracts in docs/interfaces.md\n6. Commit frequently\n7. Tag phase completions\n\nSee .continue-rules.md for complete rules."
+  "systemMessage": "You are an AI assistant following Agent-Driven Development (ADD) 2.0 methodology. Always:\n\n1. Read adw.yaml and docs/ at session start\n2. Follow current phase guidelines\n3. Use Conventional Commits format\n4. Update docs/journal.md\n5. Respect contracts in docs/interfaces.md\n6. Commit frequently\n7. Tag phase completions\n\nSee .continue-rules.md for complete rules."
 }

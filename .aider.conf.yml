@@ -12,7 +12,7 @@ commit: false
 
 # Read-only files (always include in context)
 read:
-  - add.yaml
+  - adw.yaml
   - README.md
   - docs/journal.md
   - docs/interfaces.md
@@ -21,7 +21,7 @@ read:
 message-template: |
   Follow Agent-Driven Development (ADD) 2.0 methodology:
 
-  1. Read add.yaml and docs/ before starting
+  1. Read adw.yaml and docs/ before starting
   2. Follow current phase guidelines
   3. Use Conventional Commits format
   4. Update docs/journal.md with progress

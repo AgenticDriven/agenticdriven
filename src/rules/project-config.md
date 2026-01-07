@@ -1,6 +1,6 @@
 # Project Config
 
-## File: add.yaml
+## File: adw.yaml
 
 Optional. Only for multi-agent or domain hint.
 
