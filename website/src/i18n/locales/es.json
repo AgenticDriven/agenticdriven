@@ -431,21 +431,56 @@
     },
     "projectConfig": {
       "title": "Configuración del Proyecto (adw.yaml)",
-      "intro": "El archivo adw.yaml es opcional pero recomendado para proyectos multi-agente. Define el dominio del proyecto y los contextos de cada agente.",
+      "intro": "El archivo adw.yaml define la configuración del proyecto ADW. Es OPCIONAL para proyectos solo y REQUERIDO para proyectos multi-agente. Se coloca en la raíz del proyecto.",
+      "when": {
+        "title": "¿Cuándo usar adw.yaml?",
+        "solo": "Proyecto Solo: OPCIONAL. Solo si quieres que la IA adapte su lenguaje al dominio.",
+        "multi": "Multi-Agente: REQUERIDO. Define límites de contexto para prevenir conflictos."
+      },
       "solo": {
-        "title": "Proyecto Solo (Opcional)",
-        "desc": "Para proyectos de un solo agente, adw.yaml solo necesita especificar el dominio. La mayoría de proyectos no necesitan este archivo.",
-        "example": "domain: \"software\""
+        "title": "Configuración Solo (Opcional)",
+        "desc": "Para proyectos de un solo agente, solo necesitas especificar el dominio. Esto hace que los agentes de IA adapten su lenguaje y sugerencias al tipo de proyecto.",
+        "example": "domain: \"software\"",
+        "domains": "Dominios válidos: software, book, marketing, event, product, research, course, game"
       },
       "multiAgent": {
-        "title": "Proyecto Multi-Agente (Recomendado)",
-        "desc": "Para proyectos con múltiples agentes trabajando en paralelo, adw.yaml define los límites de contexto. Cada agente trabaja en sus directorios específicos.",
-        "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\"]"
+        "title": "Configuración Multi-Agente (Requerido)",
+        "desc": "Para proyectos con múltiples agentes trabajando en paralelo, debes definir los límites de contexto. Cada agente trabaja solo en sus directorios asignados para evitar conflictos de merge.",
+        "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\", \"tests/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\", \"tests/frontend/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \".github/\"]"
       },
       "fields": {
-        "title": "Campos del Archivo",
-        "domain": "Tipo de proyecto (software, book, marketing, event). Los agentes de IA adaptan su lenguaje según el dominio.",
-        "agents": "Lista de agentes con sus contextos. Define qué directorios maneja cada agente para evitar conflictos."
+        "title": "Campos Disponibles",
+        "domain": {
+          "title": "domain (string, requerido)",
+          "desc": "Tipo de proyecto. Los agentes de IA adaptan su lenguaje según el dominio. Valores: software, book, marketing, event, product, research, course, game."
+        },
+        "agents": {
+          "title": "agents (array, opcional)",
+          "desc": "Lista de agentes con sus contextos. Cada agente tiene: id (identificador único) y context (array de directorios donde puede trabajar)."
+        }
+      },
+      "examples": {
+        "title": "Ejemplos por Dominio",
+        "software": {
+          "title": "Software (Backend + Frontend + DevOps)",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\", \"src/services/\", \"tests/api/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\", \"src/components/\", \"tests/e2e/\"]\\n  - id: \"devops\"\\n    context: [\"infrastructure/\", \".github/\", \"docker/\"]"
+        },
+        "book": {
+          "title": "Libro (Múltiples Escritores)",
+          "example": "domain: \"book\"\\n\\nagents:\\n  - id: \"author1\"\\n    context: [\"chapters/01-05/\"]\\n  - id: \"author2\"\\n    context: [\"chapters/06-10/\"]\\n  - id: \"editor\"\\n    context: [\"chapters/\", \"appendices/\"]"
+        },
+        "marketing": {
+          "title": "Marketing (Campaign + Content + Analytics)",
+          "example": "domain: \"marketing\"\\n\\nagents:\\n  - id: \"campaign-manager\"\\n    context: [\"campaigns/\", \"strategy/\"]\\n  - id: \"content-creator\"\\n    context: [\"content/\", \"assets/\"]\\n  - id: \"analyst\"\\n    context: [\"analytics/\", \"reports/\"]"
+        }
+      },
+      "rules": {
+        "title": "Reglas Importantes",
+        "1": "Un agente NO debe modificar archivos fuera de su context",
+        "2": "Los contexts NO deben solaparse entre agentes",
+        "3": "El archivo adw.yaml va en la raíz del proyecto",
+        "4": "Usa kebab-case para IDs de agentes: backend-api, frontend-web",
+        "5": "Los paths en context siempre terminan en / para indicar directorios"
       }
     },
     "multiAgent": {
