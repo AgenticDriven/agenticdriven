@@ -402,14 +402,22 @@ function App() {
 
           <div className="workflow-diagram">
             {phases.map((phase, idx) => {
-              const isCompleted = selectedWorkflowPhase !== null && idx < selectedWorkflowPhase;
-              const isCurrent = selectedWorkflowPhase === idx;
-              const isPending = selectedWorkflowPhase !== null && idx > selectedWorkflowPhase;
+              let phaseClass = 'workflow-step';
+
+              if (selectedWorkflowPhase !== null) {
+                if (idx < selectedWorkflowPhase) {
+                  phaseClass += ' completed';
+                } else if (idx === selectedWorkflowPhase) {
+                  phaseClass += ' current';
+                } else {
+                  phaseClass += ' pending';
+                }
+              }
 
               return (
                 <div
                   key={idx}
-                  className={`workflow-step ${isCompleted ? 'completed' : ''} ${isCurrent ? 'current' : ''} ${isPending ? 'pending' : ''}`}
+                  className={phaseClass}
                   onClick={() => setSelectedWorkflowPhase(idx)}
                 >
                   <div className="workflow-number">{idx + 1}</div>
