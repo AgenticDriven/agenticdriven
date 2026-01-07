@@ -35,7 +35,6 @@ function LanguageSelector() {
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Select language"
       >
-        <span className="language-flag">{currentLanguage.flag}</span>
         <span className="language-name-btn">{currentLanguage.name}</span>
         <span className="language-arrow">{isOpen ? '▲' : '▼'}</span>
       </button>
