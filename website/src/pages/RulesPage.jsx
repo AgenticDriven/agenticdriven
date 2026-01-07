@@ -13,7 +13,7 @@ function RulesPage({ onNavigate }) {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['principles', 'phases', 'versioning', 'git-commits', 'project-structure', 'project-config', 'multi-agent', 'documentation', 'journal', 'decisions', 'contracts', 'aiWorkflow', 'exitCriteria', 'troubleshooting']
+      const sections = ['getting-started', 'principles', 'phases', 'versioning', 'git-commits', 'project-structure', 'project-config', 'multi-agent', 'documentation', 'journal', 'decisions', 'contracts', 'aiWorkflow', 'exitCriteria', 'troubleshooting']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -67,6 +67,15 @@ function RulesPage({ onNavigate }) {
               <nav className="rules-toc">
                 <h3 className="toc-title">{t('rules.toc.title')}</h3>
                 <ul className="toc-list">
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('getting-started')}
+                      className={`toc-link ${activeSection === 'getting-started' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">🚀</span>
+                      <span>{t('rules.toc.gettingStarted')}</span>
+                    </button>
+                  </li>
                   <li>
                     <button
                       onClick={() => scrollToSection('principles')}
@@ -205,6 +214,87 @@ function RulesPage({ onNavigate }) {
 
             {/* Main Content */}
             <main className="rules-main">
+              {/* Getting Started Section */}
+              <section id="getting-started" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">🚀</span>
+                  <h2 className="rules-section-title">{t('rules.gettingStarted.title')}</h2>
+                </div>
+
+                {/* Step 1 */}
+                <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.gettingStarted.step1.title')}</h3>
+                <div className="code-block">
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.gettingStarted.step1.commands'))}
+                  </code></pre>
+                </div>
+
+                {/* Step 2 */}
+                <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.gettingStarted.step2.title')}</h3>
+                <div className="code-block">
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.gettingStarted.step2.commands'))}
+                  </code></pre>
+                </div>
+                <p className="rules-intro" style={{marginTop: '1rem', whiteSpace: 'pre-line'}}>
+                  {t('rules.gettingStarted.step2.note')}
+                </p>
+
+                {/* Step 3 */}
+                <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.gettingStarted.step3.title')}</h3>
+                <div className="code-block">
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.gettingStarted.step3.commands'))}
+                  </code></pre>
+                </div>
+                <p className="rules-intro" style={{marginTop: '1rem'}}>
+                  {t('rules.gettingStarted.step3.note')}
+                </p>
+
+                {/* Step 4 */}
+                <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.gettingStarted.step4.title')}</h3>
+                <p className="rules-intro">{t('rules.gettingStarted.step4.desc')}</p>
+                <p className="rules-intro" style={{marginTop: '1rem', whiteSpace: 'pre-line'}}>
+                  {t('rules.gettingStarted.step4.files')}
+                </p>
+                <div className="code-block" style={{marginTop: '1.5rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.gettingStarted.step4.commit'))}
+                  </code></pre>
+                </div>
+
+                {/* Step 5 */}
+                <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.gettingStarted.step5.title')}</h3>
+                <p className="rules-intro">{t('rules.gettingStarted.step5.desc')}</p>
+                <div className="code-block" style={{marginTop: '1rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.gettingStarted.step5.commands'))}
+                  </code></pre>
+                </div>
+
+                {/* Multi-Agent */}
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.gettingStarted.multiAgent.title')}</h3>
+                <p className="rules-intro">{t('rules.gettingStarted.multiAgent.desc')}</p>
+                <div className="code-block" style={{marginTop: '1rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.gettingStarted.multiAgent.commands'))}
+                  </code></pre>
+                </div>
+                <div className="code-block" style={{marginTop: '1rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.gettingStarted.multiAgent.commit'))}
+                  </code></pre>
+                </div>
+
+                {/* Tips */}
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.gettingStarted.tips.title')}</h3>
+                <ol style={{marginLeft: '1.5rem', marginTop: '1rem', lineHeight: '1.8'}}>
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <li key={num}>{t(`rules.gettingStarted.tips.${num}`)}</li>
+                  ))}
+                </ol>
+              </section>
+
               {/* Principles Section */}
               <section id="principles" className="rules-section">
                 <div className="section-header-fancy">

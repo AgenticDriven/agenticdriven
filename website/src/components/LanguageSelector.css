@@ -34,10 +34,10 @@
   line-height: 1;
 }
 
-.language-name-btn {
+.language-code-btn {
   font-weight: 700;
-  text-transform: uppercase;
   font-size: 0.875rem;
+  letter-spacing: 0.05em;
 }
 
 .language-arrow {
