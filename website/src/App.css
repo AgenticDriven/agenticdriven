@@ -2294,6 +2294,7 @@ body {
   background: #f8f9fa;
   min-height: calc(100vh - 200px);
   padding: 3rem 0;
+  overflow-x: hidden;
 }
 
 .rules-grid {
@@ -2301,6 +2302,8 @@ body {
   grid-template-columns: 280px 1fr;
   gap: 3rem;
   align-items: start;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Sidebar & TOC */
@@ -2389,6 +2392,10 @@ body {
   padding: 3rem;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e9ecef;
+  max-width: 100%;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .rules-section {
@@ -2656,11 +2663,13 @@ body {
   padding: 1.5rem;
   overflow-x: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
 }
 
 .code-block pre {
   margin: 0;
   font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  max-width: 100%;
 }
 
 .code-block code {
@@ -2668,14 +2677,23 @@ body {
   font-size: 0.9375rem;
   line-height: 1.6;
   white-space: pre;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .code-block-large {
   margin: 1.5rem 0;
+  max-width: 100%;
 }
 
 .code-block-large code {
   font-size: 0.875rem;
+}
+
+.structure-example {
+  margin: 2rem 0;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 /* Commit Type Badges */
@@ -2866,6 +2884,65 @@ body {
   
   .download-actions .btn {
     width: 100%;
+  }
+}
+
+
+/* Phase Examples */
+.phase-examples {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+.examples-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0 0 1.25rem;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.example-item {
+  background: linear-gradient(135deg, #fafbfc 0%, #ffffff 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.example-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.example-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.625rem;
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+}
+
+.example-text {
+  font-size: 0.9375rem;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .examples-grid {
+    grid-template-columns: 1fr;
   }
 }
 

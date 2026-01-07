@@ -195,61 +195,161 @@
         "name": "DEFINE",
         "version": "v0.0.x",
         "desc": "Define problem, objectives, scope",
-        "detail": "Start with clarity. What problem are you solving? What are your goals? What's in scope, what's not? Document constraints and success criteria. Foundation for everything that follows."
+        "detail": "Start with clarity. What problem are you solving? What are your goals? What's in scope, what's not? Document constraints and success criteria. Foundation for everything that follows.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Define the problem your app solves, objectives (e.g.: reduce onboarding time 50%), scope (v1.0 features vs future), technical constraints.",
+            "book": "Define central theme, key message, target audience, structure (chapters vs parts), scope (page count, thematic depth).",
+            "movie": "Define premise, genre, target audience, tone/style, target duration, budget constraints.",
+            "marketing": "Define campaign objectives (KPIs), target audience, central message, channels to use/avoid, budget and timeline.",
+            "product": "Define user problem, key product features, material/manufacturing constraints, target market, target price point."
+          }
+        }
       },
       "discover": {
         "name": "DISCOVER",
         "version": "v0.1.x",
         "desc": "Investigate options, viability",
-        "detail": "Research and explore. Gather requirements, identify risks, assess feasibility. What already exists? What approaches are possible? Make informed decisions before committing."
+        "detail": "Research and explore. Gather requirements, identify risks, assess feasibility. What already exists? What approaches are possible? Make informed decisions before committing.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Research competitors, available technologies, frameworks, existing APIs. Evaluate technical viability, risks, team requirements.",
+            "book": "Research similar books, market trends, potential publishers. Read references, interview experts if applicable.",
+            "movie": "Research genre films, visual references, possible locations, available actors, required technical crews.",
+            "marketing": "Analyze competition, market trends, audience behavior, effective channels, similar success cases.",
+            "product": "Research competitor products, available materials, manufacturing processes, suppliers, applicable regulations."
+          }
+        }
       },
       "design": {
         "name": "DESIGN",
         "version": "v0.2.x",
         "desc": "Design solution, architecture",
-        "detail": "Plan before building. Design your solution, define architecture, specify interfaces. Make key decisions documented. Ready to implement with confidence."
+        "detail": "Plan before building. Design your solution, define architecture, specify interfaces. Make key decisions documented. Ready to implement with confidence.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Design system architecture, database, APIs, user flows (wireframes), main components. Document technical decisions.",
+            "book": "Design detailed structure: table of contents, chapter outlines, narrative arcs if applicable, idea flow, connections between sections.",
+            "movie": "Create detailed scaletta, character design, key storyboards, color palette, visual aesthetic, shooting plan.",
+            "marketing": "Design strategy: messages per channel, content calendar, visual material design, customer journey, metrics to measure.",
+            "product": "Design sketches, 3D renders, detailed technical specifications, exact materials, manufacturing process, packaging."
+          }
+        }
       },
       "setup": {
         "name": "SETUP",
         "version": "v0.3.x",
         "desc": "Prepare tools, environment",
-        "detail": "Get organized. Configure tools, set up environment, define validation criteria. Everything ready so you can focus on building."
+        "detail": "Get organized. Configure tools, set up environment, define validation criteria. Everything ready so you can focus on building.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Setup git repo, CI/CD, dev environment, dependencies, testing tools, IDE configs. Ready to code.",
+            "book": "Setup writing tools (Scrivener, Google Docs), backup system, format template, reference/citation system.",
+            "movie": "Prepare technical equipment, hire crew, secure locations, permits, insurance, shooting schedule, file organization system.",
+            "marketing": "Setup platform accounts, analytics tools, CRM, shared calendars, content templates, approval workflows.",
+            "product": "Prepare CAD tools, hire manufacturer/supplier, setup quality control, inventory system, logistics."
+          }
+        }
       },
       "build": {
         "name": "BUILD",
         "version": "v0.4.x",
         "desc": "Build/create solution",
-        "detail": "Time to create. Implement components, write code, develop content. Follow contracts, test as you go, document changes. Bulk of the work happens here."
+        "detail": "Time to create. Implement components, write code, develop content. Follow contracts, test as you go, document changes. Bulk of the work happens here.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Write code, implement features, create UI, integrate APIs. Frequent commits, test as you develop.",
+            "book": "Write content chapter by chapter. Regular writing sessions, continuous review, maintain narrative coherence.",
+            "movie": "Shoot according to plan. Capture scenes, direct actors, record audio, make creative decisions on set. Daily footage backup.",
+            "marketing": "Create content, design graphics, write copy, schedule posts, prepare emails, produce videos. Execute per calendar.",
+            "product": "Manufacture prototypes, iterate design, produce initial batch, continuous refinement based on prototype feedback."
+          }
+        }
       },
       "validate": {
         "name": "VALIDATE",
         "version": "v0.5.x",
         "desc": "Verify quality, testing",
-        "detail": "Ensure quality. Run comprehensive tests, validate against criteria, check performance. Fix issues found. Only proceed when validation passes."
+        "detail": "Ensure quality. Run comprehensive tests, validate against criteria, check performance. Fix issues found. Only proceed when validation passes.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Unit tests, integration, E2E. User testing, performance, security. Fix found bugs.",
+            "book": "Editorial review, fact-checking, beta reader feedback, style correction, coherence verification.",
+            "movie": "Editing, color grading, audio mixing, test screenings, adjustments per feedback, technical quality control.",
+            "marketing": "A/B testing of messages, material review, validation with audience sample, content adjustments.",
+            "product": "Quality testing, durability tests, required certifications, beta user feedback, final adjustments."
+          }
+        }
       },
       "market": {
         "name": "MARKET",
         "version": "v0.6.x",
         "desc": "Prepare launch materials",
-        "detail": "Get ready to share. Create marketing materials, prepare documentation, plan launch strategy. Build awareness before launch."
+        "detail": "Get ready to share. Create marketing materials, prepare documentation, plan launch strategy. Build awareness before launch.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Create landing page, docs, demo video, launch plan on ProductHunt/HackerNews, press kit, social media strategy.",
+            "book": "Prepare synopsis, promotional materials, contact reviewers, launch plan, social media presence, events.",
+            "movie": "Trailer, poster, press kit, festival submissions, distribution strategy, social media campaign, interviews.",
+            "marketing": "Warm up audience, teaser content, buzz building, partnerships, influencer outreach, pre-launch announcements.",
+            "product": "Product materials, professional photography, demo videos, launch strategy, retailer partnerships."
+          }
+        }
       },
       "launch": {
         "name": "LAUNCH",
         "version": "v0.7.x",
         "desc": "Deploy, activate, go-live",
-        "detail": "Make it public. Deploy to production, announce to users, monitor initial response. Launch day execution and immediate follow-up."
+        "detail": "Make it public. Deploy to production, announce to users, monitor initial response. Launch day execution and immediate follow-up.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Deploy to production, announce on all channels, monitor metrics, respond to initial users, hotfixes if needed.",
+            "book": "Official publication, presentation tour, interviews, active promotion, monitor sales and reviews.",
+            "movie": "Official premiere, premiere event, distribution to theaters/platforms, active promotion, monitor reactions and sales.",
+            "marketing": "Launch full campaign, execute all channels simultaneously, monitor real-time performance, respond to audience.",
+            "product": "Market launch, availability in sales channels, active promotion, monitor inventory and initial feedback."
+          }
+        }
       },
       "support": {
         "name": "SUPPORT",
         "version": "v0.8.x",
         "desc": "Maintain, fix issues",
-        "detail": "Keep it running. Handle bug reports, respond to users, maintain stability. Critical fixes and immediate support. Build confidence."
+        "detail": "Keep it running. Handle bug reports, respond to users, maintain stability. Critical fixes and immediate support. Build confidence.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Respond to bug reports, monitor uptime, update docs per frequent questions, user support.",
+            "book": "Respond to readers, manage reviews, correct errata for next editions, follow-up events.",
+            "movie": "Manage ongoing distribution, respond to feedback, technical corrections if needed, Q&A events.",
+            "marketing": "Monitor metrics, optimize underperforming elements, respond to audience, manage crises if they arise.",
+            "product": "Customer service, handling returns/complaints, production corrections, restock per demand."
+          }
+        }
       },
       "evolve": {
         "name": "EVOLVE",
         "version": "v0.9.x",
         "desc": "Improve, optimize, grow",
-        "detail": "Make it better. Add features, optimize performance, respond to feedback. Plan next version. Continuous improvement cycle."
+        "detail": "Make it better. Add features, optimize performance, respond to feedback. Plan next version. Continuous improvement cycle.",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Add requested features, optimize performance, refactor code, plan v2.0 based on feedback.",
+            "book": "Revised edition with improvements, additional content, adaptations to other formats, plan next book.",
+            "movie": "Director's cut, extra content, adaptations, sequels or spin-offs based on success.",
+            "marketing": "Follow-up campaigns, retargeting, continuous optimization, expansion to new channels, message iteration.",
+            "product": "Design improvements, new variants, cost optimization, product line expansion."
+          }
+        }
       }
     },
     "intro": "ADW structures development into 10 sequential phases. Each phase has clear objectives, specific deliverables, and exit criteria. You cannot advance until completing the current phase. This ensures every aspect of the project receives necessary attention."

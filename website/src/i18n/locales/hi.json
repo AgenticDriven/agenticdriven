@@ -195,61 +195,161 @@
         "name": "परिभाषित करें",
         "version": "v0.0.x",
         "desc": "समस्या, उद्देश्य, स्कोप परिभाषित करें",
-        "detail": "स्पष्टता के साथ शुरू करें। आप कौन सी समस्या हल कर रहे हैं? आपके लक्ष्य क्या हैं? स्कोप में क्या है, क्या नहीं? बाधाओं और सफलता मानदंडों का दस्तावेज़ीकरण करें। जो कुछ भी आता है उसकी नींव।"
+        "detail": "स्पष्टता के साथ शुरू करें। आप कौन सी समस्या हल कर रहे हैं? आपके लक्ष्य क्या हैं? स्कोप में क्या है, क्या नहीं? बाधाओं और सफलता मानदंडों का दस्तावेज़ीकरण करें। जो कुछ भी आता है उसकी नींव।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Define the problem your app solves, objectives (e.g.: reduce onboarding time 50%), scope (v1.0 features vs future), technical constraints.",
+            "book": "Define central theme, key message, target audience, structure (chapters vs parts), scope (page count, thematic depth).",
+            "movie": "Define premise, genre, target audience, tone/style, target duration, budget constraints.",
+            "marketing": "Define campaign objectives (KPIs), target audience, central message, channels to use/avoid, budget and timeline.",
+            "product": "Define user problem, key product features, material/manufacturing constraints, target market, target price point."
+          }
+        }
       },
       "discover": {
         "name": "खोज करें",
         "version": "v0.1.x",
         "desc": "विकल्प, व्यवहार्यता की जांच करें",
-        "detail": "शोध करें और अन्वेषण करें। आवश्यकताओं को इकट्ठा करें, जोखिमों की पहचान करें, व्यवहार्यता का आकलन करें। पहले से क्या मौजूद है? कौन से दृष्टिकोण संभव हैं? प्रतिबद्ध होने से पहले सूचित निर्णय लें।"
+        "detail": "शोध करें और अन्वेषण करें। आवश्यकताओं को इकट्ठा करें, जोखिमों की पहचान करें, व्यवहार्यता का आकलन करें। पहले से क्या मौजूद है? कौन से दृष्टिकोण संभव हैं? प्रतिबद्ध होने से पहले सूचित निर्णय लें।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Research competitors, available technologies, frameworks, existing APIs. Evaluate technical viability, risks, team requirements.",
+            "book": "Research similar books, market trends, potential publishers. Read references, interview experts if applicable.",
+            "movie": "Research genre films, visual references, possible locations, available actors, required technical crews.",
+            "marketing": "Analyze competition, market trends, audience behavior, effective channels, similar success cases.",
+            "product": "Research competitor products, available materials, manufacturing processes, suppliers, applicable regulations."
+          }
+        }
       },
       "design": {
         "name": "डिज़ाइन करें",
         "version": "v0.2.x",
         "desc": "समाधान, आर्किटेक्चर डिज़ाइन करें",
-        "detail": "निर्माण से पहले योजना बनाएं। अपना समाधान डिज़ाइन करें, आर्किटेक्चर परिभाषित करें, इंटरफेस निर्दिष्ट करें। प्रलेखित महत्वपूर्ण निर्णय लें। आत्मविश्वास के साथ लागू करने के लिए तैयार।"
+        "detail": "निर्माण से पहले योजना बनाएं। अपना समाधान डिज़ाइन करें, आर्किटेक्चर परिभाषित करें, इंटरफेस निर्दिष्ट करें। प्रलेखित महत्वपूर्ण निर्णय लें। आत्मविश्वास के साथ लागू करने के लिए तैयार।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Design system architecture, database, APIs, user flows (wireframes), main components. Document technical decisions.",
+            "book": "Design detailed structure: table of contents, chapter outlines, narrative arcs if applicable, idea flow, connections between sections.",
+            "movie": "Create detailed scaletta, character design, key storyboards, color palette, visual aesthetic, shooting plan.",
+            "marketing": "Design strategy: messages per channel, content calendar, visual material design, customer journey, metrics to measure.",
+            "product": "Design sketches, 3D renders, detailed technical specifications, exact materials, manufacturing process, packaging."
+          }
+        }
       },
       "setup": {
         "name": "सेटअप करें",
         "version": "v0.3.x",
         "desc": "उपकरण, वातावरण तैयार करें",
-        "detail": "व्यवस्थित हों। उपकरण कॉन्फ़िगर करें, वातावरण सेटअप करें, वैलिडेशन मानदंड परिभाषित करें। सब कुछ तैयार ताकि आप निर्माण पर ध्यान केंद्रित कर सकें।"
+        "detail": "व्यवस्थित हों। उपकरण कॉन्फ़िगर करें, वातावरण सेटअप करें, वैलिडेशन मानदंड परिभाषित करें। सब कुछ तैयार ताकि आप निर्माण पर ध्यान केंद्रित कर सकें।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Setup git repo, CI/CD, dev environment, dependencies, testing tools, IDE configs. Ready to code.",
+            "book": "Setup writing tools (Scrivener, Google Docs), backup system, format template, reference/citation system.",
+            "movie": "Prepare technical equipment, hire crew, secure locations, permits, insurance, shooting schedule, file organization system.",
+            "marketing": "Setup platform accounts, analytics tools, CRM, shared calendars, content templates, approval workflows.",
+            "product": "Prepare CAD tools, hire manufacturer/supplier, setup quality control, inventory system, logistics."
+          }
+        }
       },
       "build": {
         "name": "निर्माण करें",
         "version": "v0.4.x",
         "desc": "समाधान बनाएं/बनाएं",
-        "detail": "बनाने का समय। घटकों को लागू करें, कोड लिखें, सामग्री विकसित करें। अनुबंधों का पालन करें, जाते समय परीक्षण करें, परिवर्तनों का दस्तावेज़ीकरण करें। अधिकांश काम यहां होता है।"
+        "detail": "बनाने का समय। घटकों को लागू करें, कोड लिखें, सामग्री विकसित करें। अनुबंधों का पालन करें, जाते समय परीक्षण करें, परिवर्तनों का दस्तावेज़ीकरण करें। अधिकांश काम यहां होता है।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Write code, implement features, create UI, integrate APIs. Frequent commits, test as you develop.",
+            "book": "Write content chapter by chapter. Regular writing sessions, continuous review, maintain narrative coherence.",
+            "movie": "Shoot according to plan. Capture scenes, direct actors, record audio, make creative decisions on set. Daily footage backup.",
+            "marketing": "Create content, design graphics, write copy, schedule posts, prepare emails, produce videos. Execute per calendar.",
+            "product": "Manufacture prototypes, iterate design, produce initial batch, continuous refinement based on prototype feedback."
+          }
+        }
       },
       "validate": {
         "name": "मान्य करें",
         "version": "v0.5.x",
         "desc": "गुणवत्ता सत्यापित करें, परीक्षण करें",
-        "detail": "गुणवत्ता सुनिश्चित करें। व्यापक परीक्षण चलाएं, मानदंड के खिलाफ मान्य करें, प्रदर्शन जांचें। पाई गई समस्याओं को ठीक करें। केवल तभी आगे बढ़ें जब वैलिडेशन पास हो।"
+        "detail": "गुणवत्ता सुनिश्चित करें। व्यापक परीक्षण चलाएं, मानदंड के खिलाफ मान्य करें, प्रदर्शन जांचें। पाई गई समस्याओं को ठीक करें। केवल तभी आगे बढ़ें जब वैलिडेशन पास हो।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Unit tests, integration, E2E. User testing, performance, security. Fix found bugs.",
+            "book": "Editorial review, fact-checking, beta reader feedback, style correction, coherence verification.",
+            "movie": "Editing, color grading, audio mixing, test screenings, adjustments per feedback, technical quality control.",
+            "marketing": "A/B testing of messages, material review, validation with audience sample, content adjustments.",
+            "product": "Quality testing, durability tests, required certifications, beta user feedback, final adjustments."
+          }
+        }
       },
       "market": {
         "name": "मार्केट करें",
         "version": "v0.6.x",
         "desc": "लॉन्च सामग्री तैयार करें",
-        "detail": "साझा करने के लिए तैयार हों। मार्केटिंग सामग्री बनाएं, डॉक्यूमेंटेशन तैयार करें, लॉन्च रणनीति की योजना बनाएं। लॉन्च से पहले जागरूकता बनाएं।"
+        "detail": "साझा करने के लिए तैयार हों। मार्केटिंग सामग्री बनाएं, डॉक्यूमेंटेशन तैयार करें, लॉन्च रणनीति की योजना बनाएं। लॉन्च से पहले जागरूकता बनाएं।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Create landing page, docs, demo video, launch plan on ProductHunt/HackerNews, press kit, social media strategy.",
+            "book": "Prepare synopsis, promotional materials, contact reviewers, launch plan, social media presence, events.",
+            "movie": "Trailer, poster, press kit, festival submissions, distribution strategy, social media campaign, interviews.",
+            "marketing": "Warm up audience, teaser content, buzz building, partnerships, influencer outreach, pre-launch announcements.",
+            "product": "Product materials, professional photography, demo videos, launch strategy, retailer partnerships."
+          }
+        }
       },
       "launch": {
         "name": "लॉन्च करें",
         "version": "v0.7.x",
         "desc": "तैनात करें, सक्रिय करें, लाइव करें",
-        "detail": "इसे सार्वजनिक करें। प्रोडक्शन में तैनात करें, उपयोगकर्ताओं को घोषणा करें, प्रारंभिक प्रतिक्रिया की निगरानी करें। लॉन्च डे निष्पादन और तत्काल फॉलो-अप।"
+        "detail": "इसे सार्वजनिक करें। प्रोडक्शन में तैनात करें, उपयोगकर्ताओं को घोषणा करें, प्रारंभिक प्रतिक्रिया की निगरानी करें। लॉन्च डे निष्पादन और तत्काल फॉलो-अप।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Deploy to production, announce on all channels, monitor metrics, respond to initial users, hotfixes if needed.",
+            "book": "Official publication, presentation tour, interviews, active promotion, monitor sales and reviews.",
+            "movie": "Official premiere, premiere event, distribution to theaters/platforms, active promotion, monitor reactions and sales.",
+            "marketing": "Launch full campaign, execute all channels simultaneously, monitor real-time performance, respond to audience.",
+            "product": "Market launch, availability in sales channels, active promotion, monitor inventory and initial feedback."
+          }
+        }
       },
       "support": {
         "name": "समर्थन करें",
         "version": "v0.8.x",
         "desc": "बनाए रखें, मुद्दे ठीक करें",
-        "detail": "इसे चलाते रहें। बग रिपोर्ट को संभालें, उपयोगकर्ताओं का जवाब दें, स्थिरता बनाए रखें। महत्वपूर्ण सुधार और तत्काल समर्थन। विश्वास बनाएं।"
+        "detail": "इसे चलाते रहें। बग रिपोर्ट को संभालें, उपयोगकर्ताओं का जवाब दें, स्थिरता बनाए रखें। महत्वपूर्ण सुधार और तत्काल समर्थन। विश्वास बनाएं।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Respond to bug reports, monitor uptime, update docs per frequent questions, user support.",
+            "book": "Respond to readers, manage reviews, correct errata for next editions, follow-up events.",
+            "movie": "Manage ongoing distribution, respond to feedback, technical corrections if needed, Q&A events.",
+            "marketing": "Monitor metrics, optimize underperforming elements, respond to audience, manage crises if they arise.",
+            "product": "Customer service, handling returns/complaints, production corrections, restock per demand."
+          }
+        }
       },
       "evolve": {
         "name": "विकसित करें",
         "version": "v0.9.x",
         "desc": "सुधार करें, अनुकूलित करें, बढ़ें",
-        "detail": "इसे बेहतर बनाएं। सुविधाएं जोड़ें, प्रदर्शन अनुकूलित करें, प्रतिक्रिया पर प्रतिक्रिया दें। अगले संस्करण की योजना बनाएं। निरंतर सुधार चक्र।"
+        "detail": "इसे बेहतर बनाएं। सुविधाएं जोड़ें, प्रदर्शन अनुकूलित करें, प्रतिक्रिया पर प्रतिक्रिया दें। अगले संस्करण की योजना बनाएं। निरंतर सुधार चक्र।",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Add requested features, optimize performance, refactor code, plan v2.0 based on feedback.",
+            "book": "Revised edition with improvements, additional content, adaptations to other formats, plan next book.",
+            "movie": "Director's cut, extra content, adaptations, sequels or spin-offs based on success.",
+            "marketing": "Follow-up campaigns, retargeting, continuous optimization, expansion to new channels, message iteration.",
+            "product": "Design improvements, new variants, cost optimization, product line expansion."
+          }
+        }
       }
     },
     "intro": "ADW विकास को 10 क्रमिक चरणों में संरचित करता है। प्रत्येक चरण में स्पष्ट उद्देश्य, विशिष्ट परिणाम और निकास मानदंड हैं। आप वर्तमान चरण को पूरा करने तक आगे नहीं बढ़ सकते। यह सुनिश्चित करता है कि परियोजना के हर पहलू को आवश्यक ध्यान मिले।"

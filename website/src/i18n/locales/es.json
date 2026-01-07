@@ -216,61 +216,161 @@
         "name": "DEFINIR",
         "version": "v0.0.x",
         "desc": "Define problema, objetivos, alcance",
-        "detail": "Comienza con claridad. ¿Qué problema estás resolviendo? ¿Cuáles son tus objetivos? ¿Qué está dentro del alcance, qué no? Documenta restricciones y criterios de éxito. Fundamento para todo lo que sigue."
+        "detail": "Comienza con claridad. ¿Qué problema estás resolviendo? ¿Cuáles son tus objetivos? ¿Qué está dentro del alcance, qué no? Documenta restricciones y criterios de éxito. Fundamento para todo lo que sigue.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Define el problema que resuelve tu app, objetivos (ej: reducir tiempo de onboarding 50%), alcance (características v1.0 vs futuras), restricciones técnicas.",
+            "book": "Define el tema central, mensaje clave, audiencia objetivo, estructura (capítulos vs partes), alcance (número de páginas, profundidad temática).",
+            "movie": "Define la premisa, género, público objetivo, tono/estilo, duración objetivo, restricciones presupuestarias.",
+            "marketing": "Define objetivos de campaña (KPIs), audiencia objetivo, mensaje central, canales a usar/evitar, presupuesto y timeline.",
+            "product": "Define el problema del usuario, características clave del producto, materiales/restricciones de fabricación, mercado objetivo, precio objetivo."
+          }
+        }
       },
       "discover": {
         "name": "DESCUBRIR",
         "version": "v0.1.x",
         "desc": "Investiga opciones, viabilidad",
-        "detail": "Investiga y explora. Recopila requisitos, identifica riesgos, evalúa viabilidad. ¿Qué ya existe? ¿Qué enfoques son posibles? Toma decisiones informadas antes de comprometerte."
+        "detail": "Investiga y explora. Recopila requisitos, identifica riesgos, evalúa viabilidad. ¿Qué ya existe? ¿Qué enfoques son posibles? Toma decisiones informadas antes de comprometerte.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Investiga competidores, tecnologías disponibles, frameworks, APIs existentes. Evalúa viabilidad técnica, riesgos, requisitos de equipo.",
+            "book": "Investiga libros similares, tendencias del mercado, editoriales potenciales. Lee referencias, entrevista expertos si aplica.",
+            "movie": "Investiga películas del género, referencias visuales, locaciones posibles, actores disponibles, equipos técnicos necesarios.",
+            "marketing": "Analiza competencia, tendencias del mercado, comportamiento de audiencia, canales efectivos, casos de éxito similares.",
+            "product": "Investiga productos competidores, materiales disponibles, procesos de fabricación, proveedores, regulaciones aplicables."
+          }
+        }
       },
       "design": {
         "name": "DISEÑAR",
         "version": "v0.2.x",
         "desc": "Diseña solución, arquitectura",
-        "detail": "Planifica antes de construir. Diseña tu solución, define arquitectura, especifica interfaces. Toma decisiones clave documentadas. Listo para implementar con confianza."
+        "detail": "Planifica antes de construir. Diseña tu solución, define arquitectura, especifica interfaces. Toma decisiones clave documentadas. Listo para implementar con confianza.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Diseña arquitectura del sistema, base de datos, APIs, flujos de usuario (wireframes), componentes principales. Documenta decisiones técnicas.",
+            "book": "Diseña estructura detallada: tabla de contenidos, outline de cada capítulo, arcos narrativos si aplica, flujo de ideas, conexiones entre secciones.",
+            "movie": "Crea scaletta detallada, diseño de personajes, storyboards clave, paleta de colores, estética visual, plan de rodaje.",
+            "marketing": "Diseña estrategia: mensajes por canal, calendario de contenidos, diseño visual de materiales, customer journey, métricas a medir.",
+            "product": "Diseña bocetos, renders 3D, especificaciones técnicas detalladas, materiales exactos, proceso de fabricación, empaquetado."
+          }
+        }
       },
       "setup": {
         "name": "CONFIGURAR",
         "version": "v0.3.x",
         "desc": "Prepara herramientas, entorno",
-        "detail": "Organízate. Configura herramientas, prepara el entorno, define criterios de validación. Todo listo para que puedas enfocarte en construir."
+        "detail": "Organízate. Configura herramientas, prepara el entorno, define criterios de validación. Todo listo para que puedas enfocarte en construir.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Configura repo git, CI/CD, entorno de desarrollo, dependencias, herramientas de testing, IDE configs. Todo listo para codificar.",
+            "book": "Configura herramientas de escritura (Scrivener, Google Docs), sistema de backup, plantilla de formato, sistema de referencias/citas.",
+            "movie": "Prepara equipo técnico, contrata crew, asegura locaciones, permisos, seguros, schedule de rodaje, sistema de organización de archivos.",
+            "marketing": "Configura cuentas en plataformas, herramientas de analytics, CRM, calendarios compartidos, templates de contenido, workflows de aprobación.",
+            "product": "Prepara herramientas CAD, contrata fabricante/proveedor, configura control de calidad, sistema de inventory, logística."
+          }
+        }
       },
       "build": {
         "name": "CONSTRUIR",
         "version": "v0.4.x",
         "desc": "Construye/crea la solución",
-        "detail": "Hora de crear. Implementa componentes, escribe código, desarrolla contenido. Sigue los contratos, prueba mientras avanzas, documenta cambios. El grueso del trabajo ocurre aquí."
+        "detail": "Hora de crear. Implementa componentes, escribe código, desarrolla contenido. Sigue los contratos, prueba mientras avanzas, documenta cambios. El grueso del trabajo ocurre aquí.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Escribe código, implementa features, crea UI, integra APIs. Commits frecuentes, tests mientras desarrollas.",
+            "book": "Escribe el contenido capítulo por capítulo. Sesiones de escritura regulares, revisión continua, mantén coherencia narrativa.",
+            "movie": "Rodaje según plan. Captura escenas, dirige actores, graba audio, toma decisiones creativas en set. Backup diario de footage.",
+            "marketing": "Crea contenidos, diseña gráficos, escribe copy, programa posts, prepara emails, produce videos. Ejecuta según calendario.",
+            "product": "Fabrica prototipos, itera diseño, produce lote inicial, refinamiento continuo según feedback de prototipos."
+          }
+        }
       },
       "validate": {
         "name": "VALIDAR",
         "version": "v0.5.x",
         "desc": "Verifica calidad, pruebas",
-        "detail": "Asegura la calidad. Ejecuta pruebas exhaustivas, valida contra criterios, verifica rendimiento. Corrige problemas encontrados. Solo procede cuando la validación pase."
+        "detail": "Asegura la calidad. Ejecuta pruebas exhaustivas, valida contra criterios, verifica rendimiento. Corrige problemas encontrados. Solo procede cuando la validación pase.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Tests unitarios, integración, E2E. Pruebas de usuario, performance, seguridad. Fix bugs encontrados.",
+            "book": "Revisión editorial, fact-checking, lectura beta readers, corrección de estilo, verificación de coherencia.",
+            "movie": "Edición, color grading, mezcla de audio, test screenings, ajustes según feedback, control de calidad técnico.",
+            "marketing": "A/B testing de mensajes, revisión de materiales, validación con muestra de audiencia, ajustes de contenido.",
+            "product": "Testing de calidad, pruebas de durabilidad, certificaciones requeridas, feedback de usuarios beta, ajustes finales."
+          }
+        }
       },
       "market": {
         "name": "MERCADEO",
         "version": "v0.6.x",
         "desc": "Prepara materiales de lanzamiento",
-        "detail": "Prepárate para compartir. Crea materiales de marketing, prepara documentación, planifica estrategia de lanzamiento. Genera conciencia antes del lanzamiento."
+        "detail": "Prepárate para compartir. Crea materiales de marketing, prepara documentación, planifica estrategia de lanzamiento. Genera conciencia antes del lanzamiento.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Crea landing page, docs, video demo, plan de lanzamiento en ProductHunt/HackerNews, press kit, social media strategy.",
+            "book": "Prepara sinopsis, materiales promocionales, contacta reviewers, plan de lanzamiento, presencia en redes, eventos.",
+            "movie": "Trailer, poster, press kit, submissions a festivales, estrategia de distribución, campaña en redes, entrevistas.",
+            "marketing": "Calienta audiencia, teaser content, buzz building, partnerships, influencer outreach, pre-launch announcements.",
+            "product": "Materiales de producto, fotograía profesional, videos demostrativos, estrategia de lanzamiento, partnerships con retailers."
+          }
+        }
       },
       "launch": {
         "name": "LANZAR",
         "version": "v0.7.x",
         "desc": "Despliega, activa, en vivo",
-        "detail": "Hazlo público. Despliega a producción, anuncia a usuarios, monitorea respuesta inicial. Ejecución del día de lanzamiento y seguimiento inmediato."
+        "detail": "Hazlo público. Despliega a producción, anuncia a usuarios, monitorea respuesta inicial. Ejecución del día de lanzamiento y seguimiento inmediato.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Deploy a producción, anuncia en todos los canales, monitorea métricas, responde a usuarios iniciales, hotfixes si necesario.",
+            "book": "Publicación oficial, tour de presentaciones, entrevistas, promoción activa, monitorea ventas y reviews.",
+            "movie": "Estreno oficial, premiere, distribución a cines/plataformas, promoción activa, monitorea reacciones y ventas.",
+            "marketing": "Lanza campaña completa, ejecuta todos los canales simultáneamente, monitorea rendimiento en tiempo real, responde a audiencia.",
+            "product": "Lanzamiento a mercado, disponibilidad en canales de venta, promoción activa, monitorea inventario y feedback inicial."
+          }
+        }
       },
       "support": {
         "name": "SOPORTE",
         "version": "v0.8.x",
         "desc": "Mantiene, corrige problemas",
-        "detail": "Manténlo funcionando. Maneja reportes de errores, responde a usuarios, mantén estabilidad. Correcciones críticas y soporte inmediato. Genera confianza."
+        "detail": "Manténlo funcionando. Maneja reportes de errores, responde a usuarios, mantén estabilidad. Correcciones críticas y soporte inmediato. Genera confianza.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Responde reportes de bugs, monitorea uptime, actualiza docs según preguntas frecuentes, soporte a usuarios.",
+            "book": "Responde a lectores, gestiona reviews, corrige erratas para siguientes ediciones, eventos de seguimiento.",
+            "movie": "Gestiona distribución continua, responde a feedback, correcciones técnicas si necesario, eventos de Q&A.",
+            "marketing": "Monitorea métricas, optimiza elementos bajo rendimiento, responde a audiencia, gestiona crisis si surgen.",
+            "product": "Servicio al cliente, manejo de devoluciones/quejas, correcciones de producción, restock según demanda."
+          }
+        }
       },
       "evolve": {
         "name": "EVOLUCIONAR",
         "version": "v0.9.x",
         "desc": "Mejora, optimiza, crece",
-        "detail": "Hazlo mejor. Agrega características, optimiza rendimiento, responde a retroalimentación. Planifica la próxima versión. Ciclo de mejora continua."
+        "detail": "Hazlo mejor. Agrega características, optimiza rendimiento, responde a retroalimentación. Planifica la próxima versión. Ciclo de mejora continua.",
+        "examples": {
+          "title": "Ejemplos por dominio",
+          "items": {
+            "software": "Agrega features pedidas, optimiza performance, refactoriza código, planifica v2.0 basado en feedback.",
+            "book": "Edición revisada con mejoras, contenido adicional, adaptaciones a otros formatos, planifica siguiente libro.",
+            "movie": "Director's cut, contenido extra, adaptaciones, secuelas o spin-offs basados en éxito.",
+            "marketing": "Campañas de seguimiento, retargeting, optimización continua, expansión a nuevos canales, iteración de mensaje.",
+            "product": "Mejoras de diseño, nuevas variantes, optimización de costos, expansión de línea de producto."
+          }
+        }
       }
     }
   },

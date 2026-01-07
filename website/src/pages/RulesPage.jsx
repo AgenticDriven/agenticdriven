@@ -162,6 +162,33 @@ function RulesPage({ onNavigate }) {
                       </div>
                       <p className="phase-desc">{t(`workflow.phases.${phaseKey}.desc`)}</p>
                       <p className="phase-detail">{t(`workflow.phases.${phaseKey}.detail`)}</p>
+
+                      {/* Domain Examples */}
+                      <div className="phase-examples">
+                        <h4 className="examples-title">{t(`workflow.phases.${phaseKey}.examples.title`)}</h4>
+                        <div className="examples-grid">
+                          <div className="example-item">
+                            <div className="example-label">💻 Software</div>
+                            <p className="example-text">{t(`workflow.phases.${phaseKey}.examples.items.software`)}</p>
+                          </div>
+                          <div className="example-item">
+                            <div className="example-label">📚 Book</div>
+                            <p className="example-text">{t(`workflow.phases.${phaseKey}.examples.items.book`)}</p>
+                          </div>
+                          <div className="example-item">
+                            <div className="example-label">🎬 Movie Script</div>
+                            <p className="example-text">{t(`workflow.phases.${phaseKey}.examples.items.movie`)}</p>
+                          </div>
+                          <div className="example-item">
+                            <div className="example-label">📊 Marketing Plan</div>
+                            <p className="example-text">{t(`workflow.phases.${phaseKey}.examples.items.marketing`)}</p>
+                          </div>
+                          <div className="example-item">
+                            <div className="example-label">📦 Physical Product</div>
+                            <p className="example-text">{t(`workflow.phases.${phaseKey}.examples.items.product`)}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>

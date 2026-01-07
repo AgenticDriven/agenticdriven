@@ -195,61 +195,161 @@
         "name": "定义",
         "version": "v0.0.x",
         "desc": "定义问题、目标、范围",
-        "detail": "从清晰开始。您要解决什么问题?您的目标是什么?什么在范围内,什么不在?记录约束和成功标准。为后续一切奠定基础。"
+        "detail": "从清晰开始。您要解决什么问题?您的目标是什么?什么在范围内,什么不在?记录约束和成功标准。为后续一切奠定基础。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Define the problem your app solves, objectives (e.g.: reduce onboarding time 50%), scope (v1.0 features vs future), technical constraints.",
+            "book": "Define central theme, key message, target audience, structure (chapters vs parts), scope (page count, thematic depth).",
+            "movie": "Define premise, genre, target audience, tone/style, target duration, budget constraints.",
+            "marketing": "Define campaign objectives (KPIs), target audience, central message, channels to use/avoid, budget and timeline.",
+            "product": "Define user problem, key product features, material/manufacturing constraints, target market, target price point."
+          }
+        }
       },
       "discover": {
         "name": "探索",
         "version": "v0.1.x",
         "desc": "调查选项、可行性",
-        "detail": "研究和探索。收集需求,识别风险,评估可行性。已有什么?哪些方法可行?做出明智决定后再承诺。"
+        "detail": "研究和探索。收集需求,识别风险,评估可行性。已有什么?哪些方法可行?做出明智决定后再承诺。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Research competitors, available technologies, frameworks, existing APIs. Evaluate technical viability, risks, team requirements.",
+            "book": "Research similar books, market trends, potential publishers. Read references, interview experts if applicable.",
+            "movie": "Research genre films, visual references, possible locations, available actors, required technical crews.",
+            "marketing": "Analyze competition, market trends, audience behavior, effective channels, similar success cases.",
+            "product": "Research competitor products, available materials, manufacturing processes, suppliers, applicable regulations."
+          }
+        }
       },
       "design": {
         "name": "设计",
         "version": "v0.2.x",
         "desc": "设计解决方案、架构",
-        "detail": "先规划后构建。设计解决方案,定义架构,指定接口。做出关键决策并记录。准备好自信地实施。"
+        "detail": "先规划后构建。设计解决方案,定义架构,指定接口。做出关键决策并记录。准备好自信地实施。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Design system architecture, database, APIs, user flows (wireframes), main components. Document technical decisions.",
+            "book": "Design detailed structure: table of contents, chapter outlines, narrative arcs if applicable, idea flow, connections between sections.",
+            "movie": "Create detailed scaletta, character design, key storyboards, color palette, visual aesthetic, shooting plan.",
+            "marketing": "Design strategy: messages per channel, content calendar, visual material design, customer journey, metrics to measure.",
+            "product": "Design sketches, 3D renders, detailed technical specifications, exact materials, manufacturing process, packaging."
+          }
+        }
       },
       "setup": {
         "name": "配置",
         "version": "v0.3.x",
         "desc": "准备工具、环境",
-        "detail": "做好组织。配置工具,设置环境,定义验证标准。一切就绪,专注构建。"
+        "detail": "做好组织。配置工具,设置环境,定义验证标准。一切就绪,专注构建。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Setup git repo, CI/CD, dev environment, dependencies, testing tools, IDE configs. Ready to code.",
+            "book": "Setup writing tools (Scrivener, Google Docs), backup system, format template, reference/citation system.",
+            "movie": "Prepare technical equipment, hire crew, secure locations, permits, insurance, shooting schedule, file organization system.",
+            "marketing": "Setup platform accounts, analytics tools, CRM, shared calendars, content templates, approval workflows.",
+            "product": "Prepare CAD tools, hire manufacturer/supplier, setup quality control, inventory system, logistics."
+          }
+        }
       },
       "build": {
         "name": "构建",
         "version": "v0.4.x",
         "desc": "构建/创建解决方案",
-        "detail": "开始创作。实现组件,编写代码,开发内容。遵循契约,边做边测,记录更改。大部分工作在这里完成。"
+        "detail": "开始创作。实现组件,编写代码,开发内容。遵循契约,边做边测,记录更改。大部分工作在这里完成。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Write code, implement features, create UI, integrate APIs. Frequent commits, test as you develop.",
+            "book": "Write content chapter by chapter. Regular writing sessions, continuous review, maintain narrative coherence.",
+            "movie": "Shoot according to plan. Capture scenes, direct actors, record audio, make creative decisions on set. Daily footage backup.",
+            "marketing": "Create content, design graphics, write copy, schedule posts, prepare emails, produce videos. Execute per calendar.",
+            "product": "Manufacture prototypes, iterate design, produce initial batch, continuous refinement based on prototype feedback."
+          }
+        }
       },
       "validate": {
         "name": "验证",
         "version": "v0.5.x",
         "desc": "验证质量、测试",
-        "detail": "确保质量。运行全面测试,根据标准验证,检查性能。修复发现的问题。只有验证通过才继续。"
+        "detail": "确保质量。运行全面测试,根据标准验证,检查性能。修复发现的问题。只有验证通过才继续。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Unit tests, integration, E2E. User testing, performance, security. Fix found bugs.",
+            "book": "Editorial review, fact-checking, beta reader feedback, style correction, coherence verification.",
+            "movie": "Editing, color grading, audio mixing, test screenings, adjustments per feedback, technical quality control.",
+            "marketing": "A/B testing of messages, material review, validation with audience sample, content adjustments.",
+            "product": "Quality testing, durability tests, required certifications, beta user feedback, final adjustments."
+          }
+        }
       },
       "market": {
         "name": "营销",
         "version": "v0.6.x",
         "desc": "准备发布材料",
-        "detail": "准备分享。创建营销材料,准备文档,规划发布策略。发布前建立认知度。"
+        "detail": "准备分享。创建营销材料,准备文档,规划发布策略。发布前建立认知度。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Create landing page, docs, demo video, launch plan on ProductHunt/HackerNews, press kit, social media strategy.",
+            "book": "Prepare synopsis, promotional materials, contact reviewers, launch plan, social media presence, events.",
+            "movie": "Trailer, poster, press kit, festival submissions, distribution strategy, social media campaign, interviews.",
+            "marketing": "Warm up audience, teaser content, buzz building, partnerships, influencer outreach, pre-launch announcements.",
+            "product": "Product materials, professional photography, demo videos, launch strategy, retailer partnerships."
+          }
+        }
       },
       "launch": {
         "name": "发布",
         "version": "v0.7.x",
         "desc": "部署、激活、上线",
-        "detail": "公之于众。部署到生产环境,向用户发布,监控初始反应。发布日执行和即时跟进。"
+        "detail": "公之于众。部署到生产环境,向用户发布,监控初始反应。发布日执行和即时跟进。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Deploy to production, announce on all channels, monitor metrics, respond to initial users, hotfixes if needed.",
+            "book": "Official publication, presentation tour, interviews, active promotion, monitor sales and reviews.",
+            "movie": "Official premiere, premiere event, distribution to theaters/platforms, active promotion, monitor reactions and sales.",
+            "marketing": "Launch full campaign, execute all channels simultaneously, monitor real-time performance, respond to audience.",
+            "product": "Market launch, availability in sales channels, active promotion, monitor inventory and initial feedback."
+          }
+        }
       },
       "support": {
         "name": "支持",
         "version": "v0.8.x",
         "desc": "维护、修复问题",
-        "detail": "保持运行。处理错误报告,响应用户,维护稳定性。关键修复和即时支持。建立信心。"
+        "detail": "保持运行。处理错误报告,响应用户,维护稳定性。关键修复和即时支持。建立信心。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Respond to bug reports, monitor uptime, update docs per frequent questions, user support.",
+            "book": "Respond to readers, manage reviews, correct errata for next editions, follow-up events.",
+            "movie": "Manage ongoing distribution, respond to feedback, technical corrections if needed, Q&A events.",
+            "marketing": "Monitor metrics, optimize underperforming elements, respond to audience, manage crises if they arise.",
+            "product": "Customer service, handling returns/complaints, production corrections, restock per demand."
+          }
+        }
       },
       "evolve": {
         "name": "进化",
         "version": "v0.9.x",
         "desc": "改进、优化、成长",
-        "detail": "让它更好。添加功能,优化性能,响应反馈。规划下一个版本。持续改进循环。"
+        "detail": "让它更好。添加功能,优化性能,响应反馈。规划下一个版本。持续改进循环。",
+        "examples": {
+          "title": "Examples by Domain",
+          "items": {
+            "software": "Add requested features, optimize performance, refactor code, plan v2.0 based on feedback.",
+            "book": "Revised edition with improvements, additional content, adaptations to other formats, plan next book.",
+            "movie": "Director's cut, extra content, adaptations, sequels or spin-offs based on success.",
+            "marketing": "Follow-up campaigns, retargeting, continuous optimization, expansion to new channels, message iteration.",
+            "product": "Design improvements, new variants, cost optimization, product line expansion."
+          }
+        }
       }
     },
     "intro": "ADW将开发结构化为10个连续阶段。每个阶段都有明确的目标、具体的交付成果和退出标准。在完成当前阶段之前无法前进。这确保了项目的每个方面都得到必要的关注。"
