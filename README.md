@@ -9,6 +9,9 @@ AD (Agentic Driven) is a structured methodology for building projects with AI ag
 
 🌐 **Website**: [agenticdriven.dev](https://agenticdriven.dev)
 
+> [!TIP]
+> New to AD? Start with the [Quick Start](#-quick-start) guide below to set up your first project in minutes.
+
 ## ✨ Features
 
 - **13 Core Principles** - From Agentic Driven to Proven Solutions First
@@ -19,6 +22,9 @@ AD (Agentic Driven) is a structured methodology for building projects with AI ag
 - **IDE Integrations** - Pre-configured for Cursor, Claude Code, Windsurf, GitHub Copilot, Aider, Continue
 
 ## 🚀 Quick Start
+
+> [!TIP]
+> Choose the IDE you're already using. All configurations follow the same AD principles.
 
 ### 1. Download IDE Configuration
 
@@ -70,19 +76,48 @@ git commit -m "feat: define project objectives"
 
 ## 🔄 10 Phases
 
+```mermaid
+graph LR
+    A[v0.0.x<br/>DEFINE] --> B[v0.1.x<br/>DISCOVER]
+    B --> C[v0.2.x<br/>DESIGN]
+    C --> D[v0.3.x<br/>SETUP]
+    D --> E[v0.4.x<br/>BUILD]
+    E --> F[v0.5.x<br/>VALIDATE]
+    F --> G[v0.6.x<br/>MARKET]
+    G --> H[v0.7.x<br/>LAUNCH]
+    H --> I[v0.8.x<br/>SUPPORT]
+    I --> J[v0.9.x<br/>EVOLVE]
+    J --> K[v1.0.0<br/>RELEASE]
+
+    style A fill:#e1f5ff
+    style B fill:#e1f5ff
+    style C fill:#fff4e1
+    style D fill:#fff4e1
+    style E fill:#e8f5e9
+    style F fill:#e8f5e9
+    style G fill:#f3e5f5
+    style H fill:#f3e5f5
+    style I fill:#ffe1e1
+    style J fill:#ffe1e1
+    style K fill:#ffd700
 ```
-v0.0.x → DEFINE      Define problem, objectives, scope
-v0.1.x → DISCOVER    Investigate options, viability
-v0.2.x → DESIGN      Design solution, architecture
-v0.3.x → SETUP       Prepare tools, environment
-v0.4.x → BUILD       Build/create solution
-v0.5.x → VALIDATE    Verify quality, testing
-v0.6.x → MARKET      Prepare launch materials
-v0.7.x → LAUNCH      Deploy, activate, go-live
-v0.8.x → SUPPORT     Maintain, fix issues
-v0.9.x → EVOLVE      Improve, optimize, grow
-v1.0.0 → RELEASE     First stable version
-```
+
+> [!IMPORTANT]
+> Each phase has specific exit criteria that must be met before advancing. This ensures quality and prevents rushing through important steps.
+
+| Phase | Version | Description |
+|-------|---------|-------------|
+| DEFINE | v0.0.x | Define problem, objectives, scope |
+| DISCOVER | v0.1.x | Investigate options, viability |
+| DESIGN | v0.2.x | Design solution, architecture |
+| SETUP | v0.3.x | Prepare tools, environment |
+| BUILD | v0.4.x | Build/create solution |
+| VALIDATE | v0.5.x | Verify quality, testing |
+| MARKET | v0.6.x | Prepare launch materials |
+| LAUNCH | v0.7.x | Deploy, activate, go-live |
+| SUPPORT | v0.8.x | Maintain, fix issues |
+| EVOLVE | v0.9.x | Improve, optimize, grow |
+| RELEASE | v1.0.0 | First stable version |
 
 ## 🏗️ Project Structure
 
@@ -101,6 +136,9 @@ project-root/
 ```
 
 ## 🌍 Universal Domains
+
+> [!NOTE]
+> AD adapts to your domain. The phases and principles stay the same, but the terminology and deliverables adjust to your context.
 
 AD 1.0 works for any domain:
 
@@ -134,6 +172,9 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 - **Website**: [agenticdriven.dev](https://agenticdriven.dev)
 
 ## 📋 Requirements
+
+> [!NOTE]
+> AD is tool-agnostic. Use any AI assistant that works for you.
 
 - Git for version control
 - AI IDE (Cursor, Claude Code, Windsurf, etc.) or AI assistant
