@@ -3,6 +3,7 @@ import './App.css'
 
 function App() {
   const [selectedWorkflowPhase, setSelectedWorkflowPhase] = useState(null)
+  const [selectedIDE, setSelectedIDE] = useState(null)
 
   const principles = [
     {
@@ -276,7 +277,11 @@ function App() {
             <div className="ide-logos-label">Pre-configured for:</div>
             <div className="ide-logos-grid">
               {ides.map((ide) => (
-                <div key={ide.name} className="ide-logo-item">
+                <div
+                  key={ide.name}
+                  className="ide-logo-item clickable"
+                  onClick={() => setSelectedIDE(ide)}
+                >
                   <span className="ide-logo-icon">{ide.icon}</span>
                   <span className="ide-logo-name">{ide.name}</span>
                 </div>
@@ -580,6 +585,42 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* IDE Download Modal */}
+      {selectedIDE && (
+        <div className="modal-overlay" onClick={() => setSelectedIDE(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelectedIDE(null)}>
+              ×
+            </button>
+            <div className="modal-header">
+              <span className="modal-icon">{selectedIDE.icon}</span>
+              <h3 className="modal-title">{selectedIDE.name}</h3>
+            </div>
+            <p className="modal-desc">Choose how to get the configuration file:</p>
+            <div className="modal-filename">{selectedIDE.file}</div>
+            <div className="modal-actions">
+              <a
+                href={`https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/${selectedIDE.file}`}
+                className="modal-btn modal-btn-view"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>👁️</span>
+                <span>View Raw</span>
+              </a>
+              <a
+                href={`https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/${selectedIDE.file}`}
+                className="modal-btn modal-btn-download"
+                download
+              >
+                <span>⬇️</span>
+                <span>Download</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
