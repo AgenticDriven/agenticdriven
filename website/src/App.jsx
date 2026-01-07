@@ -208,7 +208,7 @@ function App() {
         <div className="container">
           <div className="hero-badge">Now Available</div>
           <h1 className="hero-title">
-            Agentic Driven
+            Agentic Driven Workflow
             <span className="version-badge">1.0</span>
           </h1>
           <p className="hero-subtitle">
@@ -218,6 +218,33 @@ function App() {
             13 principles • 10 phases • Universal framework<br/>
             From idea to launch with AI agents
           </p>
+
+          <div className="ai-logos">
+            <div className="ai-logos-label">Works with leading AI assistants:</div>
+            <div className="ai-logos-grid">
+              <div className="ai-logo">
+                <span className="ai-logo-icon">🤖</span>
+                <span className="ai-logo-name">Claude</span>
+              </div>
+              <div className="ai-logo">
+                <span className="ai-logo-icon">💬</span>
+                <span className="ai-logo-name">ChatGPT</span>
+              </div>
+              <div className="ai-logo">
+                <span className="ai-logo-icon">✨</span>
+                <span className="ai-logo-name">Gemini</span>
+              </div>
+              <div className="ai-logo">
+                <span className="ai-logo-icon">🔷</span>
+                <span className="ai-logo-name">Copilot</span>
+              </div>
+              <div className="ai-logo">
+                <span className="ai-logo-icon">🔮</span>
+                <span className="ai-logo-name">Perplexity</span>
+              </div>
+            </div>
+          </div>
+
           <div className="hero-cta">
             <a href="#quick-start" className="btn btn-primary">
               <span>Get Started</span>
@@ -242,6 +269,18 @@ function App() {
             <div className="stat">
               <div className="stat-value">6</div>
               <div className="stat-label">IDE Integrations</div>
+            </div>
+          </div>
+
+          <div className="ide-logos">
+            <div className="ide-logos-label">Pre-configured for:</div>
+            <div className="ide-logos-grid">
+              {ides.map((ide) => (
+                <div key={ide.name} className="ide-logo-item">
+                  <span className="ide-logo-icon">{ide.icon}</span>
+                  <span className="ide-logo-name">{ide.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

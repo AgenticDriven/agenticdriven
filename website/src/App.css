@@ -238,6 +238,136 @@ body {
   font-weight: 600;
 }
 
+/* AI Logos Section */
+.ai-logos {
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.6s ease-out 0.45s backwards;
+}
+
+.ai-logos-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.ai-logos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ai-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.9;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.ai-logo:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.ai-logo-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+}
+
+.ai-logo:hover .ai-logo-icon {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.ai-logo-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* IDE Logos Section */
+.ide-logos {
+  margin-top: 3rem;
+  animation: fadeInUp 0.6s ease-out 0.6s backwards;
+}
+
+.ide-logos-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ide-logos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ide-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.9;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.ide-logo-item:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.ide-logo-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+}
+
+.ide-logo-item:hover .ide-logo-icon {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.ide-logo-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.9;
+  text-align: center;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -1109,6 +1239,26 @@ body {
 
   .hero-stats {
     gap: 2rem;
+  }
+
+  .ai-logos-grid {
+    gap: 1.5rem;
+  }
+
+  .ai-logo-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.75rem;
+  }
+
+  .ide-logos-grid {
+    gap: 1.5rem;
+  }
+
+  .ide-logo-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.75rem;
   }
 
   .section {
