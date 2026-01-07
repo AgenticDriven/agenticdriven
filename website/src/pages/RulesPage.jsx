@@ -345,3 +345,11 @@ function RulesPage({ onNavigate }) {
 
             </main>
 
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default RulesPage
