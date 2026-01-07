@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 function RulesPage({ onNavigate }) {
   const { t } = useLanguage()
-  const [activeSection, setActiveSection] = useState('principles')
+  const [activeSection, setActiveSection] = useState('installation')
 
   // Helper to convert \n to actual line breaks
   const formatCode = (text) => {
@@ -13,7 +13,7 @@ function RulesPage({ onNavigate }) {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['getting-started', 'principles', 'phases', 'versioning', 'git-commits', 'project-structure', 'project-config', 'multi-agent', 'documentation', 'journal', 'decisions', 'contracts', 'aiWorkflow', 'exitCriteria', 'troubleshooting']
+      const sections = ['installation', 'quick-start', 'working-with-adw', 'reference', 'detailed']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -69,137 +69,47 @@ function RulesPage({ onNavigate }) {
                 <ul className="toc-list">
                   <li>
                     <button
-                      onClick={() => scrollToSection('getting-started')}
-                      className={`toc-link ${activeSection === 'getting-started' ? 'active' : ''}`}
+                      onClick={() => scrollToSection('installation')}
+                      className={`toc-link ${activeSection === 'installation' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">📥</span>
+                      <span>{t('rules.toc.installation')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('quick-start')}
+                      className={`toc-link ${activeSection === 'quick-start' ? 'active' : ''}`}
                     >
                       <span className="toc-icon">🚀</span>
-                      <span>{t('rules.toc.gettingStarted')}</span>
+                      <span>{t('rules.toc.quickStart')}</span>
                     </button>
                   </li>
                   <li>
                     <button
-                      onClick={() => scrollToSection('principles')}
-                      className={`toc-link ${activeSection === 'principles' ? 'active' : ''}`}
+                      onClick={() => scrollToSection('working-with-adw')}
+                      className={`toc-link ${activeSection === 'working-with-adw' ? 'active' : ''}`}
                     >
-                      <span className="toc-icon">⚡</span>
-                      <span>{t('rules.toc.principles')}</span>
+                      <span className="toc-icon">💻</span>
+                      <span>{t('rules.toc.workingWithADW')}</span>
                     </button>
                   </li>
                   <li>
                     <button
-                      onClick={() => scrollToSection('phases')}
-                      className={`toc-link ${activeSection === 'phases' ? 'active' : ''}`}
+                      onClick={() => scrollToSection('reference')}
+                      className={`toc-link ${activeSection === 'reference' ? 'active' : ''}`}
                     >
-                      <span className="toc-icon">🎯</span>
-                      <span>{t('rules.toc.phases')}</span>
+                      <span className="toc-icon">📖</span>
+                      <span>{t('rules.toc.reference')}</span>
                     </button>
                   </li>
                   <li>
                     <button
-                      onClick={() => scrollToSection('versioning')}
-                      className={`toc-link ${activeSection === 'versioning' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">🔖</span>
-                      <span>{t('rules.toc.versioning')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('git-commits')}
-                      className={`toc-link ${activeSection === 'git-commits' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">💾</span>
-                      <span>{t('rules.toc.gitCommits')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('project-structure')}
-                      className={`toc-link ${activeSection === 'project-structure' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">📁</span>
-                      <span>{t('rules.toc.projectStructure')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('project-config')}
-                      className={`toc-link ${activeSection === 'project-config' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">⚙️</span>
-                      <span>{t('rules.toc.projectConfig')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('multi-agent')}
-                      className={`toc-link ${activeSection === 'multi-agent' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">🤝</span>
-                      <span>{t('rules.toc.multiAgent')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('documentation')}
-                      className={`toc-link ${activeSection === 'documentation' ? 'active' : ''}`}
+                      onClick={() => scrollToSection('detailed')}
+                      className={`toc-link ${activeSection === 'detailed' ? 'active' : ''}`}
                     >
                       <span className="toc-icon">📚</span>
-                      <span>{t('rules.toc.documentation')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('journal')}
-                      className={`toc-link ${activeSection === 'journal' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">📓</span>
-                      <span>{t('rules.toc.journal')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('decisions')}
-                      className={`toc-link ${activeSection === 'decisions' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">⚖️</span>
-                      <span>{t('rules.toc.decisions')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('contracts')}
-                      className={`toc-link ${activeSection === 'contracts' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">📋</span>
-                      <span>{t('rules.toc.contracts')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('aiWorkflow')}
-                      className={`toc-link ${activeSection === 'aiWorkflow' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">🤖</span>
-                      <span>{t('rules.toc.aiWorkflow')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('exitCriteria')}
-                      className={`toc-link ${activeSection === 'exitCriteria' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">🎯</span>
-                      <span>{t('rules.toc.exitCriteria')}</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('troubleshooting')}
-                      className={`toc-link ${activeSection === 'troubleshooting' ? 'active' : ''}`}
-                    >
-                      <span className="toc-icon">🔧</span>
-                      <span>{t('rules.toc.troubleshooting')}</span>
+                      <span>{t('rules.toc.detailed')}</span>
                     </button>
                   </li>
                 </ul>
