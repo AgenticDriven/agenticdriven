@@ -610,9 +610,9 @@ function App() {
                 <span>View Raw</span>
               </a>
               <a
-                href={`https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/${selectedIDE.file}`}
+                href={`/rules/ide/${selectedIDE.file}`}
                 className="modal-btn modal-btn-download"
-                download
+                download={selectedIDE.file}
               >
                 <span>⬇️</span>
                 <span>Download</span>
