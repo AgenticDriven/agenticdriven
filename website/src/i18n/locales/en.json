@@ -20,9 +20,9 @@
   "what": {
     "title": "What is Agentic Driven?",
     "subtitle": "A structured methodology designed specifically for AI-agent collaboration",
-    "lead": "<strong>Agentic Driven (AD)</strong> is the first universal methodology created for the AI era. It provides clear structure through <strong>13 principles</strong> and <strong>10 phases</strong> that work for any project—software, content, marketing, events, and more.",
-    "p1": "Traditional methodologies like Agile and Waterfall weren't designed for AI collaboration. They assume humans write code and make every decision. AD flips this: <strong>humans define strategy, AI executes</strong>.",
-    "p2": "Whether you're building an app with Cursor, writing a book with Claude, or managing a project with Copilot, AD gives you the framework to work effectively with AI agents.",
+    "lead": "<strong>Agentic Driven Workflow (ADW)</strong> is the first universal methodology created for the AI era. It provides clear structure through <strong>13 principles</strong> and <strong>10 phases</strong> that work for any project—software, content, marketing, events, and more.",
+    "p1": "Traditional methodologies like Agile and Waterfall weren't designed for AI collaboration. They assume humans write code and make every decision. ADW flips this: <strong>humans define strategy, AI executes</strong>.",
+    "p2": "Whether you're building an app with Cursor, writing a book with Claude, or managing a project with Copilot, ADW gives you the framework to work effectively with AI agents.",
     "features": {
       "phases": {
         "title": "Clear Phases",
@@ -66,7 +66,7 @@
       },
       "collaboration": {
         "title": "Better AI Collaboration",
-        "desc": "AI agents work best with structure. AD provides the framework for effective human-AI teamwork on any project."
+        "desc": "AI agents work best with structure. ADW provides the framework for effective human-AI teamwork on any project."
       },
       "documentation": {
         "title": "Built-in Documentation",
@@ -74,7 +74,7 @@
       },
       "universal": {
         "title": "Universal Application",
-        "desc": "Not just for software. Use AD for content creation, marketing campaigns, event planning, research, and more."
+        "desc": "Not just for software. Use ADW for content creation, marketing campaigns, event planning, research, and more."
       },
       "quality": {
         "title": "Quality Focused",
@@ -82,7 +82,30 @@
       },
       "iterative": {
         "title": "Iterative Progress",
-        "desc": "Improve within phases, document when going back. Real progress isn't linear, and AD acknowledges that."
+        "desc": "Improve within phases, document when going back. Real progress isn't linear, and ADW acknowledges that."
+      }
+    }
+  },
+  "gitFlow": {
+    "title": "Continuous Commits: Total Clarity",
+    "subtitle": "With ADW, every change is tracked and nothing is lost",
+    "intro": "Continuous commits aren't just best practices: they're the foundation for maintaining total clarity in AI-collaborative projects.",
+    "items": {
+      "noLoss": {
+        "title": "Zero Information Loss",
+        "desc": "Every completed task is committed immediately. If something goes wrong, you can always go back. No more \"what changed since yesterday?\""
+      },
+      "clarity": {
+        "title": "Crystal Clear History",
+        "desc": "Descriptive commit messages with Conventional Commits. You know exactly what, when, and why every part of the code changed."
+      },
+      "noDegradation": {
+        "title": "No Code Degradation",
+        "desc": "Each commit is a validation point. Code doesn't degrade because every change is small, reviewable, and reversible."
+      },
+      "collaboration": {
+        "title": "Transparent Collaboration",
+        "desc": "Both you and AI agents work with a complete history. Every decision is documented and traceable."
       }
     }
   },
@@ -158,7 +181,7 @@
     }
   },
   "workflow": {
-    "title": "The AD Workflow",
+    "title": "The ADW Workflow",
     "subtitle": "Click any phase to see details",
     "legend": {
       "completed": "Completed",
@@ -246,24 +269,24 @@
       },
       "community": {
         "title": "Community",
-        "desc": "Join discussions, share experiences, and get help from the AD community.",
+        "desc": "Join discussions, share experiences, and get help from the ADW community.",
         "link": "Join Discussions →"
       },
       "books": {
         "title": "Books",
-        "desc": "Comprehensive guides covering AD methodology, best practices, and real-world examples.",
+        "desc": "Comprehensive guides covering ADW methodology, best practices, and real-world examples.",
         "comingSoon": "Coming Soon"
       },
       "courses": {
         "title": "Courses",
-        "desc": "Step-by-step video courses teaching you how to implement AD in your projects.",
+        "desc": "Step-by-step video courses teaching you how to implement ADW in your projects.",
         "comingSoon": "Coming Soon"
       }
     }
   },
   "footer": {
-    "title": "AD 1.0",
-    "subtitle": "Agentic Driven methodology",
+    "title": "ADW 1.0",
+    "subtitle": "Agentic Driven Workflow",
     "tagline": "Built for the AI era",
     "sections": {
       "resources": {
@@ -281,8 +304,8 @@
         "license": "License (MIT)"
       }
     },
-    "copyright": "© 2026 Agentic Driven. Open Source under MIT License.",
-    "built": "Built using AD 1.0 itself (dogfooding from day one)"
+    "copyright": "© 2026 Agentic Driven Workflow. Open Source under MIT License.",
+    "built": "Built using ADW 1.0 itself (dogfooding from day one)"
   },
   "modal": {
     "close": "Close",

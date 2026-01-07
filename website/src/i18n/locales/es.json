@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "Flujo de Trabajo Agéntico",
+    "title": "Agentic Driven Workflow",
     "version": "1.0",
     "subtitle": "La primera metodología nativa de IA para desarrollo estructurado",
     "badge": "Ya Disponible",
@@ -20,9 +20,9 @@
   "what": {
     "title": "¿Qué es Agentic Driven?",
     "subtitle": "Una metodología estructurada diseñada específicamente para la colaboración con agentes de IA",
-    "lead": "<strong>Agentic Driven (AD)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>13 principios</strong> y <strong>10 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
-    "p1": "Las metodologías tradicionales como Agile y Waterfall no fueron diseñadas para la colaboración con IA. Asumen que los humanos escriben código y toman cada decisión. AD cambia esto: <strong>los humanos definen la estrategia, la IA ejecuta</strong>.",
-    "p2": "Ya sea que estés construyendo una aplicación con Cursor, escribiendo un libro con Claude o gestionando un proyecto con Copilot, AD te da el marco para trabajar eficazmente con agentes de IA.",
+    "lead": "<strong>Agentic Driven Workflow (ADW)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>13 principios</strong> y <strong>10 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
+    "p1": "Las metodologías tradicionales como Agile y Waterfall no fueron diseñadas para la colaboración con IA. Asumen que los humanos escriben código y toman cada decisión. ADW cambia esto: <strong>los humanos definen la estrategia, la IA ejecuta</strong>.",
+    "p2": "Ya sea que estés construyendo una aplicación con Cursor, escribiendo un libro con Claude o gestionando un proyecto con Copilot, ADW te da el marco para trabajar eficazmente con agentes de IA.",
     "features": {
       "phases": {
         "title": "Fases Claras",
@@ -66,7 +66,7 @@
       },
       "collaboration": {
         "title": "Mejor Colaboración con IA",
-        "desc": "Los agentes de IA funcionan mejor con estructura. AD proporciona el marco para un trabajo en equipo efectivo entre humanos e IA en cualquier proyecto."
+        "desc": "Los agentes de IA funcionan mejor con estructura. ADW proporciona el marco para un trabajo en equipo efectivo entre humanos e IA en cualquier proyecto."
       },
       "documentation": {
         "title": "Documentación Integrada",
@@ -74,7 +74,7 @@
       },
       "universal": {
         "title": "Aplicación Universal",
-        "desc": "No solo para software. Usa AD para creación de contenido, campañas de marketing, planificación de eventos, investigación y más."
+        "desc": "No solo para software. Usa ADW para creación de contenido, campañas de marketing, planificación de eventos, investigación y más."
       },
       "quality": {
         "title": "Enfoque en la Calidad",
@@ -82,7 +82,30 @@
       },
       "iterative": {
         "title": "Progreso Iterativo",
-        "desc": "Mejora dentro de las fases, documenta cuando retrocedas. El progreso real no es lineal, y AD lo reconoce."
+        "desc": "Mejora dentro de las fases, documenta cuando retrocedas. El progreso real no es lineal, y ADW lo reconoce."
+      }
+    }
+  },
+  "gitFlow": {
+    "title": "Commits Continuos: Claridad Total",
+    "subtitle": "Con ADW, cada cambio queda registrado y nada se pierde",
+    "intro": "Los commits continuos no son solo buenas prácticas: son la base para mantener claridad total en proyectos colaborativos con IA.",
+    "items": {
+      "noLoss": {
+        "title": "Cero Pérdida de Información",
+        "desc": "Cada tarea completada se commitea inmediatamente. Si algo sale mal, siempre puedes volver. No más \"¿qué cambió desde ayer?\""
+      },
+      "clarity": {
+        "title": "Historial Cristalino",
+        "desc": "Mensajes de commit descriptivos con Conventional Commits. Sabes exactamente qué, cuándo y por qué cambió cada parte del código."
+      },
+      "noDegradation": {
+        "title": "Sin Degradación del Código",
+        "desc": "Cada commit es un punto de validación. El código no se degrada porque cada cambio es pequeño, revisable y reversible."
+      },
+      "collaboration": {
+        "title": "Colaboración Transparente",
+        "desc": "Tanto tú como los agentes de IA trabajan con un historial completo. Cada decisión está documentada y trazable."
       }
     }
   },
@@ -158,7 +181,7 @@
     }
   },
   "workflow": {
-    "title": "El Flujo de Trabajo AD",
+    "title": "El Flujo de Trabajo ADW",
     "subtitle": "Haz clic en cualquier fase para ver detalles",
     "legend": {
       "completed": "Completada",
@@ -246,24 +269,24 @@
       },
       "community": {
         "title": "Comunidad",
-        "desc": "Únete a las discusiones, comparte experiencias y obtén ayuda de la comunidad AD.",
+        "desc": "Únete a las discusiones, comparte experiencias y obtén ayuda de la comunidad ADW.",
         "link": "Unirse a Discusiones →"
       },
       "books": {
         "title": "Libros",
-        "desc": "Guías completas sobre la metodología AD, mejores prácticas y ejemplos del mundo real.",
+        "desc": "Guías completas sobre la metodología ADW, mejores prácticas y ejemplos del mundo real.",
         "comingSoon": "Próximamente"
       },
       "courses": {
         "title": "Cursos",
-        "desc": "Cursos en video paso a paso que te enseñan cómo implementar AD en tus proyectos.",
+        "desc": "Cursos en video paso a paso que te enseñan cómo implementar ADW en tus proyectos.",
         "comingSoon": "Próximamente"
       }
     }
   },
   "footer": {
-    "title": "AD 1.0",
-    "subtitle": "Metodología Agentic Driven",
+    "title": "ADW 1.0",
+    "subtitle": "Agentic Driven Workflow",
     "tagline": "Construido para la era de la IA",
     "sections": {
       "resources": {
@@ -281,8 +304,8 @@
         "license": "Licencia (MIT)"
       }
     },
-    "copyright": "© 2026 Agentic Driven. Código Abierto bajo Licencia MIT.",
-    "built": "Construido usando AD 1.0 mismo (dogfooding desde el primer día)"
+    "copyright": "© 2026 Agentic Driven Workflow. Código Abierto bajo Licencia MIT.",
+    "built": "Construido usando ADW 1.0 mismo (dogfooding desde el primer día)"
   },
   "modal": {
     "close": "Cerrar",

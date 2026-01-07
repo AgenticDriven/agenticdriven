@@ -165,7 +165,13 @@ function App() {
             <div className="collaboration-arrow">→</div>
 
             <div className="collaboration-box ai">
-              <span className="collaboration-icon">🤖</span>
+              <div className="collaboration-icon-circle">
+                <span className="ai-mini-icon">🤖</span>
+                <span className="ai-mini-icon">💬</span>
+                <span className="ai-mini-icon">✨</span>
+                <span className="ai-mini-icon">🔷</span>
+                <span className="ai-mini-icon">🔮</span>
+              </div>
               <div className="collaboration-label">{t('collaboration.ai.label')}</div>
               <div className="collaboration-role">{t('collaboration.ai.role')}</div>
               <div className="collaboration-details">{t('collaboration.ai.details')}</div>
@@ -190,6 +196,28 @@ function App() {
                 <div className="benefit-icon">{key === 'structure' ? '🎯' : key === 'collaboration' ? '🤝' : key === 'documentation' ? '📚' : key === 'universal' ? '🌍' : key === 'quality' ? '✨' : '🔄'}</div>
                 <h3>{t(`benefits.items.${key}.title`)}</h3>
                 <p>{t(`benefits.items.${key}.desc`)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Git Flow Section */}
+      <section className="section git-flow-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">{t('gitFlow.title')}</h2>
+            <p className="section-intro">{t('gitFlow.subtitle')}</p>
+          </div>
+
+          <p className="git-flow-intro">{t('gitFlow.intro')}</p>
+
+          <div className="git-flow-grid">
+            {['noLoss', 'clarity', 'noDegradation', 'collaboration'].map((key) => (
+              <div key={key} className="git-flow-card">
+                <div className="git-flow-icon">{key === 'noLoss' ? '💾' : key === 'clarity' ? '🔍' : key === 'noDegradation' ? '✅' : '🤝'}</div>
+                <h3>{t(`gitFlow.items.${key}.title`)}</h3>
+                <p>{t(`gitFlow.items.${key}.desc`)}</p>
               </div>
             ))}
           </div>
@@ -276,21 +304,6 @@ function App() {
               <p className="workflow-detail-text">{t(`workflow.phases.${['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'][selectedWorkflowPhase]}.detail`)}</p>
             </div>
           )}
-
-          <div className="workflow-legend">
-            <div className="legend-item">
-              <div className="legend-dot legend-completed"></div>
-              <span>{t('workflow.legend.completed')}</span>
-            </div>
-            <div className="legend-item">
-              <div className="legend-dot legend-current"></div>
-              <span>{t('workflow.legend.current')}</span>
-            </div>
-            <div className="legend-item">
-              <div className="legend-dot legend-pending"></div>
-              <span>{t('workflow.legend.pending')}</span>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -464,9 +477,11 @@ function App() {
                 <span>{t('modal.viewRaw')}</span>
               </a>
               <a
-                href={`/rules/ide/${selectedIDE.file}`}
+                href={`https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/${selectedIDE.file}`}
                 className="modal-btn modal-btn-download"
-                download={selectedIDE.file}
+                download={selectedIDE.file.split('/').pop()}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span>⬇️</span>
                 <span>{t('modal.download')}</span>

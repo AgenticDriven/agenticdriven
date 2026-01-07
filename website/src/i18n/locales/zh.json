@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "智能体驱动工作流",
+    "title": "Agentic Driven Workflow",
     "version": "1.0",
     "subtitle": "首个AI原生的结构化开发方法论",
     "badge": "现已推出",
@@ -20,9 +20,9 @@
   "what": {
     "title": "什么是智能体驱动?",
     "subtitle": "专为AI智能体协作设计的结构化方法论",
-    "lead": "<strong>智能体驱动(AD)</strong>是为AI时代创建的首个通用方法论。通过<strong>13个原则</strong>和<strong>10个阶段</strong>提供清晰的结构,适用于任何项目——软件、内容、营销、活动等。",
-    "p1": "传统方法论如敏捷和瀑布不是为AI协作设计的。它们假设人类编写代码并做出每个决定。AD颠覆了这一点:<strong>人类定义策略,AI执行</strong>。",
-    "p2": "无论您是使用Cursor构建应用、使用Claude撰写书籍,还是使用Copilot管理项目,AD都为您提供与AI智能体有效协作的框架。",
+    "lead": "<strong>Agentic Driven Workflow (ADW)</strong>是为AI时代创建的首个通用方法论。通过<strong>13个原则</strong>和<strong>10个阶段</strong>提供清晰的结构,适用于任何项目——软件、内容、营销、活动等。",
+    "p1": "传统方法论如敏捷和瀑布不是为AI协作设计的。它们假设人类编写代码并做出每个决定。ADW颠覆了这一点:<strong>人类定义策略,AI执行</strong>。",
+    "p2": "无论您是使用Cursor构建应用、使用Claude撰写书籍,还是使用Copilot管理项目,ADW都为您提供与AI智能体有效协作的框架。",
     "features": {
       "phases": {
         "title": "清晰阶段",
@@ -83,6 +83,29 @@
       "iterative": {
         "title": "迭代进展",
         "desc": "在阶段内改进,回退时记录。真正的进展不是线性的,AD认可这一点。"
+      }
+    }
+  },
+  "gitFlow": {
+    "title": "持续提交：完全清晰",
+    "subtitle": "使用ADW，每个更改都被跟踪，不会丢失任何内容",
+    "intro": "持续提交不仅仅是最佳实践：它们是在AI协作项目中保持完全清晰的基础。",
+    "items": {
+      "noLoss": {
+        "title": "零信息丢失",
+        "desc": "每个完成的任务立即提交。如果出现问题，您可以随时返回。不再有"昨天以来发生了什么变化？""
+      },
+      "clarity": {
+        "title": "水晶般清晰的历史",
+        "desc": "使用约定式提交的描述性提交消息。您确切知道代码每个部分何时、为何、如何更改。"
+      },
+      "noDegradation": {
+        "title": "无代码退化",
+        "desc": "每个提交都是一个验证点。代码不会退化，因为每个更改都是小的、可审查的和可逆的。"
+      },
+      "collaboration": {
+        "title": "透明协作",
+        "desc": "您和AI智能体都使用完整的历史记录。每个决策都有文档记录且可追溯。"
       }
     }
   },

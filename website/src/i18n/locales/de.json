@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "Agentengesteuerte Arbeitsweise",
+    "title": "Agentic Driven Workflow",
     "version": "1.0",
     "subtitle": "Die erste KI-native Methodik für strukturierte Entwicklung",
     "badge": "Jetzt verfügbar",
@@ -83,6 +83,29 @@
       "iterative": {
         "title": "Iterativer Fortschritt",
         "desc": "Verbessern Sie innerhalb von Phasen, dokumentieren Sie, wenn Sie zurückgehen. Echter Fortschritt ist nicht linear, und AD erkennt das an."
+      }
+    }
+  },
+  "gitFlow": {
+    "title": "Kontinuierliche Commits: Totale Klarheit",
+    "subtitle": "Mit ADW wird jede Änderung verfolgt und nichts geht verloren",
+    "intro": "Kontinuierliche Commits sind nicht nur Best Practices: Sie sind die Grundlage für totale Klarheit in KI-kollaborativen Projekten.",
+    "items": {
+      "noLoss": {
+        "title": "Null Informationsverlust",
+        "desc": "Jede abgeschlossene Aufgabe wird sofort committed. Wenn etwas schiefgeht, können Sie immer zurückgehen. Kein \"was hat sich seit gestern geändert?\" mehr."
+      },
+      "clarity": {
+        "title": "Kristallklare Historie",
+        "desc": "Beschreibende Commit-Nachrichten mit Conventional Commits. Sie wissen genau, was, wann und warum sich jeder Teil des Codes geändert hat."
+      },
+      "noDegradation": {
+        "title": "Keine Code-Degradation",
+        "desc": "Jeder Commit ist ein Validierungspunkt. Code degradiert nicht, weil jede Änderung klein, überprüfbar und reversibel ist."
+      },
+      "collaboration": {
+        "title": "Transparente Zusammenarbeit",
+        "desc": "Sowohl Sie als auch KI-Agenten arbeiten mit einer vollständigen Historie. Jede Entscheidung ist dokumentiert und nachvollziehbar."
       }
     }
   },
