@@ -20,8 +20,16 @@ const translations = {
 const LanguageContext = createContext()
 
 export const LanguageProvider = ({ children }) => {
-  // Get initial language from localStorage or browser, default to 'en'
+  // Get initial language from URL, localStorage, or browser
   const getInitialLanguage = () => {
+    // First check URL path (e.g., /es/, /en/)
+    const path = window.location.pathname
+    const urlLangMatch = path.match(/^\/([a-z]{2})(\/|$)/)
+    if (urlLangMatch && translations[urlLangMatch[1]]) {
+      return urlLangMatch[1]
+    }
+
+    // Then check localStorage
     const stored = localStorage.getItem('language')
     if (stored && translations[stored]) {
       return stored
@@ -38,10 +46,25 @@ export const LanguageProvider = ({ children }) => {
 
   const [language, setLanguage] = useState(getInitialLanguage)
 
-  // Save language preference to localStorage
+  // Update URL and save language preference
   useEffect(() => {
     localStorage.setItem('language', language)
     document.documentElement.lang = language
+
+    // Update URL with language prefix
+    const currentPath = window.location.pathname
+    const currentHash = window.location.hash
+
+    // Remove existing language prefix if any
+    const pathWithoutLang = currentPath.replace(/^\/[a-z]{2}(\/|$)/, '/')
+
+    // Add new language prefix
+    const newPath = `/${language}${pathWithoutLang === '/' ? '' : pathWithoutLang}`
+
+    // Update URL without reloading
+    if (currentPath !== newPath) {
+      window.history.replaceState({}, '', newPath + currentHash)
+    }
   }, [language])
 
   const t = (path) => {

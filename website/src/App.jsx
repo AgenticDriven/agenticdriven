@@ -20,14 +20,12 @@ function App() {
   return (
     <div className="app">
       {/* Hero Section */}
+      {/* Language Selector - Fixed Top Right */}
+      <LanguageSelector />
+
       <header className="hero">
         <div className="hero-background"></div>
         <div className="container">
-          {/* Language Selector */}
-          <div style={{ position: 'absolute', top: '2rem', right: '2rem' }}>
-            <LanguageSelector />
-          </div>
-
           <h1 className="hero-title">
             {t('hero.title')}
             <span className="version-badge">{t('hero.version')}</span>

@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>404 - Page Not Found | Agentic Driven</title>
+  <script>
+    // Redirect to index.html with path preserved for client-side routing
+    // This handles GitHub Pages routing for SPAs with language paths
+    (function() {
+      var path = window.location.pathname;
+      var hash = window.location.hash;
+
+      // If it's a language route (e.g., /es/, /en/), redirect to index.html
+      if (/^\/[a-z]{2}(\/|$)/.test(path)) {
+        window.location.replace('/' + hash);
+      }
+    })();
+  </script>
   <style>
     * {
       margin: 0;

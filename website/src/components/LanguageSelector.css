@@ -1,6 +1,8 @@
 .language-selector {
-  position: relative;
-  z-index: 1000;
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10000;
 }
 
 .language-selector-button {
@@ -30,9 +32,10 @@
   line-height: 1;
 }
 
-.language-code {
+.language-name-btn {
   font-weight: 700;
-  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
 }
 
 .language-arrow {

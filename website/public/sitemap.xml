@@ -1,15 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage -->
+  <!-- Homepage - Default (English) -->
   <url>
     <loc>https://agenticdriven.dev/</loc>
     <lastmod>2026-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenticdriven.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://agenticdriven.dev/zh/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agenticdriven.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://agenticdriven.dev/ru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://agenticdriven.dev/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenticdriven.dev/"/>
+  </url>
+
+  <!-- English Homepage -->
+  <url>
+    <loc>https://agenticdriven.dev/en/</loc>
+    <lastmod>2026-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenticdriven.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://agenticdriven.dev/zh/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agenticdriven.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://agenticdriven.dev/ru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://agenticdriven.dev/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenticdriven.dev/"/>
+  </url>
+
+  <!-- Spanish Homepage -->
+  <url>
+    <loc>https://agenticdriven.dev/es/</loc>
+    <lastmod>2026-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenticdriven.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://agenticdriven.dev/zh/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agenticdriven.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://agenticdriven.dev/ru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://agenticdriven.dev/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenticdriven.dev/"/>
+  </url>
+
+  <!-- Chinese Homepage -->
+  <url>
+    <loc>https://agenticdriven.dev/zh/</loc>
+    <lastmod>2026-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenticdriven.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://agenticdriven.dev/zh/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agenticdriven.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://agenticdriven.dev/ru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://agenticdriven.dev/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenticdriven.dev/"/>
+  </url>
+
+  <!-- German Homepage -->
+  <url>
+    <loc>https://agenticdriven.dev/de/</loc>
+    <lastmod>2026-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenticdriven.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://agenticdriven.dev/zh/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agenticdriven.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://agenticdriven.dev/ru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://agenticdriven.dev/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenticdriven.dev/"/>
+  </url>
+
+  <!-- Russian Homepage -->
+  <url>
+    <loc>https://agenticdriven.dev/ru/</loc>
+    <lastmod>2026-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenticdriven.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://agenticdriven.dev/zh/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agenticdriven.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://agenticdriven.dev/ru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://agenticdriven.dev/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenticdriven.dev/"/>
+  </url>
+
+  <!-- Hindi Homepage -->
+  <url>
+    <loc>https://agenticdriven.dev/hi/</loc>
+    <lastmod>2026-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agenticdriven.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://agenticdriven.dev/zh/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agenticdriven.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://agenticdriven.dev/ru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://agenticdriven.dev/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agenticdriven.dev/"/>
   </url>
 
   <!-- Download Script -->
@@ -51,6 +149,13 @@
 
   <url>
     <loc>https://agenticdriven.dev/rules/ide/.continuerc.json</loc>
+    <lastmod>2026-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://agenticdriven.dev/rules/ide/.github/copilot-instructions.md</loc>
     <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
