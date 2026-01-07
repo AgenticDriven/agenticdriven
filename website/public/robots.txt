@@ -1,0 +1,52 @@
+# Agentic Driven (AD) 1.0 - Robots.txt
+# https://agenticdriven.dev
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://agenticdriven.dev/sitemap.xml
+
+# AI Crawlers - Allow for training and indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Disallow specific paths if needed
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl-delay for overly aggressive bots
+Crawl-delay: 1

@@ -1,0 +1,27 @@
+# humanstxt.org
+
+/* TEAM */
+Project: Agentic Driven (AD) 1.0
+Description: AI-native development methodology
+Site: https://agenticdriven.dev
+Location: Global
+
+/* THANKS */
+AI Tools: Claude (Anthropic), ChatGPT (OpenAI)
+Community: Open Source Contributors
+
+/* SITE */
+Last update: 2026-01-07
+Standards: HTML5, CSS3, ES2020
+Components: React 18, Vite 6
+Software: Built using AD 1.0 methodology itself (dogfooding)
+Methodology: Agentic Driven (AD) 1.0
+License: MIT License
+Repository: https://github.com/AgenticDriven/agenticdriven
+
+/* METHODOLOGY */
+Principles: 13 core principles
+Phases: 10 development phases (DEFINE to EVOLVE)
+Versioning: v0.PHASE.ITERATION format
+AI-First: Built for human-AI collaboration
+Universal: Works for software, content, products, marketing, and more

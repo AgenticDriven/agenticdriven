@@ -1,0 +1,14 @@
+# Security Contact Information
+# RFC 9116 - https://securitytxt.org/
+
+Contact: mailto:security@agenticdriven.dev
+Contact: https://github.com/AgenticDriven/agenticdriven/security/advisories/new
+Expires: 2027-01-07T00:00:00.000Z
+Preferred-Languages: en, es
+Canonical: https://agenticdriven.dev/.well-known/security.txt
+
+# Please report security vulnerabilities privately
+# We will acknowledge within 48 hours and provide updates
+
+Policy: https://github.com/AgenticDriven/agenticdriven/blob/main/SECURITY.md
+Acknowledgments: https://github.com/AgenticDriven/agenticdriven/blob/main/SECURITY.md#acknowledgments

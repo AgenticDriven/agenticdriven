@@ -1,0 +1,40 @@
+# Security Headers for Agentic Driven (AD) 1.0
+# These headers enhance security and prevent common attacks
+
+/*
+  # Prevent clickjacking attacks
+  X-Frame-Options: DENY
+
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+
+  # Enable browser XSS protection
+  X-XSS-Protection: 1; mode=block
+
+  # Referrer policy
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Permissions Policy (formerly Feature Policy)
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
+
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';
+
+  # Strict Transport Security (HTTPS only)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Cache Control for static assets
+  Cache-Control: public, max-age=31536000, immutable
+
+# Different cache for HTML files
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Download script - allow longer cache
+/download.sh
+  Content-Type: text/x-shellscript
+  Cache-Control: public, max-age=3600
+
+# IDE configs - allow longer cache
+/rules/ide/*
+  Cache-Control: public, max-age=3600
