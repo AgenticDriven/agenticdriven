@@ -477,11 +477,9 @@ function App() {
                 <span>{t('modal.viewRaw')}</span>
               </a>
               <a
-                href={`https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/${selectedIDE.file}`}
+                href={`https://github.com/AgenticDriven/agenticdriven/raw/main/src/rules/ide/${selectedIDE.file}`}
                 className="modal-btn modal-btn-download"
                 download={selectedIDE.file.split('/').pop()}
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 <span>⬇️</span>
                 <span>{t('modal.download')}</span>
