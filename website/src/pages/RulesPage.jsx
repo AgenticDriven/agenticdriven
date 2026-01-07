@@ -5,6 +5,11 @@ function RulesPage({ onNavigate }) {
   const { t } = useLanguage()
   const [activeSection, setActiveSection] = useState('principles')
 
+  // Helper to convert \n to actual line breaks
+  const formatCode = (text) => {
+    return text.replace(/\\n/g, '\n')
+  }
+
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -225,7 +230,7 @@ function RulesPage({ onNavigate }) {
                     <h3 className="info-card-title">{t('rules.versioning.prerelease.title')}</h3>
                     <p className="info-card-desc">{t('rules.versioning.prerelease.desc')}</p>
                     <div className="code-block">
-                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.versioning.prerelease.example')}</code></pre>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{formatCode(t('rules.versioning.prerelease.example'))}</code></pre>
                     </div>
                   </div>
 
@@ -233,7 +238,7 @@ function RulesPage({ onNavigate }) {
                     <h3 className="info-card-title">{t('rules.versioning.release.title')}</h3>
                     <p className="info-card-desc">{t('rules.versioning.release.desc')}</p>
                     <div className="code-block">
-                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.versioning.release.example')}</code></pre>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{formatCode(t('rules.versioning.release.example'))}</code></pre>
                     </div>
                   </div>
                 </div>
@@ -252,7 +257,7 @@ function RulesPage({ onNavigate }) {
                     <h3 className="info-card-title">{t('rules.gitCommits.format.title')}</h3>
                     <p className="info-card-desc">{t('rules.gitCommits.format.desc')}</p>
                     <div className="code-block">
-                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.gitCommits.format.example')}</code></pre>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{formatCode(t('rules.gitCommits.format.example'))}</code></pre>
                     </div>
                   </div>
 
@@ -278,7 +283,7 @@ function RulesPage({ onNavigate }) {
 
                 <div className="structure-example">
                   <div className="code-block code-block-large">
-                    <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.projectStructure.example')}</code></pre>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>{formatCode(t('rules.projectStructure.example'))}</code></pre>
                   </div>
                 </div>
 
@@ -322,7 +327,7 @@ function RulesPage({ onNavigate }) {
                     <h3 className="info-card-title">{t('rules.projectConfig.solo.title')}</h3>
                     <p className="info-card-desc">{t('rules.projectConfig.solo.desc')}</p>
                     <div className="code-block">
-                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.projectConfig.solo.example')}</code></pre>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{formatCode(t('rules.projectConfig.solo.example'))}</code></pre>
                     </div>
                   </div>
 
@@ -330,7 +335,7 @@ function RulesPage({ onNavigate }) {
                     <h3 className="info-card-title">{t('rules.projectConfig.multiAgent.title')}</h3>
                     <p className="info-card-desc">{t('rules.projectConfig.multiAgent.desc')}</p>
                     <div className="code-block">
-                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.projectConfig.multiAgent.example')}</code></pre>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{formatCode(t('rules.projectConfig.multiAgent.example'))}</code></pre>
                     </div>
                   </div>
                 </div>
