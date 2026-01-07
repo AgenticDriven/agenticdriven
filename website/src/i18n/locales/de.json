@@ -506,21 +506,119 @@
     },
     "projectConfig": {
       "title": "Project Configuration (adw.yaml)",
-      "intro": "The adw.yaml file is optional but recommended for multi-agent projects. It defines the project domain and context boundaries for each agent.",
+      "intro": "The adw.yaml file defines ADW project configuration. It's OPTIONAL for solo projects and REQUIRED for multi-agent projects. Place it at project root.",
+      "when": {
+        "title": "When to use adw.yaml?",
+        "solo": "Solo Project: OPTIONAL. Only if you want AI to adapt its language to the domain.",
+        "multi": "Multi-Agent: REQUIRED. Defines context boundaries to prevent conflicts."
+      },
       "solo": {
-        "title": "Solo Project (Optional)",
-        "desc": "For single-agent projects, adw.yaml only needs to specify the domain. Most projects don't need this file.",
-        "example": "domain: \"software\""
+        "title": "Solo Configuration (Optional)",
+        "desc": "For single-agent projects, you only need to specify the domain. This makes AI agents adapt their language and suggestions to the project type.",
+        "example": "domain: \"software\"",
+        "domains": "Valid domains: software, book, marketing, event, product, research, course, game"
       },
       "multiAgent": {
-        "title": "Multi-Agent Project (Recommended)",
-        "desc": "For projects with multiple agents working in parallel, adw.yaml defines context boundaries. Each agent works in specific directories.",
-        "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\"]"
+        "title": "Multi-Agent Configuration (Required)",
+        "desc": "For projects with multiple agents working in parallel, you must define context boundaries. Each agent works only in their assigned directories to avoid merge conflicts.",
+        "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\", \"tests/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\", \"tests/frontend/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \".github/\"]"
       },
-      "fields": {
-        "title": "File Fields",
-        "domain": "Project type (software, book, marketing, event). AI agents adapt their language based on domain.",
-        "agents": "List of agents with their contexts. Defines which directories each agent handles to avoid conflicts."
+      "specification": {
+        "title": "Complete Schema Specification",
+        "intro": "The adw.yaml file has ONLY 2 possible fields. It's a simple and clear format:",
+        "schema": "# Complete adw.yaml schema\\n\\ndomain: string              # REQUIRED\\nagents: array<Agent>        # OPTIONAL (required for multi-agent)\\n\\n# Agent structure:\\nAgent {\\n  id: string               # REQUIRED: unique identifier\\n  context: array<string>   # REQUIRED: directories where agent works\\n}"
+      },
+      "domainField": {
+        "title": "Field: domain (string, REQUIRED)",
+        "desc": "Defines the project type. AI agents adapt their vocabulary, suggestions and examples based on the domain.",
+        "values": {
+          "title": "Valid Values (8 domains):",
+          "software": "software - Application development, APIs, systems",
+          "book": "book - Writing books, ebooks, manuals, guides",
+          "marketing": "marketing - Campaigns, content, marketing strategy",
+          "event": "event - Event planning and management",
+          "product": "product - Physical or digital product development",
+          "research": "research - Academic or scientific research",
+          "course": "course - Course creation, educational material",
+          "game": "game - Video game development"
+        },
+        "example": "domain: \"software\"  # Agents talk about 'code', 'tests', 'deploy'\\ndomain: \"book\"       # Agents talk about 'chapters', 'editing', 'publishing'\\ndomain: \"marketing\"  # Agents talk about 'campaigns', 'audience', 'conversion'"
+      },
+      "agentsField": {
+        "title": "Field: agents (array, OPTIONAL)",
+        "desc": "List of agents working on the project. REQUIRED for multi-agent, OMIT for solo projects.",
+        "required": "Required if: Multiple people/AIs working in parallel",
+        "omit": "Omit if: Only one person/AI working",
+        "structure": {
+          "title": "Structure of Each Agent:",
+          "id": "id (string, required): Unique agent identifier. Use kebab-case: 'backend-api', 'frontend-web'",
+          "context": "context (array<string>, required): List of directories where the agent can work. MUST end in /",
+          "example": "agents:\\n  - id: \"backend\"           # Identifier\\n    context:                 # Allowed directories\\n      - \"src/backend/\"\\n      - \"tests/backend/\"\\n      - \"docs/api/\""
+        }
+      },
+      "allCombinations": {
+        "title": "All Possible Combinations",
+        "1": {
+          "title": "1. Solo with domain (minimum)",
+          "desc": "Single person/AI project. The simplest configuration.",
+          "example": "domain: \"software\""
+        },
+        "2": {
+          "title": "2. Multi-agent with 2 agents",
+          "desc": "Two people/AIs working in separate areas.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\"]"
+        },
+        "3": {
+          "title": "3. Multi-agent with 3+ agents",
+          "desc": "Large team with specialized roles.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\", \"src/services/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\", \"src/components/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \"docker/\"]\\n  - id: \"qa\"\\n    context: [\"tests/\"]"
+        },
+        "4": {
+          "title": "4. Agent with multiple contexts",
+          "desc": "An agent can work in several non-contiguous directories.",
+          "example": "domain: \"book\"\\n\\nagents:\\n  - id: \"editor\"\\n    context:\\n      - \"chapters/\"\\n      - \"appendices/\"\\n      - \"glossary/\"\\n      - \"index/\""
+        },
+        "5": {
+          "title": "5. Contexts with subdirectories",
+          "desc": "The context includes all subdirectories automatically.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\"]  # Includes src/backend/api/, src/backend/db/, etc."
+        }
+      },
+      "validation": {
+        "title": "Validations and Restrictions",
+        "1": "domain is ALWAYS required. Cannot be omitted.",
+        "2": "domain must be one of the 8 valid values (software, book, marketing, event, product, research, course, game)",
+        "3": "agents is optional. If not specified = solo project.",
+        "4": "If agents exists, must have at least 1 agent.",
+        "5": "Each agent MUST have id and context.",
+        "6": "agent.id must be unique (cannot have two agents with same id).",
+        "7": "agent.context must be an array with at least 1 directory.",
+        "8": "Paths in context must end in / (indicates directory).",
+        "9": "Contexts MUST NOT overlap between agents.",
+        "10": "Use kebab-case for agent.id: 'backend-api' (not 'backend_api' or 'BackendAPI')"
+      },
+      "examples": {
+        "title": "Examples by Domain",
+        "software": {
+          "title": "Software (Backend + Frontend + DevOps)",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\", \"src/services/\", \"tests/api/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\", \"src/components/\", \"tests/e2e/\"]\\n  - id: \"devops\"\\n    context: [\"infrastructure/\", \".github/\", \"docker/\"]"
+        },
+        "book": {
+          "title": "Book (Multiple Writers)",
+          "example": "domain: \"book\"\\n\\nagents:\\n  - id: \"author1\"\\n    context: [\"chapters/01-05/\"]\\n  - id: \"author2\"\\n    context: [\"chapters/06-10/\"]\\n  - id: \"editor\"\\n    context: [\"chapters/\", \"appendices/\"]"
+        },
+        "marketing": {
+          "title": "Marketing (Campaign + Content + Analytics)",
+          "example": "domain: \"marketing\"\\n\\nagents:\\n  - id: \"campaign-manager\"\\n    context: [\"campaigns/\", \"strategy/\"]\\n  - id: \"content-creator\"\\n    context: [\"content/\", \"assets/\"]\\n  - id: \"analyst\"\\n    context: [\"analytics/\", \"reports/\"]"
+        }
+      },
+      "rules": {
+        "title": "Important Rules",
+        "1": "An agent MUST NOT modify files outside their context",
+        "2": "Contexts MUST NOT overlap between agents",
+        "3": "The adw.yaml file goes in project root",
+        "4": "Use kebab-case for agent IDs: backend-api, frontend-web",
+        "5": "Paths in context always end in / to indicate directories"
       }
     },
     "multiAgent": {
@@ -565,6 +663,295 @@
             "desc": "All code must be reviewed by another agent before merge. This maintains quality and enables shared knowledge of the codebase."
           }
         }
+      }
+    },
+    "documentation": {
+      "title": "Documentation",
+      "intro": "ADW is documentation-first. Document before, during, and after. Documentation is not optional, it's integrated into every phase.",
+      "principle": "Document before, during, and after each task",
+      "byPhase": {
+        "title": "Required Documentation by Phase",
+        "define": "problem-statement.md, objectives.md, scope.md",
+        "discover": "discovery.md, requirements.md, decisions.md",
+        "design": "design.md, architecture.md, interfaces.md",
+        "setup": "setup.md, validation-criteria.md",
+        "build": "build-log.md, changes.md, issues.md",
+        "validate": "validation-report.md, test-results.md",
+        "market": "marketing-plan.md, launch-strategy.md",
+        "launch": "launch-log.md, go-live-report.md",
+        "support": "support-log.md, hotfixes.md",
+        "evolve": "evolution-plan.md, roadmap.md"
+      },
+      "location": {
+        "title": "Documentation Location",
+        "simple": {
+          "title": "Simple Projects",
+          "desc": "Everything in docs/ at root. Use kebab-case for filenames. Markdown format."
+        },
+        "complex": {
+          "title": "Complex Projects",
+          "desc": "Use subdirectories to organize:",
+          "structure": "docs/\\n├── planning/          # Future work\\n├── active/            # Work in progress\\n│   └── feature-name/\\n│       ├── 00-define/\\n│       ├── 01-discover/\\n│       └── ...\\n├── completed/         # Finished\\n├── archived/          # Old/deprecated\\n├── reports/           # Reports\\n├── spikes/            # Experiments\\n├── journal.md         # Always at root\\n└── decisions.md       # Always at root"
+        },
+        "workflow": {
+          "title": "Workflow",
+          "1": "Start feature in active/feature-name/",
+          "2": "Organize by phases: 00-define/, 01-discover/, etc.",
+          "3": "When complete, move to completed/feature-name/",
+          "4": "Old features go to archived/"
+        },
+        "alwaysRoot": "journal.md and decisions.md always at root"
+      },
+      "updates": "Update docs in same commit as code"
+    },
+    "journal": {
+      "title": "Journal (docs/journal.md)",
+      "intro": "The journal is a daily chronological log of project progress. Most recent entries at top. Reference other docs for details.",
+      "format": {
+        "title": "Entry Format",
+        "example": "## YYYY-MM-DD\\n\\n- **Phase**: PHASE (vX.Y.Z)\\n- **Agent**: Role/name\\n- **Progress**: What completed (reference docs)\\n- **Decisions**: Key decisions\\n- **Blockers**: Issues\\n- **Next**: Next steps"
+      },
+      "exampleEntry": {
+        "title": "Example Entry",
+        "example": "## 2026-01-06\\n\\n- **Phase**: BUILD (v0.4.3)\\n- **Agent**: Backend Dev\\n- **Progress**:\\n  - POST /api/users done\\n  - Tests passing (12/12)\\n  - Details: active/feature-auth.md\\n- **Decisions**: bcrypt for passwords (see decisions.md)\\n- **Blockers**: Waiting DB schema approval\\n- **Next**: GET /api/users/:id"
+      },
+      "rules": {
+        "title": "Journal Rules",
+        "1": "Update daily",
+        "2": "Most recent entries at top",
+        "3": "Reference other documents for details",
+        "4": "Use ISO date format (YYYY-MM-DD)",
+        "5": "Include phase version (v0.4.3)"
+      },
+      "multiAgent": {
+        "title": "Multi-Agent Journal",
+        "desc": "Each agent adds their own section under the date",
+        "example": "## 2026-01-06\\n\\n### Backend\\n- **Phase**: BUILD (v0.4.3)\\n- **Progress**: API 3/5 complete\\n\\n### Frontend\\n- **Phase**: BUILD (v0.4.3)\\n- **Progress**: Login form done"
+      }
+    },
+    "decisions": {
+      "title": "Decisions (docs/decisions.md)",
+      "intro": "Architecture Decision Records (ADRs). Document important architectural decisions with context, consequences and alternatives considered.",
+      "format": {
+        "title": "ADR Format",
+        "example": "## [Date] - [Title]\\n\\n**Status**: Accepted | Rejected | Deprecated | Superseded\\n\\n**Context**: Problem description (2-3 sentences)\\n\\n**Decision**: What we decided (1-2 sentences)\\n\\n**Consequences**:\\n✅ Positive outcome\\n✅ Positive outcome\\n❌ Negative outcome\\n\\n**Alternatives**:\\n- Option 1: Why rejected\\n- Option 2: Why rejected"
+      },
+      "example": {
+        "title": "ADR Example",
+        "example": "## 2026-01-06 - Use JSON:API 1.1\\n\\n**Status**: Accepted\\n\\n**Context**: Need standardized API format for frontend-backend communication.\\n\\n**Decision**: Use JSON:API 1.1 for all endpoints.\\n\\n**Consequences**:\\n✅ Standardized format\\n✅ Better tooling\\n❌ Learning curve\\n\\n**Alternatives**:\\n- Custom REST: Too much freedom\\n- GraphQL: Overkill"
+      },
+      "when": {
+        "title": "When to Document",
+        "do": {
+          "title": "DO Document:",
+          "1": "Technical decision with multiple options",
+          "2": "Architectural change",
+          "3": "Decision with trade-offs",
+          "4": "Team disagreement resolved"
+        },
+        "dont": {
+          "title": "DON'T Document:",
+          "1": "Obvious decisions",
+          "2": "Trivial decisions",
+          "3": "Implementation details"
+        }
+      },
+      "rules": {
+        "title": "Decisions Rules",
+        "1": "One file: docs/decisions.md",
+        "2": "Most recent decisions at top",
+        "3": "Include date in title",
+        "4": "Be concise but complete",
+        "5": "Update status if changed"
+      }
+    },
+    "contracts": {
+      "title": "Contracts (docs/interfaces.md)",
+      "intro": "REQUIRED for multi-agent. Define specifications (APIs, schemas, interfaces) BEFORE implementing. This enables parallel work without dependencies.",
+      "when": {
+        "title": "When to Use",
+        "design": "DESIGN (v0.2.x): Define ALL contracts",
+        "build": "BUILD (v0.4.x): Implement exactly to spec"
+      },
+      "format": {
+        "title": "Contract Format",
+        "example": "## API: POST /api/users\\n\\n**Input**:\\n- name: string (1-100)\\n- email: string (valid)\\n- password: string (min 8)\\n\\n**Output**:\\n- id: integer\\n- name: string\\n- email: string\\n- created_at: timestamp\\n\\n**Errors**:\\n- 400: Validation failed\\n- 409: Email exists\\n- 500: Server error\\n\\n**Tests**:\\n1. Valid input → 201\\n2. Missing name → 400\\n3. Duplicate email → 409"
+      },
+      "examples": {
+        "title": "Other Examples",
+        "component": {
+          "title": "Component",
+          "example": "## Component: Button\\n\\n**Props**:\\n- label: string\\n- onClick: () => void\\n- disabled: boolean (default: false)\\n- variant: \"primary\" | \"secondary\""
+        },
+        "data": {
+          "title": "Database",
+          "example": "## Table: users\\n\\n**Fields**:\\n- id: serial PRIMARY KEY\\n- email: varchar(255) UNIQUE NOT NULL\\n- created_at: timestamp DEFAULT now()"
+        }
+      },
+      "workflow": {
+        "title": "Multi-Agent Workflow",
+        "1": "DESIGN: Define contracts first, review them, commit",
+        "2": "BUILD: Read contracts, implement exactly to spec",
+        "3": "Use mocks for unimplemented dependencies",
+        "4": "Never deviate without updating contract first"
+      }
+    },
+    "aiWorkflow": {
+      "title": "AI Workflow",
+      "intro": "How AI agents should work within the ADW methodology.",
+      "sessionStart": {
+        "title": "Session Start (9 steps)",
+        "1": "Git status: git status",
+        "2": "Config: cat adw.yaml 2>/dev/null (if exists)",
+        "3": "README: cat README.md",
+        "4": "Phase: git describe --tags --abbrev=0 (latest tag = current phase)",
+        "5": "Phase docs: cat docs/journal.md + phase-specific docs",
+        "6": "Contracts: cat docs/interfaces.md (if BUILD/VALIDATE)",
+        "7": "Recent commits: git log -5 --oneline",
+        "8": "Role: Check adw.yaml for agent context (if multi-agent)",
+        "9": "Ask: Ready to work"
+      },
+      "duringWork": {
+        "title": "During Work",
+        "before": "Before changes: Read files, check contracts, verify directory",
+        "after": "After task: Verify works, update docs, update journal.md, commit, update user"
+      },
+      "sessionEnd": {
+        "title": "Session End",
+        "clean": "Clean: Commit all completed work, update journal.md, leave clean workspace, push if ready",
+        "interrupted": "Interrupted: Commit with 'wip:', update journal noting incomplete work"
+      },
+      "multiAgent": {
+        "title": "Multi-Agent",
+        "desc": "If adw.yaml has agents:",
+        "1": "Identify your agent ID",
+        "2": "Stay in context directories",
+        "3": "Read contracts before implementing",
+        "4": "Use mocks for dependencies",
+        "5": "Don't touch other agents' files"
+      }
+    },
+    "exitCriteria": {
+      "title": "Exit Criteria",
+      "intro": "Clear requirements to complete each phase before advancing to the next.",
+      "byPhase": {
+        "define": {
+          "title": "DEFINE (v0.0.x)",
+          "items": "Problem stated, Objectives defined, Scope documented, Constraints identified, Success criteria defined"
+        },
+        "discover": {
+          "title": "DISCOVER (v0.1.x)",
+          "items": "Requirements gathered, Options researched, Feasibility assessed, Decisions documented, Risks identified"
+        },
+        "design": {
+          "title": "DESIGN (v0.2.x)",
+          "items": "Solution designed, Architecture defined, Interfaces specified, Design approved, Ready to build"
+        },
+        "setup": {
+          "title": "SETUP (v0.3.x)",
+          "items": "Tools configured, Environment ready, Testing setup, Validation criteria defined, Team ready"
+        },
+        "build": {
+          "title": "BUILD (v0.4.x)",
+          "items": "All components implemented, Contracts fulfilled, Tests passing, Docs updated, Code reviewed"
+        },
+        "validate": {
+          "title": "VALIDATE (v0.5.x)",
+          "items": "All tests passing, Coverage met (80%+), Performance acceptable, Validation report complete, Stakeholders approve"
+        },
+        "market": {
+          "title": "MARKET (v0.6.x)",
+          "items": "Materials created, Docs complete, Strategy defined, Channels prepared, Ready to launch"
+        },
+        "launch": {
+          "title": "LAUNCH (v0.7.x)",
+          "items": "Deployed, Monitoring active, Metrics collected, No critical issues, Ready for support"
+        },
+        "support": {
+          "title": "SUPPORT (v0.8.x)",
+          "items": "Stable period complete, Critical bugs resolved, Support working, Feedback collected, Ready to evolve"
+        },
+        "evolve": {
+          "title": "EVOLVE (v0.9.x)",
+          "items": "Improvements implemented, Optimized, Features added, Roadmap updated, Lessons documented"
+        }
+      },
+      "validation": {
+        "title": "Validation Before Advancing",
+        "1": "Review checklist",
+        "2": "Verify items complete",
+        "3": "Document exceptions",
+        "4": "Get approval",
+        "5": "Commit final work",
+        "6": "Update to next phase"
+      },
+      "example": "git commit -m \"docs: complete DESIGN exit criteria\"\\ngit commit -m \"chore: start SETUP (v0.3.0)\"",
+      "flexibility": "These are guidelines, not rigid rules. Adapt to project needs. Document deviations. Focus on quality."
+    },
+    "troubleshooting": {
+      "title": "Troubleshooting",
+      "intro": "Systematic process to resolve issues during development.",
+      "process": {
+        "title": "Process",
+        "1": "Identify: What's failing?",
+        "2": "Isolate: Where's the problem?",
+        "3": "Document: What did you try?",
+        "4": "Solve: Fix it",
+        "5": "Prevent: Avoid repeat"
+      },
+      "common": {
+        "title": "Common Issues",
+        "tests": {
+          "title": "Tests Failing",
+          "solution": "Read error, run single test, check recent changes, fix code/test"
+        },
+        "build": {
+          "title": "Build Failing",
+          "solution": "Check syntax, dependencies, env vars, clear cache"
+        },
+        "git": {
+          "title": "Git Conflicts",
+          "solution": "Open file, resolve markers, test, stage, complete merge"
+        },
+        "phase": {
+          "title": "Phase Unclear",
+          "solution": "Read /var/add/fases/, check exit criteria, review journal.md"
+        },
+        "multiAgent": {
+          "title": "Multi-Agent Conflict",
+          "solution": "Check context boundaries, coordinate via git"
+        },
+        "lost": {
+          "title": "Lost Work",
+          "solution": "Check git stash list, git reflog, backup branches"
+        },
+        "deps": {
+          "title": "Dependencies",
+          "solution": "Delete packages, delete lock file, reinstall fresh"
+        },
+        "contract": {
+          "title": "Contract Mismatch",
+          "solution": "Read docs/interfaces.md, fix code or update contract"
+        }
+      },
+      "rollback": {
+        "title": "Rollback",
+        "soft": "git reset --soft HEAD~1  # Undo last commit (keep changes)",
+        "hard": "git reset --hard HEAD~1  # Undo last commit (discard changes)",
+        "tag": "git checkout v0.4.2      # Go back to tag"
+      },
+      "help": {
+        "title": "Getting Help",
+        "provide": "Provide: exact error, what you did, what you expected, what happened, what you tried"
+      },
+      "document": {
+        "title": "Document",
+        "desc": "Update docs/journal.md:",
+        "example": "## 2026-01-06\\n**Issue**: Tests failing\\n**Cause**: Outdated fixtures\\n**Solution**: Updated tests/fixtures.js\\n**Time**: 15 min"
+      },
+      "prevention": {
+        "title": "Prevention",
+        "tips": "Commit frequently, Write tests, Read contracts, Update journal, Follow exit criteria, Respect boundaries"
       }
     },
     "download": {
