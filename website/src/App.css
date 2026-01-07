@@ -517,6 +517,150 @@ body {
   line-height: 1.7;
 }
 
+/* Workflow Section */
+.workflow-section {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-white);
+  overflow-x: auto;
+}
+
+.workflow-section .section-title {
+  color: var(--text-white);
+}
+
+.workflow-section .section-intro {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.workflow-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+  min-width: max-content;
+}
+
+.workflow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.workflow-step:nth-child(1) { animation-delay: 0.1s; }
+.workflow-step:nth-child(2) { animation-delay: 0.15s; }
+.workflow-step:nth-child(3) { animation-delay: 0.2s; }
+.workflow-step:nth-child(4) { animation-delay: 0.25s; }
+.workflow-step:nth-child(5) { animation-delay: 0.3s; }
+.workflow-step:nth-child(6) { animation-delay: 0.35s; }
+.workflow-step:nth-child(7) { animation-delay: 0.4s; }
+.workflow-step:nth-child(8) { animation-delay: 0.45s; }
+.workflow-step:nth-child(9) { animation-delay: 0.5s; }
+.workflow-step:nth-child(10) { animation-delay: 0.55s; }
+
+.workflow-number {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: var(--text-white);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--bg-primary);
+}
+
+.workflow-icon {
+  font-size: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+}
+
+.workflow-step:hover .workflow-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.workflow-name {
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.workflow-version {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.workflow-arrow {
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+}
+
+.workflow-legend {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.legend-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+}
+
+.legend-start {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.legend-progress {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
+}
+
+.legend-launch {
+  background: linear-gradient(135deg, var(--color-success) 0%, var(--color-primary) 100%);
+}
+
 /* Phases Section */
 .phases-section {
   background: var(--bg-white);
@@ -997,6 +1141,25 @@ body {
 
   .principles-grid {
     grid-template-columns: 1fr;
+  }
+
+  .workflow-diagram {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .workflow-step {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .workflow-arrow {
+    display: none;
+  }
+
+  .workflow-legend {
+    gap: 1.5rem;
   }
 
   .phase-card {
