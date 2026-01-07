@@ -476,32 +476,47 @@ function App() {
 
           <div className="ide-grid">
             {ides.map((ide) => (
-              <a
+              <div
                 key={ide.name}
-                href={`https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/${ide.file}`}
-                className="ide-card"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
+                className="ide-card clickable"
+                onClick={() => setSelectedIDE(ide)}
               >
                 <div className="ide-icon">{ide.icon}</div>
                 <div className="ide-name">{ide.name}</div>
                 <div className="ide-file">{ide.file}</div>
                 <div className="ide-download">
-                  <span>Download</span>
+                  <span>Get Config</span>
                   <span className="download-arrow">↓</span>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
 
           <div className="install-script">
             <h3>Or use our quick install script:</h3>
-            <div className="code-block">
-              <code>curl -sSL https://agenticdriven.dev/download.sh | bash -s cursor</code>
-              <button className="copy-btn" onClick={() => navigator.clipboard.writeText('curl -sSL https://agenticdriven.dev/download.sh | bash -s cursor')}>
-                Copy
-              </button>
+            <div className="script-options">
+              {ides.map((ide) => {
+                const ideParam = ide.name.toLowerCase().replace(/\s+/g, '-').replace('github-', '').replace('claude-code', 'claude');
+                const command = `curl -sSL https://agenticdriven.dev/download.sh | bash -s ${ideParam}`;
+                return (
+                  <div key={ide.name} className="script-option">
+                    <div className="script-option-header">
+                      <span className="script-option-icon">{ide.icon}</span>
+                      <span className="script-option-name">{ide.name}</span>
+                    </div>
+                    <div className="code-block-mini">
+                      <code>{command}</code>
+                      <button
+                        className="copy-btn-mini"
+                        onClick={() => navigator.clipboard.writeText(command)}
+                        title="Copy command"
+                      >
+                        📋
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -922,7 +922,6 @@ body {
   backdrop-filter: blur(10px);
   padding: 2rem 1.5rem;
   border-radius: var(--radius-xl);
-  text-decoration: none;
   color: var(--text-white);
   transition: var(--transition);
   border: 2px solid transparent;
@@ -930,6 +929,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+.ide-card.clickable {
+  cursor: pointer;
 }
 
 .ide-card:hover {
@@ -977,8 +980,7 @@ body {
 
 /* Install Script */
 .install-script {
-  text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 3rem 2rem;
   background: rgba(255, 255, 255, 0.05);
@@ -990,43 +992,80 @@ body {
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
+  text-align: center;
 }
 
-.code-block {
-  position: relative;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 1.25rem 1.5rem;
-  border-radius: var(--radius-lg);
+.script-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.script-option {
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.code-block code {
-  font-family: 'Courier New', monospace;
-  color: var(--color-accent);
-  font-size: 0.9rem;
-  word-break: break-all;
-  display: block;
-  padding-right: 5rem;
-}
-
-.copy-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: var(--color-accent);
-  color: var(--text-white);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-md);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
+  border-radius: var(--radius-lg);
+  padding: 1rem;
   transition: var(--transition);
 }
 
-.copy-btn:hover {
-  background: var(--color-primary);
-  transform: scale(1.05);
+.script-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.script-option-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.script-option-icon {
+  font-size: 1.5rem;
+}
+
+.script-option-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.code-block-mini {
+  position: relative;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.75rem;
+  padding-right: 3rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-block-mini code {
+  font-family: 'Courier New', monospace;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  word-break: break-all;
+  display: block;
+  line-height: 1.4;
+}
+
+.copy-btn-mini {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-white);
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.copy-btn-mini:hover {
+  background: var(--color-accent);
+  transform: scale(1.1);
 }
 
 /* Resources Section */
@@ -1469,15 +1508,12 @@ body {
     gap: 2rem;
   }
 
-  .code-block code {
-    font-size: 0.8rem;
-    padding-right: 0;
+  .script-options {
+    grid-template-columns: 1fr;
   }
 
-  .copy-btn {
-    position: static;
-    margin-top: 1rem;
-    width: 100%;
+  .code-block-mini code {
+    font-size: 0.7rem;
   }
 
   .modal-content {
