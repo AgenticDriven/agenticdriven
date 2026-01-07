@@ -468,7 +468,7 @@ function App() {
             <div className="modal-filename">{selectedIDE.file}</div>
             <div className="modal-actions">
               <a
-                href={`https://raw.githubusercontent.com/AgenticDriven/agenticdriven/main/src/rules/ide/${selectedIDE.file}`}
+                href={`/rules/ide/${selectedIDE.file}`}
                 className="modal-btn modal-btn-view"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -477,7 +477,7 @@ function App() {
                 <span>{t('modal.viewRaw')}</span>
               </a>
               <a
-                href={`https://github.com/AgenticDriven/agenticdriven/raw/main/src/rules/ide/${selectedIDE.file}`}
+                href={`/rules/ide/${selectedIDE.file}`}
                 className="modal-btn modal-btn-download"
                 download={selectedIDE.file.split('/').pop()}
               >
