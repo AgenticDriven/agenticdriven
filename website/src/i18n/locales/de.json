@@ -181,7 +181,7 @@
     }
   },
   "workflow": {
-    "title": "Der AD-Workflow",
+    "title": "Workflow: 10 Phasen",
     "subtitle": "Klicken Sie auf eine beliebige Phase, um Details anzuzeigen",
     "legend": {
       "completed": "Abgeschlossen",
