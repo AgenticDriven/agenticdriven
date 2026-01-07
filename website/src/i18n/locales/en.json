@@ -506,21 +506,119 @@
     },
     "projectConfig": {
       "title": "Project Configuration (adw.yaml)",
-      "intro": "The adw.yaml file is optional but recommended for multi-agent projects. It defines the project domain and context boundaries for each agent.",
+      "intro": "The adw.yaml file defines ADW project configuration. It's OPTIONAL for solo projects and REQUIRED for multi-agent projects. Place it at project root.",
+      "when": {
+        "title": "When to use adw.yaml?",
+        "solo": "Solo Project: OPTIONAL. Only if you want AI to adapt its language to the domain.",
+        "multi": "Multi-Agent: REQUIRED. Defines context boundaries to prevent conflicts."
+      },
       "solo": {
-        "title": "Solo Project (Optional)",
-        "desc": "For single-agent projects, adw.yaml only needs to specify the domain. Most projects don't need this file.",
-        "example": "domain: \"software\""
+        "title": "Solo Configuration (Optional)",
+        "desc": "For single-agent projects, you only need to specify the domain. This makes AI agents adapt their language and suggestions to the project type.",
+        "example": "domain: \"software\"",
+        "domains": "Valid domains: software, book, marketing, event, product, research, course, game"
       },
       "multiAgent": {
-        "title": "Multi-Agent Project (Recommended)",
-        "desc": "For projects with multiple agents working in parallel, adw.yaml defines context boundaries. Each agent works in specific directories.",
-        "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\"]"
+        "title": "Multi-Agent Configuration (Required)",
+        "desc": "For projects with multiple agents working in parallel, you must define context boundaries. Each agent works only in their assigned directories to avoid merge conflicts.",
+        "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\", \"tests/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\", \"tests/frontend/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \".github/\"]"
       },
-      "fields": {
-        "title": "File Fields",
-        "domain": "Project type (software, book, marketing, event). AI agents adapt their language based on domain.",
-        "agents": "List of agents with their contexts. Defines which directories each agent handles to avoid conflicts."
+      "specification": {
+        "title": "Complete Schema Specification",
+        "intro": "The adw.yaml file has ONLY 2 possible fields. It's a simple and clear format:",
+        "schema": "# Complete adw.yaml schema\\n\\ndomain: string              # REQUIRED\\nagents: array<Agent>        # OPTIONAL (required for multi-agent)\\n\\n# Agent structure:\\nAgent {\\n  id: string               # REQUIRED: unique identifier\\n  context: array<string>   # REQUIRED: directories where agent works\\n}"
+      },
+      "domainField": {
+        "title": "Field: domain (string, REQUIRED)",
+        "desc": "Defines the project type. AI agents adapt their vocabulary, suggestions and examples based on the domain.",
+        "values": {
+          "title": "Valid Values (8 domains):",
+          "software": "software - Application development, APIs, systems",
+          "book": "book - Writing books, ebooks, manuals, guides",
+          "marketing": "marketing - Campaigns, content, marketing strategy",
+          "event": "event - Event planning and management",
+          "product": "product - Physical or digital product development",
+          "research": "research - Academic or scientific research",
+          "course": "course - Course creation, educational material",
+          "game": "game - Video game development"
+        },
+        "example": "domain: \"software\"  # Agents talk about 'code', 'tests', 'deploy'\\ndomain: \"book\"       # Agents talk about 'chapters', 'editing', 'publishing'\\ndomain: \"marketing\"  # Agents talk about 'campaigns', 'audience', 'conversion'"
+      },
+      "agentsField": {
+        "title": "Field: agents (array, OPTIONAL)",
+        "desc": "List of agents working on the project. REQUIRED for multi-agent, OMIT for solo projects.",
+        "required": "Required if: Multiple people/AIs working in parallel",
+        "omit": "Omit if: Only one person/AI working",
+        "structure": {
+          "title": "Structure of Each Agent:",
+          "id": "id (string, required): Unique agent identifier. Use kebab-case: 'backend-api', 'frontend-web'",
+          "context": "context (array<string>, required): List of directories where the agent can work. MUST end in /",
+          "example": "agents:\\n  - id: \"backend\"           # Identifier\\n    context:                 # Allowed directories\\n      - \"src/backend/\"\\n      - \"tests/backend/\"\\n      - \"docs/api/\""
+        }
+      },
+      "allCombinations": {
+        "title": "All Possible Combinations",
+        "1": {
+          "title": "1. Solo with domain (minimum)",
+          "desc": "Single person/AI project. The simplest configuration.",
+          "example": "domain: \"software\""
+        },
+        "2": {
+          "title": "2. Multi-agent with 2 agents",
+          "desc": "Two people/AIs working in separate areas.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\"]"
+        },
+        "3": {
+          "title": "3. Multi-agent with 3+ agents",
+          "desc": "Large team with specialized roles.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\", \"src/services/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\", \"src/components/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \"docker/\"]\\n  - id: \"qa\"\\n    context: [\"tests/\"]"
+        },
+        "4": {
+          "title": "4. Agent with multiple contexts",
+          "desc": "An agent can work in several non-contiguous directories.",
+          "example": "domain: \"book\"\\n\\nagents:\\n  - id: \"editor\"\\n    context:\\n      - \"chapters/\"\\n      - \"appendices/\"\\n      - \"glossary/\"\\n      - \"index/\""
+        },
+        "5": {
+          "title": "5. Contexts with subdirectories",
+          "desc": "The context includes all subdirectories automatically.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\"]  # Includes src/backend/api/, src/backend/db/, etc."
+        }
+      },
+      "validation": {
+        "title": "Validations and Restrictions",
+        "1": "domain is ALWAYS required. Cannot be omitted.",
+        "2": "domain must be one of the 8 valid values (software, book, marketing, event, product, research, course, game)",
+        "3": "agents is optional. If not specified = solo project.",
+        "4": "If agents exists, must have at least 1 agent.",
+        "5": "Each agent MUST have id and context.",
+        "6": "agent.id must be unique (cannot have two agents with same id).",
+        "7": "agent.context must be an array with at least 1 directory.",
+        "8": "Paths in context must end in / (indicates directory).",
+        "9": "Contexts MUST NOT overlap between agents.",
+        "10": "Use kebab-case for agent.id: 'backend-api' (not 'backend_api' or 'BackendAPI')"
+      },
+      "examples": {
+        "title": "Examples by Domain",
+        "software": {
+          "title": "Software (Backend + Frontend + DevOps)",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\", \"src/services/\", \"tests/api/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\", \"src/components/\", \"tests/e2e/\"]\\n  - id: \"devops\"\\n    context: [\"infrastructure/\", \".github/\", \"docker/\"]"
+        },
+        "book": {
+          "title": "Book (Multiple Writers)",
+          "example": "domain: \"book\"\\n\\nagents:\\n  - id: \"author1\"\\n    context: [\"chapters/01-05/\"]\\n  - id: \"author2\"\\n    context: [\"chapters/06-10/\"]\\n  - id: \"editor\"\\n    context: [\"chapters/\", \"appendices/\"]"
+        },
+        "marketing": {
+          "title": "Marketing (Campaign + Content + Analytics)",
+          "example": "domain: \"marketing\"\\n\\nagents:\\n  - id: \"campaign-manager\"\\n    context: [\"campaigns/\", \"strategy/\"]\\n  - id: \"content-creator\"\\n    context: [\"content/\", \"assets/\"]\\n  - id: \"analyst\"\\n    context: [\"analytics/\", \"reports/\"]"
+        }
+      },
+      "rules": {
+        "title": "Important Rules",
+        "1": "An agent MUST NOT modify files outside their context",
+        "2": "Contexts MUST NOT overlap between agents",
+        "3": "The adw.yaml file goes in project root",
+        "4": "Use kebab-case for agent IDs: backend-api, frontend-web",
+        "5": "Paths in context always end in / to indicate directories"
       }
     },
     "multiAgent": {

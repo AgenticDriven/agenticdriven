@@ -455,16 +455,79 @@
         "desc": "Para proyectos con múltiples agentes trabajando en paralelo, debes definir los límites de contexto. Cada agente trabaja solo en sus directorios asignados para evitar conflictos de merge.",
         "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\", \"tests/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\", \"tests/frontend/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \".github/\"]"
       },
-      "fields": {
-        "title": "Campos Disponibles",
-        "domain": {
-          "title": "domain (string, requerido)",
-          "desc": "Tipo de proyecto. Los agentes de IA adaptan su lenguaje según el dominio. Valores: software, book, marketing, event, product, research, course, game."
+      "specification": {
+        "title": "Especificación Completa del Schema",
+        "intro": "El archivo adw.yaml tiene SOLO 2 campos posibles. Es un formato simple y claro:",
+        "schema": "# Schema completo de adw.yaml\\n\\ndomain: string              # REQUERIDO\\nagents: array<Agent>        # OPCIONAL (requerido para multi-agente)\\n\\n# Estructura de Agent:\\nAgent {\\n  id: string               # REQUERIDO: identificador único\\n  context: array<string>   # REQUERIDO: directorios donde trabaja\\n}"
+      },
+      "domainField": {
+        "title": "Campo: domain (string, REQUERIDO)",
+        "desc": "Define el tipo de proyecto. Los agentes de IA adaptan su vocabulario, sugerencias y ejemplos según el dominio.",
+        "values": {
+          "title": "Valores Válidos (8 dominios):",
+          "software": "software - Desarrollo de aplicaciones, APIs, sistemas",
+          "book": "book - Escritura de libros, ebooks, manuales, guías",
+          "marketing": "marketing - Campañas, contenido, estrategia de marketing",
+          "event": "event - Planificación y gestión de eventos",
+          "product": "product - Desarrollo de productos físicos o digitales",
+          "research": "research - Investigación académica o científica",
+          "course": "course - Creación de cursos, material educativo",
+          "game": "game - Desarrollo de videojuegos"
         },
-        "agents": {
-          "title": "agents (array, opcional)",
-          "desc": "Lista de agentes con sus contextos. Cada agente tiene: id (identificador único) y context (array de directorios donde puede trabajar)."
+        "example": "domain: \"software\"  # Los agentes hablan de 'código', 'tests', 'deploy'\\ndomain: \"book\"       # Los agentes hablan de 'capítulos', 'edición', 'publicación'\\ndomain: \"marketing\"  # Los agentes hablan de 'campañas', 'audiencia', 'conversión'"
+      },
+      "agentsField": {
+        "title": "Campo: agents (array, OPCIONAL)",
+        "desc": "Lista de agentes que trabajan en el proyecto. REQUERIDO para multi-agente, OMITIR para proyectos solo.",
+        "required": "Requerido si: Múltiples personas/IAs trabajando en paralelo",
+        "omit": "Omitir si: Solo una persona/IA trabajando",
+        "structure": {
+          "title": "Estructura de Cada Agente:",
+          "id": "id (string, requerido): Identificador único del agente. Usar kebab-case: 'backend-api', 'frontend-web'",
+          "context": "context (array<string>, requerido): Lista de directorios donde el agente puede trabajar. DEBE terminar en /",
+          "example": "agents:\\n  - id: \"backend\"           # Identificador\\n    context:                 # Directorios permitidos\\n      - \"src/backend/\"\\n      - \"tests/backend/\"\\n      - \"docs/api/\""
         }
+      },
+      "allCombinations": {
+        "title": "Todas las Combinaciones Posibles",
+        "1": {
+          "title": "1. Solo con domain (mínimo)",
+          "desc": "Proyecto de una sola persona/IA. La configuración más simple.",
+          "example": "domain: \"software\""
+        },
+        "2": {
+          "title": "2. Multi-agente con 2 agentes",
+          "desc": "Dos personas/IAs trabajando en áreas separadas.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\"]"
+        },
+        "3": {
+          "title": "3. Multi-agente con 3+ agentes",
+          "desc": "Equipo grande con roles especializados.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/api/\", \"src/services/\"]\\n  - id: \"frontend\"\\n    context: [\"src/web/\", \"src/components/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \"docker/\"]\\n  - id: \"qa\"\\n    context: [\"tests/\"]"
+        },
+        "4": {
+          "title": "4. Agente con múltiples contextos",
+          "desc": "Un agente puede trabajar en varios directorios no contiguos.",
+          "example": "domain: \"book\"\\n\\nagents:\\n  - id: \"editor\"\\n    context:\\n      - \"chapters/\"\\n      - \"appendices/\"\\n      - \"glossary/\"\\n      - \"index/\""
+        },
+        "5": {
+          "title": "5. Contextos con subdirectorios",
+          "desc": "El context incluye todos los subdirectorios automáticamente.",
+          "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\"]  # Incluye src/backend/api/, src/backend/db/, etc."
+        }
+      },
+      "validation": {
+        "title": "Validaciones y Restricciones",
+        "1": "domain es SIEMPRE requerido. No puede omitirse.",
+        "2": "domain debe ser uno de los 8 valores válidos (software, book, marketing, event, product, research, course, game)",
+        "3": "agents es opcional. Si no se especifica = proyecto solo.",
+        "4": "Si agents existe, debe tener al menos 1 agente.",
+        "5": "Cada agente DEBE tener id y context.",
+        "6": "agent.id debe ser único (no puede haber dos agentes con el mismo id).",
+        "7": "agent.context debe ser un array con al menos 1 directorio.",
+        "8": "Paths en context deben terminar en / (indica directorio).",
+        "9": "Contexts NO deben solaparse entre agentes.",
+        "10": "Usar kebab-case para agent.id: 'backend-api' (no 'backend_api' ni 'BackendAPI')"
       },
       "examples": {
         "title": "Ejemplos por Dominio",

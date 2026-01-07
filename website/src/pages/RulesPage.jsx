@@ -418,18 +418,102 @@ function RulesPage({ onNavigate }) {
                   </div>
                 </div>
 
-                {/* Fields */}
+                {/* Complete Schema Specification */}
                 <div className="file-descriptions" style={{marginTop: '3rem'}}>
-                  <h3 className="subsection-title">{t('rules.projectConfig.fields.title')}</h3>
+                  <h3 className="subsection-title">{t('rules.projectConfig.specification.title')}</h3>
+                  <p className="rules-intro">{t('rules.projectConfig.specification.intro')}</p>
+                  <div className="code-block" style={{marginTop: '1rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.projectConfig.specification.schema'))}
+                    </code></pre>
+                  </div>
+                </div>
+
+                {/* domain Field */}
+                <div className="file-descriptions" style={{marginTop: '3rem'}}>
+                  <h3 className="subsection-title">{t('rules.projectConfig.domainField.title')}</h3>
+                  <p className="rules-intro">{t('rules.projectConfig.domainField.desc')}</p>
+
+                  <div className="info-card" style={{marginTop: '1.5rem'}}>
+                    <h4 className="info-card-title">{t('rules.projectConfig.domainField.values.title')}</h4>
+                    <div className="file-list" style={{marginTop: '1rem'}}>
+                      {['software', 'book', 'marketing', 'event', 'product', 'research', 'course', 'game'].map((domain) => (
+                        <div key={domain} className="file-item">
+                          <span className="file-name">📦</span>
+                          <p className="file-desc">{t(`rules.projectConfig.domainField.values.${domain}`)}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="code-block" style={{marginTop: '1.5rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.projectConfig.domainField.example'))}
+                    </code></pre>
+                  </div>
+                </div>
+
+                {/* agents Field */}
+                <div className="file-descriptions" style={{marginTop: '3rem'}}>
+                  <h3 className="subsection-title">{t('rules.projectConfig.agentsField.title')}</h3>
+                  <p className="rules-intro">{t('rules.projectConfig.agentsField.desc')}</p>
+
+                  <div className="rules-grid-cards" style={{marginTop: '1.5rem'}}>
+                    <div className="rule-card">
+                      <h4>✅ {t('rules.projectConfig.agentsField.required')}</h4>
+                    </div>
+                    <div className="rule-card">
+                      <h4>❌ {t('rules.projectConfig.agentsField.omit')}</h4>
+                    </div>
+                  </div>
+
+                  <div className="info-card" style={{marginTop: '1.5rem'}}>
+                    <h4 className="info-card-title">{t('rules.projectConfig.agentsField.structure.title')}</h4>
+                    <div className="file-list" style={{marginTop: '1rem'}}>
+                      <div className="file-item">
+                        <span className="file-name">id</span>
+                        <p className="file-desc">{t('rules.projectConfig.agentsField.structure.id')}</p>
+                      </div>
+                      <div className="file-item">
+                        <span className="file-name">context</span>
+                        <p className="file-desc">{t('rules.projectConfig.agentsField.structure.context')}</p>
+                      </div>
+                    </div>
+                    <div className="code-block" style={{marginTop: '1rem'}}>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                        {formatCode(t('rules.projectConfig.agentsField.structure.example'))}
+                      </code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                {/* All Combinations */}
+                <div className="file-descriptions" style={{marginTop: '3rem'}}>
+                  <h3 className="subsection-title">{t('rules.projectConfig.allCombinations.title')}</h3>
+
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <div key={num} className="info-card" style={{marginTop: '1.5rem'}}>
+                      <h4 className="info-card-title">{t(`rules.projectConfig.allCombinations.${num}.title`)}</h4>
+                      <p className="info-card-desc">{t(`rules.projectConfig.allCombinations.${num}.desc`)}</p>
+                      <div className="code-block" style={{marginTop: '1rem'}}>
+                        <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                          {formatCode(t(`rules.projectConfig.allCombinations.${num}.example`))}
+                        </code></pre>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Validation Rules */}
+                <div className="file-descriptions" style={{marginTop: '3rem'}}>
+                  <h3 className="subsection-title">{t('rules.projectConfig.validation.title')}</h3>
                   <div className="file-list">
-                    <div className="file-item">
-                      <span className="file-name">{t('rules.projectConfig.fields.domain.title')}</span>
-                      <p className="file-desc">{t('rules.projectConfig.fields.domain.desc')}</p>
-                    </div>
-                    <div className="file-item">
-                      <span className="file-name">{t('rules.projectConfig.fields.agents.title')}</span>
-                      <p className="file-desc">{t('rules.projectConfig.fields.agents.desc')}</p>
-                    </div>
+                    {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
+                      <div key={num} className="file-item">
+                        <span className="file-name">✓ {num}</span>
+                        <p className="file-desc">{t(`rules.projectConfig.validation.${num}`)}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
