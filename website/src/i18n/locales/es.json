@@ -1,0 +1,293 @@
+{
+  "hero": {
+    "title": "Flujo de Trabajo Agéntico",
+    "version": "1.0",
+    "subtitle": "La primera metodología nativa de IA para desarrollo estructurado",
+    "badge": "Ya Disponible",
+    "description": "13 principios • 10 fases • Marco universal<br/>De la idea al lanzamiento con agentes de IA",
+    "aiLabel": "Funciona con los principales asistentes de IA:",
+    "cta": {
+      "getStarted": "Comenzar",
+      "github": "GitHub"
+    },
+    "stats": {
+      "principles": "Principios Fundamentales",
+      "phases": "Fases de Desarrollo",
+      "integrations": "Integraciones IDE"
+    },
+    "ideLabel": "Preconfigurado para:"
+  },
+  "what": {
+    "title": "¿Qué es Agentic Driven?",
+    "subtitle": "Una metodología estructurada diseñada específicamente para la colaboración con agentes de IA",
+    "lead": "<strong>Agentic Driven (AD)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>13 principios</strong> y <strong>10 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
+    "p1": "Las metodologías tradicionales como Agile y Waterfall no fueron diseñadas para la colaboración con IA. Asumen que los humanos escriben código y toman cada decisión. AD cambia esto: <strong>los humanos definen la estrategia, la IA ejecuta</strong>.",
+    "p2": "Ya sea que estés construyendo una aplicación con Cursor, escribiendo un libro con Claude o gestionando un proyecto con Copilot, AD te da el marco para trabajar eficazmente con agentes de IA.",
+    "features": {
+      "phases": {
+        "title": "Fases Claras",
+        "desc": "10 fases desde DEFINIR hasta EVOLUCIONAR. Siempre sabrás dónde estás y qué viene después."
+      },
+      "exitCriteria": {
+        "title": "Criterios de Salida",
+        "desc": "Cada fase tiene requisitos claros de finalización. No más adivinanzas sobre cuándo avanzar."
+      },
+      "documentation": {
+        "title": "Documentación Integrada",
+        "desc": "La documentación no es opcional: está integrada en cada fase del flujo de trabajo."
+      },
+      "universal": {
+        "title": "Marco Universal",
+        "desc": "No solo software. Úsalo para cualquier proyecto estructurado en cualquier dominio."
+      }
+    }
+  },
+  "collaboration": {
+    "title": "Cómo Funciona",
+    "human": {
+      "label": "Humano",
+      "role": "Define la Estrategia",
+      "details": "Tú decides qué construir, estableces prioridades, tomas decisiones clave y defines criterios de éxito"
+    },
+    "ai": {
+      "label": "Agente IA",
+      "role": "Ejecuta Tareas",
+      "details": "Los agentes IA escriben código, crean contenido, implementan funcionalidades y manejan el cómo"
+    },
+    "emphasis": "Todo sucede a través de <strong>agentes IA</strong>. Tú te enfocas en estrategia y creatividad, los agentes manejan la ejecución."
+  },
+  "benefits": {
+    "title": "¿Por Qué Agentic Driven?",
+    "subtitle": "Construido para la forma en que realmente trabajas con IA",
+    "items": {
+      "structure": {
+        "title": "Estructura Clara",
+        "desc": "Sabe exactamente dónde estás en tu proyecto. No más deambular en la oscuridad. Cada fase tiene objetivos claros y criterios de salida."
+      },
+      "collaboration": {
+        "title": "Mejor Colaboración con IA",
+        "desc": "Los agentes de IA funcionan mejor con estructura. AD proporciona el marco para un trabajo en equipo efectivo entre humanos e IA en cualquier proyecto."
+      },
+      "documentation": {
+        "title": "Documentación Integrada",
+        "desc": "La documentación no es una idea tardía. Está integrada en cada fase. Tu yo futuro te lo agradecerá."
+      },
+      "universal": {
+        "title": "Aplicación Universal",
+        "desc": "No solo para software. Usa AD para creación de contenido, campañas de marketing, planificación de eventos, investigación y más."
+      },
+      "quality": {
+        "title": "Enfoque en la Calidad",
+        "desc": "Validación y pruebas integradas en el flujo de trabajo. Detecta problemas temprano, entrega resultados de calidad consistentemente."
+      },
+      "iterative": {
+        "title": "Progreso Iterativo",
+        "desc": "Mejora dentro de las fases, documenta cuando retrocedas. El progreso real no es lineal, y AD lo reconoce."
+      }
+    }
+  },
+  "principles": {
+    "title": "13 Principios Fundamentales",
+    "subtitle": "La base de una colaboración efectiva con IA",
+    "items": {
+      "1": {
+        "title": "Impulsado por Agentes",
+        "desc": "Los humanos deciden la estrategia, la IA ejecuta",
+        "detail": "Tú defines qué debe hacerse y por qué. Los agentes de IA manejan el cómo, liberándote para enfocarte en decisiones de alto nivel y trabajo creativo."
+      },
+      "2": {
+        "title": "Documentación Primero",
+        "desc": "Documenta antes, durante y después",
+        "detail": "La documentación clara es esencial para la colaboración con IA. Escribe documentos antes de codificar, actualiza durante el trabajo y pule después de completar."
+      },
+      "3": {
+        "title": "Estructurado por Fases",
+        "desc": "10 fases con objetivos claros",
+        "detail": "Desde DEFINIR hasta EVOLUCIONAR, cada fase tiene objetivos específicos y criterios de salida. Sabe exactamente dónde estás y qué viene después."
+      },
+      "4": {
+        "title": "Impulsado por Validación",
+        "desc": "Valida antes y después de construir",
+        "detail": "Prueba suposiciones temprano, valida continuamente. Detecta problemas antes de que se conviertan en problemas. Calidad incorporada, no atornillada."
+      },
+      "5": {
+        "title": "Iterativo",
+        "desc": "Mejora dentro de las fases",
+        "detail": "Se espera refinamiento. Itera rápidamente dentro de las fases, pero documenta cuando necesites retroceder. El progreso no siempre es lineal."
+      },
+      "6": {
+        "title": "Rastreable",
+        "desc": "Cada cambio en git con historial claro",
+        "detail": "Registro de auditoría completo de todos los cambios. Sabe quién cambió qué, cuándo y por qué. Esencial para la colaboración con IA y la transparencia del equipo."
+      },
+      "7": {
+        "title": "Git Primero",
+        "desc": "Tarea completa = commit inmediato",
+        "detail": "Un cambio lógico por commit. Mensajes claros usando Conventional Commits. Haz commit cuando la tarea esté hecha y verificada."
+      },
+      "8": {
+        "title": "Estándares Primero",
+        "desc": "Prefiere estándares rígidos sobre soluciones personalizadas",
+        "detail": "Usa Conventional Commits, semver, ISO-8601, JSON:API. Los patrones establecidos reducen decisiones y mejoran la comprensión de la IA."
+      },
+      "9": {
+        "title": "Explícito sobre Implícito",
+        "desc": "Sin números mágicos, define todo",
+        "detail": "Constantes nombradas, nombres de variables claros, interfaces explícitas. Código que se lee como documentación. Tanto la IA como los humanos se benefician."
+      },
+      "10": {
+        "title": "Responsabilidad Única",
+        "desc": "Un componente = un propósito",
+        "detail": "Mantén funciones, archivos y componentes enfocados. Más fácil de entender, probar y mantener. Más simple para que la IA trabaje."
+      },
+      "11": {
+        "title": "Impulsado por Contratos",
+        "desc": "Define interfaces antes de la implementación",
+        "detail": "Especifica exactamente qué estás construyendo en docs/interfaces.md. Luego implementa según la especificación. Sin sorpresas, expectativas claras."
+      },
+      "12": {
+        "title": "Pruebas Primero",
+        "desc": "Define criterios de éxito por adelantado",
+        "detail": "Sabe cómo se ve 'hecho' antes de comenzar. Escribe pruebas o criterios de aceptación primero. Valida mientras construyes."
+      },
+      "13": {
+        "title": "Soluciones Probadas",
+        "desc": "Usa patrones y frameworks establecidos",
+        "detail": "No reinventes la rueda. Aprovecha patrones de diseño, frameworks probados y estructuras estándar. Construye sobre bases sólidas."
+      }
+    }
+  },
+  "workflow": {
+    "title": "El Flujo de Trabajo AD",
+    "subtitle": "Haz clic en cualquier fase para ver detalles",
+    "legend": {
+      "completed": "Completada",
+      "current": "Actual",
+      "pending": "Pendiente"
+    },
+    "phases": {
+      "define": {
+        "name": "DEFINIR",
+        "version": "v0.0.x",
+        "desc": "Define problema, objetivos, alcance",
+        "detail": "Comienza con claridad. ¿Qué problema estás resolviendo? ¿Cuáles son tus objetivos? ¿Qué está dentro del alcance, qué no? Documenta restricciones y criterios de éxito. Fundamento para todo lo que sigue."
+      },
+      "discover": {
+        "name": "DESCUBRIR",
+        "version": "v0.1.x",
+        "desc": "Investiga opciones, viabilidad",
+        "detail": "Investiga y explora. Recopila requisitos, identifica riesgos, evalúa viabilidad. ¿Qué ya existe? ¿Qué enfoques son posibles? Toma decisiones informadas antes de comprometerte."
+      },
+      "design": {
+        "name": "DISEÑAR",
+        "version": "v0.2.x",
+        "desc": "Diseña solución, arquitectura",
+        "detail": "Planifica antes de construir. Diseña tu solución, define arquitectura, especifica interfaces. Toma decisiones clave documentadas. Listo para implementar con confianza."
+      },
+      "setup": {
+        "name": "CONFIGURAR",
+        "version": "v0.3.x",
+        "desc": "Prepara herramientas, entorno",
+        "detail": "Organízate. Configura herramientas, prepara el entorno, define criterios de validación. Todo listo para que puedas enfocarte en construir."
+      },
+      "build": {
+        "name": "CONSTRUIR",
+        "version": "v0.4.x",
+        "desc": "Construye/crea la solución",
+        "detail": "Hora de crear. Implementa componentes, escribe código, desarrolla contenido. Sigue los contratos, prueba mientras avanzas, documenta cambios. El grueso del trabajo ocurre aquí."
+      },
+      "validate": {
+        "name": "VALIDAR",
+        "version": "v0.5.x",
+        "desc": "Verifica calidad, pruebas",
+        "detail": "Asegura la calidad. Ejecuta pruebas exhaustivas, valida contra criterios, verifica rendimiento. Corrige problemas encontrados. Solo procede cuando la validación pase."
+      },
+      "market": {
+        "name": "MERCADEO",
+        "version": "v0.6.x",
+        "desc": "Prepara materiales de lanzamiento",
+        "detail": "Prepárate para compartir. Crea materiales de marketing, prepara documentación, planifica estrategia de lanzamiento. Genera conciencia antes del lanzamiento."
+      },
+      "launch": {
+        "name": "LANZAR",
+        "version": "v0.7.x",
+        "desc": "Despliega, activa, en vivo",
+        "detail": "Hazlo público. Despliega a producción, anuncia a usuarios, monitorea respuesta inicial. Ejecución del día de lanzamiento y seguimiento inmediato."
+      },
+      "support": {
+        "name": "SOPORTE",
+        "version": "v0.8.x",
+        "desc": "Mantiene, corrige problemas",
+        "detail": "Manténlo funcionando. Maneja reportes de errores, responde a usuarios, mantén estabilidad. Correcciones críticas y soporte inmediato. Genera confianza."
+      },
+      "evolve": {
+        "name": "EVOLUCIONAR",
+        "version": "v0.9.x",
+        "desc": "Mejora, optimiza, crece",
+        "detail": "Hazlo mejor. Agrega características, optimiza rendimiento, responde a retroalimentación. Planifica la próxima versión. Ciclo de mejora continua."
+      }
+    }
+  },
+  "quickStart": {
+    "title": "Inicio Rápido",
+    "subtitle": "Preconfigurado para tu IDE de IA favorito",
+    "getConfig": "Obtener Configuración",
+    "installTitle": "O usa nuestro script de instalación rápida:",
+    "copyCommand": "Copiar comando"
+  },
+  "resources": {
+    "title": "Aprende Más",
+    "subtitle": "Profundiza en la metodología",
+    "items": {
+      "docs": {
+        "title": "Documentación",
+        "desc": "Documentación completa de la metodología, principios explicados y guías fase por fase.",
+        "link": "Leer Documentación →"
+      },
+      "community": {
+        "title": "Comunidad",
+        "desc": "Únete a las discusiones, comparte experiencias y obtén ayuda de la comunidad AD.",
+        "link": "Unirse a Discusiones →"
+      },
+      "books": {
+        "title": "Libros",
+        "desc": "Guías completas sobre la metodología AD, mejores prácticas y ejemplos del mundo real.",
+        "comingSoon": "Próximamente"
+      },
+      "courses": {
+        "title": "Cursos",
+        "desc": "Cursos en video paso a paso que te enseñan cómo implementar AD en tus proyectos.",
+        "comingSoon": "Próximamente"
+      }
+    }
+  },
+  "footer": {
+    "title": "AD 1.0",
+    "subtitle": "Metodología Agentic Driven",
+    "tagline": "Construido para la era de la IA",
+    "sections": {
+      "resources": {
+        "title": "Recursos",
+        "github": "GitHub",
+        "configs": "Configuraciones IDE",
+        "quickStart": "Inicio Rápido",
+        "docs": "Documentación"
+      },
+      "community": {
+        "title": "Comunidad",
+        "discussions": "Discusiones",
+        "issues": "Problemas",
+        "contributing": "Contribuir",
+        "license": "Licencia (MIT)"
+      }
+    },
+    "copyright": "© 2026 Agentic Driven. Código Abierto bajo Licencia MIT.",
+    "built": "Construido usando AD 1.0 mismo (dogfooding desde el primer día)"
+  },
+  "modal": {
+    "close": "Cerrar",
+    "chooseAction": "Elige cómo obtener el archivo de configuración:",
+    "viewRaw": "Ver Original",
+    "download": "Descargar"
+  }
+}

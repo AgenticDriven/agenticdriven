@@ -1,0 +1,293 @@
+{
+  "hero": {
+    "title": "智能体驱动工作流",
+    "version": "1.0",
+    "subtitle": "首个AI原生的结构化开发方法论",
+    "badge": "现已推出",
+    "description": "13个原则 • 10个阶段 • 通用框架<br/>从构思到上线,借助AI智能体",
+    "aiLabel": "支持主流AI助手:",
+    "cta": {
+      "getStarted": "开始使用",
+      "github": "GitHub"
+    },
+    "stats": {
+      "principles": "核心原则",
+      "phases": "开发阶段",
+      "integrations": "IDE集成"
+    },
+    "ideLabel": "预配置支持:"
+  },
+  "what": {
+    "title": "什么是智能体驱动?",
+    "subtitle": "专为AI智能体协作设计的结构化方法论",
+    "lead": "<strong>智能体驱动(AD)</strong>是为AI时代创建的首个通用方法论。通过<strong>13个原则</strong>和<strong>10个阶段</strong>提供清晰的结构,适用于任何项目——软件、内容、营销、活动等。",
+    "p1": "传统方法论如敏捷和瀑布不是为AI协作设计的。它们假设人类编写代码并做出每个决定。AD颠覆了这一点:<strong>人类定义策略,AI执行</strong>。",
+    "p2": "无论您是使用Cursor构建应用、使用Claude撰写书籍,还是使用Copilot管理项目,AD都为您提供与AI智能体有效协作的框架。",
+    "features": {
+      "phases": {
+        "title": "清晰阶段",
+        "desc": "从定义到进化的10个阶段。始终知道您所处位置和接下来要做什么。"
+      },
+      "exitCriteria": {
+        "title": "退出标准",
+        "desc": "每个阶段都有明确的完成要求。不再猜测何时继续前进。"
+      },
+      "documentation": {
+        "title": "内置文档",
+        "desc": "文档不是可选的——它融入工作流程的每个阶段。"
+      },
+      "universal": {
+        "title": "通用框架",
+        "desc": "不仅限于软件。可用于任何领域的结构化项目。"
+      }
+    }
+  },
+  "collaboration": {
+    "title": "How It Works",
+    "human": {
+      "label": "Human",
+      "role": "Defines Strategy",
+      "details": "You decide what to build, set priorities, make key decisions, and define success criteria"
+    },
+    "ai": {
+      "label": "AI Agent",
+      "role": "Executes Tasks",
+      "details": "AI agents write code, create content, implement features, and handle the how"
+    },
+    "emphasis": "Everything happens through <strong>AI agents</strong>. You focus on strategy and creativity, agents handle execution."
+  },
+  "benefits": {
+    "title": "为什么选择智能体驱动?",
+    "subtitle": "专为您与AI实际协作方式而构建",
+    "items": {
+      "structure": {
+        "title": "清晰结构",
+        "desc": "准确了解项目进展。不再迷失方向。每个阶段都有明确的目标和退出标准。"
+      },
+      "collaboration": {
+        "title": "更好的AI协作",
+        "desc": "AI智能体在结构化环境中表现最佳。AD为任何项目的人机协作提供框架。"
+      },
+      "documentation": {
+        "title": "内置文档",
+        "desc": "文档不是事后想法。它融入每个阶段。未来的你会感谢现在的你。"
+      },
+      "universal": {
+        "title": "通用应用",
+        "desc": "不仅适用于软件。可用于内容创作、营销活动、活动策划、研究等。"
+      },
+      "quality": {
+        "title": "质量为先",
+        "desc": "验证和测试内置于工作流程。及早发现问题,始终如一地交付高质量结果。"
+      },
+      "iterative": {
+        "title": "迭代进展",
+        "desc": "在阶段内改进,回退时记录。真正的进展不是线性的,AD认可这一点。"
+      }
+    }
+  },
+  "principles": {
+    "title": "13个核心原则",
+    "subtitle": "有效AI协作的基础",
+    "items": {
+      "1": {
+        "title": "智能体驱动",
+        "desc": "人类决定策略,AI执行",
+        "detail": "您定义需要做什么以及为什么。AI智能体处理如何做,让您专注于高层决策和创造性工作。"
+      },
+      "2": {
+        "title": "文档优先",
+        "desc": "之前、期间、之后都要记录",
+        "detail": "清晰的文档对AI协作至关重要。编码前编写文档,工作中更新,完成后完善。"
+      },
+      "3": {
+        "title": "分阶段与结构化",
+        "desc": "10个阶段,目标明确",
+        "detail": "从定义到进化,每个阶段都有具体目标和退出标准。准确了解您所处位置和接下来要做什么。"
+      },
+      "4": {
+        "title": "验证驱动",
+        "desc": "构建前后都要验证",
+        "detail": "及早测试假设,持续验证。在问题成为麻烦之前发现它们。质量内置,而非外加。"
+      },
+      "5": {
+        "title": "迭代式",
+        "desc": "在阶段内改进",
+        "detail": "改进是预期的。在阶段内快速迭代,但需要回退时要记录。进展并非总是线性的。"
+      },
+      "6": {
+        "title": "可追溯",
+        "desc": "git中的每个更改都有清晰历史",
+        "detail": "所有更改的完整审计追踪。了解谁在何时改变了什么以及为什么。对AI协作和团队透明度至关重要。"
+      },
+      "7": {
+        "title": "Git优先",
+        "desc": "任务完成 = 立即提交",
+        "detail": "每次提交一个逻辑更改。使用约定式提交的清晰消息。任务完成并验证后提交。"
+      },
+      "8": {
+        "title": "标准优先",
+        "desc": "首选严格标准而非自定义方案",
+        "detail": "使用约定式提交、语义化版本、ISO-8601、JSON:API。既定模式减少决策并提高AI理解力。"
+      },
+      "9": {
+        "title": "显式优于隐式",
+        "desc": "无魔法数字,定义一切",
+        "detail": "命名常量、清晰变量名、显式接口。代码读起来像文档。AI和人类都受益。"
+      },
+      "10": {
+        "title": "单一职责",
+        "desc": "一个组件 = 一个目的",
+        "detail": "保持函数、文件和组件专注。更易理解、测试和维护。AI处理起来更简单。"
+      },
+      "11": {
+        "title": "契约驱动",
+        "desc": "实现前定义接口",
+        "detail": "在docs/interfaces.md中准确指定您要构建的内容。然后按规范实现。不会有意外,期望明确。"
+      },
+      "12": {
+        "title": "测试优先",
+        "desc": "预先定义成功标准",
+        "detail": "开始前知道'完成'是什么样子。首先编写测试或验收标准。边构建边验证。"
+      },
+      "13": {
+        "title": "成熟方案",
+        "desc": "使用既定模式和框架",
+        "detail": "不要重新发明轮子。利用设计模式、成熟框架和标准结构。在坚实基础上构建。"
+      }
+    }
+  },
+  "workflow": {
+    "title": "AD工作流程",
+    "subtitle": "点击任意阶段查看详情",
+    "legend": {
+      "completed": "已完成",
+      "current": "当前",
+      "pending": "待处理"
+    },
+    "phases": {
+      "define": {
+        "name": "定义",
+        "version": "v0.0.x",
+        "desc": "定义问题、目标、范围",
+        "detail": "从清晰开始。您要解决什么问题?您的目标是什么?什么在范围内,什么不在?记录约束和成功标准。为后续一切奠定基础。"
+      },
+      "discover": {
+        "name": "探索",
+        "version": "v0.1.x",
+        "desc": "调查选项、可行性",
+        "detail": "研究和探索。收集需求,识别风险,评估可行性。已有什么?哪些方法可行?做出明智决定后再承诺。"
+      },
+      "design": {
+        "name": "设计",
+        "version": "v0.2.x",
+        "desc": "设计解决方案、架构",
+        "detail": "先规划后构建。设计解决方案,定义架构,指定接口。做出关键决策并记录。准备好自信地实施。"
+      },
+      "setup": {
+        "name": "配置",
+        "version": "v0.3.x",
+        "desc": "准备工具、环境",
+        "detail": "做好组织。配置工具,设置环境,定义验证标准。一切就绪,专注构建。"
+      },
+      "build": {
+        "name": "构建",
+        "version": "v0.4.x",
+        "desc": "构建/创建解决方案",
+        "detail": "开始创作。实现组件,编写代码,开发内容。遵循契约,边做边测,记录更改。大部分工作在这里完成。"
+      },
+      "validate": {
+        "name": "验证",
+        "version": "v0.5.x",
+        "desc": "验证质量、测试",
+        "detail": "确保质量。运行全面测试,根据标准验证,检查性能。修复发现的问题。只有验证通过才继续。"
+      },
+      "market": {
+        "name": "营销",
+        "version": "v0.6.x",
+        "desc": "准备发布材料",
+        "detail": "准备分享。创建营销材料,准备文档,规划发布策略。发布前建立认知度。"
+      },
+      "launch": {
+        "name": "发布",
+        "version": "v0.7.x",
+        "desc": "部署、激活、上线",
+        "detail": "公之于众。部署到生产环境,向用户发布,监控初始反应。发布日执行和即时跟进。"
+      },
+      "support": {
+        "name": "支持",
+        "version": "v0.8.x",
+        "desc": "维护、修复问题",
+        "detail": "保持运行。处理错误报告,响应用户,维护稳定性。关键修复和即时支持。建立信心。"
+      },
+      "evolve": {
+        "name": "进化",
+        "version": "v0.9.x",
+        "desc": "改进、优化、成长",
+        "detail": "让它更好。添加功能,优化性能,响应反馈。规划下一个版本。持续改进循环。"
+      }
+    }
+  },
+  "quickStart": {
+    "title": "快速开始",
+    "subtitle": "为您喜爱的AI IDE预配置",
+    "getConfig": "获取配置",
+    "installTitle": "或使用我们的快速安装脚本:",
+    "copyCommand": "复制命令"
+  },
+  "resources": {
+    "title": "了解更多",
+    "subtitle": "深入了解方法论",
+    "items": {
+      "docs": {
+        "title": "文档",
+        "desc": "完整的方法论文档、原则解释和分阶段指南。",
+        "link": "阅读文档 →"
+      },
+      "community": {
+        "title": "社区",
+        "desc": "加入讨论,分享经验,从AD社区获得帮助。",
+        "link": "加入讨论 →"
+      },
+      "books": {
+        "title": "书籍",
+        "desc": "涵盖AD方法论、最佳实践和真实案例的综合指南。",
+        "comingSoon": "即将推出"
+      },
+      "courses": {
+        "title": "课程",
+        "desc": "循序渐进的视频课程,教您如何在项目中实施AD。",
+        "comingSoon": "即将推出"
+      }
+    }
+  },
+  "footer": {
+    "title": "AD 1.0",
+    "subtitle": "智能体驱动方法论",
+    "tagline": "为AI时代而建",
+    "sections": {
+      "resources": {
+        "title": "资源",
+        "github": "GitHub",
+        "configs": "IDE配置",
+        "quickStart": "快速开始",
+        "docs": "文档"
+      },
+      "community": {
+        "title": "社区",
+        "discussions": "讨论",
+        "issues": "问题",
+        "contributing": "贡献",
+        "license": "许可证(MIT)"
+      }
+    },
+    "copyright": "© 2026 智能体驱动。MIT许可证下的开源软件。",
+    "built": "使用AD 1.0本身构建(从第一天就吃自己的狗粮)"
+  },
+  "modal": {
+    "close": "关闭",
+    "chooseAction": "选择如何获取配置文件:",
+    "viewRaw": "查看原始文件",
+    "download": "下载"
+  }
+}

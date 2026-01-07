@@ -1,0 +1,293 @@
+{
+  "hero": {
+    "title": "Agentic Driven Workflow",
+    "version": "1.0",
+    "subtitle": "The first AI-native methodology for structured development",
+    "badge": "Now Available",
+    "description": "13 principles • 10 phases • Universal framework<br/>From idea to launch with AI agents",
+    "aiLabel": "Works with leading AI assistants:",
+    "cta": {
+      "getStarted": "Get Started",
+      "github": "GitHub"
+    },
+    "stats": {
+      "principles": "Core Principles",
+      "phases": "Development Phases",
+      "integrations": "IDE Integrations"
+    },
+    "ideLabel": "Pre-configured for:"
+  },
+  "what": {
+    "title": "What is Agentic Driven?",
+    "subtitle": "A structured methodology designed specifically for AI-agent collaboration",
+    "lead": "<strong>Agentic Driven (AD)</strong> is the first universal methodology created for the AI era. It provides clear structure through <strong>13 principles</strong> and <strong>10 phases</strong> that work for any project—software, content, marketing, events, and more.",
+    "p1": "Traditional methodologies like Agile and Waterfall weren't designed for AI collaboration. They assume humans write code and make every decision. AD flips this: <strong>humans define strategy, AI executes</strong>.",
+    "p2": "Whether you're building an app with Cursor, writing a book with Claude, or managing a project with Copilot, AD gives you the framework to work effectively with AI agents.",
+    "features": {
+      "phases": {
+        "title": "Clear Phases",
+        "desc": "10 phases from DEFINE to EVOLVE. Always know where you are and what comes next."
+      },
+      "exitCriteria": {
+        "title": "Exit Criteria",
+        "desc": "Each phase has clear completion requirements. No guessing when to move forward."
+      },
+      "documentation": {
+        "title": "Documentation Built-in",
+        "desc": "Documentation isn't optional—it's integrated into every phase of the workflow."
+      },
+      "universal": {
+        "title": "Universal Framework",
+        "desc": "Not just software. Use for any structured project in any domain."
+      }
+    }
+  },
+  "collaboration": {
+    "title": "How It Works",
+    "human": {
+      "label": "Human",
+      "role": "Defines Strategy",
+      "details": "You decide what to build, set priorities, make key decisions, and define success criteria"
+    },
+    "ai": {
+      "label": "AI Agent",
+      "role": "Executes Tasks",
+      "details": "AI agents write code, create content, implement features, and handle the how"
+    },
+    "emphasis": "Everything happens through <strong>AI agents</strong>. You focus on strategy and creativity, agents handle execution."
+  },
+  "benefits": {
+    "title": "Why Agentic Driven?",
+    "subtitle": "Built for the way you actually work with AI",
+    "items": {
+      "structure": {
+        "title": "Clear Structure",
+        "desc": "Know exactly where you are in your project. No more wandering in the dark. Every phase has clear goals and exit criteria."
+      },
+      "collaboration": {
+        "title": "Better AI Collaboration",
+        "desc": "AI agents work best with structure. AD provides the framework for effective human-AI teamwork on any project."
+      },
+      "documentation": {
+        "title": "Built-in Documentation",
+        "desc": "Documentation isn't an afterthought. It's integrated into every phase. Your future self will thank you."
+      },
+      "universal": {
+        "title": "Universal Application",
+        "desc": "Not just for software. Use AD for content creation, marketing campaigns, event planning, research, and more."
+      },
+      "quality": {
+        "title": "Quality Focused",
+        "desc": "Validation and testing built into the workflow. Catch issues early, deliver quality results consistently."
+      },
+      "iterative": {
+        "title": "Iterative Progress",
+        "desc": "Improve within phases, document when going back. Real progress isn't linear, and AD acknowledges that."
+      }
+    }
+  },
+  "principles": {
+    "title": "13 Core Principles",
+    "subtitle": "The foundation of effective AI collaboration",
+    "items": {
+      "1": {
+        "title": "Agent-Driven",
+        "desc": "Humans decide strategy, AI executes",
+        "detail": "You define what needs to be done and why. AI agents handle the how, freeing you to focus on high-level decisions and creative work."
+      },
+      "2": {
+        "title": "Documentation-First",
+        "desc": "Document before, during, after",
+        "detail": "Clear documentation is essential for AI collaboration. Write docs before coding, update during work, and polish after completion."
+      },
+      "3": {
+        "title": "Phased & Structured",
+        "desc": "10 phases with clear objectives",
+        "detail": "From DEFINE to EVOLVE, each phase has specific goals and exit criteria. Know exactly where you are and what comes next."
+      },
+      "4": {
+        "title": "Validation-Driven",
+        "desc": "Validate before and after building",
+        "detail": "Test assumptions early, validate continuously. Catch issues before they become problems. Quality built-in, not bolted-on."
+      },
+      "5": {
+        "title": "Iterative",
+        "desc": "Improve within phases",
+        "detail": "Refinement is expected. Iterate quickly within phases, but document when you need to go back. Progress isn't always linear."
+      },
+      "6": {
+        "title": "Traceable",
+        "desc": "Every change in git with clear history",
+        "detail": "Complete audit trail of all changes. Know who changed what, when, and why. Essential for AI collaboration and team transparency."
+      },
+      "7": {
+        "title": "Git-First",
+        "desc": "Complete task = commit immediately",
+        "detail": "One logical change per commit. Clear messages using Conventional Commits. Commit when task is done and verified."
+      },
+      "8": {
+        "title": "Standards-First",
+        "desc": "Prefer rigid standards over custom solutions",
+        "detail": "Use Conventional Commits, semver, ISO-8601, JSON:API. Established patterns reduce decisions and improve AI understanding."
+      },
+      "9": {
+        "title": "Explicit over Implicit",
+        "desc": "No magic numbers, define everything",
+        "detail": "Named constants, clear variable names, explicit interfaces. Code that reads like documentation. AI and humans both benefit."
+      },
+      "10": {
+        "title": "Single Responsibility",
+        "desc": "One component = one purpose",
+        "detail": "Keep functions, files, and components focused. Easier to understand, test, and maintain. Simpler for AI to work with."
+      },
+      "11": {
+        "title": "Contract-Driven",
+        "desc": "Define interfaces before implementation",
+        "detail": "Specify exactly what you're building in docs/interfaces.md. Then implement to spec. No surprises, clear expectations."
+      },
+      "12": {
+        "title": "Test-First",
+        "desc": "Define success criteria upfront",
+        "detail": "Know what 'done' looks like before starting. Write tests or acceptance criteria first. Validate as you build."
+      },
+      "13": {
+        "title": "Proven Solutions",
+        "desc": "Use established patterns and frameworks",
+        "detail": "Don't reinvent the wheel. Leverage design patterns, proven frameworks, and standard structures. Build on solid foundations."
+      }
+    }
+  },
+  "workflow": {
+    "title": "The AD Workflow",
+    "subtitle": "Click any phase to see details",
+    "legend": {
+      "completed": "Completed",
+      "current": "Current",
+      "pending": "Pending"
+    },
+    "phases": {
+      "define": {
+        "name": "DEFINE",
+        "version": "v0.0.x",
+        "desc": "Define problem, objectives, scope",
+        "detail": "Start with clarity. What problem are you solving? What are your goals? What's in scope, what's not? Document constraints and success criteria. Foundation for everything that follows."
+      },
+      "discover": {
+        "name": "DISCOVER",
+        "version": "v0.1.x",
+        "desc": "Investigate options, viability",
+        "detail": "Research and explore. Gather requirements, identify risks, assess feasibility. What already exists? What approaches are possible? Make informed decisions before committing."
+      },
+      "design": {
+        "name": "DESIGN",
+        "version": "v0.2.x",
+        "desc": "Design solution, architecture",
+        "detail": "Plan before building. Design your solution, define architecture, specify interfaces. Make key decisions documented. Ready to implement with confidence."
+      },
+      "setup": {
+        "name": "SETUP",
+        "version": "v0.3.x",
+        "desc": "Prepare tools, environment",
+        "detail": "Get organized. Configure tools, set up environment, define validation criteria. Everything ready so you can focus on building."
+      },
+      "build": {
+        "name": "BUILD",
+        "version": "v0.4.x",
+        "desc": "Build/create solution",
+        "detail": "Time to create. Implement components, write code, develop content. Follow contracts, test as you go, document changes. Bulk of the work happens here."
+      },
+      "validate": {
+        "name": "VALIDATE",
+        "version": "v0.5.x",
+        "desc": "Verify quality, testing",
+        "detail": "Ensure quality. Run comprehensive tests, validate against criteria, check performance. Fix issues found. Only proceed when validation passes."
+      },
+      "market": {
+        "name": "MARKET",
+        "version": "v0.6.x",
+        "desc": "Prepare launch materials",
+        "detail": "Get ready to share. Create marketing materials, prepare documentation, plan launch strategy. Build awareness before launch."
+      },
+      "launch": {
+        "name": "LAUNCH",
+        "version": "v0.7.x",
+        "desc": "Deploy, activate, go-live",
+        "detail": "Make it public. Deploy to production, announce to users, monitor initial response. Launch day execution and immediate follow-up."
+      },
+      "support": {
+        "name": "SUPPORT",
+        "version": "v0.8.x",
+        "desc": "Maintain, fix issues",
+        "detail": "Keep it running. Handle bug reports, respond to users, maintain stability. Critical fixes and immediate support. Build confidence."
+      },
+      "evolve": {
+        "name": "EVOLVE",
+        "version": "v0.9.x",
+        "desc": "Improve, optimize, grow",
+        "detail": "Make it better. Add features, optimize performance, respond to feedback. Plan next version. Continuous improvement cycle."
+      }
+    }
+  },
+  "quickStart": {
+    "title": "Quick Start",
+    "subtitle": "Pre-configured for your favorite AI IDE",
+    "getConfig": "Get Config",
+    "installTitle": "Or use our quick install script:",
+    "copyCommand": "Copy command"
+  },
+  "resources": {
+    "title": "Learn More",
+    "subtitle": "Deep dive into the methodology",
+    "items": {
+      "docs": {
+        "title": "Documentation",
+        "desc": "Complete methodology documentation, principles explained, and phase-by-phase guides.",
+        "link": "Read Docs →"
+      },
+      "community": {
+        "title": "Community",
+        "desc": "Join discussions, share experiences, and get help from the AD community.",
+        "link": "Join Discussions →"
+      },
+      "books": {
+        "title": "Books",
+        "desc": "Comprehensive guides covering AD methodology, best practices, and real-world examples.",
+        "comingSoon": "Coming Soon"
+      },
+      "courses": {
+        "title": "Courses",
+        "desc": "Step-by-step video courses teaching you how to implement AD in your projects.",
+        "comingSoon": "Coming Soon"
+      }
+    }
+  },
+  "footer": {
+    "title": "AD 1.0",
+    "subtitle": "Agentic Driven methodology",
+    "tagline": "Built for the AI era",
+    "sections": {
+      "resources": {
+        "title": "Resources",
+        "github": "GitHub",
+        "configs": "IDE Configs",
+        "quickStart": "Quick Start",
+        "docs": "Documentation"
+      },
+      "community": {
+        "title": "Community",
+        "discussions": "Discussions",
+        "issues": "Issues",
+        "contributing": "Contributing",
+        "license": "License (MIT)"
+      }
+    },
+    "copyright": "© 2026 Agentic Driven. Open Source under MIT License.",
+    "built": "Built using AD 1.0 itself (dogfooding from day one)"
+  },
+  "modal": {
+    "close": "Close",
+    "chooseAction": "Choose how to get the configuration file:",
+    "viewRaw": "View Raw",
+    "download": "Download"
+  }
+}

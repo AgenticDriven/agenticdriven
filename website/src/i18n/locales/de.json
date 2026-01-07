@@ -1,0 +1,293 @@
+{
+  "hero": {
+    "title": "Agentengesteuerte Arbeitsweise",
+    "version": "1.0",
+    "subtitle": "Die erste KI-native Methodik für strukturierte Entwicklung",
+    "badge": "Jetzt verfügbar",
+    "description": "13 Prinzipien • 10 Phasen • Universelles Framework<br/>Von der Idee bis zur Markteinführung mit KI-Agenten",
+    "aiLabel": "Funktioniert mit führenden KI-Assistenten:",
+    "cta": {
+      "getStarted": "Loslegen",
+      "github": "GitHub"
+    },
+    "stats": {
+      "principles": "Kernprinzipien",
+      "phases": "Entwicklungsphasen",
+      "integrations": "IDE-Integrationen"
+    },
+    "ideLabel": "Vorkonfiguriert für:"
+  },
+  "what": {
+    "title": "Was ist Agentic Driven?",
+    "subtitle": "Eine strukturierte Methodik speziell für die Zusammenarbeit mit KI-Agenten entwickelt",
+    "lead": "<strong>Agentic Driven (AD)</strong> ist die erste universelle Methodik für das KI-Zeitalter. Sie bietet klare Struktur durch <strong>13 Prinzipien</strong> und <strong>10 Phasen</strong>, die für jedes Projekt funktionieren – Software, Inhalt, Marketing, Veranstaltungen und mehr.",
+    "p1": "Traditionelle Methodiken wie Agile und Waterfall wurden nicht für die KI-Zusammenarbeit entwickelt. Sie gehen davon aus, dass Menschen Code schreiben und jede Entscheidung treffen. AD dreht das um: <strong>Menschen definieren die Strategie, KI führt aus</strong>.",
+    "p2": "Ob Sie eine App mit Cursor entwickeln, ein Buch mit Claude schreiben oder ein Projekt mit Copilot verwalten – AD bietet Ihnen den Rahmen für effektive Zusammenarbeit mit KI-Agenten.",
+    "features": {
+      "phases": {
+        "title": "Klare Phasen",
+        "desc": "10 Phasen von DEFINIEREN bis ENTWICKELN. Wissen Sie immer, wo Sie sind und was als nächstes kommt."
+      },
+      "exitCriteria": {
+        "title": "Ausstiegskriterien",
+        "desc": "Jede Phase hat klare Abschlusskriterien. Kein Rätselraten mehr, wann man weitermacht."
+      },
+      "documentation": {
+        "title": "Integrierte Dokumentation",
+        "desc": "Dokumentation ist nicht optional – sie ist in jede Phase des Workflows integriert."
+      },
+      "universal": {
+        "title": "Universelles Framework",
+        "desc": "Nicht nur Software. Verwenden Sie es für jedes strukturierte Projekt in jeder Domäne."
+      }
+    }
+  },
+  "collaboration": {
+    "title": "How It Works",
+    "human": {
+      "label": "Human",
+      "role": "Defines Strategy",
+      "details": "You decide what to build, set priorities, make key decisions, and define success criteria"
+    },
+    "ai": {
+      "label": "AI Agent",
+      "role": "Executes Tasks",
+      "details": "AI agents write code, create content, implement features, and handle the how"
+    },
+    "emphasis": "Everything happens through <strong>AI agents</strong>. You focus on strategy and creativity, agents handle execution."
+  },
+  "benefits": {
+    "title": "Warum Agentic Driven?",
+    "subtitle": "Entwickelt für die Art, wie Sie tatsächlich mit KI arbeiten",
+    "items": {
+      "structure": {
+        "title": "Klare Struktur",
+        "desc": "Wissen Sie genau, wo Sie in Ihrem Projekt stehen. Kein Herumirren mehr im Dunkeln. Jede Phase hat klare Ziele und Ausstiegskriterien."
+      },
+      "collaboration": {
+        "title": "Bessere KI-Zusammenarbeit",
+        "desc": "KI-Agenten arbeiten am besten mit Struktur. AD bietet den Rahmen für effektive Mensch-KI-Teamarbeit bei jedem Projekt."
+      },
+      "documentation": {
+        "title": "Integrierte Dokumentation",
+        "desc": "Dokumentation ist kein Nachgedanke. Sie ist in jede Phase integriert. Ihr zukünftiges Ich wird es Ihnen danken."
+      },
+      "universal": {
+        "title": "Universelle Anwendung",
+        "desc": "Nicht nur für Software. Verwenden Sie AD für Content-Erstellung, Marketingkampagnen, Eventplanung, Forschung und mehr."
+      },
+      "quality": {
+        "title": "Qualitätsfokussiert",
+        "desc": "Validierung und Tests sind in den Workflow integriert. Probleme früh erkennen, durchgehend qualitativ hochwertige Ergebnisse liefern."
+      },
+      "iterative": {
+        "title": "Iterativer Fortschritt",
+        "desc": "Verbessern Sie innerhalb von Phasen, dokumentieren Sie, wenn Sie zurückgehen. Echter Fortschritt ist nicht linear, und AD erkennt das an."
+      }
+    }
+  },
+  "principles": {
+    "title": "13 Kernprinzipien",
+    "subtitle": "Die Grundlage effektiver KI-Zusammenarbeit",
+    "items": {
+      "1": {
+        "title": "Agentengesteuert",
+        "desc": "Menschen entscheiden über die Strategie, KI führt aus",
+        "detail": "Sie definieren, was getan werden muss und warum. KI-Agenten kümmern sich um das Wie und geben Ihnen die Freiheit, sich auf hochrangige Entscheidungen und kreative Arbeit zu konzentrieren."
+      },
+      "2": {
+        "title": "Dokumentation zuerst",
+        "desc": "Dokumentieren Sie vorher, währenddessen, danach",
+        "detail": "Klare Dokumentation ist für die KI-Zusammenarbeit unerlässlich. Schreiben Sie Dokumentation vor dem Programmieren, aktualisieren Sie während der Arbeit und verfeinern Sie nach Abschluss."
+      },
+      "3": {
+        "title": "Phasenweise & strukturiert",
+        "desc": "10 Phasen mit klaren Zielen",
+        "detail": "Von DEFINIEREN bis ENTWICKELN hat jede Phase spezifische Ziele und Ausstiegskriterien. Wissen Sie genau, wo Sie sind und was als nächstes kommt."
+      },
+      "4": {
+        "title": "Validierungsgetrieben",
+        "desc": "Validieren Sie vor und nach dem Aufbau",
+        "detail": "Testen Sie Annahmen früh, validieren Sie kontinuierlich. Erkennen Sie Probleme, bevor sie zu Problemen werden. Qualität eingebaut, nicht aufgesetzt."
+      },
+      "5": {
+        "title": "Iterativ",
+        "desc": "Verbessern Sie innerhalb von Phasen",
+        "detail": "Verfeinerung wird erwartet. Iterieren Sie schnell innerhalb von Phasen, dokumentieren Sie aber, wenn Sie zurückgehen müssen. Fortschritt ist nicht immer linear."
+      },
+      "6": {
+        "title": "Nachvollziehbar",
+        "desc": "Jede Änderung in Git mit klarer Historie",
+        "detail": "Vollständiger Prüfpfad aller Änderungen. Wissen Sie, wer was wann und warum geändert hat. Wesentlich für KI-Zusammenarbeit und Teamtransparenz."
+      },
+      "7": {
+        "title": "Git zuerst",
+        "desc": "Aufgabe abgeschlossen = sofort committen",
+        "detail": "Eine logische Änderung pro Commit. Klare Nachrichten mit Conventional Commits. Committen Sie, wenn die Aufgabe erledigt und überprüft ist."
+      },
+      "8": {
+        "title": "Standards zuerst",
+        "desc": "Bevorzugen Sie strenge Standards gegenüber benutzerdefinierten Lösungen",
+        "detail": "Verwenden Sie Conventional Commits, Semver, ISO-8601, JSON:API. Etablierte Muster reduzieren Entscheidungen und verbessern das KI-Verständnis."
+      },
+      "9": {
+        "title": "Explizit über implizit",
+        "desc": "Keine magischen Zahlen, definieren Sie alles",
+        "detail": "Benannte Konstanten, klare Variablennamen, explizite Schnittstellen. Code, der wie Dokumentation gelesen wird. KI und Menschen profitieren beide."
+      },
+      "10": {
+        "title": "Einzelne Verantwortlichkeit",
+        "desc": "Eine Komponente = ein Zweck",
+        "detail": "Halten Sie Funktionen, Dateien und Komponenten fokussiert. Einfacher zu verstehen, testen und warten. Einfacher für KI zu bearbeiten."
+      },
+      "11": {
+        "title": "Vertragsgetrieben",
+        "desc": "Definieren Sie Schnittstellen vor der Implementierung",
+        "detail": "Spezifizieren Sie genau, was Sie in docs/interfaces.md erstellen. Dann nach Spezifikation implementieren. Keine Überraschungen, klare Erwartungen."
+      },
+      "12": {
+        "title": "Test zuerst",
+        "desc": "Definieren Sie Erfolgskriterien im Voraus",
+        "detail": "Wissen Sie, wie 'fertig' aussieht, bevor Sie beginnen. Schreiben Sie zuerst Tests oder Akzeptanzkriterien. Validieren Sie während des Bauens."
+      },
+      "13": {
+        "title": "Bewährte Lösungen",
+        "desc": "Verwenden Sie etablierte Muster und Frameworks",
+        "detail": "Erfinden Sie das Rad nicht neu. Nutzen Sie Designmuster, bewährte Frameworks und Standardstrukturen. Bauen Sie auf solidem Fundament."
+      }
+    }
+  },
+  "workflow": {
+    "title": "Der AD-Workflow",
+    "subtitle": "Klicken Sie auf eine beliebige Phase, um Details anzuzeigen",
+    "legend": {
+      "completed": "Abgeschlossen",
+      "current": "Aktuell",
+      "pending": "Ausstehend"
+    },
+    "phases": {
+      "define": {
+        "name": "DEFINIEREN",
+        "version": "v0.0.x",
+        "desc": "Problem, Ziele, Umfang definieren",
+        "detail": "Beginnen Sie mit Klarheit. Welches Problem lösen Sie? Was sind Ihre Ziele? Was ist im Umfang, was nicht? Dokumentieren Sie Einschränkungen und Erfolgskriterien. Grundlage für alles, was folgt."
+      },
+      "discover": {
+        "name": "ENTDECKEN",
+        "version": "v0.1.x",
+        "desc": "Optionen, Machbarkeit untersuchen",
+        "detail": "Recherchieren und erkunden. Anforderungen sammeln, Risiken identifizieren, Machbarkeit bewerten. Was existiert bereits? Welche Ansätze sind möglich? Treffen Sie informierte Entscheidungen, bevor Sie sich verpflichten."
+      },
+      "design": {
+        "name": "ENTWERFEN",
+        "version": "v0.2.x",
+        "desc": "Lösung, Architektur entwerfen",
+        "detail": "Planen Sie vor dem Bauen. Entwerfen Sie Ihre Lösung, definieren Sie die Architektur, spezifizieren Sie Schnittstellen. Treffen Sie dokumentierte Schlüsselentscheidungen. Bereit zur Umsetzung mit Zuversicht."
+      },
+      "setup": {
+        "name": "EINRICHTEN",
+        "version": "v0.3.x",
+        "desc": "Werkzeuge, Umgebung vorbereiten",
+        "detail": "Organisieren Sie sich. Konfigurieren Sie Werkzeuge, richten Sie die Umgebung ein, definieren Sie Validierungskriterien. Alles bereit, damit Sie sich auf das Bauen konzentrieren können."
+      },
+      "build": {
+        "name": "BAUEN",
+        "version": "v0.4.x",
+        "desc": "Lösung bauen/erstellen",
+        "detail": "Zeit zum Erstellen. Komponenten implementieren, Code schreiben, Inhalte entwickeln. Folgen Sie Verträgen, testen Sie während der Arbeit, dokumentieren Sie Änderungen. Hauptarbeit findet hier statt."
+      },
+      "validate": {
+        "name": "VALIDIEREN",
+        "version": "v0.5.x",
+        "desc": "Qualität überprüfen, testen",
+        "detail": "Qualität sicherstellen. Umfassende Tests durchführen, gegen Kriterien validieren, Leistung prüfen. Gefundene Probleme beheben. Nur fortfahren, wenn Validierung erfolgreich ist."
+      },
+      "market": {
+        "name": "MARKETING",
+        "version": "v0.6.x",
+        "desc": "Launch-Materialien vorbereiten",
+        "detail": "Bereiten Sie sich auf das Teilen vor. Marketingmaterialien erstellen, Dokumentation vorbereiten, Launch-Strategie planen. Bewusstsein vor dem Launch schaffen."
+      },
+      "launch": {
+        "name": "STARTEN",
+        "version": "v0.7.x",
+        "desc": "Bereitstellen, aktivieren, live gehen",
+        "detail": "Machen Sie es öffentlich. In Produktion bereitstellen, Benutzern ankündigen, erste Reaktion überwachen. Launch-Tag-Ausführung und sofortiges Follow-up."
+      },
+      "support": {
+        "name": "UNTERSTÜTZEN",
+        "version": "v0.8.x",
+        "desc": "Warten, Probleme beheben",
+        "detail": "Halten Sie es am Laufen. Fehlerberichte bearbeiten, auf Benutzer reagieren, Stabilität aufrechterhalten. Kritische Korrekturen und sofortige Unterstützung. Vertrauen aufbauen."
+      },
+      "evolve": {
+        "name": "ENTWICKELN",
+        "version": "v0.9.x",
+        "desc": "Verbessern, optimieren, wachsen",
+        "detail": "Machen Sie es besser. Funktionen hinzufügen, Leistung optimieren, auf Feedback reagieren. Nächste Version planen. Kontinuierlicher Verbesserungszyklus."
+      }
+    }
+  },
+  "quickStart": {
+    "title": "Schnellstart",
+    "subtitle": "Vorkonfiguriert für Ihre bevorzugte KI-IDE",
+    "getConfig": "Konfiguration erhalten",
+    "installTitle": "Oder verwenden Sie unser Schnellinstallationsskript:",
+    "copyCommand": "Befehl kopieren"
+  },
+  "resources": {
+    "title": "Mehr erfahren",
+    "subtitle": "Tauchen Sie tief in die Methodik ein",
+    "items": {
+      "docs": {
+        "title": "Dokumentation",
+        "desc": "Vollständige Methodikdokumentation, erklärte Prinzipien und phasenweise Anleitungen.",
+        "link": "Dokumentation lesen →"
+      },
+      "community": {
+        "title": "Community",
+        "desc": "Nehmen Sie an Diskussionen teil, teilen Sie Erfahrungen und erhalten Sie Hilfe von der AD-Community.",
+        "link": "An Diskussionen teilnehmen →"
+      },
+      "books": {
+        "title": "Bücher",
+        "desc": "Umfassende Leitfäden zur AD-Methodik, Best Practices und Beispiele aus der Praxis.",
+        "comingSoon": "Demnächst"
+      },
+      "courses": {
+        "title": "Kurse",
+        "desc": "Schritt-für-Schritt-Videokurse, die Ihnen beibringen, wie Sie AD in Ihren Projekten implementieren.",
+        "comingSoon": "Demnächst"
+      }
+    }
+  },
+  "footer": {
+    "title": "AD 1.0",
+    "subtitle": "Agentic Driven Methodik",
+    "tagline": "Gebaut für das KI-Zeitalter",
+    "sections": {
+      "resources": {
+        "title": "Ressourcen",
+        "github": "GitHub",
+        "configs": "IDE-Konfigurationen",
+        "quickStart": "Schnellstart",
+        "docs": "Dokumentation"
+      },
+      "community": {
+        "title": "Community",
+        "discussions": "Diskussionen",
+        "issues": "Probleme",
+        "contributing": "Beitragen",
+        "license": "Lizenz (MIT)"
+      }
+    },
+    "copyright": "© 2026 Agentic Driven. Open Source unter MIT-Lizenz.",
+    "built": "Mit AD 1.0 selbst erstellt (Dogfooding von Tag eins an)"
+  },
+  "modal": {
+    "close": "Schließen",
+    "chooseAction": "Wählen Sie, wie Sie die Konfigurationsdatei erhalten möchten:",
+    "viewRaw": "Rohansicht",
+    "download": "Herunterladen"
+  }
+}

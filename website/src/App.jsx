@@ -1,163 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import { useLanguage } from './i18n/LanguageContext'
+import LanguageSelector from './components/LanguageSelector'
 
 function App() {
+  const { t } = useLanguage()
   const [selectedWorkflowPhase, setSelectedWorkflowPhase] = useState(null)
   const [selectedIDE, setSelectedIDE] = useState(null)
-
-  const principles = [
-    {
-      num: 1,
-      title: "Agent-Driven",
-      desc: "Humans decide strategy, AI executes",
-      detail: "You define what needs to be done and why. AI agents handle the how, freeing you to focus on high-level decisions and creative work."
-    },
-    {
-      num: 2,
-      title: "Documentation-First",
-      desc: "Document before, during, after",
-      detail: "Clear documentation is essential for AI collaboration. Write docs before coding, update during work, and polish after completion."
-    },
-    {
-      num: 3,
-      title: "Phased & Structured",
-      desc: "10 phases with clear objectives",
-      detail: "From DEFINE to EVOLVE, each phase has specific goals and exit criteria. Know exactly where you are and what comes next."
-    },
-    {
-      num: 4,
-      title: "Validation-Driven",
-      desc: "Validate before and after building",
-      detail: "Test assumptions early, validate continuously. Catch issues before they become problems. Quality built-in, not bolted-on."
-    },
-    {
-      num: 5,
-      title: "Iterative",
-      desc: "Improve within phases",
-      detail: "Refinement is expected. Iterate quickly within phases, but document when you need to go back. Progress isn't always linear."
-    },
-    {
-      num: 6,
-      title: "Traceable",
-      desc: "Every change in git with clear history",
-      detail: "Complete audit trail of all changes. Know who changed what, when, and why. Essential for AI collaboration and team transparency."
-    },
-    {
-      num: 7,
-      title: "Git-First",
-      desc: "Complete task = commit immediately",
-      detail: "One logical change per commit. Clear messages using Conventional Commits. Commit when task is done and verified."
-    },
-    {
-      num: 8,
-      title: "Standards-First",
-      desc: "Prefer rigid standards over custom solutions",
-      detail: "Use Conventional Commits, semver, ISO-8601, JSON:API. Established patterns reduce decisions and improve AI understanding."
-    },
-    {
-      num: 9,
-      title: "Explicit over Implicit",
-      desc: "No magic numbers, define everything",
-      detail: "Named constants, clear variable names, explicit interfaces. Code that reads like documentation. AI and humans both benefit."
-    },
-    {
-      num: 10,
-      title: "Single Responsibility",
-      desc: "One component = one purpose",
-      detail: "Keep functions, files, and components focused. Easier to understand, test, and maintain. Simpler for AI to work with."
-    },
-    {
-      num: 11,
-      title: "Contract-Driven",
-      desc: "Define interfaces before implementation",
-      detail: "Specify exactly what you're building in docs/interfaces.md. Then implement to spec. No surprises, clear expectations."
-    },
-    {
-      num: 12,
-      title: "Test-First",
-      desc: "Define success criteria upfront",
-      detail: "Know what 'done' looks like before starting. Write tests or acceptance criteria first. Validate as you build."
-    },
-    {
-      num: 13,
-      title: "Proven Solutions",
-      desc: "Use established patterns and frameworks",
-      detail: "Don't reinvent the wheel. Leverage design patterns, proven frameworks, and standard structures. Build on solid foundations."
-    }
-  ]
-
-  const phases = [
-    {
-      phase: "DEFINE",
-      version: "v0.0.x",
-      icon: "🎯",
-      desc: "Define problem, objectives, scope",
-      detail: "Start with clarity. What problem are you solving? What are your goals? What's in scope, what's not? Document constraints and success criteria. Foundation for everything that follows."
-    },
-    {
-      phase: "DISCOVER",
-      version: "v0.1.x",
-      icon: "🔍",
-      desc: "Investigate options, viability",
-      detail: "Research and explore. Gather requirements, identify risks, assess feasibility. What already exists? What approaches are possible? Make informed decisions before committing."
-    },
-    {
-      phase: "DESIGN",
-      version: "v0.2.x",
-      icon: "📐",
-      desc: "Design solution, architecture",
-      detail: "Plan before building. Design your solution, define architecture, specify interfaces. Make key decisions documented. Ready to implement with confidence."
-    },
-    {
-      phase: "SETUP",
-      version: "v0.3.x",
-      icon: "⚙️",
-      desc: "Prepare tools, environment",
-      detail: "Get organized. Configure tools, set up environment, define validation criteria. Everything ready so you can focus on building."
-    },
-    {
-      phase: "BUILD",
-      version: "v0.4.x",
-      icon: "🔨",
-      desc: "Build/create solution",
-      detail: "Time to create. Implement components, write code, develop content. Follow contracts, test as you go, document changes. Bulk of the work happens here."
-    },
-    {
-      phase: "VALIDATE",
-      version: "v0.5.x",
-      icon: "✅",
-      desc: "Verify quality, testing",
-      detail: "Ensure quality. Run comprehensive tests, validate against criteria, check performance. Fix issues found. Only proceed when validation passes."
-    },
-    {
-      phase: "MARKET",
-      version: "v0.6.x",
-      icon: "📢",
-      desc: "Prepare launch materials",
-      detail: "Get ready to share. Create marketing materials, prepare documentation, plan launch strategy. Build awareness before launch."
-    },
-    {
-      phase: "LAUNCH",
-      version: "v0.7.x",
-      icon: "🚀",
-      desc: "Deploy, activate, go-live",
-      detail: "Make it public. Deploy to production, announce to users, monitor initial response. Launch day execution and immediate follow-up."
-    },
-    {
-      phase: "SUPPORT",
-      version: "v0.8.x",
-      icon: "🛟",
-      desc: "Maintain, fix issues",
-      detail: "Keep it running. Handle bug reports, respond to users, maintain stability. Critical fixes and immediate support. Build confidence."
-    },
-    {
-      phase: "EVOLVE",
-      version: "v0.9.x",
-      icon: "📈",
-      desc: "Improve, optimize, grow",
-      detail: "Make it better. Add features, optimize performance, respond to feedback. Plan next version. Continuous improvement cycle."
-    }
-  ]
 
   const ides = [
     { name: "Cursor", file: ".cursorrules", icon: "⚡" },
@@ -168,60 +17,29 @@ function App() {
     { name: "Continue", file: ".continuerc.json", icon: "⏭️" }
   ]
 
-  const benefits = [
-    {
-      icon: "🎯",
-      title: "Clear Structure",
-      desc: "Know exactly where you are in your project. No more wandering in the dark. Every phase has clear goals and exit criteria."
-    },
-    {
-      icon: "🤝",
-      title: "Better AI Collaboration",
-      desc: "AI agents work best with structure. AD provides the framework for effective human-AI teamwork on any project."
-    },
-    {
-      icon: "📚",
-      title: "Built-in Documentation",
-      desc: "Documentation isn't an afterthought. It's integrated into every phase. Your future self will thank you."
-    },
-    {
-      icon: "🌍",
-      title: "Universal Application",
-      desc: "Not just for software. Use AD for content creation, marketing campaigns, event planning, research, and more."
-    },
-    {
-      icon: "✨",
-      title: "Quality Focused",
-      desc: "Validation and testing built into the workflow. Catch issues early, deliver quality results consistently."
-    },
-    {
-      icon: "🔄",
-      title: "Iterative Progress",
-      desc: "Improve within phases, document when going back. Real progress isn't linear, and AD acknowledges that."
-    }
-  ]
-
   return (
     <div className="app">
       {/* Hero Section */}
       <header className="hero">
         <div className="hero-background"></div>
         <div className="container">
+          {/* Language Selector */}
+          <div style={{ position: 'absolute', top: '2rem', right: '2rem' }}>
+            <LanguageSelector />
+          </div>
+
           <h1 className="hero-title">
-            Agentic Driven Workflow
-            <span className="version-badge">1.0</span>
+            {t('hero.title')}
+            <span className="version-badge">{t('hero.version')}</span>
           </h1>
           <p className="hero-subtitle">
-            The first AI-native methodology for structured development
+            {t('hero.subtitle')}
           </p>
-          <div className="hero-badge">Now Available</div>
-          <p className="hero-description">
-            13 principles • 10 phases • Universal framework<br/>
-            From idea to launch with AI agents
-          </p>
+          <div className="hero-badge">{t('hero.badge')}</div>
+          <p className="hero-description" dangerouslySetInnerHTML={{ __html: t('hero.description') }}></p>
 
           <div className="ai-logos">
-            <div className="ai-logos-label">Works with leading AI assistants:</div>
+            <div className="ai-logos-label">{t('hero.aiLabel')}</div>
             <div className="ai-logos-grid">
               <div className="ai-logo">
                 <span className="ai-logo-icon">🤖</span>
@@ -248,33 +66,33 @@ function App() {
 
           <div className="hero-cta">
             <a href="#quick-start" className="btn btn-primary">
-              <span>Get Started</span>
+              <span>{t('hero.cta.getStarted')}</span>
               <span className="btn-arrow">→</span>
             </a>
             <a href="https://github.com/AgenticDriven/agenticdriven" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
               <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
               </svg>
-              <span>GitHub</span>
+              <span>{t('hero.cta.github')}</span>
             </a>
           </div>
           <div className="hero-stats">
             <div className="stat">
               <div className="stat-value">13</div>
-              <div className="stat-label">Core Principles</div>
+              <div className="stat-label">{t('hero.stats.principles')}</div>
             </div>
             <div className="stat">
               <div className="stat-value">10</div>
-              <div className="stat-label">Development Phases</div>
+              <div className="stat-label">{t('hero.stats.phases')}</div>
             </div>
             <div className="stat">
               <div className="stat-value">6</div>
-              <div className="stat-label">IDE Integrations</div>
+              <div className="stat-label">{t('hero.stats.integrations')}</div>
             </div>
           </div>
 
           <div className="ide-logos">
-            <div className="ide-logos-label">Pre-configured for:</div>
+            <div className="ide-logos-label">{t('hero.ideLabel')}</div>
             <div className="ide-logos-grid">
               {ides.map((ide) => (
                 <div
@@ -295,53 +113,69 @@ function App() {
       <section className="section what-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">What is Agentic Driven?</h2>
+            <h2 className="section-title">{t('what.title')}</h2>
             <p className="section-intro">
-              A structured methodology designed specifically for AI-agent collaboration
+              {t('what.subtitle')}
             </p>
           </div>
 
           <div className="what-content">
             <div className="what-main">
-              <p className="lead">
-                <strong>Agentic Driven (AD)</strong> is the first universal methodology created for the AI era.
-                It provides clear structure through <strong>13 principles</strong> and <strong>10 phases</strong>
-                that work for any project—software, content, marketing, events, and more.
-              </p>
-              <p>
-                Traditional methodologies like Agile and Waterfall weren't designed for AI collaboration.
-                They assume humans write code and make every decision. AD flips this:
-                <strong> humans define strategy, AI executes</strong>.
-              </p>
-              <p>
-                Whether you're building an app with Cursor, writing a book with Claude, or managing
-                a project with Copilot, AD gives you the framework to work effectively with AI agents.
-              </p>
+              <p className="lead" dangerouslySetInnerHTML={{ __html: t('what.lead') }}></p>
+              <p dangerouslySetInnerHTML={{ __html: t('what.p1') }}></p>
+              <p>{t('what.p2')}</p>
             </div>
 
             <div className="what-features">
               <div className="feature-card">
                 <div className="feature-icon">🎯</div>
-                <h3>Clear Phases</h3>
-                <p>10 phases from DEFINE to EVOLVE. Always know where you are and what comes next.</p>
+                <h3>{t('what.features.phases.title')}</h3>
+                <p>{t('what.features.phases.desc')}</p>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">📋</div>
-                <h3>Exit Criteria</h3>
-                <p>Each phase has clear completion requirements. No guessing when to move forward.</p>
+                <h3>{t('what.features.exitCriteria.title')}</h3>
+                <p>{t('what.features.exitCriteria.desc')}</p>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">📚</div>
-                <h3>Documentation Built-in</h3>
-                <p>Documentation isn't optional—it's integrated into every phase of the workflow.</p>
+                <h3>{t('what.features.documentation.title')}</h3>
+                <p>{t('what.features.documentation.desc')}</p>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">🌍</div>
-                <h3>Universal Framework</h3>
-                <p>Not just software. Use for any structured project in any domain.</p>
+                <h3>{t('what.features.universal.title')}</h3>
+                <p>{t('what.features.universal.desc')}</p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Human-AI Collaboration Visual */}
+      <section className="section collaboration-visual-section">
+        <div className="container">
+          <h2 className="section-title">{t('collaboration.title')}</h2>
+
+          <div className="collaboration-flow">
+            <div className="collaboration-box human">
+              <span className="collaboration-icon">🧠</span>
+              <div className="collaboration-label">{t('collaboration.human.label')}</div>
+              <div className="collaboration-role">{t('collaboration.human.role')}</div>
+              <div className="collaboration-details">{t('collaboration.human.details')}</div>
+            </div>
+
+            <div className="collaboration-arrow">→</div>
+
+            <div className="collaboration-box ai">
+              <span className="collaboration-icon">🤖</span>
+              <div className="collaboration-label">{t('collaboration.ai.label')}</div>
+              <div className="collaboration-role">{t('collaboration.ai.role')}</div>
+              <div className="collaboration-details">{t('collaboration.ai.details')}</div>
+            </div>
+          </div>
+
+          <div className="collaboration-emphasis" dangerouslySetInnerHTML={{ __html: t('collaboration.emphasis') }}></div>
         </div>
       </section>
 
@@ -349,16 +183,16 @@ function App() {
       <section className="section benefits-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Why Agentic Driven?</h2>
-            <p className="section-intro">Built for the way you actually work with AI</p>
+            <h2 className="section-title">{t('benefits.title')}</h2>
+            <p className="section-intro">{t('benefits.subtitle')}</p>
           </div>
 
           <div className="benefits-grid">
-            {benefits.map((benefit, idx) => (
-              <div key={idx} className="benefit-card">
-                <div className="benefit-icon">{benefit.icon}</div>
-                <h3>{benefit.title}</h3>
-                <p>{benefit.desc}</p>
+            {['structure', 'collaboration', 'documentation', 'universal', 'quality', 'iterative'].map((key) => (
+              <div key={key} className="benefit-card">
+                <div className="benefit-icon">{key === 'structure' ? '🎯' : key === 'collaboration' ? '🤝' : key === 'documentation' ? '📚' : key === 'universal' ? '🌍' : key === 'quality' ? '✨' : '🔄'}</div>
+                <h3>{t(`benefits.items.${key}.title`)}</h3>
+                <p>{t(`benefits.items.${key}.desc`)}</p>
               </div>
             ))}
           </div>
@@ -369,21 +203,21 @@ function App() {
       <section className="section principles-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">13 Core Principles</h2>
+            <h2 className="section-title">{t('principles.title')}</h2>
             <p className="section-intro">
-              The foundation of effective AI collaboration
+              {t('principles.subtitle')}
             </p>
           </div>
 
           <div className="principles-grid">
-            {principles.map((p) => (
-              <div key={p.num} className="principle-card">
+            {Array.from({ length: 13 }, (_, i) => i + 1).map((num) => (
+              <div key={num} className="principle-card">
                 <div className="principle-header">
-                  <div className="principle-number">{p.num}</div>
-                  <h3 className="principle-title">{p.title}</h3>
+                  <div className="principle-number">{num}</div>
+                  <h3 className="principle-title">{t(`principles.items.${num}.title`)}</h3>
                 </div>
-                <p className="principle-desc">{p.desc}</p>
-                <p className="principle-detail">{p.detail}</p>
+                <p className="principle-desc">{t(`principles.items.${num}.desc`)}</p>
+                <p className="principle-detail">{t(`principles.items.${num}.detail`)}</p>
               </div>
             ))}
           </div>
@@ -394,14 +228,14 @@ function App() {
       <section className="section workflow-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">The AD Workflow</h2>
+            <h2 className="section-title">{t('workflow.title')}</h2>
             <p className="section-intro">
-              Click any phase to see details
+              {t('workflow.subtitle')}
             </p>
           </div>
 
           <div className="workflow-diagram">
-            {phases.map((phase, idx) => {
+            {['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'].map((phaseKey, idx) => {
               let phaseClass = 'workflow-step';
 
               if (selectedWorkflowPhase !== null) {
@@ -421,10 +255,10 @@ function App() {
                   onClick={() => setSelectedWorkflowPhase(idx)}
                 >
                   <div className="workflow-number">{idx + 1}</div>
-                  <div className="workflow-icon">{phase.icon}</div>
-                  <div className="workflow-name">{phase.phase}</div>
-                  <div className="workflow-version">{phase.version}</div>
-                  {idx < phases.length - 1 && (
+                  <div className="workflow-icon">{['🎯', '🔍', '📐', '⚙️', '🔨', '✅', '📢', '🚀', '🛟', '📈'][idx]}</div>
+                  <div className="workflow-name">{t(`workflow.phases.${phaseKey}.name`)}</div>
+                  <div className="workflow-version">{t(`workflow.phases.${phaseKey}.version`)}</div>
+                  {idx < 9 && (
                     <div className="workflow-arrow">→</div>
                   )}
                 </div>
@@ -435,29 +269,29 @@ function App() {
           {selectedWorkflowPhase !== null && (
             <div className="workflow-detail">
               <div className="workflow-detail-header">
-                <span className="workflow-detail-icon">{phases[selectedWorkflowPhase].icon}</span>
+                <span className="workflow-detail-icon">{['🎯', '🔍', '📐', '⚙️', '🔨', '✅', '📢', '🚀', '🛟', '📈'][selectedWorkflowPhase]}</span>
                 <h3 className="workflow-detail-title">
-                  {phases[selectedWorkflowPhase].phase}
-                  <span className="workflow-detail-version">{phases[selectedWorkflowPhase].version}</span>
+                  {t(`workflow.phases.${['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'][selectedWorkflowPhase]}.name`)}
+                  <span className="workflow-detail-version">{t(`workflow.phases.${['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'][selectedWorkflowPhase]}.version`)}</span>
                 </h3>
               </div>
-              <p className="workflow-detail-desc">{phases[selectedWorkflowPhase].desc}</p>
-              <p className="workflow-detail-text">{phases[selectedWorkflowPhase].detail}</p>
+              <p className="workflow-detail-desc">{t(`workflow.phases.${['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'][selectedWorkflowPhase]}.desc`)}</p>
+              <p className="workflow-detail-text">{t(`workflow.phases.${['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'][selectedWorkflowPhase]}.detail`)}</p>
             </div>
           )}
 
           <div className="workflow-legend">
             <div className="legend-item">
               <div className="legend-dot legend-completed"></div>
-              <span>Completed</span>
+              <span>{t('workflow.legend.completed')}</span>
             </div>
             <div className="legend-item">
               <div className="legend-dot legend-current"></div>
-              <span>Current</span>
+              <span>{t('workflow.legend.current')}</span>
             </div>
             <div className="legend-item">
               <div className="legend-dot legend-pending"></div>
-              <span>Pending</span>
+              <span>{t('workflow.legend.pending')}</span>
             </div>
           </div>
         </div>
@@ -468,9 +302,9 @@ function App() {
       <section className="section ide-section" id="quick-start">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Quick Start</h2>
+            <h2 className="section-title">{t('quickStart.title')}</h2>
             <p className="section-intro">
-              Pre-configured for your favorite AI IDE
+              {t('quickStart.subtitle')}
             </p>
           </div>
 
@@ -485,7 +319,7 @@ function App() {
                 <div className="ide-name">{ide.name}</div>
                 <div className="ide-file">{ide.file}</div>
                 <div className="ide-download">
-                  <span>Get Config</span>
+                  <span>{t('quickStart.getConfig')}</span>
                   <span className="download-arrow">↓</span>
                 </div>
               </div>
@@ -493,7 +327,7 @@ function App() {
           </div>
 
           <div className="install-script">
-            <h3>Or use our quick install script:</h3>
+            <h3>{t('quickStart.installTitle')}</h3>
             <div className="script-options">
               {ides.map((ide) => {
                 const ideParam = ide.name.toLowerCase().replace(/\s+/g, '-').replace('github-', '').replace('claude-code', 'claude');
@@ -509,7 +343,7 @@ function App() {
                       <button
                         className="copy-btn-mini"
                         onClick={() => navigator.clipboard.writeText(command)}
-                        title="Copy command"
+                        title={t('quickStart.copyCommand')}
                       >
                         📋
                       </button>
@@ -526,48 +360,48 @@ function App() {
       <section className="section resources-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Learn More</h2>
+            <h2 className="section-title">{t('resources.title')}</h2>
             <p className="section-intro">
-              Deep dive into the methodology
+              {t('resources.subtitle')}
             </p>
           </div>
 
           <div className="resources-grid">
             <div className="resource-card">
               <div className="resource-icon">📚</div>
-              <h3>Documentation</h3>
-              <p>Complete methodology documentation, principles explained, and phase-by-phase guides.</p>
+              <h3>{t('resources.items.docs.title')}</h3>
+              <p>{t('resources.items.docs.desc')}</p>
               <a href="https://github.com/AgenticDriven/agenticdriven#readme" className="resource-link" target="_blank" rel="noopener noreferrer">
-                Read Docs →
+                {t('resources.items.docs.link')}
               </a>
             </div>
 
             <div className="resource-card">
               <div className="resource-icon">💬</div>
-              <h3>Community</h3>
-              <p>Join discussions, share experiences, and get help from the AD community.</p>
+              <h3>{t('resources.items.community.title')}</h3>
+              <p>{t('resources.items.community.desc')}</p>
               <a href="https://github.com/AgenticDriven/agenticdriven/discussions" className="resource-link" target="_blank" rel="noopener noreferrer">
-                Join Discussions →
+                {t('resources.items.community.link')}
               </a>
             </div>
 
             <div className="resource-card resource-card-soon">
               <div className="resource-icon">📖</div>
-              <div className="coming-soon-badge">Coming Soon</div>
-              <h3>Books</h3>
-              <p>Comprehensive guides covering AD methodology, best practices, and real-world examples.</p>
+              <div className="coming-soon-badge">{t('resources.items.books.comingSoon')}</div>
+              <h3>{t('resources.items.books.title')}</h3>
+              <p>{t('resources.items.books.desc')}</p>
               <span className="resource-link disabled">
-                Coming Soon
+                {t('resources.items.books.comingSoon')}
               </span>
             </div>
 
             <div className="resource-card resource-card-soon">
               <div className="resource-icon">🎓</div>
-              <div className="coming-soon-badge">Coming Soon</div>
-              <h3>Courses</h3>
-              <p>Step-by-step video courses teaching you how to implement AD in your projects.</p>
+              <div className="coming-soon-badge">{t('resources.items.courses.comingSoon')}</div>
+              <h3>{t('resources.items.courses.title')}</h3>
+              <p>{t('resources.items.courses.desc')}</p>
               <span className="resource-link disabled">
-                Coming Soon
+                {t('resources.items.courses.comingSoon')}
               </span>
             </div>
           </div>
@@ -579,32 +413,32 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <div className="footer-section">
-              <h4>AD 1.0</h4>
-              <p>Agentic Driven methodology</p>
-              <p className="footer-tagline">Built for the AI era</p>
+              <h4>{t('footer.title')}</h4>
+              <p>{t('footer.subtitle')}</p>
+              <p className="footer-tagline">{t('footer.tagline')}</p>
             </div>
             <div className="footer-section">
-              <h4>Resources</h4>
+              <h4>{t('footer.sections.resources.title')}</h4>
               <ul>
-                <li><a href="https://github.com/AgenticDriven/agenticdriven" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                <li><a href="https://github.com/AgenticDriven/agenticdriven/tree/main/src/rules/ide" target="_blank" rel="noopener noreferrer">IDE Configs</a></li>
-                <li><a href="#quick-start">Quick Start</a></li>
-                <li><a href="https://github.com/AgenticDriven/agenticdriven#readme" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven" target="_blank" rel="noopener noreferrer">{t('footer.sections.resources.github')}</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven/tree/main/src/rules/ide" target="_blank" rel="noopener noreferrer">{t('footer.sections.resources.configs')}</a></li>
+                <li><a href="#quick-start">{t('footer.sections.resources.quickStart')}</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven#readme" target="_blank" rel="noopener noreferrer">{t('footer.sections.resources.docs')}</a></li>
               </ul>
             </div>
             <div className="footer-section">
-              <h4>Community</h4>
+              <h4>{t('footer.sections.community.title')}</h4>
               <ul>
-                <li><a href="https://github.com/AgenticDriven/agenticdriven/discussions" target="_blank" rel="noopener noreferrer">Discussions</a></li>
-                <li><a href="https://github.com/AgenticDriven/agenticdriven/issues" target="_blank" rel="noopener noreferrer">Issues</a></li>
-                <li><a href="https://github.com/AgenticDriven/agenticdriven/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributing</a></li>
-                <li><a href="https://github.com/AgenticDriven/agenticdriven/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License (MIT)</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven/discussions" target="_blank" rel="noopener noreferrer">{t('footer.sections.community.discussions')}</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven/issues" target="_blank" rel="noopener noreferrer">{t('footer.sections.community.issues')}</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">{t('footer.sections.community.contributing')}</a></li>
+                <li><a href="https://github.com/AgenticDriven/agenticdriven/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">{t('footer.sections.community.license')}</a></li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2026 Agentic Driven. Open Source under MIT License.</p>
-            <p className="footer-built">Built using AD 1.0 itself (dogfooding from day one)</p>
+            <p>{t('footer.copyright')}</p>
+            <p className="footer-built">{t('footer.built')}</p>
           </div>
         </div>
       </footer>
@@ -620,7 +454,7 @@ function App() {
               <span className="modal-icon">{selectedIDE.icon}</span>
               <h3 className="modal-title">{selectedIDE.name}</h3>
             </div>
-            <p className="modal-desc">Choose how to get the configuration file:</p>
+            <p className="modal-desc">{t('modal.chooseAction')}</p>
             <div className="modal-filename">{selectedIDE.file}</div>
             <div className="modal-actions">
               <a
@@ -630,7 +464,7 @@ function App() {
                 rel="noopener noreferrer"
               >
                 <span>👁️</span>
-                <span>View Raw</span>
+                <span>{t('modal.viewRaw')}</span>
               </a>
               <a
                 href={`/rules/ide/${selectedIDE.file}`}
@@ -638,7 +472,7 @@ function App() {
                 download={selectedIDE.file}
               >
                 <span>⬇️</span>
-                <span>Download</span>
+                <span>{t('modal.download')}</span>
               </a>
             </div>
           </div>
