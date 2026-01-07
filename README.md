@@ -1,16 +1,16 @@
-# Agentic Driven (AD) 1.0
+# Agentic Driven Workflow (ADW) 1.0
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/AgenticDriven/agenticdriven)
 
 **Universal methodology for structured AI-assisted development**
 
-AD (Agentic Driven) is a structured methodology for building projects with AI agents. It combines proven engineering practices with AI-first workflows, providing clear phases, exit criteria, and documentation standards.
+ADW (Agentic Driven Workflow) is a structured methodology for building projects with AI agents. It combines proven engineering practices with AI-first workflows, providing clear phases, exit criteria, and documentation standards.
 
 🌐 **Website**: [agenticdriven.dev](https://agenticdriven.dev)
 
 > [!TIP]
-> New to AD? Start with the [Quick Start](#-quick-start) guide below to set up your first project in minutes.
+> New to ADW? Start with the [Quick Start](#-quick-start) guide below to set up your first project in minutes.
 
 ## ✨ Features
 
@@ -24,7 +24,7 @@ AD (Agentic Driven) is a structured methodology for building projects with AI ag
 ## 🚀 Quick Start
 
 > [!TIP]
-> Choose the IDE you're already using. All configurations follow the same AD principles.
+> Choose the IDE you're already using. All configurations follow the same ADW principles.
 
 ### 1. Download IDE Configuration
 
@@ -46,7 +46,7 @@ echo "# My Project" > README.md
 mkdir -p docs src tests
 touch docs/journal.md
 git add .
-git commit -m "chore: initialize AD project"
+git commit -m "chore: initialize ADW project"
 ```
 
 ### 3. Start First Phase
@@ -54,7 +54,7 @@ git commit -m "chore: initialize AD project"
 ```bash
 # Create phase documentation
 echo "# DEFINE Phase" > docs/problem-statement.md
-# Work on your project following AD principles
+# Work on your project following ADW principles
 git commit -m "feat: define project objectives"
 ```
 
@@ -138,9 +138,9 @@ project-root/
 ## 🌍 Universal Domains
 
 > [!NOTE]
-> AD adapts to your domain. The phases and principles stay the same, but the terminology and deliverables adjust to your context.
+> ADW adapts to your domain. The phases and principles stay the same, but the terminology and deliverables adjust to your context.
 
-AD 1.0 works for any domain:
+ADW 1.0 works for any domain:
 
 - **Software** - Backend, frontend, APIs, mobile apps
 - **Books** - Chapters, editing, publishing
@@ -151,7 +151,7 @@ AD 1.0 works for any domain:
 
 ## 📖 Documentation
 
-- **[Rules](src/rules/)** - Complete AD 1.0 rules in markdown
+- **[Rules](src/rules/)** - Complete ADW 1.0 rules in markdown
 - **[IDE Configs](src/rules/ide/)** - Pre-generated IDE configurations
 - **[Website](website/)** - Official website source code
 - **[Deployment Guide](DEPLOYMENT.md)** - How to deploy the website
@@ -174,7 +174,7 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 ## 📋 Requirements
 
 > [!NOTE]
-> AD is tool-agnostic. Use any AI assistant that works for you.
+> ADW is tool-agnostic. Use any AI assistant that works for you.
 
 - Git for version control
 - AI IDE (Cursor, Claude Code, Windsurf, etc.) or AI assistant
@@ -204,6 +204,6 @@ Last Updated: 2026-01-06
 
 ---
 
-**Made with ❤️ for the AD community**
+**Made with ❤️ for the ADW community**
 
 [Website](https://agenticdriven.dev) • [GitHub](https://github.com/AgenticDriven/agenticdriven) • [Issues](https://github.com/AgenticDriven/agenticdriven/issues) • [Discussions](https://github.com/AgenticDriven/agenticdriven/discussions)
