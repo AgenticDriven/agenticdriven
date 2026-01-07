@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [selectedPhase, setSelectedPhase] = useState(null)
+  const [selectedWorkflowPhase, setSelectedWorkflowPhase] = useState(null)
 
   const principles = [
     {
@@ -206,7 +206,6 @@ function App() {
       <header className="hero">
         <div className="hero-background"></div>
         <div className="container">
-          <div className="hero-badge">Now Available</div>
           <h1 className="hero-title">
             Agentic Driven Workflow
             <span className="version-badge">1.0</span>
@@ -214,6 +213,7 @@ function App() {
           <p className="hero-subtitle">
             The first AI-native methodology for structured development
           </p>
+          <div className="hero-badge">Now Available</div>
           <p className="hero-description">
             13 principles • 10 phases • Universal framework<br/>
             From idea to launch with AI agents
@@ -391,80 +391,65 @@ function App() {
           <div className="section-header">
             <h2 className="section-title">The AD Workflow</h2>
             <p className="section-intro">
-              From idea to launch in 10 structured phases
+              Click any phase to see details
             </p>
           </div>
 
           <div className="workflow-diagram">
-            {phases.map((phase, idx) => (
-              <div key={idx} className="workflow-step">
-                <div className="workflow-number">{idx + 1}</div>
-                <div className="workflow-icon">{phase.icon}</div>
-                <div className="workflow-name">{phase.phase}</div>
-                <div className="workflow-version">{phase.version}</div>
-                {idx < phases.length - 1 && (
-                  <div className="workflow-arrow">→</div>
-                )}
-              </div>
-            ))}
+            {phases.map((phase, idx) => {
+              const isCompleted = selectedWorkflowPhase !== null && idx < selectedWorkflowPhase;
+              const isCurrent = selectedWorkflowPhase === idx;
+              const isPending = selectedWorkflowPhase !== null && idx > selectedWorkflowPhase;
+
+              return (
+                <div
+                  key={idx}
+                  className={`workflow-step ${isCompleted ? 'completed' : ''} ${isCurrent ? 'current' : ''} ${isPending ? 'pending' : ''}`}
+                  onClick={() => setSelectedWorkflowPhase(idx)}
+                >
+                  <div className="workflow-number">{idx + 1}</div>
+                  <div className="workflow-icon">{phase.icon}</div>
+                  <div className="workflow-name">{phase.phase}</div>
+                  <div className="workflow-version">{phase.version}</div>
+                  {idx < phases.length - 1 && (
+                    <div className="workflow-arrow">→</div>
+                  )}
+                </div>
+              );
+            })}
           </div>
+
+          {selectedWorkflowPhase !== null && (
+            <div className="workflow-detail">
+              <div className="workflow-detail-header">
+                <span className="workflow-detail-icon">{phases[selectedWorkflowPhase].icon}</span>
+                <h3 className="workflow-detail-title">
+                  {phases[selectedWorkflowPhase].phase}
+                  <span className="workflow-detail-version">{phases[selectedWorkflowPhase].version}</span>
+                </h3>
+              </div>
+              <p className="workflow-detail-desc">{phases[selectedWorkflowPhase].desc}</p>
+              <p className="workflow-detail-text">{phases[selectedWorkflowPhase].detail}</p>
+            </div>
+          )}
 
           <div className="workflow-legend">
             <div className="legend-item">
-              <div className="legend-dot legend-start"></div>
-              <span>Start Here</span>
+              <div className="legend-dot legend-completed"></div>
+              <span>Completed</span>
             </div>
             <div className="legend-item">
-              <div className="legend-dot legend-progress"></div>
-              <span>In Development</span>
+              <div className="legend-dot legend-current"></div>
+              <span>Current</span>
             </div>
             <div className="legend-item">
-              <div className="legend-dot legend-launch"></div>
-              <span>Launch Ready</span>
+              <div className="legend-dot legend-pending"></div>
+              <span>Pending</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 10 Phases */}
-      <section className="section phases-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Phase Details</h2>
-            <p className="section-intro">
-              Click any phase to learn more
-            </p>
-          </div>
-
-          <div className="phases-timeline">
-            {phases.map((phase, idx) => (
-              <div
-                key={idx}
-                className={`phase-item ${selectedPhase === idx ? 'active' : ''}`}
-                onClick={() => setSelectedPhase(selectedPhase === idx ? null : idx)}
-              >
-                <div className="phase-card">
-                  <div className="phase-icon">{phase.icon}</div>
-                  <div className="phase-info">
-                    <div className="phase-header-row">
-                      <span className="phase-name">{phase.phase}</span>
-                      <span className="phase-version">{phase.version}</span>
-                    </div>
-                    <p className="phase-desc">{phase.desc}</p>
-                    {selectedPhase === idx && (
-                      <p className="phase-detail">{phase.detail}</p>
-                    )}
-                  </div>
-                  <div className="phase-expand">
-                    {selectedPhase === idx ? '−' : '+'}
-                  </div>
-                </div>
-                {idx < phases.length - 1 && <div className="phase-connector"></div>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* IDE Configurations */}
       <section className="section ide-section" id="quick-start">
