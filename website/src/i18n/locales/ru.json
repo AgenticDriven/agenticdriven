@@ -448,22 +448,12 @@
     "backToHome": "Вернуться на главную",
     "backToTop": "Наверх",
     "toc": {
-      "title": "Содержание",
-      "gettingStarted": "Getting Started",
-      "principles": "13 принципов",
-      "phases": "10 фаз",
-      "versioning": "Версионирование",
-      "gitCommits": "Git-коммиты",
-      "projectStructure": "Структура проекта",
-      "projectConfig": "Configuration (adw.yaml)",
-      "multiAgent": "Multi-Agent",
-      "documentation": "Documentation",
-      "journal": "Journal",
-      "decisions": "Decisions (ADR)",
-      "contracts": "Contracts/Interfaces",
-      "aiWorkflow": "AI Workflow",
-      "exitCriteria": "Exit Criteria",
-      "troubleshooting": "Troubleshooting"
+      "title": "Contents",
+      "installation": "1. Install IDE Configuration",
+      "quickStart": "2. Quick Start",
+      "workingWithADW": "3. Working with ADW",
+      "reference": "Quick Reference",
+      "detailed": "Detailed Documentation"
     },
     "versioning": {
       "title": "Семантическое версионирование",
@@ -1002,6 +992,197 @@
         "4": "Validate before moving forward (exit criteria)",
         "5": "Tags are optional in ADW 1.0"
       }
+    },
+    "installation": {
+      "title": "1. Install Your IDE Configuration",
+      "intro": "First, download the pre-configured settings for your favorite IDE. This makes your AI assistant automatically follow the ADW methodology.",
+      "chooseIDE": "Choose your IDE:",
+      "ides": {
+        "cursor": {
+          "name": "Cursor",
+          "file": ".cursorrules",
+          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.cursorrules -o .cursorrules",
+          "desc": "Code IDE with integrated AI"
+        },
+        "claude": {
+          "name": "Claude Code",
+          "file": ".clauderc",
+          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.clauderc -o .clauderc",
+          "desc": "Official Anthropic CLI"
+        },
+        "windsurf": {
+          "name": "Windsurf",
+          "file": ".windsurfrules",
+          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.windsurfrules -o .windsurfrules",
+          "desc": "Agentic flow IDE"
+        },
+        "copilot": {
+          "name": "GitHub Copilot",
+          "file": ".github/copilot-instructions.md",
+          "command": "mkdir -p .github && curl -sSL https://agenticdriven.dev/rules/ide/.github/copilot-instructions.md -o .github/copilot-instructions.md",
+          "desc": "GitHub Copilot"
+        },
+        "aider": {
+          "name": "Aider",
+          "file": ".aider.conf.yml + .aider-rules.md",
+          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.aider.conf.yml -o .aider.conf.yml && curl -sSL https://agenticdriven.dev/rules/ide/.aider-rules.md -o .aider-rules.md",
+          "desc": "AI pair programming in terminal"
+        },
+        "continue": {
+          "name": "Continue",
+          "file": ".continuerc.json + .continue-rules.md",
+          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.continuerc.json -o .continuerc.json && curl -sSL https://agenticdriven.dev/rules/ide/.continue-rules.md -o .continue-rules.md",
+          "desc": "Open-source Copilot"
+        }
+      },
+      "quickInstall": "Or use the automatic installer:",
+      "quickCommand": "curl -sSL https://agenticdriven.dev/download.sh | bash -s <ide>",
+      "quickExample": "# Example for Cursor\\ncurl -sSL https://agenticdriven.dev/download.sh | bash -s cursor",
+      "manualDownload": "Manual Download",
+      "manualLink": "https://github.com/agenticdriven/adw/tree/main/src/rules/ide",
+      "afterInstall": "After installing: Restart your IDE and your AI assistant will automatically follow ADW."
+    },
+    "quickStart": {
+      "title": "2. Quick Start: Your First ADW Project",
+      "intro": "Create your first ADW project in 5 steps. Copy and paste each command.",
+      "step1": {
+        "title": "Step 1: Create the project",
+        "commands": "mkdir mi-proyecto\\ncd mi-proyecto\\ngit init"
+      },
+      "step2": {
+        "title": "Step 2: Basic structure",
+        "commands": "touch README.md\\nmkdir docs\\ntouch docs/journal.md"
+      },
+      "step3": {
+        "title": "Step 3: First commit (v0.0.0)",
+        "commands": "git add .\\ngit commit -m \"chore: initialize project (v0.0.0)\"\\ngit tag v0.0.0"
+      },
+      "step4": {
+        "title": "Step 4: Define the problem",
+        "prompt": "Prompt for your AI:",
+        "promptText": "I'm starting an ADW project. We're in DEFINE phase (v0.0.x).\\n\\nHelp me create the following documents in docs/:\\n- problem-statement.md: [explain what problem you're solving]\\n- objectives.md: [what you want to achieve]\\n- scope.md: [what you include and what you don't]\\n\\nWhen we finish, commit with: 'docs: define problem and objectives'",
+        "note": "Your AI will create the documents following ADW automatically."
+      },
+      "step5": {
+        "title": "Step 5: Complete DEFINE and move forward",
+        "prompt": "Prompt for your AI:",
+        "promptText": "We've completed the DEFINE phase.\\n\\nVerify that we have:\\n- problem-statement.md ✓\\n- objectives.md ✓\\n- scope.md ✓\\n\\nCommit DEFINE completion and move to DISCOVER (v0.1.0).",
+        "commands": "# Your AI will make these commits:\\ngit commit -m \"chore: complete DEFINE (v0.1.0)\"\\ngit tag v0.1.0"
+      },
+      "done": "Done! You now have a working ADW project. Now read section 3 to work on each phase."
+    },
+    "workingWithADW": {
+      "title": "3. Working with ADW: Prompts by Phase",
+      "intro": "Use these prompts with your AI to work on each phase. Copy them and adapt according to your project.",
+      "phases": {
+        "define": {
+          "name": "DEFINE (v0.0.x)",
+          "goal": "Define problem, objectives, and scope",
+          "prompt": "Estamos en fase DEFINE. Ayúdame a:\\n\\n1. Definir claramente el problema en docs/problem-statement.md\\n2. Listar objetivos SMART en docs/objectives.md\\n3. Delimitar scope (qué SÍ y qué NO) en docs/scope.md\\n\\nCuando terminemos cada documento, haz commit. Al finalizar DEFINE, marca v0.1.0.",
+          "deliverables": "problem-statement.md, objectives.md, scope.md",
+          "exit": "Problema claro, objetivos definidos, scope documentado"
+        },
+        "discover": {
+          "name": "DISCOVER (v0.1.x)",
+          "goal": "Research options and viability",
+          "prompt": "Estamos en fase DISCOVER. Ayúdame a:\\n\\n1. Investigar opciones técnicas/estratégicas en docs/discovery.md\\n2. Documentar requisitos en docs/requirements.md\\n3. Evaluar riesgos y viabilidad\\n4. Tomar decisiones clave en docs/decisions.md\\n\\nCommit después de cada investigación. Al finalizar DISCOVER, marca v0.2.0.",
+          "deliverables": "discovery.md, requirements.md, decisions.md",
+          "exit": "Requisitos claros, opciones evaluadas, decisiones documentadas"
+        },
+        "design": {
+          "name": "DESIGN (v0.2.x)",
+          "goal": "Design solution and architecture",
+          "prompt": "Estamos en fase DESIGN. Ayúdame a:\\n\\n1. Diseñar la solución en docs/design.md\\n2. Definir arquitectura en docs/architecture.md\\n3. Especificar interfaces en docs/interfaces.md (si multi-agente)\\n4. Crear mockups/diagramas si aplica\\n\\nCommit diseños completos. Al finalizar DESIGN, marca v0.3.0.",
+          "deliverables": "design.md, architecture.md, interfaces.md",
+          "exit": "Diseño completo, arquitectura definida, interfaces especificadas"
+        },
+        "setup": {
+          "name": "SETUP (v0.3.x)",
+          "goal": "Prepare tools and environment",
+          "prompt": "Estamos en fase SETUP. Ayúdame a:\\n\\n1. Configurar herramientas necesarias\\n2. Preparar ambiente de desarrollo\\n3. Crear estructura de carpetas (src/, tests/)\\n4. Definir criterios de validación en docs/validation-criteria.md\\n5. Documentar setup en docs/setup.md\\n\\nCommit cada configuración. Al finalizar SETUP, marca v0.4.0.",
+          "deliverables": "setup.md, validation-criteria.md, estructura lista",
+          "exit": "Ambiente listo, herramientas configuradas, criterios definidos"
+        },
+        "build": {
+          "name": "BUILD (v0.4.x)",
+          "goal": "Build the solution",
+          "prompt": "Estamos en fase BUILD (v0.4.x). Ayúdame a:\\n\\n1. Implementar según docs/interfaces.md\\n2. Seguir arquitectura de docs/architecture.md\\n3. Escribir tests para cada componente\\n4. Actualizar docs/build-log.md con progreso\\n5. Commit después de cada feature completa\\n\\nUsa conventional commits (feat:, fix:, etc.). Incrementa patch por cada feature.",
+          "deliverables": "Código funcional, tests passing, build-log.md",
+          "exit": "Todos los componentes implementados, tests passing, docs actualizados"
+        },
+        "validate": {
+          "name": "VALIDATE (v0.5.x)",
+          "goal": "Validate quality and testing",
+          "prompt": "Estamos en fase VALIDATE. Ayúdame a:\\n\\n1. Ejecutar todos los tests\\n2. Verificar coverage (objetivo 80%+)\\n3. Validar según docs/validation-criteria.md\\n4. Hacer testing manual/QA\\n5. Documentar resultados en docs/validation-report.md\\n\\nCommit fixes. Al finalizar VALIDATE, marca v0.6.0.",
+          "deliverables": "validation-report.md, test-results.md, coverage report",
+          "exit": "Tests passing, coverage >80%, calidad validada"
+        },
+        "market": {
+          "name": "MARKET (v0.6.x)",
+          "goal": "Prepare launch materials",
+          "prompt": "Estamos en fase MARKET. Ayúdame a:\\n\\n1. Crear plan de marketing en docs/marketing-plan.md\\n2. Preparar materiales (landing, demos, docs)\\n3. Definir estrategia de lanzamiento en docs/launch-strategy.md\\n4. Crear contenido promocional\\n\\nCommit cada material. Al finalizar MARKET, marca v0.7.0.",
+          "deliverables": "marketing-plan.md, launch-strategy.md, materiales listos",
+          "exit": "Materiales creados, estrategia definida, listo para lanzar"
+        },
+        "launch": {
+          "name": "LAUNCH (v0.7.x)",
+          "goal": "Deploy and activate",
+          "prompt": "Estamos en fase LAUNCH. Ayúdame a:\\n\\n1. Hacer deploy a producción\\n2. Activar monitoring y alertas\\n3. Verificar que todo funciona en prod\\n4. Documentar el lanzamiento en docs/launch-log.md\\n5. Crear go-live report en docs/go-live-report.md\\n\\nCommit cada paso. Al finalizar LAUNCH, marca v0.8.0.",
+          "deliverables": "launch-log.md, go-live-report.md, producción activa",
+          "exit": "Desplegado, monitoring activo, sin issues críticos"
+        },
+        "support": {
+          "name": "SUPPORT (v0.8.x)",
+          "goal": "Maintain and support",
+          "prompt": "Estamos en fase SUPPORT. Ayúdame a:\\n\\n1. Monitorear métricas y logs\\n2. Resolver bugs críticos (hotfixes)\\n3. Atender feedback de usuarios\\n4. Documentar issues en docs/support-log.md\\n5. Mantener estabilidad\\n\\nCommit cada fix. Al completar período de soporte, marca v0.9.0.",
+          "deliverables": "support-log.md, hotfixes aplicados, sistema estable",
+          "exit": "Estable, bugs críticos resueltos, feedback recopilado"
+        },
+        "evolve": {
+          "name": "EVOLVE (v0.9.x)",
+          "goal": "Improve and optimize",
+          "prompt": "Estamos en fase EVOLVE. Ayúdame a:\\n\\n1. Implementar mejoras basadas en feedback\\n2. Optimizar performance\\n3. Añadir features menores\\n4. Planificar futuro en docs/roadmap.md\\n5. Documentar lecciones en docs/evolution-plan.md\\n\\nCommit cada mejora. Al finalizar EVOLVE, lanza v1.0.0.",
+          "deliverables": "evolution-plan.md, roadmap.md, mejoras implementadas",
+          "exit": "Mejorado, optimizado, roadmap definido, listo para v1.0.0"
+        }
+      },
+      "commonCommands": {
+        "title": "Common Commands",
+        "status": "git status",
+        "log": "git log --oneline -10",
+        "journal": "cat docs/journal.md",
+        "version": "git describe --tags --abbrev=0",
+        "commit": "git add . && git commit -m \"<tipo>: <descripción>\"",
+        "tag": "git tag v0.X.Y"
+      }
+    },
+    "reference": {
+      "title": "Quick Reference",
+      "intro": "Summary of ADW key concepts for quick reference.",
+      "principles": {
+        "title": "13 Principles (Summary)",
+        "list": "1. Agent-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 10 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
+      },
+      "phases": {
+        "title": "10 Phases (Summary)",
+        "list": "DEFINE (v0.0.x): Problem, objectives, scope\\nDISCOVER (v0.1.x): Research options\\nDESIGN (v0.2.x): Design solution\\nSETUP (v0.3.x): Prepare environment\\nBUILD (v0.4.x): Build solution\\nVALIDATE (v0.5.x): Validate quality\\nMARKET (v0.6.x): Prepare launch\\nLAUNCH (v0.7.x): Deploy\\nSUPPORT (v0.8.x): Maintain\\nEVOLVE (v0.9.x): Improve\\nRELEASE (v1.0.0): First stable version"
+      },
+      "versioning": {
+        "title": "Versioning (Summary)",
+        "scheme": "v0.PHASE.ITERATION during development\\nv1.0.0+ after launch\\n\\nExample: v0.4.15 = BUILD phase, iteration 15"
+      },
+      "commits": {
+        "title": "Commits (Summary)",
+        "format": "Format: <type>: <description>\\n\\nTypes: feat, fix, docs, chore, test, refactor, perf, style, ci, build\\n\\nExample: feat: add user authentication"
+      },
+      "docs": {
+        "title": "Documentation (Summary)",
+        "structure": "docs/journal.md - Daily log\\ndocs/decisions.md - ADRs\\ndocs/interfaces.md - Contracts (multi-agent)\\ndocs/<phase>/ - Docs for each phase"
+      }
+    },
+    "detailed": {
+      "title": "Detailed Documentation",
+      "intro": "Complete explanations of all ADW concepts, rules, and best practices."
     }
   }
 }
