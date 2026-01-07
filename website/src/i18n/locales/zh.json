@@ -9,7 +9,7 @@
     "cta": {
       "getStarted": "开始使用",
       "github": "GitHub",
-      "viewRules": "View Full Methodology"
+      "viewRules": "查看完整方法论"
     },
     "stats": {
       "principles": "核心原则",
@@ -180,7 +180,7 @@
         "detail": "不要重新发明轮子。利用设计模式、成熟框架和标准结构。在坚实基础上构建。"
       }
     },
-    "intro": "These principles are the backbone of ADW. Each addresses a specific aspect of working with AI agents, from how to document to how to structure code and manage changes."
+    "intro": "这些原则是ADW的支柱。每一条都针对与AI代理合作的特定方面，从如何记录到如何构建代码和管理更改。"
   },
   "workflow": {
     "title": "工作流程：10个阶段",
@@ -252,7 +252,7 @@
         "detail": "让它更好。添加功能,优化性能,响应反馈。规划下一个版本。持续改进循环。"
       }
     },
-    "intro": "ADW structures development into 10 sequential phases. Each phase has clear objectives, specific deliverables, and exit criteria. You cannot advance until completing the current phase. This ensures every aspect of the project receives necessary attention."
+    "intro": "ADW将开发结构化为10个连续阶段。每个阶段都有明确的目标、具体的交付成果和退出标准。在完成当前阶段之前无法前进。这确保了项目的每个方面都得到必要的关注。"
   },
   "quickStart": {
     "title": "快速开始",
@@ -286,9 +286,9 @@
         "comingSoon": "即将推出"
       },
       "fullRules": {
-        "title": "Full Methodology",
-        "desc": "All principles, phases and rules explained in detail. The complete ADW 1.0 guide.",
-        "link": "View Methodology →"
+        "title": "完整方法论",
+        "desc": "详细解释所有原则、阶段和规则。完整的ADW 1.0指南。",
+        "link": "查看方法论 →"
       }
     }
   },
@@ -303,7 +303,7 @@
         "configs": "IDE配置",
         "quickStart": "快速开始",
         "docs": "文档",
-        "fullRules": "Full Methodology"
+        "fullRules": "完整方法论"
       },
       "community": {
         "title": "社区",
@@ -324,82 +324,82 @@
   },
   "home": {
     "overview": {
-      "title": "Start Here",
-      "subtitle": "Methodology fundamentals in 3 key concepts",
+      "title": "从这里开始",
+      "subtitle": "3个关键概念中的方法论基础",
       "principles": {
-        "title": "13 Principles",
-        "desc": "Fundamental rules that guide all AI work. From documentation-first to continuous commits, each principle has a clear purpose."
+        "title": "13条原则",
+        "desc": "指导所有AI工作的基本规则。从文档优先到持续提交，每个原则都有明确的目的。"
       },
       "phases": {
-        "title": "10 Phases",
-        "desc": "From DEFINE to EVOLVE. Each phase has clear objectives and exit criteria. Always know where you are and what comes next."
+        "title": "10个阶段",
+        "desc": "从定义到演进。每个阶段都有明确的目标和退出标准。始终知道你在哪里以及接下来会发生什么。"
       },
       "git": {
-        "title": "Continuous Git Flow",
-        "desc": "Each completed task = immediate commit. Crystal clear history, zero information loss, no code degradation."
+        "title": "持续Git流程",
+        "desc": "每个完成的任务=立即提交。清晰的历史记录，零信息丢失，无代码退化。"
       },
-      "learnMore": "Learn more",
-      "viewFullRules": "View Full Methodology"
+      "learnMore": "了解更多",
+      "viewFullRules": "查看完整方法论"
     }
   },
   "rules": {
-    "title": "Complete ADW 1.0 Methodology",
-    "subtitle": "The definitive guide for working with AI agents",
-    "backToHome": "Back to Home",
-    "backToTop": "Back to Top",
+    "title": "完整的ADW 1.0方法论",
+    "subtitle": "与AI代理合作的权威指南",
+    "backToHome": "返回首页",
+    "backToTop": "返回顶部",
     "toc": {
-      "title": "Contents",
-      "principles": "13 Principles",
-      "phases": "10 Phases",
-      "versioning": "Versioning",
-      "gitCommits": "Git Commits",
-      "projectStructure": "Project Structure"
+      "title": "目录",
+      "principles": "13条原则",
+      "phases": "10个阶段",
+      "versioning": "版本控制",
+      "gitCommits": "Git提交",
+      "projectStructure": "项目结构"
     },
     "versioning": {
-      "title": "Semantic Versioning",
-      "intro": "ADW uses semantic versioning (semver) with a specific scheme for pre-release phases.",
+      "title": "语义化版本控制",
+      "intro": "ADW使用语义化版本控制(semver)，并为预发布阶段提供特定方案。",
       "prerelease": {
-        "title": "Pre-release (v0.x.x)",
-        "desc": "During the 10 phases, format is v0.PHASE.ITERATION. For example, v0.4.15 means BUILD phase, iteration 15.",
-        "example": "v0.0.0  First commit\\nv0.1.0  Start DISCOVER\\nv0.4.15 BUILD iteration 15"
+        "title": "预发布 (v0.x.x)",
+        "desc": "在10个阶段期间，格式为v0.阶段.迭代。例如，v0.4.15表示构建阶段，迭代15。",
+        "example": "v0.0.0  首次提交\\nv0.1.0  开始发现\\nv0.4.15 构建迭代15"
       },
       "release": {
-        "title": "Release (v1.0.0+)",
-        "desc": "After completing all phases, launch v1.0.0. Then use standard semver format: vMAJOR.MINOR.PATCH",
-        "example": "v1.0.0  First stable version\\nv1.1.0  New feature\\nv1.1.1  Bug fix"
+        "title": "发布 (v1.0.0+)",
+        "desc": "完成所有阶段后，发布v1.0.0。然后使用标准semver格式：v主版本.次版本.补丁",
+        "example": "v1.0.0  首个稳定版本\\nv1.1.0  新功能\\nv1.1.1  错误修复"
       }
     },
     "gitCommits": {
-      "title": "Git Commits",
-      "intro": "ADW uses Conventional Commits for clear and consistent commit messages. Each commit should be atomic: one logical change per commit.",
+      "title": "Git提交",
+      "intro": "ADW使用约定式提交来实现清晰一致的提交消息。每个提交应该是原子性的：每次提交一个逻辑变更。",
       "format": {
-        "title": "Format",
-        "desc": "Each commit follows the format: <type>: <description>. The description should be clear and start lowercase.",
+        "title": "格式",
+        "desc": "每个提交遵循格式：<类型>: <描述>。描述应该清晰并以小写字母开头。",
         "example": "feat: add user authentication\\nfix: correct validation logic\\ndocs: update API documentation"
       },
       "types": {
-        "title": "Commit Types",
-        "desc": "Standard types are: feat (new feature), fix (correction), docs (documentation), chore (tasks), test (tests), refactor (refactoring), perf (performance), style (format), ci (continuous integration), build (build)."
+        "title": "提交类型",
+        "desc": "标准类型包括：feat(新功能)、fix(修复)、docs(文档)、chore(任务)、test(测试)、refactor(重构)、perf(性能)、style(格式)、ci(持续集成)、build(构建)。"
       }
     },
     "projectStructure": {
-      "title": "Project Structure",
-      "intro": "ADW recommends a clear and consistent project structure. This structure adapts based on domain (software, content, events, etc.).",
-      "example": "project-root/\\n├── README.md\\n├── adw.yaml          # Optional, multi-agent\\n├── docs/\\n│   ├── journal.md\\n│   └── ...\\n├── src/              # Adapt by domain\\n├── tests/            # Adapt by domain\\n└── ...",
+      "title": "项目结构",
+      "intro": "ADW建议清晰一致的项目结构。该结构根据领域(软件、内容、活动等)进行调整。",
+      "example": "project-root/\\n├── README.md\\n├── adw.yaml          # 可选，多代理\\n├── docs/\\n│   ├── journal.md\\n│   └── ...\\n├── src/              # 按领域调整\\n├── tests/            # 按领域调整\\n└── ...",
       "files": {
-        "title": "Key Files",
-        "readme": "Project overview, how to start, essential information.",
-        "adw": "Project configuration (domain, phase, version). Optional, useful for multi-agent.",
-        "journal": "Chronological log of decisions, important changes and reflections.",
-        "src": "Source code, content or other main project work.",
-        "tests": "Tests, validations, verification scripts."
+        "title": "关键文件",
+        "readme": "项目概述，如何开始，基本信息。",
+        "adw": "项目配置(领域、阶段、版本)。可选，对多代理有用。",
+        "journal": "决策、重要变更和思考的时间顺序日志。",
+        "src": "源代码、内容或其他主要项目工作。",
+        "tests": "测试、验证、验证脚本。"
       }
     },
     "download": {
-      "title": "Download Rules",
-      "desc": "Download pre-configured IDE configs to start using ADW immediately in your favorite editor.",
-      "getIDEConfigs": "Get IDE Configs",
-      "viewGitHub": "View on GitHub"
+      "title": "下载规则",
+      "desc": "下载预配置的IDE配置，立即在你喜欢的编辑器中开始使用ADW。",
+      "getIDEConfigs": "获取IDE配置",
+      "viewGitHub": "在GitHub上查看"
     }
   }
 }

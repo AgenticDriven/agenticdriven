@@ -9,7 +9,7 @@
     "cta": {
       "getStarted": "Loslegen",
       "github": "GitHub",
-      "viewRules": "View Full Methodology"
+      "viewRules": "Vollständige Methodik ansehen"
     },
     "stats": {
       "principles": "Kernprinzipien",
@@ -180,7 +180,7 @@
         "detail": "Erfinden Sie das Rad nicht neu. Nutzen Sie Designmuster, bewährte Frameworks und Standardstrukturen. Bauen Sie auf solidem Fundament."
       }
     },
-    "intro": "These principles are the backbone of ADW. Each addresses a specific aspect of working with AI agents, from how to document to how to structure code and manage changes."
+    "intro": "Diese Prinzipien sind das Rückgrat von ADW. Jedes behandelt einen spezifischen Aspekt der Arbeit mit KI-Agenten, von der Dokumentation bis zur Code-Struktur und Änderungsverwaltung."
   },
   "workflow": {
     "title": "Workflow: 10 Phasen",
@@ -252,7 +252,7 @@
         "detail": "Machen Sie es besser. Funktionen hinzufügen, Leistung optimieren, auf Feedback reagieren. Nächste Version planen. Kontinuierlicher Verbesserungszyklus."
       }
     },
-    "intro": "ADW structures development into 10 sequential phases. Each phase has clear objectives, specific deliverables, and exit criteria. You cannot advance until completing the current phase. This ensures every aspect of the project receives necessary attention."
+    "intro": "ADW strukturiert die Entwicklung in 10 aufeinanderfolgende Phasen. Jede Phase hat klare Ziele, spezifische Liefergegenstände und Ausstiegskriterien. Sie können nicht fortfahren, bis Sie die aktuelle Phase abgeschlossen haben. Dies stellt sicher, dass jeder Aspekt des Projekts die notwendige Aufmerksamkeit erhält."
   },
   "quickStart": {
     "title": "Schnellstart",
@@ -286,9 +286,9 @@
         "comingSoon": "Demnächst"
       },
       "fullRules": {
-        "title": "Full Methodology",
-        "desc": "All principles, phases and rules explained in detail. The complete ADW 1.0 guide.",
-        "link": "View Methodology →"
+        "title": "Vollständige Methodik",
+        "desc": "Alle Prinzipien, Phasen und Regeln im Detail erklärt. Der vollständige ADW 1.0 Leitfaden.",
+        "link": "Methodik ansehen →"
       }
     }
   },
@@ -303,7 +303,7 @@
         "configs": "IDE-Konfigurationen",
         "quickStart": "Schnellstart",
         "docs": "Dokumentation",
-        "fullRules": "Full Methodology"
+        "fullRules": "Vollständige Methodik"
       },
       "community": {
         "title": "Community",
@@ -324,82 +324,82 @@
   },
   "home": {
     "overview": {
-      "title": "Start Here",
-      "subtitle": "Methodology fundamentals in 3 key concepts",
+      "title": "Hier beginnen",
+      "subtitle": "Grundlagen der Methodik in 3 Schlüsselkonzepten",
       "principles": {
-        "title": "13 Principles",
-        "desc": "Fundamental rules that guide all AI work. From documentation-first to continuous commits, each principle has a clear purpose."
+        "title": "13 Prinzipien",
+        "desc": "Grundlegende Regeln, die alle KI-Arbeit leiten. Von Dokumentation-zuerst bis zu kontinuierlichen Commits hat jedes Prinzip einen klaren Zweck."
       },
       "phases": {
-        "title": "10 Phases",
-        "desc": "From DEFINE to EVOLVE. Each phase has clear objectives and exit criteria. Always know where you are and what comes next."
+        "title": "10 Phasen",
+        "desc": "Von DEFINIEREN bis ENTWICKELN. Jede Phase hat klare Ziele und Ausstiegskriterien. Sie wissen immer, wo Sie sind und was als Nächstes kommt."
       },
       "git": {
-        "title": "Continuous Git Flow",
-        "desc": "Each completed task = immediate commit. Crystal clear history, zero information loss, no code degradation."
+        "title": "Kontinuierlicher Git-Fluss",
+        "desc": "Jede abgeschlossene Aufgabe = sofortiger Commit. Kristallklare Historie, kein Informationsverlust, keine Code-Degradierung."
       },
-      "learnMore": "Learn more",
-      "viewFullRules": "View Full Methodology"
+      "learnMore": "Mehr erfahren",
+      "viewFullRules": "Vollständige Methodik ansehen"
     }
   },
   "rules": {
-    "title": "Complete ADW 1.0 Methodology",
-    "subtitle": "The definitive guide for working with AI agents",
-    "backToHome": "Back to Home",
-    "backToTop": "Back to Top",
+    "title": "Vollständige ADW 1.0 Methodik",
+    "subtitle": "Der definitive Leitfaden für die Arbeit mit KI-Agenten",
+    "backToHome": "Zurück zur Startseite",
+    "backToTop": "Nach oben",
     "toc": {
-      "title": "Contents",
-      "principles": "13 Principles",
-      "phases": "10 Phases",
-      "versioning": "Versioning",
-      "gitCommits": "Git Commits",
-      "projectStructure": "Project Structure"
+      "title": "Inhalt",
+      "principles": "13 Prinzipien",
+      "phases": "10 Phasen",
+      "versioning": "Versionierung",
+      "gitCommits": "Git-Commits",
+      "projectStructure": "Projektstruktur"
     },
     "versioning": {
-      "title": "Semantic Versioning",
-      "intro": "ADW uses semantic versioning (semver) with a specific scheme for pre-release phases.",
+      "title": "Semantische Versionierung",
+      "intro": "ADW verwendet semantische Versionierung (semver) mit einem spezifischen Schema für Vor-Release-Phasen.",
       "prerelease": {
-        "title": "Pre-release (v0.x.x)",
-        "desc": "During the 10 phases, format is v0.PHASE.ITERATION. For example, v0.4.15 means BUILD phase, iteration 15.",
-        "example": "v0.0.0  First commit\\nv0.1.0  Start DISCOVER\\nv0.4.15 BUILD iteration 15"
+        "title": "Vor-Release (v0.x.x)",
+        "desc": "Während der 10 Phasen ist das Format v0.PHASE.ITERATION. Zum Beispiel bedeutet v0.4.15 BUILD-Phase, Iteration 15.",
+        "example": "v0.0.0  Erster Commit\\nv0.1.0  Start ENTDECKEN\\nv0.4.15 BUILD Iteration 15"
       },
       "release": {
         "title": "Release (v1.0.0+)",
-        "desc": "After completing all phases, launch v1.0.0. Then use standard semver format: vMAJOR.MINOR.PATCH",
-        "example": "v1.0.0  First stable version\\nv1.1.0  New feature\\nv1.1.1  Bug fix"
+        "desc": "Nach Abschluss aller Phasen wird v1.0.0 veröffentlicht. Dann wird das Standard-Semver-Format verwendet: vMAJOR.MINOR.PATCH",
+        "example": "v1.0.0  Erste stabile Version\\nv1.1.0  Neue Funktion\\nv1.1.1  Fehlerbehebung"
       }
     },
     "gitCommits": {
-      "title": "Git Commits",
-      "intro": "ADW uses Conventional Commits for clear and consistent commit messages. Each commit should be atomic: one logical change per commit.",
+      "title": "Git-Commits",
+      "intro": "ADW verwendet Conventional Commits für klare und konsistente Commit-Nachrichten. Jeder Commit sollte atomar sein: eine logische Änderung pro Commit.",
       "format": {
         "title": "Format",
-        "desc": "Each commit follows the format: <type>: <description>. The description should be clear and start lowercase.",
+        "desc": "Jeder Commit folgt dem Format: <typ>: <beschreibung>. Die Beschreibung sollte klar sein und klein beginnen.",
         "example": "feat: add user authentication\\nfix: correct validation logic\\ndocs: update API documentation"
       },
       "types": {
-        "title": "Commit Types",
-        "desc": "Standard types are: feat (new feature), fix (correction), docs (documentation), chore (tasks), test (tests), refactor (refactoring), perf (performance), style (format), ci (continuous integration), build (build)."
+        "title": "Commit-Typen",
+        "desc": "Standardtypen sind: feat (neue Funktion), fix (Korrektur), docs (Dokumentation), chore (Aufgaben), test (Tests), refactor (Refactoring), perf (Performance), style (Format), ci (Continuous Integration), build (Build)."
       }
     },
     "projectStructure": {
-      "title": "Project Structure",
-      "intro": "ADW recommends a clear and consistent project structure. This structure adapts based on domain (software, content, events, etc.).",
-      "example": "project-root/\\n├── README.md\\n├── adw.yaml          # Optional, multi-agent\\n├── docs/\\n│   ├── journal.md\\n│   └── ...\\n├── src/              # Adapt by domain\\n├── tests/            # Adapt by domain\\n└── ...",
+      "title": "Projektstruktur",
+      "intro": "ADW empfiehlt eine klare und konsistente Projektstruktur. Diese Struktur passt sich je nach Domäne an (Software, Inhalt, Veranstaltungen usw.).",
+      "example": "project-root/\\n├── README.md\\n├── adw.yaml          # Optional, Multi-Agent\\n├── docs/\\n│   ├── journal.md\\n│   └── ...\\n├── src/              # Nach Domäne anpassen\\n├── tests/            # Nach Domäne anpassen\\n└── ...",
       "files": {
-        "title": "Key Files",
-        "readme": "Project overview, how to start, essential information.",
-        "adw": "Project configuration (domain, phase, version). Optional, useful for multi-agent.",
-        "journal": "Chronological log of decisions, important changes and reflections.",
-        "src": "Source code, content or other main project work.",
-        "tests": "Tests, validations, verification scripts."
+        "title": "Wichtige Dateien",
+        "readme": "Projektübersicht, wie man anfängt, wesentliche Informationen.",
+        "adw": "Projektkonfiguration (Domäne, Phase, Version). Optional, nützlich für Multi-Agent.",
+        "journal": "Chronologisches Protokoll von Entscheidungen, wichtigen Änderungen und Überlegungen.",
+        "src": "Quellcode, Inhalt oder andere Hauptprojektarbeit.",
+        "tests": "Tests, Validierungen, Verifizierungsskripte."
       }
     },
     "download": {
-      "title": "Download Rules",
-      "desc": "Download pre-configured IDE configs to start using ADW immediately in your favorite editor.",
-      "getIDEConfigs": "Get IDE Configs",
-      "viewGitHub": "View on GitHub"
+      "title": "Regeln herunterladen",
+      "desc": "Laden Sie vorkonfigurierte IDE-Configs herunter, um ADW sofort in Ihrem Lieblings-Editor zu verwenden.",
+      "getIDEConfigs": "IDE-Konfigurationen erhalten",
+      "viewGitHub": "Auf GitHub ansehen"
     }
   }
 }
