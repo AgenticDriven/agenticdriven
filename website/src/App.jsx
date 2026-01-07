@@ -33,7 +33,6 @@ function App() {
           <p className="hero-subtitle">
             {t('hero.subtitle')}
           </p>
-          <div className="hero-badge">{t('hero.badge')}</div>
           <p className="hero-description" dangerouslySetInnerHTML={{ __html: t('hero.description') }}></p>
 
           <div className="ai-logos">
