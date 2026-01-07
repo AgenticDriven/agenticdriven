@@ -453,7 +453,9 @@
       "phases": "10 Phases",
       "versioning": "Versioning",
       "gitCommits": "Git Commits",
-      "projectStructure": "Project Structure"
+      "projectStructure": "Project Structure",
+      "projectConfig": "Configuration (adw.yaml)",
+      "multiAgent": "Multi-Agent"
     },
     "versioning": {
       "title": "Semantic Versioning",
@@ -493,6 +495,69 @@
         "journal": "Chronological log of decisions, important changes and reflections.",
         "src": "Source code, content or other main project work.",
         "tests": "Tests, validations, verification scripts."
+      }
+    },
+    "projectConfig": {
+      "title": "Project Configuration (adw.yaml)",
+      "intro": "The adw.yaml file is optional but recommended for multi-agent projects. It defines the project domain and context boundaries for each agent.",
+      "solo": {
+        "title": "Solo Project (Optional)",
+        "desc": "For single-agent projects, adw.yaml only needs to specify the domain. Most projects don't need this file.",
+        "example": "domain: \"software\""
+      },
+      "multiAgent": {
+        "title": "Multi-Agent Project (Recommended)",
+        "desc": "For projects with multiple agents working in parallel, adw.yaml defines context boundaries. Each agent works in specific directories.",
+        "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\"]"
+      },
+      "fields": {
+        "title": "File Fields",
+        "domain": "Project type (software, book, marketing, event). AI agents adapt their language based on domain.",
+        "agents": "List of agents with their contexts. Defines which directories each agent handles to avoid conflicts."
+      }
+    },
+    "multiAgent": {
+      "title": "Multi-Agent Coordination",
+      "intro": "ADW supports multiple agents working in parallel on the same project. The key is clear coordination and well-defined context boundaries.",
+      "principles": {
+        "1": {
+          "title": "Sequential Phases, Parallel Work",
+          "desc": "Phases are sequential (no skipping)",
+          "detail": "But work within each phase can be parallel. Multiple agents work on different components of the same phase simultaneously."
+        },
+        "2": {
+          "title": "Contracts Before Implementation",
+          "desc": "Define interfaces in DESIGN (v0.2.x)",
+          "detail": "Contracts (APIs, schemas, interfaces) are defined first. This allows agents to work in parallel without waiting for dependencies."
+        },
+        "3": {
+          "title": "Continuous Integration",
+          "desc": "Integrate frequently, not at the end",
+          "detail": "Agents integrate their work continuously (daily). This detects conflicts early and keeps the code working."
+        },
+        "4": {
+          "title": "Clear Context Boundaries",
+          "desc": "Each agent has specific directories",
+          "detail": "Use adw.yaml to define which agent works in which directories. This prevents merge conflicts and maintains clear responsibility."
+        }
+      },
+      "coordination": {
+        "title": "Coordination Tools",
+        "intro": "For multiple agents to work effectively, you need to establish coordination practices:",
+        "items": {
+          "standup": {
+            "title": "Daily Standups",
+            "desc": "15-minute daily meetings to sync progress, identify blockers and adjust the plan. Each agent shares what they did, what they'll do and if they're blocked."
+          },
+          "integration": {
+            "title": "Frequent Integration",
+            "desc": "Agents should integrate their code at least once a day. Use feature branches and pull requests to keep main clean and stable."
+          },
+          "reviews": {
+            "title": "Code Reviews",
+            "desc": "All code must be reviewed by another agent before merge. This maintains quality and enables shared knowledge of the codebase."
+          }
+        }
       }
     },
     "download": {

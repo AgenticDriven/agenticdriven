@@ -385,7 +385,9 @@
       "phases": "10 Fases",
       "versioning": "Versionado",
       "gitCommits": "Commits Git",
-      "projectStructure": "Estructura del Proyecto"
+      "projectStructure": "Estructura del Proyecto",
+      "projectConfig": "Configuración (adw.yaml)",
+      "multiAgent": "Multi-Agente"
     },
     "versioning": {
       "title": "Versionado Semántico",
@@ -425,6 +427,69 @@
         "journal": "Registro cronológico de decisiones, cambios importantes y reflexiones.",
         "src": "Código fuente, contenido u otro trabajo principal del proyecto.",
         "tests": "Pruebas, validaciones, scripts de verificación."
+      }
+    },
+    "projectConfig": {
+      "title": "Configuración del Proyecto (adw.yaml)",
+      "intro": "El archivo adw.yaml es opcional pero recomendado para proyectos multi-agente. Define el dominio del proyecto y los contextos de cada agente.",
+      "solo": {
+        "title": "Proyecto Solo (Opcional)",
+        "desc": "Para proyectos de un solo agente, adw.yaml solo necesita especificar el dominio. La mayoría de proyectos no necesitan este archivo.",
+        "example": "domain: \"software\""
+      },
+      "multiAgent": {
+        "title": "Proyecto Multi-Agente (Recomendado)",
+        "desc": "Para proyectos con múltiples agentes trabajando en paralelo, adw.yaml define los límites de contexto. Cada agente trabaja en sus directorios específicos.",
+        "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\"]"
+      },
+      "fields": {
+        "title": "Campos del Archivo",
+        "domain": "Tipo de proyecto (software, book, marketing, event). Los agentes de IA adaptan su lenguaje según el dominio.",
+        "agents": "Lista de agentes con sus contextos. Define qué directorios maneja cada agente para evitar conflictos."
+      }
+    },
+    "multiAgent": {
+      "title": "Coordinación Multi-Agente",
+      "intro": "ADW soporta múltiples agentes trabajando en paralelo en el mismo proyecto. La clave es coordinación clara y límites de contexto bien definidos.",
+      "principles": {
+        "1": {
+          "title": "Fases Secuenciales, Trabajo Paralelo",
+          "desc": "Las fases son secuenciales (no saltar)",
+          "detail": "Pero el trabajo dentro de cada fase puede ser paralelo. Múltiples agentes trabajan en componentes diferentes de la misma fase simultáneamente."
+        },
+        "2": {
+          "title": "Contratos Antes de Implementación",
+          "desc": "Define interfaces en DISEÑAR (v0.2.x)",
+          "detail": "Los contratos (APIs, schemas, interfaces) se definen primero. Esto permite que los agentes trabajen en paralelo sin esperar dependencias."
+        },
+        "3": {
+          "title": "Integración Continua",
+          "desc": "Integrar frecuentemente, no al final",
+          "detail": "Los agentes integran su trabajo continuamente (diariamente). Esto detecta conflictos temprano y mantiene el código funcionando."
+        },
+        "4": {
+          "title": "Límites de Contexto Claros",
+          "desc": "Cada agente tiene directorios específicos",
+          "detail": "Usar adw.yaml para definir qué agente trabaja en qué directorios. Esto previene conflictos de merge y mantiene la responsabilidad clara."
+        }
+      },
+      "coordination": {
+        "title": "Herramientas de Coordinación",
+        "intro": "Para que múltiples agentes trabajen eficazmente, necesitas establecer prácticas de coordinación:",
+        "items": {
+          "standup": {
+            "title": "Daily Standups",
+            "desc": "Reuniones diarias de 15 minutos para sincronizar progreso, identificar blockers y ajustar el plan. Cada agente comparte qué hizo, qué hará y si está bloqueado."
+          },
+          "integration": {
+            "title": "Integración Frecuente",
+            "desc": "Los agentes deben integrar su código al menos una vez al día. Usa feature branches y pull requests para mantener main limpio y estable."
+          },
+          "reviews": {
+            "title": "Code Reviews",
+            "desc": "Todo código debe ser revisado por otro agente antes de merge. Esto mantiene la calidad y permite conocimiento compartido del codebase."
+          }
+        }
       }
     },
     "download": {

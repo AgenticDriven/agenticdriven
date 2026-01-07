@@ -8,7 +8,7 @@ function RulesPage({ onNavigate }) {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['principles', 'phases', 'versioning', 'git-commits', 'project-structure']
+      const sections = ['principles', 'phases', 'versioning', 'git-commits', 'project-structure', 'project-config', 'multi-agent']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -105,6 +105,24 @@ function RulesPage({ onNavigate }) {
                     >
                       <span className="toc-icon">📁</span>
                       <span>{t('rules.toc.projectStructure')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('project-config')}
+                      className={`toc-link ${activeSection === 'project-config' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">⚙️</span>
+                      <span>{t('rules.toc.projectConfig')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('multi-agent')}
+                      className={`toc-link ${activeSection === 'multi-agent' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">🤝</span>
+                      <span>{t('rules.toc.multiAgent')}</span>
                     </button>
                   </li>
                 </ul>
@@ -207,7 +225,7 @@ function RulesPage({ onNavigate }) {
                     <h3 className="info-card-title">{t('rules.versioning.prerelease.title')}</h3>
                     <p className="info-card-desc">{t('rules.versioning.prerelease.desc')}</p>
                     <div className="code-block">
-                      <pre><code>{t('rules.versioning.prerelease.example')}</code></pre>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.versioning.prerelease.example')}</code></pre>
                     </div>
                   </div>
 
@@ -215,7 +233,7 @@ function RulesPage({ onNavigate }) {
                     <h3 className="info-card-title">{t('rules.versioning.release.title')}</h3>
                     <p className="info-card-desc">{t('rules.versioning.release.desc')}</p>
                     <div className="code-block">
-                      <pre><code>{t('rules.versioning.release.example')}</code></pre>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.versioning.release.example')}</code></pre>
                     </div>
                   </div>
                 </div>
@@ -234,7 +252,7 @@ function RulesPage({ onNavigate }) {
                     <h3 className="info-card-title">{t('rules.gitCommits.format.title')}</h3>
                     <p className="info-card-desc">{t('rules.gitCommits.format.desc')}</p>
                     <div className="code-block">
-                      <pre><code>{t('rules.gitCommits.format.example')}</code></pre>
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.gitCommits.format.example')}</code></pre>
                     </div>
                   </div>
 
@@ -260,7 +278,7 @@ function RulesPage({ onNavigate }) {
 
                 <div className="structure-example">
                   <div className="code-block code-block-large">
-                    <pre><code>{t('rules.projectStructure.example')}</code></pre>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.projectStructure.example')}</code></pre>
                   </div>
                 </div>
 
@@ -286,6 +304,88 @@ function RulesPage({ onNavigate }) {
                     <div className="file-item">
                       <span className="file-name">🧪 tests/</span>
                       <p className="file-desc">{t('rules.projectStructure.files.tests')}</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Project Config Section */}
+              <section id="project-config" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">⚙️</span>
+                  <h2 className="rules-section-title">{t('rules.projectConfig.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.projectConfig.intro')}</p>
+
+                <div className="info-cards">
+                  <div className="info-card">
+                    <h3 className="info-card-title">{t('rules.projectConfig.solo.title')}</h3>
+                    <p className="info-card-desc">{t('rules.projectConfig.solo.desc')}</p>
+                    <div className="code-block">
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.projectConfig.solo.example')}</code></pre>
+                    </div>
+                  </div>
+
+                  <div className="info-card">
+                    <h3 className="info-card-title">{t('rules.projectConfig.multiAgent.title')}</h3>
+                    <p className="info-card-desc">{t('rules.projectConfig.multiAgent.desc')}</p>
+                    <div className="code-block">
+                      <pre><code style={{whiteSpace: 'pre-wrap'}}>{t('rules.projectConfig.multiAgent.example')}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="file-descriptions">
+                  <h3 className="subsection-title">{t('rules.projectConfig.fields.title')}</h3>
+                  <div className="file-list">
+                    <div className="file-item">
+                      <span className="file-name">domain</span>
+                      <p className="file-desc">{t('rules.projectConfig.fields.domain')}</p>
+                    </div>
+                    <div className="file-item">
+                      <span className="file-name">agents</span>
+                      <p className="file-desc">{t('rules.projectConfig.fields.agents')}</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Multi-Agent Section */}
+              <section id="multi-agent" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">🤝</span>
+                  <h2 className="rules-section-title">{t('rules.multiAgent.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.multiAgent.intro')}</p>
+
+                <div className="rules-grid-cards">
+                  {Array.from({ length: 4 }, (_, i) => i + 1).map((num) => (
+                    <div key={num} className="rule-card">
+                      <div className="rule-card-header">
+                        <div className="rule-number-badge">{num}</div>
+                        <h3 className="rule-card-title">{t(`rules.multiAgent.principles.${num}.title`)}</h3>
+                      </div>
+                      <p className="rule-card-desc">{t(`rules.multiAgent.principles.${num}.desc`)}</p>
+                      <p className="rule-card-detail">{t(`rules.multiAgent.principles.${num}.detail`)}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="file-descriptions" style={{marginTop: '3rem'}}>
+                  <h3 className="subsection-title">{t('rules.multiAgent.coordination.title')}</h3>
+                  <p className="rules-intro">{t('rules.multiAgent.coordination.intro')}</p>
+                  <div className="file-list">
+                    <div className="file-item">
+                      <span className="file-name">📋 {t('rules.multiAgent.coordination.items.standup.title')}</span>
+                      <p className="file-desc">{t('rules.multiAgent.coordination.items.standup.desc')}</p>
+                    </div>
+                    <div className="file-item">
+                      <span className="file-name">🔄 {t('rules.multiAgent.coordination.items.integration.title')}</span>
+                      <p className="file-desc">{t('rules.multiAgent.coordination.items.integration.desc')}</p>
+                    </div>
+                    <div className="file-item">
+                      <span className="file-name">👀 {t('rules.multiAgent.coordination.items.reviews.title')}</span>
+                      <p className="file-desc">{t('rules.multiAgent.coordination.items.reviews.desc')}</p>
                     </div>
                   </div>
                 </div>
