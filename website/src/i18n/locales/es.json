@@ -8,6 +8,7 @@
     "aiLabel": "Funciona con los principales asistentes de IA:",
     "cta": {
       "getStarted": "Comenzar",
+      "viewRules": "Ver Metodología Completa",
       "github": "GitHub"
     },
     "stats": {
@@ -40,6 +41,26 @@
         "title": "Marco Universal",
         "desc": "No solo software. Úsalo para cualquier proyecto estructurado en cualquier dominio."
       }
+    }
+  },
+  "home": {
+    "overview": {
+      "title": "Comienza Aquí",
+      "subtitle": "Fundamentos de la metodología en 3 conceptos clave",
+      "principles": {
+        "title": "13 Principios",
+        "desc": "Reglas fundamentales que guían todo el trabajo con IA. Desde documentación-primero hasta commits continuos, cada principio tiene un propósito claro."
+      },
+      "phases": {
+        "title": "10 Fases",
+        "desc": "De DEFINIR a EVOLUCIONAR. Cada fase tiene objetivos claros y criterios de salida. Siempre sabrás dónde estás y qué viene después."
+      },
+      "git": {
+        "title": "Git Flow Continuo",
+        "desc": "Cada tarea completada = commit inmediato. Historial cristalino, cero pérdida de información, sin degradación del código."
+      },
+      "learnMore": "Aprende más",
+      "viewFullRules": "Ver Metodología Completa"
     }
   },
   "collaboration": {
@@ -112,6 +133,7 @@
   "principles": {
     "title": "13 Principios Fundamentales",
     "subtitle": "La base de una colaboración efectiva con IA",
+    "intro": "Estos principios son la columna vertebral de ADW. Cada uno aborda un aspecto específico del trabajo con agentes de IA, desde cómo documentar hasta cómo estructurar el código y gestionar cambios.",
     "items": {
       "1": {
         "title": "Impulsado por Agentes",
@@ -183,6 +205,7 @@
   "workflow": {
     "title": "Flujo de Trabajo: 10 Fases",
     "subtitle": "Haz clic en cualquier fase para ver detalles",
+    "intro": "ADW estructura el desarrollo en 10 fases secuenciales. Cada fase tiene objetivos claros, entregables específicos y criterios de salida. No puedes avanzar hasta completar la fase actual. Esto garantiza que cada aspecto del proyecto reciba la atención necesaria.",
     "legend": {
       "completed": "Completada",
       "current": "Actual",
@@ -251,6 +274,66 @@
       }
     }
   },
+  "rules": {
+    "title": "Metodología Completa ADW 1.0",
+    "subtitle": "La guía definitiva para trabajar con agentes de IA",
+    "backToHome": "Volver al Inicio",
+    "backToTop": "Volver Arriba",
+    "toc": {
+      "title": "Contenido",
+      "principles": "13 Principios",
+      "phases": "10 Fases",
+      "versioning": "Versionado",
+      "gitCommits": "Commits Git",
+      "projectStructure": "Estructura del Proyecto"
+    },
+    "versioning": {
+      "title": "Versionado Semántico",
+      "intro": "ADW utiliza versionado semántico (semver) con un esquema específico para las fases pre-lanzamiento.",
+      "prerelease": {
+        "title": "Pre-lanzamiento (v0.x.x)",
+        "desc": "Durante las 10 fases, el formato es v0.FASE.ITERACION. Por ejemplo, v0.4.15 significa fase BUILD, iteración 15.",
+        "example": "v0.0.0  Primer commit\\nv0.1.0  Inicio DISCOVER\\nv0.4.15 BUILD iteración 15"
+      },
+      "release": {
+        "title": "Lanzamiento (v1.0.0+)",
+        "desc": "Después de completar todas las fases, se lanza v1.0.0. Luego se usa formato estándar semver: vMAYOR.MENOR.PARCHE",
+        "example": "v1.0.0  Primera versión estable\\nv1.1.0  Nueva característica\\nv1.1.1  Corrección de error"
+      }
+    },
+    "gitCommits": {
+      "title": "Commits Git",
+      "intro": "ADW utiliza Conventional Commits para mensajes de commit claros y consistentes. Cada commit debe ser atómico: un cambio lógico por commit.",
+      "format": {
+        "title": "Formato",
+        "desc": "Cada commit sigue el formato: <tipo>: <descripción>. La descripción debe ser clara y comenzar con minúscula.",
+        "example": "feat: add user authentication\\nfix: correct validation logic\\ndocs: update API documentation"
+      },
+      "types": {
+        "title": "Tipos de Commit",
+        "desc": "Los tipos estándar son: feat (nueva característica), fix (corrección), docs (documentación), chore (tareas), test (pruebas), refactor (refactorización), perf (rendimiento), style (formato), ci (integración continua), build (construcción)."
+      }
+    },
+    "projectStructure": {
+      "title": "Estructura del Proyecto",
+      "intro": "ADW recomienda una estructura de proyecto clara y consistente. Esta estructura se adapta según el dominio (software, contenido, eventos, etc.).",
+      "example": "project-root/\\n├── README.md\\n├── adw.yaml          # Opcional, multi-agente\\n├── docs/\\n│   ├── journal.md\\n│   └── ...\\n├── src/              # Adaptar por dominio\\n├── tests/            # Adaptar por dominio\\n└── ...",
+      "files": {
+        "title": "Archivos Clave",
+        "readme": "Visión general del proyecto, cómo empezar, información esencial.",
+        "adw": "Configuración del proyecto (dominio, fase, versión). Opcional, útil para multi-agente.",
+        "journal": "Registro cronológico de decisiones, cambios importantes y reflexiones.",
+        "src": "Código fuente, contenido u otro trabajo principal del proyecto.",
+        "tests": "Pruebas, validaciones, scripts de verificación."
+      }
+    },
+    "download": {
+      "title": "Descarga las Reglas",
+      "desc": "Descarga las configuraciones IDE pre-configuradas para empezar a usar ADW inmediatamente en tu editor favorito.",
+      "getIDEConfigs": "Obtener Configuraciones IDE",
+      "viewGitHub": "Ver en GitHub"
+    }
+  },
   "quickStart": {
     "title": "Inicio Rápido",
     "subtitle": "Preconfigurado para tu IDE de IA favorito",
@@ -262,6 +345,11 @@
     "title": "Aprende Más",
     "subtitle": "Profundiza en la metodología",
     "items": {
+      "fullRules": {
+        "title": "Metodología Completa",
+        "desc": "Todos los principios, fases y reglas explicados en detalle. La guía completa de ADW 1.0.",
+        "link": "Ver Metodología →"
+      },
       "docs": {
         "title": "Documentación",
         "desc": "Documentación completa de la metodología, principios explicados y guías fase por fase.",
@@ -294,6 +382,7 @@
         "github": "GitHub",
         "configs": "Configuraciones IDE",
         "quickStart": "Inicio Rápido",
+        "fullRules": "Metodología Completa",
         "docs": "Documentación"
       },
       "community": {

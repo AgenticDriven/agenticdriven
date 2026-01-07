@@ -8,7 +8,8 @@
     "aiLabel": "प्रमुख AI असिस्टेंट के साथ काम करता है:",
     "cta": {
       "getStarted": "शुरू करें",
-      "github": "GitHub"
+      "github": "GitHub",
+      "viewRules": "View Full Methodology"
     },
     "stats": {
       "principles": "मुख्य सिद्धांत",
@@ -178,7 +179,8 @@
         "desc": "स्थापित पैटर्न और फ्रेमवर्क का उपयोग करें",
         "detail": "पहिया को फिर से न बनाएं। डिज़ाइन पैटर्न, सिद्ध फ्रेमवर्क और मानक संरचनाओं का लाभ उठाएं। ठोस नींव पर निर्माण करें।"
       }
-    }
+    },
+    "intro": "These principles are the backbone of ADW. Each addresses a specific aspect of working with AI agents, from how to document to how to structure code and manage changes."
   },
   "workflow": {
     "title": "वर्कफ़्लो: 10 चरण",
@@ -249,7 +251,8 @@
         "desc": "सुधार करें, अनुकूलित करें, बढ़ें",
         "detail": "इसे बेहतर बनाएं। सुविधाएं जोड़ें, प्रदर्शन अनुकूलित करें, प्रतिक्रिया पर प्रतिक्रिया दें। अगले संस्करण की योजना बनाएं। निरंतर सुधार चक्र।"
       }
-    }
+    },
+    "intro": "ADW structures development into 10 sequential phases. Each phase has clear objectives, specific deliverables, and exit criteria. You cannot advance until completing the current phase. This ensures every aspect of the project receives necessary attention."
   },
   "quickStart": {
     "title": "त्वरित शुरुआत",
@@ -281,6 +284,11 @@
         "title": "पाठ्यक्रम",
         "desc": "चरण-दर-चरण वीडियो पाठ्यक्रम जो आपको सिखाते हैं कि अपनी परियोजनाओं में AD को कैसे लागू करें।",
         "comingSoon": "जल्द ही आ रहा है"
+      },
+      "fullRules": {
+        "title": "Full Methodology",
+        "desc": "All principles, phases and rules explained in detail. The complete ADW 1.0 guide.",
+        "link": "View Methodology →"
       }
     }
   },
@@ -294,7 +302,8 @@
         "github": "GitHub",
         "configs": "IDE कॉन्फ़िग",
         "quickStart": "त्वरित शुरुआत",
-        "docs": "डॉक्यूमेंटेशन"
+        "docs": "डॉक्यूमेंटेशन",
+        "fullRules": "Full Methodology"
       },
       "community": {
         "title": "समुदाय",
@@ -312,5 +321,85 @@
     "chooseAction": "कॉन्फ़िगरेशन फ़ाइल कैसे प्राप्त करें चुनें:",
     "viewRaw": "रॉ देखें",
     "download": "डाउनलोड करें"
+  },
+  "home": {
+    "overview": {
+      "title": "Start Here",
+      "subtitle": "Methodology fundamentals in 3 key concepts",
+      "principles": {
+        "title": "13 Principles",
+        "desc": "Fundamental rules that guide all AI work. From documentation-first to continuous commits, each principle has a clear purpose."
+      },
+      "phases": {
+        "title": "10 Phases",
+        "desc": "From DEFINE to EVOLVE. Each phase has clear objectives and exit criteria. Always know where you are and what comes next."
+      },
+      "git": {
+        "title": "Continuous Git Flow",
+        "desc": "Each completed task = immediate commit. Crystal clear history, zero information loss, no code degradation."
+      },
+      "learnMore": "Learn more",
+      "viewFullRules": "View Full Methodology"
+    }
+  },
+  "rules": {
+    "title": "Complete ADW 1.0 Methodology",
+    "subtitle": "The definitive guide for working with AI agents",
+    "backToHome": "Back to Home",
+    "backToTop": "Back to Top",
+    "toc": {
+      "title": "Contents",
+      "principles": "13 Principles",
+      "phases": "10 Phases",
+      "versioning": "Versioning",
+      "gitCommits": "Git Commits",
+      "projectStructure": "Project Structure"
+    },
+    "versioning": {
+      "title": "Semantic Versioning",
+      "intro": "ADW uses semantic versioning (semver) with a specific scheme for pre-release phases.",
+      "prerelease": {
+        "title": "Pre-release (v0.x.x)",
+        "desc": "During the 10 phases, format is v0.PHASE.ITERATION. For example, v0.4.15 means BUILD phase, iteration 15.",
+        "example": "v0.0.0  First commit\\nv0.1.0  Start DISCOVER\\nv0.4.15 BUILD iteration 15"
+      },
+      "release": {
+        "title": "Release (v1.0.0+)",
+        "desc": "After completing all phases, launch v1.0.0. Then use standard semver format: vMAJOR.MINOR.PATCH",
+        "example": "v1.0.0  First stable version\\nv1.1.0  New feature\\nv1.1.1  Bug fix"
+      }
+    },
+    "gitCommits": {
+      "title": "Git Commits",
+      "intro": "ADW uses Conventional Commits for clear and consistent commit messages. Each commit should be atomic: one logical change per commit.",
+      "format": {
+        "title": "Format",
+        "desc": "Each commit follows the format: <type>: <description>. The description should be clear and start lowercase.",
+        "example": "feat: add user authentication\\nfix: correct validation logic\\ndocs: update API documentation"
+      },
+      "types": {
+        "title": "Commit Types",
+        "desc": "Standard types are: feat (new feature), fix (correction), docs (documentation), chore (tasks), test (tests), refactor (refactoring), perf (performance), style (format), ci (continuous integration), build (build)."
+      }
+    },
+    "projectStructure": {
+      "title": "Project Structure",
+      "intro": "ADW recommends a clear and consistent project structure. This structure adapts based on domain (software, content, events, etc.).",
+      "example": "project-root/\\n├── README.md\\n├── adw.yaml          # Optional, multi-agent\\n├── docs/\\n│   ├── journal.md\\n│   └── ...\\n├── src/              # Adapt by domain\\n├── tests/            # Adapt by domain\\n└── ...",
+      "files": {
+        "title": "Key Files",
+        "readme": "Project overview, how to start, essential information.",
+        "adw": "Project configuration (domain, phase, version). Optional, useful for multi-agent.",
+        "journal": "Chronological log of decisions, important changes and reflections.",
+        "src": "Source code, content or other main project work.",
+        "tests": "Tests, validations, verification scripts."
+      }
+    },
+    "download": {
+      "title": "Download Rules",
+      "desc": "Download pre-configured IDE configs to start using ADW immediately in your favorite editor.",
+      "getIDEConfigs": "Get IDE Configs",
+      "viewGitHub": "View on GitHub"
+    }
   }
 }
