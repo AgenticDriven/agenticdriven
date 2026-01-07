@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Quick download script for AD 1.0 IDE configs
+# Quick download script for ADW 1.0 IDE configs
 # Usage: curl -sSL https://agenticdriven.dev/download.sh | bash -s <ide>
 
 set -e
@@ -65,5 +65,5 @@ case "$IDE" in
 esac
 
 echo ""
-echo "🎉 AD 1.0 configuration installed!"
-echo "Now your AI assistant will follow AD methodology."
+echo "🎉 ADW 1.0 configuration installed!"
+echo "Now your AI assistant will follow ADW methodology."
