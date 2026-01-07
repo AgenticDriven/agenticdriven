@@ -205,7 +205,7 @@ function RulesPage({ onNavigate }) {
                 <p style={{fontWeight: 600, marginBottom: '0.5rem'}}>{t('rules.quickStart.step4.prompt')}</p>
                 <div style={{background: 'var(--bg-light)', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--color-primary)'}}>
                   <pre style={{whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0}}>
-                    {t('rules.quickStart.step4.promptText')}
+                    {formatCode(t('rules.quickStart.step4.promptText'))}
                   </pre>
                 </div>
                 <p className="rules-intro" style={{marginTop: '1rem', fontStyle: 'italic'}}>{t('rules.quickStart.step4.note')}</p>
@@ -215,7 +215,7 @@ function RulesPage({ onNavigate }) {
                 <p style={{fontWeight: 600, marginBottom: '0.5rem'}}>{t('rules.quickStart.step5.prompt')}</p>
                 <div style={{background: 'var(--bg-light)', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--color-primary)'}}>
                   <pre style={{whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0}}>
-                    {t('rules.quickStart.step5.promptText')}
+                    {formatCode(t('rules.quickStart.step5.promptText'))}
                   </pre>
                 </div>
                 <div className="code-block" style={{marginTop: '1rem'}}>
@@ -246,7 +246,7 @@ function RulesPage({ onNavigate }) {
                     <h4 style={{marginTop: '1.5rem', marginBottom: '0.5rem'}}>Prompt para tu IA:</h4>
                     <div style={{background: '#f0f4ff', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--color-primary)'}}>
                       <pre style={{whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0, fontSize: '0.95rem'}}>
-                        {t(`rules.workingWithADW.phases.${phase}.prompt`)}
+                        {formatCode(t(`rules.workingWithADW.phases.${phase}.prompt`))}
                       </pre>
                     </div>
 
