@@ -455,7 +455,14 @@
       "gitCommits": "Git-Commits",
       "projectStructure": "Projektstruktur",
       "projectConfig": "Konfiguration (adw.yaml)",
-      "multiAgent": "Multi-Agent"
+      "multiAgent": "Multi-Agent",
+      "documentation": "Dokumentation",
+      "journal": "Journal",
+      "decisions": "Entscheidungen (ADR)",
+      "contracts": "Verträge/Schnittstellen",
+      "aiWorkflow": "KI-Workflow",
+      "exitCriteria": "Ausstiegskriterien",
+      "troubleshooting": "Fehlerbehebung"
     },
     "versioning": {
       "title": "Semantische Versionierung",

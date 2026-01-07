@@ -387,7 +387,14 @@
       "gitCommits": "Commits Git",
       "projectStructure": "Estructura del Proyecto",
       "projectConfig": "Configuración (adw.yaml)",
-      "multiAgent": "Multi-Agente"
+      "multiAgent": "Multi-Agente",
+      "documentation": "Documentación",
+      "journal": "Journal",
+      "decisions": "Decisiones (ADR)",
+      "contracts": "Contratos/Interfaces",
+      "aiWorkflow": "Flujo de Trabajo IA",
+      "exitCriteria": "Criterios de Salida",
+      "troubleshooting": "Solución de Problemas"
     },
     "versioning": {
       "title": "Versionado Semántico",
@@ -525,6 +532,295 @@
             "desc": "Todo código debe ser revisado por otro agente antes de merge. Esto mantiene la calidad y permite conocimiento compartido del codebase."
           }
         }
+      }
+    },
+    "documentation": {
+      "title": "Documentación",
+      "intro": "ADW es documentación-primero. Documenta antes, durante y después. La documentación no es opcional, está integrada en cada fase.",
+      "principle": "Documento antes, durante y después de cada tarea",
+      "byPhase": {
+        "title": "Documentación Requerida por Fase",
+        "define": "problem-statement.md, objectives.md, scope.md",
+        "discover": "discovery.md, requirements.md, decisions.md",
+        "design": "design.md, architecture.md, interfaces.md",
+        "setup": "setup.md, validation-criteria.md",
+        "build": "build-log.md, changes.md, issues.md",
+        "validate": "validation-report.md, test-results.md",
+        "market": "marketing-plan.md, launch-strategy.md",
+        "launch": "launch-log.md, go-live-report.md",
+        "support": "support-log.md, hotfixes.md",
+        "evolve": "evolution-plan.md, roadmap.md"
+      },
+      "location": {
+        "title": "Ubicación de la Documentación",
+        "simple": {
+          "title": "Proyectos Simples",
+          "desc": "Todo en docs/ en la raíz. Usar kebab-case para nombres de archivo. Formato Markdown."
+        },
+        "complex": {
+          "title": "Proyectos Complejos",
+          "desc": "Usar subdirectorios para organizar:",
+          "structure": "docs/\\n├── planning/          # Trabajo futuro\\n├── active/            # En progreso\\n│   └── feature-name/\\n│       ├── 00-define/\\n│       ├── 01-discover/\\n│       └── ...\\n├── completed/         # Finalizado\\n├── archived/          # Viejo/deprecated\\n├── reports/           # Reportes\\n├── spikes/            # Experimentos\\n├── journal.md         # Siempre en raíz\\n└── decisions.md       # Siempre en raíz"
+        },
+        "workflow": {
+          "title": "Flujo de Trabajo",
+          "1": "Empezar feature en active/feature-name/",
+          "2": "Organizar por fases: 00-define/, 01-discover/, etc.",
+          "3": "Al completar, mover a completed/feature-name/",
+          "4": "Features antiguas van a archived/"
+        },
+        "alwaysRoot": "journal.md y decisions.md siempre en la raíz"
+      },
+      "updates": "Actualizar docs en el mismo commit que el código"
+    },
+    "journal": {
+      "title": "Journal (docs/journal.md)",
+      "intro": "El journal es un registro cronológico diario del progreso del proyecto. Las entradas más recientes van arriba. Referencia otros docs para detalles.",
+      "format": {
+        "title": "Formato de Entrada",
+        "example": "## YYYY-MM-DD\\n\\n- **Phase**: PHASE (vX.Y.Z)\\n- **Agent**: Role/name\\n- **Progress**: What completed (reference docs)\\n- **Decisions**: Key decisions\\n- **Blockers**: Issues\\n- **Next**: Next steps"
+      },
+      "exampleEntry": {
+        "title": "Ejemplo de Entrada",
+        "example": "## 2026-01-06\\n\\n- **Phase**: BUILD (v0.4.3)\\n- **Agent**: Backend Dev\\n- **Progress**:\\n  - POST /api/users done\\n  - Tests passing (12/12)\\n  - Details: active/feature-auth.md\\n- **Decisions**: bcrypt for passwords (see decisions.md)\\n- **Blockers**: Waiting DB schema approval\\n- **Next**: GET /api/users/:id"
+      },
+      "rules": {
+        "title": "Reglas del Journal",
+        "1": "Actualizar diariamente",
+        "2": "Entradas más recientes arriba",
+        "3": "Referenciar otros documentos para detalles",
+        "4": "Usar formato ISO de fechas (YYYY-MM-DD)",
+        "5": "Incluir versión de fase (v0.4.3)"
+      },
+      "multiAgent": {
+        "title": "Journal Multi-Agente",
+        "desc": "Cada agente añade su propia sección bajo la fecha",
+        "example": "## 2026-01-06\\n\\n### Backend\\n- **Phase**: BUILD (v0.4.3)\\n- **Progress**: API 3/5 complete\\n\\n### Frontend\\n- **Phase**: BUILD (v0.4.3)\\n- **Progress**: Login form done"
+      }
+    },
+    "decisions": {
+      "title": "Decisions (docs/decisions.md)",
+      "intro": "Architecture Decision Records (ADRs). Documenta decisiones arquitectónicas importantes con contexto, consecuencias y alternativas consideradas.",
+      "format": {
+        "title": "Formato ADR",
+        "example": "## [Date] - [Title]\\n\\n**Status**: Accepted | Rejected | Deprecated | Superseded\\n\\n**Context**: Problem description (2-3 sentences)\\n\\n**Decision**: What we decided (1-2 sentences)\\n\\n**Consequences**:\\n✅ Positive outcome\\n✅ Positive outcome\\n❌ Negative outcome\\n\\n**Alternatives**:\\n- Option 1: Why rejected\\n- Option 2: Why rejected"
+      },
+      "example": {
+        "title": "Ejemplo de ADR",
+        "example": "## 2026-01-06 - Use JSON:API 1.1\\n\\n**Status**: Accepted\\n\\n**Context**: Need standardized API format for frontend-backend communication.\\n\\n**Decision**: Use JSON:API 1.1 for all endpoints.\\n\\n**Consequences**:\\n✅ Standardized format\\n✅ Better tooling\\n❌ Learning curve\\n\\n**Alternatives**:\\n- Custom REST: Too much freedom\\n- GraphQL: Overkill"
+      },
+      "when": {
+        "title": "Cuándo Documentar",
+        "do": {
+          "title": "SÍ Documentar:",
+          "1": "Decisión técnica con múltiples opciones",
+          "2": "Cambio arquitectónico",
+          "3": "Decisión con trade-offs",
+          "4": "Desacuerdo de equipo resuelto"
+        },
+        "dont": {
+          "title": "NO Documentar:",
+          "1": "Decisiones obvias",
+          "2": "Decisiones triviales",
+          "3": "Detalles de implementación"
+        }
+      },
+      "rules": {
+        "title": "Reglas de Decisions",
+        "1": "Un solo archivo: docs/decisions.md",
+        "2": "Decisiones más recientes arriba",
+        "3": "Incluir fecha en el título",
+        "4": "Ser conciso pero completo",
+        "5": "Actualizar status si cambia"
+      }
+    },
+    "contracts": {
+      "title": "Contracts (docs/interfaces.md)",
+      "intro": "REQUERIDO para multi-agente. Define especificaciones (APIs, schemas, interfaces) ANTES de implementar. Esto permite trabajo paralelo sin dependencias.",
+      "when": {
+        "title": "Cuándo Usar",
+        "design": "DESIGN (v0.2.x): Define TODOS los contratos",
+        "build": "BUILD (v0.4.x): Implementa exactamente según spec"
+      },
+      "format": {
+        "title": "Formato de Contrato",
+        "example": "## API: POST /api/users\\n\\n**Input**:\\n- name: string (1-100)\\n- email: string (valid)\\n- password: string (min 8)\\n\\n**Output**:\\n- id: integer\\n- name: string\\n- email: string\\n- created_at: timestamp\\n\\n**Errors**:\\n- 400: Validation failed\\n- 409: Email exists\\n- 500: Server error\\n\\n**Tests**:\\n1. Valid input → 201\\n2. Missing name → 400\\n3. Duplicate email → 409"
+      },
+      "examples": {
+        "title": "Otros Ejemplos",
+        "component": {
+          "title": "Componente",
+          "example": "## Component: Button\\n\\n**Props**:\\n- label: string\\n- onClick: () => void\\n- disabled: boolean (default: false)\\n- variant: \"primary\" | \"secondary\""
+        },
+        "data": {
+          "title": "Base de Datos",
+          "example": "## Table: users\\n\\n**Fields**:\\n- id: serial PRIMARY KEY\\n- email: varchar(255) UNIQUE NOT NULL\\n- created_at: timestamp DEFAULT now()"
+        }
+      },
+      "workflow": {
+        "title": "Workflow Multi-Agente",
+        "1": "DESIGN: Definir contratos primero, revisarlos, commitear",
+        "2": "BUILD: Leer contratos, implementar exacto a spec",
+        "3": "Usar mocks para dependencias no implementadas",
+        "4": "Nunca desviarse sin actualizar contrato primero"
+      }
+    },
+    "aiWorkflow": {
+      "title": "Flujo de Trabajo IA",
+      "intro": "Cómo los agentes de IA deben trabajar dentro de la metodología ADW.",
+      "sessionStart": {
+        "title": "Inicio de Sesión (9 pasos)",
+        "1": "Git status: git status",
+        "2": "Config: cat adw.yaml 2>/dev/null (si existe)",
+        "3": "README: cat README.md",
+        "4": "Phase: git describe --tags --abbrev=0 (última tag = fase actual)",
+        "5": "Phase docs: cat docs/journal.md + docs específicos de fase",
+        "6": "Contracts: cat docs/interfaces.md (si BUILD/VALIDATE)",
+        "7": "Recent commits: git log -5 --oneline",
+        "8": "Role: Verificar adw.yaml para contexto de agente (si multi-agente)",
+        "9": "Ask: Listo para trabajar"
+      },
+      "duringWork": {
+        "title": "Durante el Trabajo",
+        "before": "Antes de cambios: Leer archivos, verificar contratos, verificar directorio",
+        "after": "Después de tarea: Verificar que funciona, actualizar docs, actualizar journal.md, commit, actualizar usuario"
+      },
+      "sessionEnd": {
+        "title": "Fin de Sesión",
+        "clean": "Limpio: Commit todo trabajo completo, actualizar journal.md, dejar workspace limpio, push si está listo",
+        "interrupted": "Interrumpido: Commit con 'wip:', actualizar journal notando trabajo incompleto"
+      },
+      "multiAgent": {
+        "title": "Multi-Agente",
+        "desc": "Si adw.yaml tiene agents:",
+        "1": "Identificar tu agent ID",
+        "2": "Permanecer en directorios de contexto",
+        "3": "Leer contratos antes de implementar",
+        "4": "Usar mocks para dependencias",
+        "5": "No tocar archivos de otros agentes"
+      }
+    },
+    "exitCriteria": {
+      "title": "Criterios de Salida",
+      "intro": "Requisitos claros para completar cada fase antes de avanzar a la siguiente.",
+      "byPhase": {
+        "define": {
+          "title": "DEFINE (v0.0.x)",
+          "items": "Problema declarado, Objetivos definidos, Scope documentado, Restricciones identificadas, Criterios de éxito definidos"
+        },
+        "discover": {
+          "title": "DISCOVER (v0.1.x)",
+          "items": "Requisitos reunidos, Opciones investigadas, Viabilidad evaluada, Decisiones documentadas, Riesgos identificados"
+        },
+        "design": {
+          "title": "DESIGN (v0.2.x)",
+          "items": "Solución diseñada, Arquitectura definida, Interfaces especificadas, Diseño aprobado, Listo para construir"
+        },
+        "setup": {
+          "title": "SETUP (v0.3.x)",
+          "items": "Herramientas configuradas, Ambiente listo, Testing setup, Criterios de validación definidos, Equipo listo"
+        },
+        "build": {
+          "title": "BUILD (v0.4.x)",
+          "items": "Todos los componentes implementados, Contratos cumplidos, Tests pasando, Docs actualizados, Código revisado"
+        },
+        "validate": {
+          "title": "VALIDATE (v0.5.x)",
+          "items": "Todos los tests pasando, Cobertura cumplida (80%+), Performance aceptable, Reporte de validación completo, Stakeholders aprueban"
+        },
+        "market": {
+          "title": "MARKET (v0.6.x)",
+          "items": "Materiales creados, Docs completos, Estrategia definida, Canales preparados, Listo para lanzar"
+        },
+        "launch": {
+          "title": "LAUNCH (v0.7.x)",
+          "items": "Desplegado, Monitoreo activo, Métricas recolectadas, Sin issues críticos, Listo para soporte"
+        },
+        "support": {
+          "title": "SUPPORT (v0.8.x)",
+          "items": "Periodo estable completo, Bugs críticos resueltos, Soporte funcionando, Feedback recolectado, Listo para evolucionar"
+        },
+        "evolve": {
+          "title": "EVOLVE (v0.9.x)",
+          "items": "Mejoras implementadas, Optimizado, Features añadidos, Roadmap actualizado, Lecciones documentadas"
+        }
+      },
+      "validation": {
+        "title": "Validación Antes de Avanzar",
+        "1": "Revisar checklist",
+        "2": "Verificar items completos",
+        "3": "Documentar excepciones",
+        "4": "Obtener aprobación",
+        "5": "Commit trabajo final",
+        "6": "Actualizar a siguiente fase"
+      },
+      "example": "git commit -m \"docs: complete DESIGN exit criteria\"\\ngit commit -m \"chore: start SETUP (v0.3.0)\"",
+      "flexibility": "Son guías, no reglas rígidas. Adaptar a necesidades del proyecto. Documentar desviaciones. Enfocarse en calidad."
+    },
+    "troubleshooting": {
+      "title": "Solución de Problemas",
+      "intro": "Proceso sistemático para resolver issues durante el desarrollo.",
+      "process": {
+        "title": "Proceso",
+        "1": "Identificar: ¿Qué está fallando?",
+        "2": "Aislar: ¿Dónde está el problema?",
+        "3": "Documentar: ¿Qué intentaste?",
+        "4": "Resolver: Arreglarlo",
+        "5": "Prevenir: Evitar repetición"
+      },
+      "common": {
+        "title": "Issues Comunes",
+        "tests": {
+          "title": "Tests Fallando",
+          "solution": "Leer error, ejecutar test único, revisar cambios recientes, arreglar código/test"
+        },
+        "build": {
+          "title": "Build Fallando",
+          "solution": "Verificar sintaxis, dependencias, variables de entorno, limpiar cache"
+        },
+        "git": {
+          "title": "Conflictos Git",
+          "solution": "Abrir archivo, resolver markers, testear, stage, completar merge"
+        },
+        "phase": {
+          "title": "Fase No Clara",
+          "solution": "Leer /var/add/fases/, verificar exit criteria, revisar journal.md"
+        },
+        "multiAgent": {
+          "title": "Conflicto Multi-Agente",
+          "solution": "Verificar límites de contexto, coordinar vía git"
+        },
+        "lost": {
+          "title": "Trabajo Perdido",
+          "solution": "Verificar git stash list, git reflog, branches de backup"
+        },
+        "deps": {
+          "title": "Dependencias",
+          "solution": "Borrar packages, borrar lock file, reinstalar limpio"
+        },
+        "contract": {
+          "title": "Contrato No Coincide",
+          "solution": "Leer docs/interfaces.md, arreglar código o actualizar contrato"
+        }
+      },
+      "rollback": {
+        "title": "Rollback",
+        "soft": "git reset --soft HEAD~1  # Deshacer último commit (mantener cambios)",
+        "hard": "git reset --hard HEAD~1  # Deshacer último commit (descartar cambios)",
+        "tag": "git checkout v0.4.2      # Volver a tag"
+      },
+      "help": {
+        "title": "Obtener Ayuda",
+        "provide": "Proveer: error exacto, qué hiciste, qué esperabas, qué pasó, qué intentaste"
+      },
+      "document": {
+        "title": "Documentar",
+        "desc": "Actualizar docs/journal.md:",
+        "example": "## 2026-01-06\\n**Issue**: Tests failing\\n**Cause**: Outdated fixtures\\n**Solution**: Updated tests/fixtures.js\\n**Time**: 15 min"
+      },
+      "prevention": {
+        "title": "Prevención",
+        "tips": "Commit frecuentemente, Escribir tests, Leer contratos, Actualizar journal, Seguir exit criteria, Respetar límites"
       }
     },
     "download": {

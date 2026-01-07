@@ -13,7 +13,7 @@ function RulesPage({ onNavigate }) {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['principles', 'phases', 'versioning', 'git-commits', 'project-structure', 'project-config', 'multi-agent']
+      const sections = ['principles', 'phases', 'versioning', 'git-commits', 'project-structure', 'project-config', 'multi-agent', 'documentation', 'journal', 'decisions', 'contracts', 'aiWorkflow', 'exitCriteria', 'troubleshooting']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -128,6 +128,69 @@ function RulesPage({ onNavigate }) {
                     >
                       <span className="toc-icon">🤝</span>
                       <span>{t('rules.toc.multiAgent')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('documentation')}
+                      className={`toc-link ${activeSection === 'documentation' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">📚</span>
+                      <span>{t('rules.toc.documentation')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('journal')}
+                      className={`toc-link ${activeSection === 'journal' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">📓</span>
+                      <span>{t('rules.toc.journal')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('decisions')}
+                      className={`toc-link ${activeSection === 'decisions' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">⚖️</span>
+                      <span>{t('rules.toc.decisions')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('contracts')}
+                      className={`toc-link ${activeSection === 'contracts' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">📋</span>
+                      <span>{t('rules.toc.contracts')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('aiWorkflow')}
+                      className={`toc-link ${activeSection === 'aiWorkflow' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">🤖</span>
+                      <span>{t('rules.toc.aiWorkflow')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('exitCriteria')}
+                      className={`toc-link ${activeSection === 'exitCriteria' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">🎯</span>
+                      <span>{t('rules.toc.exitCriteria')}</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('troubleshooting')}
+                      className={`toc-link ${activeSection === 'troubleshooting' ? 'active' : ''}`}
+                    >
+                      <span className="toc-icon">🔧</span>
+                      <span>{t('rules.toc.troubleshooting')}</span>
                     </button>
                   </li>
                 </ul>
@@ -449,6 +512,386 @@ function RulesPage({ onNavigate }) {
                     </div>
                   </div>
                 </div>
+              </section>
+
+              {/* Documentation Section */}
+              <section id="documentation" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">📚</span>
+                  <h2 className="rules-section-title">{t('rules.documentation.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.documentation.intro')}</p>
+
+                <div className="info-card" style={{marginBottom: '2rem'}}>
+                  <p className="info-card-highlight">{t('rules.documentation.principle')}</p>
+                </div>
+
+                <h3 className="subsection-title">{t('rules.documentation.byPhase.title')}</h3>
+                <div className="file-list">
+                  <div className="file-item">
+                    <span className="file-name">📝 DEFINE (v0.0.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.define')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">🔍 DISCOVER (v0.1.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.discover')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">🎨 DESIGN (v0.2.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.design')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">⚙️ SETUP (v0.3.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.setup')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">🔨 BUILD (v0.4.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.build')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">✅ VALIDATE (v0.5.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.validate')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">📢 MARKET (v0.6.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.market')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">🚀 LAUNCH (v0.7.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.launch')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">🛠️ SUPPORT (v0.8.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.support')}</p>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">📈 EVOLVE (v0.9.x)</span>
+                    <p className="file-desc">{t('rules.documentation.byPhase.evolve')}</p>
+                  </div>
+                </div>
+
+                <div className="file-descriptions" style={{marginTop: '3rem'}}>
+                  <h3 className="subsection-title">{t('rules.documentation.location.title')}</h3>
+
+                  <h4 style={{marginTop: '1.5rem', marginBottom: '1rem'}}>{t('rules.documentation.location.simple.title')}</h4>
+                  <p className="rules-intro">{t('rules.documentation.location.simple.desc')}</p>
+
+                  <h4 style={{marginTop: '1.5rem', marginBottom: '1rem'}}>{t('rules.documentation.location.complex.title')}</h4>
+                  <p className="rules-intro">{t('rules.documentation.location.complex.desc')}</p>
+
+                  <div className="code-block" style={{marginTop: '1rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.documentation.location.complex.structure'))}
+                    </code></pre>
+                  </div>
+
+                  <div style={{marginTop: '1.5rem'}}>
+                    <strong>{t('rules.documentation.location.workflow.title')}:</strong>
+                    <ol style={{marginTop: '0.5rem', marginLeft: '1.5rem'}}>
+                      <li>{t('rules.documentation.location.workflow.1')}</li>
+                      <li>{t('rules.documentation.location.workflow.2')}</li>
+                      <li>{t('rules.documentation.location.workflow.3')}</li>
+                      <li>{t('rules.documentation.location.workflow.4')}</li>
+                    </ol>
+                  </div>
+
+                  <p style={{marginTop: '1.5rem', fontWeight: 'bold'}}>{t('rules.documentation.location.alwaysRoot')}</p>
+                  <p style={{marginTop: '1rem'}}>{t('rules.documentation.updates')}</p>
+                </div>
+              </section>
+
+              {/* Journal Section */}
+              <section id="journal" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">📓</span>
+                  <h2 className="rules-section-title">{t('rules.journal.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.journal.intro')}</p>
+
+                <h3 className="subsection-title">{t('rules.journal.format.title')}</h3>
+                <div className="code-block" style={{marginBottom: '2rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.journal.format.example'))}
+                  </code></pre>
+                </div>
+
+                <h3 className="subsection-title">{t('rules.journal.exampleEntry.title')}</h3>
+                <div className="code-block" style={{marginBottom: '2rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.journal.exampleEntry.example'))}
+                  </code></pre>
+                </div>
+
+                <h3 className="subsection-title">{t('rules.journal.rules.title')}</h3>
+                <div className="file-list">
+                  {Array.from({ length: 5 }, (_, i) => i + 1).map((num) => (
+                    <div key={num} className="file-item">
+                      <span className="file-name">{num}.</span>
+                      <p className="file-desc">{t(`rules.journal.rules.${num}`)}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="file-descriptions" style={{marginTop: '3rem'}}>
+                  <h3 className="subsection-title">{t('rules.journal.multiAgent.title')}</h3>
+                  <p className="rules-intro">{t('rules.journal.multiAgent.desc')}</p>
+                  <div className="code-block" style={{marginTop: '1rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.journal.multiAgent.example'))}
+                    </code></pre>
+                  </div>
+                </div>
+              </section>
+
+              {/* Decisions Section */}
+              <section id="decisions" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">⚖️</span>
+                  <h2 className="rules-section-title">{t('rules.decisions.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.decisions.intro')}</p>
+
+                <h3 className="subsection-title">{t('rules.decisions.format.title')}</h3>
+                <div className="code-block" style={{marginBottom: '2rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.decisions.format.example'))}
+                  </code></pre>
+                </div>
+
+                <h3 className="subsection-title">{t('rules.decisions.example.title')}</h3>
+                <div className="code-block" style={{marginBottom: '2rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.decisions.example.example'))}
+                  </code></pre>
+                </div>
+
+                <h3 className="subsection-title">{t('rules.decisions.when.title')}</h3>
+                <div className="rules-grid-cards">
+                  <div className="rule-card">
+                    <h4>{t('rules.decisions.when.do.title')}</h4>
+                    <ul style={{marginTop: '1rem', marginLeft: '1.5rem'}}>
+                      {Array.from({ length: 4 }, (_, i) => i + 1).map((num) => (
+                        <li key={num} style={{marginBottom: '0.5rem'}}>{t(`rules.decisions.when.do.${num}`)}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="rule-card">
+                    <h4>{t('rules.decisions.when.dont.title')}</h4>
+                    <ul style={{marginTop: '1rem', marginLeft: '1.5rem'}}>
+                      {Array.from({ length: 3 }, (_, i) => i + 1).map((num) => (
+                        <li key={num} style={{marginBottom: '0.5rem'}}>{t(`rules.decisions.when.dont.${num}`)}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.decisions.rules.title')}</h3>
+                <div className="file-list">
+                  {Array.from({ length: 5 }, (_, i) => i + 1).map((num) => (
+                    <div key={num} className="file-item">
+                      <span className="file-name">{num}.</span>
+                      <p className="file-desc">{t(`rules.decisions.rules.${num}`)}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Contracts Section */}
+              <section id="contracts" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">📋</span>
+                  <h2 className="rules-section-title">{t('rules.contracts.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.contracts.intro')}</p>
+
+                <div className="info-card" style={{marginBottom: '2rem'}}>
+                  <h3 className="info-card-title">{t('rules.contracts.when.title')}</h3>
+                  <div className="file-list">
+                    <div className="file-item">
+                      <span className="file-name">🎨 {t('rules.contracts.when.design')}</span>
+                    </div>
+                    <div className="file-item">
+                      <span className="file-name">🔨 {t('rules.contracts.when.build')}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="subsection-title">{t('rules.contracts.format.title')}</h3>
+                <div className="code-block" style={{marginBottom: '2rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.contracts.format.example'))}
+                  </code></pre>
+                </div>
+
+                <h3 className="subsection-title">{t('rules.contracts.examples.title')}</h3>
+                <div className="rules-grid-cards">
+                  <div className="rule-card">
+                    <h4>{t('rules.contracts.examples.component.title')}</h4>
+                    <div className="code-block" style={{marginTop: '1rem'}}>
+                      <pre><code style={{whiteSpace: 'pre-wrap', fontSize: '0.85rem'}}>
+                        {formatCode(t('rules.contracts.examples.component.example'))}
+                      </code></pre>
+                    </div>
+                  </div>
+                  <div className="rule-card">
+                    <h4>{t('rules.contracts.examples.data.title')}</h4>
+                    <div className="code-block" style={{marginTop: '1rem'}}>
+                      <pre><code style={{whiteSpace: 'pre-wrap', fontSize: '0.85rem'}}>
+                        {formatCode(t('rules.contracts.examples.data.example'))}
+                      </code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.contracts.workflow.title')}</h3>
+                <div className="file-list">
+                  {Array.from({ length: 4 }, (_, i) => i + 1).map((num) => (
+                    <div key={num} className="file-item">
+                      <span className="file-name">{num}.</span>
+                      <p className="file-desc">{t(`rules.contracts.workflow.${num}`)}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* AI Workflow Section */}
+              <section id="aiWorkflow" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">🤖</span>
+                  <h2 className="rules-section-title">{t('rules.aiWorkflow.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.aiWorkflow.intro')}</p>
+
+                <h3 className="subsection-title">{t('rules.aiWorkflow.sessionStart.title')}</h3>
+                <div className="file-list">
+                  {Array.from({ length: 9 }, (_, i) => i + 1).map((num) => (
+                    <div key={num} className="file-item">
+                      <span className="file-name">{num}.</span>
+                      <p className="file-desc">{t(`rules.aiWorkflow.sessionStart.${num}`)}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.aiWorkflow.duringWork.title')}</h3>
+                <div className="file-list">
+                  <div className="file-item">
+                    <span className="file-name">🔍 {t('rules.aiWorkflow.duringWork.before')}</span>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">✅ {t('rules.aiWorkflow.duringWork.after')}</span>
+                  </div>
+                </div>
+
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.aiWorkflow.sessionEnd.title')}</h3>
+                <div className="file-list">
+                  <div className="file-item">
+                    <span className="file-name">✨ {t('rules.aiWorkflow.sessionEnd.clean')}</span>
+                  </div>
+                  <div className="file-item">
+                    <span className="file-name">⏸️ {t('rules.aiWorkflow.sessionEnd.interrupted')}</span>
+                  </div>
+                </div>
+
+                <div className="file-descriptions" style={{marginTop: '3rem'}}>
+                  <h3 className="subsection-title">{t('rules.aiWorkflow.multiAgent.title')}</h3>
+                  <p className="rules-intro">{t('rules.aiWorkflow.multiAgent.desc')}</p>
+                  <div className="file-list">
+                    {Array.from({ length: 5 }, (_, i) => i + 1).map((num) => (
+                      <div key={num} className="file-item">
+                        <span className="file-name">{num}.</span>
+                        <p className="file-desc">{t(`rules.aiWorkflow.multiAgent.${num}`)}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* Exit Criteria Section */}
+              <section id="exitCriteria" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">🎯</span>
+                  <h2 className="rules-section-title">{t('rules.exitCriteria.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.exitCriteria.intro')}</p>
+
+                <div className="file-list">
+                  {['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'].map((phase) => (
+                    <div key={phase} className="file-item">
+                      <span className="file-name">{t(`rules.exitCriteria.byPhase.${phase}.title`)}</span>
+                      <p className="file-desc">{t(`rules.exitCriteria.byPhase.${phase}.items`)}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.exitCriteria.validation.title')}</h3>
+                <div className="file-list">
+                  {Array.from({ length: 6 }, (_, i) => i + 1).map((num) => (
+                    <div key={num} className="file-item">
+                      <span className="file-name">{num}.</span>
+                      <p className="file-desc">{t(`rules.exitCriteria.validation.${num}`)}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="code-block" style={{marginTop: '2rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.exitCriteria.example'))}
+                  </code></pre>
+                </div>
+
+                <p className="rules-intro" style={{marginTop: '2rem'}}>{t('rules.exitCriteria.flexibility')}</p>
+              </section>
+
+              {/* Troubleshooting Section */}
+              <section id="troubleshooting" className="rules-section">
+                <div className="section-header-fancy">
+                  <span className="section-icon">🔧</span>
+                  <h2 className="rules-section-title">{t('rules.troubleshooting.title')}</h2>
+                </div>
+                <p className="rules-intro">{t('rules.troubleshooting.intro')}</p>
+
+                <h3 className="subsection-title">{t('rules.troubleshooting.process.title')}</h3>
+                <div className="file-list">
+                  {Array.from({ length: 5 }, (_, i) => i + 1).map((num) => (
+                    <div key={num} className="file-item">
+                      <span className="file-name">{num}.</span>
+                      <p className="file-desc">{t(`rules.troubleshooting.process.${num}`)}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.troubleshooting.common.title')}</h3>
+                <div className="file-list">
+                  {['tests', 'build', 'git', 'phase', 'multiAgent', 'lost', 'deps', 'contract'].map((issue) => (
+                    <div key={issue} className="file-item">
+                      <span className="file-name">{t(`rules.troubleshooting.common.${issue}.title`)}</span>
+                      <p className="file-desc">{t(`rules.troubleshooting.common.${issue}.solution`)}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.troubleshooting.rollback.title')}</h3>
+                <div className="code-block" style={{marginBottom: '2rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.troubleshooting.rollback.soft'))}{'\n\n'}
+                    {formatCode(t('rules.troubleshooting.rollback.hard'))}{'\n\n'}
+                    {formatCode(t('rules.troubleshooting.rollback.tag'))}
+                  </code></pre>
+                </div>
+
+                <h3 className="subsection-title">{t('rules.troubleshooting.help.title')}</h3>
+                <p className="rules-intro">{t('rules.troubleshooting.help.provide')}</p>
+
+                <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.troubleshooting.document.title')}</h3>
+                <p className="rules-intro">{t('rules.troubleshooting.document.desc')}</p>
+                <div className="code-block" style={{marginTop: '1rem'}}>
+                  <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                    {formatCode(t('rules.troubleshooting.document.example'))}
+                  </code></pre>
+                </div>
+
+                <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.troubleshooting.prevention.title')}</h3>
+                <p className="rules-intro">{t('rules.troubleshooting.prevention.tips')}</p>
               </section>
 
               {/* Download Section */}

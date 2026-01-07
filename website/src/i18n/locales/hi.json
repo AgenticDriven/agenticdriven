@@ -455,7 +455,14 @@
       "gitCommits": "Git कमिट",
       "projectStructure": "परियोजना संरचना",
       "projectConfig": "Configuration (adw.yaml)",
-      "multiAgent": "Multi-Agent"
+      "multiAgent": "Multi-Agent",
+      "documentation": "Documentation",
+      "journal": "Journal",
+      "decisions": "Decisions (ADR)",
+      "contracts": "Contracts/Interfaces",
+      "aiWorkflow": "AI Workflow",
+      "exitCriteria": "Exit Criteria",
+      "troubleshooting": "Troubleshooting"
     },
     "versioning": {
       "title": "सिमेंटिक संस्करण",
