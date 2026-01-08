@@ -187,17 +187,41 @@
   - Update documentation based on user questions
   - Prepare for EVOLVE phase improvements
 
-## 2026-01-08 - Complete Rules System Refactor
+## 2026-01-08 - Complete Rules System Refactor + Agent Inference Fix
 
 - **Phase**: Architecture redesign
 - **Agent**: Backend + Documentation
-- **Major Work**: 
+- **Major Work**:
   - Refactored entire rules system to be modular
   - Source files in src/rules/*.md
   - ai-workflow.md: Complete auto-initialization (9 steps)
   - project-config.md: Hierarchical ad.yaml documentation
   - project-structure.md: Feature-driven structure
   - Generated all IDE configs (claude.md, .cursorrules, etc.) from source
+- **Testing**: Auto-initialization system
+  - Deleted ad.yaml to trigger auto-initialization
+  - Created ad.yaml with domain: software, mode: feature
+  - Reorganized docs/ structure
+  - Updated journal.md and decisions.md
+- **Bug Found**: Agent configuration not included during auto-initialization
+  - Only 4 questions asked (missing question 5 about agents)
+  - No agent inference logic in Step 3
+  - Step 5 hardcoded `agents: enabled: false`
+- **Fix Applied**:
+  - Added question 5: "Do you want to use multi-agent workflows?"
+  - Implemented agent inference logic in Step 3 with 5 detection strategies:
+    1. Methodology/rules development (src/rules/, docs/planning/)
+    2. Website/frontend (website/, src/website/, frontend/)
+    3. Templates/configuration (templates/, config/)
+    4. Backend/API (src/backend/, api/, server/)
+    5. Testing/QA infrastructure (tests/ with >10 test files)
+  - Updated Step 5 to conditionally generate agent configuration based on:
+    - User's answer to question 5
+    - Detected project structure
+  - Regenerated all IDE configs with fixed rules
+  - Updated claude.md in root with complete agent detection logic
+- **Decisions**: ADR-002: Auto-initialize agents based on project structure analysis
+- **Next**: Continue refining auto-initialization based on real-world usage
   
 - **Decisions**:
   - Rules are source .md files, not single claude.md

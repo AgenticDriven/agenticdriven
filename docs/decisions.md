@@ -43,6 +43,83 @@ Negative:
 
 **Related**: None (first ADR)
 
+## ADR-002: Auto-Initialize Multi-Agent Configuration Based on Project Structure
+
+**Date**: 2026-01-08
+**Status**: Accepted
+**Phase**: BUILD (v0.4.x)
+
+**Context**:
+During testing of the auto-initialization system, we discovered that the AI was not configuring multi-agent setups even when the project structure clearly indicated multiple specialized areas (e.g., src/rules/, website/, templates/). This was because:
+1. The initialization questions didn't ask about multi-agent preferences
+2. There was no logic to infer appropriate agents from project structure
+3. Step 5 hardcoded `agents: enabled: false` in all cases
+
+For projects with clear separation of concerns (methodology development, website, templates, backend, etc.), a multi-agent setup provides better organization and parallel work capabilities.
+
+**Decision**:
+Implement intelligent agent inference during auto-initialization:
+1. Add question 5: "Do you want to use multi-agent workflows?" (a=yes, b=no)
+2. If user chooses yes (5a), analyze project structure to detect:
+   - Methodology/rules development (src/rules/, docs/planning/)
+   - Website/frontend (website/, src/website/, frontend/)
+   - Templates/configuration (templates/, config/)
+   - Backend/API (src/backend/, api/, server/)
+   - Testing/QA infrastructure (tests/ with >10 test files)
+3. Generate appropriate agent configurations with context_dirs matching detected areas
+4. If no suitable structure detected OR user chooses no (5b), disable agents
+
+**Rationale**:
+- Automatic detection reduces manual configuration burden
+- Project structure naturally reveals separation of concerns
+- Multi-agent setup provides clear boundaries and parallel work
+- Context directories help agents stay focused on their domain
+- Asking the user first respects their preferences (don't force multi-agent)
+- Fallback to single agent ensures it works for all projects
+
+**Consequences**:
+
+Positive:
+- ✅ Better default configuration for complex projects
+- ✅ Clear agent boundaries from initialization
+- ✅ Reduces manual ad.yaml editing
+- ✅ Agents automatically get appropriate context directories
+- ✅ Scalable pattern (easy to add more detection strategies)
+
+Negative:
+- ❌ Inference logic might not detect all project structures (can be improved)
+- ❌ User must answer an additional question during initialization
+
+**Implementation**:
+- Updated `/var/ad/src/rules/ai-workflow.md`:
+  - Added question 5 to Step 2
+  - Added "Infer Agents" section to Step 3 with 5 detection strategies
+  - Updated Step 5 to conditionally generate agent configuration
+- Regenerated all IDE configs (claude.md, .cursorrules, etc.)
+- Verified logic appears in generated claude.md at lines 1148 (Infer Agents) and 1268 (conditional generation)
+
+**Example**:
+For a project with src/rules/, website/, and templates/:
+```yaml
+agents:
+  enabled: true
+  platform: "claude-sdk"
+  default_execution_mode: "parallel"
+  default_coordination: "message-passing"
+  team:
+    - id: "methodology-dev"
+      role: "methodology-development"
+      context_dirs: ["src/rules/", "docs/planning/"]
+    - id: "website-dev"
+      role: "website-implementation"
+      context_dirs: ["website/"]
+    - id: "templates-dev"
+      role: "templates-management"
+      context_dirs: ["templates/"]
+```
+
+**Related**: None
+
 ## 2026-01-08 - Initialize AD Methodology
 
 **Status**: Accepted
