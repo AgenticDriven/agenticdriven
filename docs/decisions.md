@@ -55,17 +55,16 @@ During testing of the auto-initialization system, we discovered that the AI was 
 2. There was no logic to infer appropriate agents from project structure
 3. Step 5 hardcoded `agents: enabled: false` in all cases
 
-For projects with clear separation of concerns (methodology development, website, templates, backend, etc.), a multi-agent setup provides better organization and parallel work capabilities.
+For projects with clear separation of concerns (backend, frontend, testing, infrastructure, etc.), a multi-agent setup provides better organization and parallel work capabilities.
 
 **Decision**:
 Implement intelligent agent inference during auto-initialization:
 1. Add question 5: "Do you want to use multi-agent workflows?" (a=yes, b=no)
 2. If user chooses yes (5a), analyze project structure to detect:
-   - Methodology/rules development (src/rules/, docs/planning/)
-   - Website/frontend (website/, src/website/, frontend/)
-   - Templates/configuration (templates/, config/)
-   - Backend/API (src/backend/, api/, server/)
+   - Backend/API (src/backend/, backend/, api/, server/)
+   - Frontend/website (src/frontend/, frontend/, website/, client/)
    - Testing/QA infrastructure (tests/ with >10 test files)
+   - DevOps/Infrastructure (infrastructure/, deploy/, .github/workflows/)
 3. Generate appropriate agent configurations with context_dirs matching detected areas
 4. If no suitable structure detected OR user chooses no (5b), disable agents
 
@@ -99,7 +98,7 @@ Negative:
 - Verified logic appears in generated claude.md at lines 1148 (Infer Agents) and 1268 (conditional generation)
 
 **Example**:
-For a project with src/rules/, website/, and templates/:
+For a typical web application project with src/backend/, src/frontend/, and tests/:
 ```yaml
 agents:
   enabled: true
@@ -107,15 +106,18 @@ agents:
   default_execution_mode: "parallel"
   default_coordination: "message-passing"
   team:
-    - id: "methodology-dev"
-      role: "methodology-development"
-      context_dirs: ["src/rules/", "docs/planning/"]
-    - id: "website-dev"
-      role: "website-implementation"
-      context_dirs: ["website/"]
-    - id: "templates-dev"
-      role: "templates-management"
-      context_dirs: ["templates/"]
+    - id: "backend-dev"
+      role: "backend-implementation"
+      description: "Implements backend services and APIs"
+      context_dirs: ["src/backend/"]
+    - id: "frontend-dev"
+      role: "frontend-implementation"
+      description: "Implements user interface and client-side logic"
+      context_dirs: ["src/frontend/"]
+    - id: "qa-engineer"
+      role: "quality-assurance"
+      description: "Writes tests and validates quality"
+      context_dirs: ["tests/"]
 ```
 
 **Related**: None

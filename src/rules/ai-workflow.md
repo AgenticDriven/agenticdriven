@@ -284,51 +284,42 @@ def infer_agents(project_structure, user_wants_agents):
         "team": []
     }
 
-    # Strategy 1: Detect methodology/rules development
-    if os.path.isdir("src/rules") or os.path.isdir("docs/planning"):
-        agents_config["team"].append({
-            "id": "methodology-dev",
-            "role": "methodology-development",
-            "description": "Develops AD methodology rules and architecture",
-            "phases": ["DEFINE", "DISCOVER", "DESIGN", "BUILD"],
-            "capabilities": ["rules-writing", "architecture-design", "documentation"],
-            "context_dirs": ["src/rules/", "docs/planning/"]
-        })
+    # Strategy 1: Detect backend/API
+    if os.path.isdir("src/backend") or os.path.isdir("backend") or os.path.isdir("api") or os.path.isdir("server"):
+        context = []
+        if os.path.isdir("src/backend"): context.append("src/backend/")
+        if os.path.isdir("backend"): context.append("backend/")
+        if os.path.isdir("api"): context.append("api/")
+        if os.path.isdir("server"): context.append("server/")
 
-    # Strategy 2: Detect website/frontend
-    if os.path.isdir("website") or os.path.isdir("src/website") or os.path.isdir("frontend"):
-        agents_config["team"].append({
-            "id": "website-dev",
-            "role": "website-implementation",
-            "description": "Maintains website and public documentation",
-            "phases": ["BUILD", "VALIDATE", "MARKET"],
-            "capabilities": ["frontend", "documentation", "deployment"],
-            "context_dirs": ["website/"] if os.path.isdir("website") else ["src/website/", "frontend/"]
-        })
-
-    # Strategy 3: Detect templates/configuration
-    if os.path.isdir("templates") or os.path.isdir("config"):
-        agents_config["team"].append({
-            "id": "templates-dev",
-            "role": "templates-management",
-            "description": "Creates and maintains configuration templates",
-            "phases": ["DESIGN", "BUILD"],
-            "capabilities": ["yaml-design", "template-creation"],
-            "context_dirs": ["templates/"] if os.path.isdir("templates") else ["config/"]
-        })
-
-    # Strategy 4: Detect backend/API
-    if os.path.isdir("src/backend") or os.path.isdir("api") or os.path.isdir("server"):
         agents_config["team"].append({
             "id": "backend-dev",
             "role": "backend-implementation",
             "description": "Implements backend services and APIs",
             "phases": ["BUILD", "VALIDATE"],
             "capabilities": ["api", "database", "services"],
-            "context_dirs": ["src/backend/", "api/", "server/"]
+            "context_dirs": context
         })
 
-    # Strategy 5: Detect testing/QA infrastructure
+    # Strategy 2: Detect frontend/website
+    if os.path.isdir("src/frontend") or os.path.isdir("frontend") or os.path.isdir("website") or os.path.isdir("src/website") or os.path.isdir("client"):
+        context = []
+        if os.path.isdir("src/frontend"): context.append("src/frontend/")
+        if os.path.isdir("frontend"): context.append("frontend/")
+        if os.path.isdir("website"): context.append("website/")
+        if os.path.isdir("src/website"): context.append("src/website/")
+        if os.path.isdir("client"): context.append("client/")
+
+        agents_config["team"].append({
+            "id": "frontend-dev",
+            "role": "frontend-implementation",
+            "description": "Implements user interface and client-side logic",
+            "phases": ["BUILD", "VALIDATE"],
+            "capabilities": ["ui", "components", "client-logic"],
+            "context_dirs": context
+        })
+
+    # Strategy 3: Detect testing/QA infrastructure
     if os.path.isdir("tests") and count_files("tests/**/*.{test,spec}.*") > 10:
         agents_config["team"].append({
             "id": "qa-engineer",
@@ -337,6 +328,22 @@ def infer_agents(project_structure, user_wants_agents):
             "phases": ["VALIDATE"],
             "capabilities": ["testing", "validation", "quality"],
             "context_dirs": ["tests/"]
+        })
+
+    # Strategy 4: Detect DevOps/Infrastructure
+    if os.path.isdir("infrastructure") or os.path.isdir("deploy") or os.path.isdir(".github/workflows") or os.path.isdir(".gitlab-ci.yml"):
+        context = []
+        if os.path.isdir("infrastructure"): context.append("infrastructure/")
+        if os.path.isdir("deploy"): context.append("deploy/")
+        if os.path.isdir(".github/workflows"): context.append(".github/workflows/")
+
+        agents_config["team"].append({
+            "id": "devops-engineer",
+            "role": "devops-infrastructure",
+            "description": "Manages deployment and infrastructure",
+            "phases": ["SETUP", "LAUNCH", "SUPPORT"],
+            "capabilities": ["deployment", "ci-cd", "monitoring"],
+            "context_dirs": context
         })
 
     # If no agents detected, provide a generic single agent

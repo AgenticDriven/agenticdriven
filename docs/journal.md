@@ -209,15 +209,16 @@
   - Step 5 hardcoded `agents: enabled: false`
 - **Fix Applied**:
   - Added question 5: "Do you want to use multi-agent workflows?"
-  - Implemented agent inference logic in Step 3 with 5 detection strategies:
-    1. Methodology/rules development (src/rules/, docs/planning/)
-    2. Website/frontend (website/, src/website/, frontend/)
-    3. Templates/configuration (templates/, config/)
-    4. Backend/API (src/backend/, api/, server/)
-    5. Testing/QA infrastructure (tests/ with >10 test files)
+  - Implemented agent inference logic in Step 3 with 4 generic detection strategies:
+    1. Backend/API (src/backend/, backend/, api/, server/)
+    2. Frontend/website (src/frontend/, frontend/, website/, client/)
+    3. Testing/QA infrastructure (tests/ with >10 test files)
+    4. DevOps/Infrastructure (infrastructure/, deploy/, .github/workflows/)
   - Updated Step 5 to conditionally generate agent configuration based on:
     - User's answer to question 5
     - Detected project structure
+  - Removed project-specific detection strategies (methodology-dev, templates-dev)
+  - Rules are now fully generic for any software project
   - Regenerated all IDE configs with fixed rules
   - Updated claude.md in root with complete agent detection logic
 - **Decisions**: ADR-002: Auto-initialize agents based on project structure analysis
