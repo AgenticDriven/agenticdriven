@@ -1007,7 +1007,7 @@
           "reorganize": "4. ¿Reorganizar archivos markdown en docs/? (sí | no)",
           "multiAgent": "5. ¿Usar multi-agente? (sí | no) - La IA detecta directorios significativos"
         },
-        "process": "La IA infiere el estado del proyecto → Crea ad.yaml → Reorganiza archivos (si se solicita) → Crea archivos ad.yaml de features → Inicializa docs (journal, decisions, conventions) → Commit de inicialización → Reporta al usuario"
+        "process": "La IA infiere el estado del proyecto → Crea ad.yaml → Reorganiza archivos (si se solicita) → Crea archivos ad.yaml de features → Inicializa docs (journal.md, decisions.md, conventions.md) → Commit de inicialización → Reporta al usuario"
       },
       "sessionStart": {
         "title": "Inicio de Sesión (10 pasos)",

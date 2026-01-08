@@ -831,7 +831,7 @@
           "reorganize": "4. Markdown फ़ाइलों को docs/ में पुनर्व्यवस्थित करें? (हाँ | नहीं)",
           "multiAgent": "5. Multi-agent उपयोग करें? (हाँ | नहीं) - AI महत्वपूर्ण डायरेक्टरीज़ का पता लगाता है"
         },
-        "process": "AI प्रोजेक्ट स्थिति का अनुमान लगाता है → ad.yaml बनाता है → फ़ाइलों को पुनर्व्यवस्थित करता है (यदि अनुरोध किया गया) → Feature ad.yaml फ़ाइलें बनाता है → Docs initialize करता है (journal, decisions, conventions) → Initialization commit करता है → उपयोगकर्ता को रिपोर्ट करता है"
+        "process": "AI प्रोजेक्ट स्थिति का अनुमान लगाता है → ad.yaml बनाता है → फ़ाइलों को पुनर्व्यवस्थित करता है (यदि अनुरोध किया गया) → Feature ad.yaml फ़ाइलें बनाता है → Docs initialize करता है (journal.md, decisions.md, conventions.md) → Initialization commit करता है → उपयोगकर्ता को रिपोर्ट करता है"
       },
       "sessionStart": {
         "title": "Session शुरुआत (10 steps)",

@@ -1075,7 +1075,7 @@
           "reorganize": "4. Reorganize markdown files into docs/? (yes | no)",
           "multiAgent": "5. Use multi-agent? (yes | no) - AI detects significant directories"
         },
-        "process": "AI infers project state → Creates ad.yaml → Reorganizes files (if requested) → Creates feature ad.yaml files → Initializes docs (journal, decisions, conventions) → Commits initialization → Reports to user"
+        "process": "AI infers project state → Creates ad.yaml → Reorganizes files (if requested) → Creates feature ad.yaml files → Initializes docs (journal.md, decisions.md, conventions.md) → Commits initialization → Reports to user"
       },
       "sessionStart": {
         "title": "Session Start (10 steps)",

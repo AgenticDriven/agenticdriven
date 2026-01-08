@@ -825,7 +825,7 @@
           "reorganize": "4. Markdown-Dateien in docs/ reorganisieren? (ja | nein)",
           "multiAgent": "5. Multi-Agent verwenden? (ja | nein) - KI erkennt bedeutende Verzeichnisse"
         },
-        "process": "KI schließt auf Projektstatus → Erstellt ad.yaml → Reorganisiert Dateien (falls gewünscht) → Erstellt Feature ad.yaml-Dateien → Initialisiert Docs (journal, decisions, conventions) → Commit Initialisierung → Meldet an Benutzer"
+        "process": "KI schließt auf Projektstatus → Erstellt ad.yaml → Reorganisiert Dateien (falls gewünscht) → Erstellt Feature ad.yaml-Dateien → Initialisiert Docs (journal.md, decisions.md, conventions.md) → Commit Initialisierung → Meldet an Benutzer"
       },
       "sessionStart": {
         "title": "Sitzungsstart (10 Schritte)",

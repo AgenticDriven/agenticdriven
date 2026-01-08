@@ -831,7 +831,7 @@
           "reorganize": "4. 将 markdown 文件重组到 docs/？(是 | 否)",
           "multiAgent": "5. 使用多代理？(是 | 否) - AI 检测重要目录"
         },
-        "process": "AI 推断项目状态 → 创建 ad.yaml → 重组文件（如果请求）→ 创建 feature ad.yaml 文件 → 初始化 docs（journal、decisions、conventions）→ 提交初始化 → 向用户报告"
+        "process": "AI 推断项目状态 → 创建 ad.yaml → 重组文件（如果请求）→ 创建 feature ad.yaml 文件 → 初始化 docs（journal.md、decisions.md、conventions.md）→ 提交初始化 → 向用户报告"
       },
       "sessionStart": {
         "title": "会话开始（10 步）",
