@@ -465,6 +465,38 @@ function RulesPage({ onNavigate }) {
                   <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>⚙️ {t('rules.projectConfig.title')}</h2>
                   <p className="rules-intro">{t('rules.projectConfig.intro')}</p>
 
+                  {/* Mode: Feature vs Project */}
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.projectConfig.mode.title')}</h3>
+                  <p className="rules-intro">{t('rules.projectConfig.mode.intro')}</p>
+
+                  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginTop: '1.5rem'}}>
+                    <div style={{padding: '1.5rem', background: 'var(--bg-white)', border: '2px solid var(--color-primary)', borderRadius: 'var(--radius-lg)'}}>
+                      <h4 style={{marginTop: 0, color: 'var(--color-primary)'}}>{t('rules.projectConfig.mode.feature.title')}</h4>
+                      <p style={{fontSize: '0.95rem'}}>{t('rules.projectConfig.mode.feature.desc')}</p>
+                    </div>
+                    <div style={{padding: '1.5rem', background: 'var(--bg-white)', border: '2px solid var(--border-color)', borderRadius: 'var(--radius-lg)'}}>
+                      <h4 style={{marginTop: 0}}>{t('rules.projectConfig.mode.project.title')}</h4>
+                      <p style={{fontSize: '0.95rem'}}>{t('rules.projectConfig.mode.project.desc')}</p>
+                    </div>
+                  </div>
+
+                  <div style={{marginTop: '1rem', padding: '1rem', background: '#fff3cd', borderLeft: '4px solid #ffc107', borderRadius: 'var(--radius-sm)'}}>
+                    <strong>⚠️ Important:</strong> {t('rules.projectConfig.mode.important')}
+                  </div>
+
+                  {/* Feature Types */}
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.projectConfig.featureTypes.title')}</h3>
+                  <p className="rules-intro">{t('rules.projectConfig.featureTypes.intro')}</p>
+
+                  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginTop: '1rem'}}>
+                    {['feat', 'fix', 'spike', 'refactor', 'docs', 'chore'].map((type) => (
+                      <div key={type} style={{padding: '1rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)', fontSize: '0.9rem'}}>
+                        <code style={{fontWeight: 'bold', color: 'var(--color-primary)'}}>{type}</code>
+                        <p style={{margin: '0.5rem 0 0 0'}}>{t(`rules.projectConfig.featureTypes.${type}`)}</p>
+                      </div>
+                    ))}
+                  </div>
+
                   <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.projectConfig.when.title')}</h3>
                   <ul style={{marginLeft: '1.5rem', marginTop: '1rem', lineHeight: '1.8'}}>
                     <li>{t('rules.projectConfig.when.solo')}</li>
@@ -520,6 +552,40 @@ function RulesPage({ onNavigate }) {
                 <div id="detailed-aiWorkflow" style={{marginTop: '4rem'}}>
                   <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>🤖 {t('rules.aiWorkflow.title')}</h2>
                   <p className="rules-intro">{t('rules.aiWorkflow.intro')}</p>
+
+                  {/* Auto-Initialization */}
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>🚀 {t('rules.aiWorkflow.autoInit.title')}</h3>
+                  <p className="rules-intro">{t('rules.aiWorkflow.autoInit.intro')}</p>
+
+                  <div style={{marginTop: '1.5rem', padding: '1.5rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-md)'}}>
+                    <h4 style={{marginTop: 0, marginBottom: '1rem'}}>{t('rules.aiWorkflow.autoInit.questions.title')}</h4>
+                    <ol style={{marginLeft: '1.5rem', lineHeight: '2'}}>
+                      <li>{t('rules.aiWorkflow.autoInit.questions.domain')}</li>
+                      <li>{t('rules.aiWorkflow.autoInit.questions.mode')}</li>
+                      <li>{t('rules.aiWorkflow.autoInit.questions.detectFeatures')}</li>
+                      <li>{t('rules.aiWorkflow.autoInit.questions.reorganize')}</li>
+                      <li>{t('rules.aiWorkflow.autoInit.questions.multiAgent')}</li>
+                    </ol>
+                  </div>
+
+                  <div style={{marginTop: '1rem', padding: '1rem', background: '#e3f2fd', borderLeft: '4px solid #2196f3', borderRadius: 'var(--radius-sm)'}}>
+                    <strong>Process:</strong> {t('rules.aiWorkflow.autoInit.process')}
+                  </div>
+
+                  {/* Session Start */}
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>📋 {t('rules.aiWorkflow.sessionStart.title')}</h3>
+                  <ol style={{marginLeft: '1.5rem', marginTop: '1rem', lineHeight: '2'}}>
+                    <li>{t('rules.aiWorkflow.sessionStart.0')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.1')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.2')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.3')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.4')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.5')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.6')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.7')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.8')}</li>
+                    <li>{t('rules.aiWorkflow.sessionStart.9')}</li>
+                  </ol>
                 </div>
 
                 <div id="detailed-exitCriteria" style={{marginTop: '4rem'}}>

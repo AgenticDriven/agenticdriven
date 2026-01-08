@@ -747,16 +747,39 @@
     },
     "projectConfig": {
       "title": "Project Configuration (ad.yaml)",
-      "intro": "The ad.yaml file defines AD project configuration. It's OPTIONAL for solo projects and REQUIRED for multi-agent projects. Place it at project root.",
+      "intro": "The ad.yaml file defines AD project configuration. It includes domain, mode (feature/project), active features, and optional multi-agent setup.",
       "when": {
         "title": "When to use ad.yaml?",
-        "solo": "Solo Project: OPTIONAL. Only if you want AI to adapt its language to the domain.",
-        "multi": "Multi-Agent: REQUIRED. Defines context boundaries to prevent conflicts."
+        "solo": "Solo Project: Recommended to track features and mode. Helps AI understand your project structure.",
+        "multi": "Multi-Agent: REQUIRED. Defines context boundaries and coordination between agents."
+      },
+      "mode": {
+        "title": "Mode: Feature vs Project",
+        "intro": "AD supports two organizational modes. Both use features, but manage phases differently.",
+        "feature": {
+          "title": "mode: \"feature\" (Recommended)",
+          "desc": "Each feature has its own mini-cycle through phases. Features can be at different phases simultaneously (e.g., feature-A in BUILD while feature-B in DESIGN). More flexible, enables parallel work. Each feature has docs/active/feature-name/ad.yaml"
+        },
+        "project": {
+          "title": "mode: \"project\"",
+          "desc": "Entire project advances through phases as one unit. All work follows the same phase progression. More structured, sequential approach. Features still exist with their own ad.yaml but align to project phase."
+        },
+        "important": "Both modes use features. The difference is phase management: Feature mode = independent phase tracking per feature. Project mode = features follow project's overall phase."
+      },
+      "featureTypes": {
+        "title": "Feature Types",
+        "intro": "Different feature types go through different phase subsets:",
+        "feat": "feat: DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE (full cycle)",
+        "fix": "fix: DEFINE → VALIDATE (quick bug fix)",
+        "spike": "spike: DEFINE → DISCOVER (research/exploration)",
+        "refactor": "refactor: DEFINE → BUILD → VALIDATE (code improvement)",
+        "docs": "docs: DEFINE → BUILD (documentation only)",
+        "chore": "chore: DEFINE → BUILD (maintenance tasks)"
       },
       "solo": {
-        "title": "Solo Configuration (Optional)",
-        "desc": "For single-agent projects, you only need to specify the domain. This makes AI agents adapt their language and suggestions to the project type.",
-        "example": "domain: \"software\"",
+        "title": "Basic Configuration",
+        "desc": "Minimal ad.yaml for getting started. Specify domain and mode, optionally track features.",
+        "example": "domain: \"software\"\\nmode: \"feature\"\\n\\ncontext_files:\\n  - \"README.md\"\\n  - \"docs/decisions.md\"\\n\\nactive_features: []\\ncompleted_features: []\\n\\nagents:\\n  enabled: false",
         "domains": "Valid domains: software, book, marketing, event, product, research, course, game"
       },
       "multiAgent": {
@@ -766,8 +789,8 @@
       },
       "specification": {
         "title": "Complete Schema Specification",
-        "intro": "The ad.yaml file has ONLY 2 possible fields. It's a simple and clear format:",
-        "schema": "# Complete ad.yaml schema\\n\\ndomain: string              # REQUIRED\\nagents: array<Agent>        # OPTIONAL (required for multi-agent)\\n\\n# Agent structure:\\nAgent {\\n  id: string               # REQUIRED: unique identifier\\n  context: array<string>   # REQUIRED: directories where agent works\\n}"
+        "intro": "The ad.yaml file structure with all available fields:",
+        "schema": "# Complete ad.yaml schema\\n\\ndomain: string                    # REQUIRED: software|book|marketing|event|product|research|course|game\\nmode: string                      # REQUIRED: \"feature\" | \"project\"\\n\\ncontext_files: array<string>      # OPTIONAL: Global docs read at session start\\n  - \"README.md\"\\n  - \"docs/decisions.md\"\\n\\nactive_features: array<Feature>   # OPTIONAL: Features in progress\\n  - path: string                  # Path to feature directory\\n    description: string           # What this feature does\\n    status: string                # \"in-progress\" | \"blocked\" | \"review\"\\n\\ncompleted_features: array         # OPTIONAL: Finished features\\n\\nagents:                           # OPTIONAL (required for multi-agent)\\n  enabled: boolean\\n  platform: string                # \"claude-sdk\" | \"windsurf\" | \"cursor\"\\n  default_execution_mode: string  # \"parallel\" | \"sequential\" | \"hybrid\"\\n  default_coordination: string    # \"message-passing\" | \"shared-state\" | \"pipeline\"\\n  team: array<Agent>\\n    - id: string\\n      role: string\\n      description: string\\n      phases: array<string>\\n      capabilities: array<string>\\n      context_dirs: array<string>\\n\\nsettings:                         # OPTIONAL\\n  auto_commit: boolean            # Auto-commit after tasks\\n  require_tests: boolean          # Require tests before advancing phases"
       },
       "domainField": {
         "title": "Field: domain (string, REQUIRED)",
@@ -1039,18 +1062,33 @@
     },
     "aiWorkflow": {
       "title": "AI Workflow",
-      "intro": "How AI agents should work within the AD methodology.",
+      "intro": "How AI agents should work within the AD methodology. Includes auto-initialization for existing projects.",
+      "autoInit": {
+        "title": "Auto-Initialization",
+        "intro": "When no ad.yaml is found, AD can automatically initialize for existing projects.",
+        "detect": "AI detects: Git repository status, existing directories (docs/, src/), number of markdown files, project type indicators",
+        "questions": {
+          "title": "Initialization Questions",
+          "domain": "1. Domain? (software | book | marketing | event | product | research | course | game)",
+          "mode": "2. Mode? (feature | project)",
+          "detectFeatures": "3. Detect existing features? (yes | no) - AI analyzes src/ subdirectories, git branches",
+          "reorganize": "4. Reorganize markdown files into docs/? (yes | no)",
+          "multiAgent": "5. Use multi-agent? (yes | no) - AI detects significant directories"
+        },
+        "process": "AI infers project state → Creates ad.yaml → Reorganizes files (if requested) → Creates feature ad.yaml files → Initializes docs (journal, decisions, conventions) → Commits initialization → Reports to user"
+      },
       "sessionStart": {
-        "title": "Session Start (9 steps)",
-        "1": "Git status: git status",
-        "2": "Config: cat ad.yaml 2>/dev/null (if exists)",
-        "3": "README: cat README.md",
-        "4": "Phase: git describe --tags --abbrev=0 (latest tag = current phase)",
-        "5": "Phase docs: cat docs/journal.md + phase-specific docs",
-        "6": "Contracts: cat docs/interfaces.md (if BUILD/VALIDATE)",
-        "7": "Recent commits: git log -5 --oneline",
-        "8": "Role: Check ad.yaml for agent context (if multi-agent)",
-        "9": "Ask: Ready to work"
+        "title": "Session Start (10 steps)",
+        "0": "Check ad.yaml: If not found → trigger auto-initialization",
+        "1": "Read root ad.yaml: Extract domain, mode, context_files, active_features, agents",
+        "2": "Read README.md: Get project overview and current state",
+        "3": "Read all global context_files: Build understanding of standards, decisions, conventions",
+        "4": "List active features: Show all features from active_features array",
+        "5": "Ask which feature: User selects from active features or creates new one",
+        "6": "Read feature ad.yaml: Load feature-specific configuration, phase, version, status",
+        "7": "Read feature context_files: Load docs specific to this feature",
+        "8": "Check multi-agent config: Identify which agent is working, load agent context",
+        "9": "Present status: Show what's done, what's next, current phase, blockers, ready to work"
       },
       "duringWork": {
         "title": "During Work",

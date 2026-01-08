@@ -679,16 +679,39 @@
     },
     "projectConfig": {
       "title": "Configuración del Proyecto (ad.yaml)",
-      "intro": "El archivo ad.yaml define la configuración del proyecto AD. Es OPCIONAL para proyectos solo y REQUERIDO para proyectos multi-agente. Se coloca en la raíz del proyecto.",
+      "intro": "El archivo ad.yaml define la configuración del proyecto AD. Incluye dominio, modo (feature/project), features activas y configuración multi-agente opcional.",
       "when": {
         "title": "¿Cuándo usar ad.yaml?",
-        "solo": "Proyecto Solo: OPCIONAL. Solo si quieres que la IA adapte su lenguaje al dominio.",
-        "multi": "Multi-Agente: REQUERIDO. Define límites de contexto para prevenir conflictos."
+        "solo": "Proyecto Individual: Recomendado para trackear features y modo. Ayuda a la IA a entender tu estructura de proyecto.",
+        "multi": "Multi-Agente: REQUERIDO. Define límites de contexto y coordinación entre agentes."
+      },
+      "mode": {
+        "title": "Modo: Feature vs Project",
+        "intro": "AD soporta dos modos organizacionales. Ambos usan features, pero manejan las fases de manera diferente.",
+        "feature": {
+          "title": "mode: \"feature\" (Recomendado)",
+          "desc": "Cada feature tiene su propio mini-ciclo a través de las fases. Las features pueden estar en diferentes fases simultáneamente (ej: feature-A en BUILD mientras feature-B en DESIGN). Más flexible, permite trabajo paralelo. Cada feature tiene docs/active/feature-name/ad.yaml"
+        },
+        "project": {
+          "title": "mode: \"project\"",
+          "desc": "Todo el proyecto avanza por las fases como una unidad. Todo el trabajo sigue la misma progresión de fases. Enfoque más estructurado y secuencial. Las features siguen existiendo con su propio ad.yaml pero se alinean a la fase del proyecto."
+        },
+        "important": "Ambos modos usan features. La diferencia es el manejo de fases: Modo feature = tracking independiente de fases por feature. Modo project = features siguen la fase global del proyecto."
+      },
+      "featureTypes": {
+        "title": "Tipos de Features",
+        "intro": "Diferentes tipos de features pasan por diferentes subsets de fases:",
+        "feat": "feat: DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE (ciclo completo)",
+        "fix": "fix: DEFINE → VALIDATE (corrección rápida de bugs)",
+        "spike": "spike: DEFINE → DISCOVER (investigación/exploración)",
+        "refactor": "refactor: DEFINE → BUILD → VALIDATE (mejora de código)",
+        "docs": "docs: DEFINE → BUILD (solo documentación)",
+        "chore": "chore: DEFINE → BUILD (tareas de mantenimiento)"
       },
       "solo": {
-        "title": "Configuración Solo (Opcional)",
-        "desc": "Para proyectos de un solo agente, solo necesitas especificar el dominio. Esto hace que los agentes de IA adapten su lenguaje y sugerencias al tipo de proyecto.",
-        "example": "domain: \"software\"",
+        "title": "Configuración Básica",
+        "desc": "ad.yaml mínimo para comenzar. Especifica dominio y modo, opcionalmente trackea features.",
+        "example": "domain: \"software\"\\nmode: \"feature\"\\n\\ncontext_files:\\n  - \"README.md\"\\n  - \"docs/decisions.md\"\\n\\nactive_features: []\\ncompleted_features: []\\n\\nagents:\\n  enabled: false",
         "domains": "Dominios válidos: software, book, marketing, event, product, research, course, game"
       },
       "multiAgent": {
@@ -971,18 +994,33 @@
     },
     "aiWorkflow": {
       "title": "Flujo de Trabajo IA",
-      "intro": "Cómo los agentes de IA deben trabajar dentro de la metodología AD.",
+      "intro": "Cómo los agentes de IA deben trabajar dentro de la metodología AD. Incluye auto-inicialización para proyectos existentes.",
+      "autoInit": {
+        "title": "Auto-Inicialización",
+        "intro": "Cuando no se encuentra ad.yaml, AD puede inicializarse automáticamente para proyectos existentes.",
+        "detect": "La IA detecta: Estado del repositorio git, directorios existentes (docs/, src/), número de archivos markdown, indicadores del tipo de proyecto",
+        "questions": {
+          "title": "Preguntas de Inicialización",
+          "domain": "1. ¿Dominio? (software | book | marketing | event | product | research | course | game)",
+          "mode": "2. ¿Modo? (feature | project)",
+          "detectFeatures": "3. ¿Detectar features existentes? (sí | no) - La IA analiza subdirectorios de src/, branches de git",
+          "reorganize": "4. ¿Reorganizar archivos markdown en docs/? (sí | no)",
+          "multiAgent": "5. ¿Usar multi-agente? (sí | no) - La IA detecta directorios significativos"
+        },
+        "process": "La IA infiere el estado del proyecto → Crea ad.yaml → Reorganiza archivos (si se solicita) → Crea archivos ad.yaml de features → Inicializa docs (journal, decisions, conventions) → Commit de inicialización → Reporta al usuario"
+      },
       "sessionStart": {
-        "title": "Inicio de Sesión (9 pasos)",
-        "1": "Git status: git status",
-        "2": "Config: cat ad.yaml 2>/dev/null (si existe)",
-        "3": "README: cat README.md",
-        "4": "Phase: git describe --tags --abbrev=0 (última tag = fase actual)",
-        "5": "Phase docs: cat docs/journal.md + docs específicos de fase",
-        "6": "Contracts: cat docs/interfaces.md (si BUILD/VALIDATE)",
-        "7": "Recent commits: git log -5 --oneline",
-        "8": "Role: Verificar ad.yaml para contexto de agente (si multi-agente)",
-        "9": "Ask: Listo para trabajar"
+        "title": "Inicio de Sesión (10 pasos)",
+        "0": "Verificar ad.yaml: Si no se encuentra → activar auto-inicialización",
+        "1": "Leer root ad.yaml: Extraer domain, mode, context_files, active_features, agents",
+        "2": "Leer README.md: Obtener overview del proyecto y estado actual",
+        "3": "Leer todos los context_files globales: Construir entendimiento de estándares, decisiones, convenciones",
+        "4": "Listar features activas: Mostrar todas las features del array active_features",
+        "5": "Preguntar qué feature: Usuario selecciona de features activas o crea una nueva",
+        "6": "Leer feature ad.yaml: Cargar configuración específica de feature, phase, version, status",
+        "7": "Leer feature context_files: Cargar docs específicos de esta feature",
+        "8": "Verificar config multi-agente: Identificar qué agente está trabajando, cargar contexto del agente",
+        "9": "Presentar estado: Mostrar qué está hecho, qué sigue, fase actual, blockers, listo para trabajar"
       },
       "duringWork": {
         "title": "Durante el Trabajo",
