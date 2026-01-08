@@ -721,8 +721,8 @@
       },
       "specification": {
         "title": "Especificación Completa del Schema",
-        "intro": "El archivo ad.yaml tiene SOLO 2 campos posibles. Es un formato simple y claro:",
-        "schema": "# Schema completo de ad.yaml\\n\\ndomain: string              # REQUERIDO\\nagents: array<Agent>        # OPCIONAL (requerido para multi-agente)\\n\\n# Estructura de Agent:\\nAgent {\\n  id: string               # REQUERIDO: identificador único\\n  context: array<string>   # REQUERIDO: directorios donde trabaja\\n}"
+        "intro": "La estructura del archivo ad.yaml con todos los campos disponibles:",
+        "schema": "# Schema completo de ad.yaml\\n\\ndomain: string                    # REQUERIDO: software|book|marketing|event|product|research|course|game\\nmode: string                      # REQUERIDO: \"feature\" | \"project\"\\n\\ncontext_files: array<string>      # OPCIONAL: Docs globales leídos al inicio de sesión\\n  - \"README.md\"\\n  - \"docs/decisions.md\"\\n\\nactive_features: array<Feature>   # OPCIONAL: Features en progreso\\n  - path: string                  # Ruta al directorio de feature\\n    description: string           # Qué hace esta feature\\n    status: string                # \"in-progress\" | \"blocked\" | \"review\"\\n\\ncompleted_features: array         # OPCIONAL: Features terminadas\\n\\nagents:                           # OPCIONAL (requerido para multi-agente)\\n  enabled: boolean\\n  platform: string                # \"claude-sdk\" | \"windsurf\" | \"cursor\"\\n  default_execution_mode: string  # \"parallel\" | \"sequential\" | \"hybrid\"\\n  default_coordination: string    # \"message-passing\" | \"shared-state\" | \"pipeline\"\\n  team: array<Agent>\\n    - id: string\\n      role: string\\n      description: string\\n      phases: array<string>\\n      capabilities: array<string>\\n      context_dirs: array<string>\\n\\nsettings:                         # OPCIONAL\\n  auto_commit: boolean            # Auto-commit después de tareas\\n  require_tests: boolean          # Requiere tests antes de avanzar fases"
       },
       "domainField": {
         "title": "Campo: domain (string, REQUERIDO)",
