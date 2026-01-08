@@ -10,11 +10,11 @@
 
 ## Common Issues
 
-- **Phase unclear**: Check exit criteria, review journal.md
-- **Multi-agent conflict**: Check context boundaries, coordinate via git
-- **Lost work**: Check `git stash list`, `git reflog`
-- **Git conflicts**: Resolve markers, stage, complete merge
-- **Contract mismatch**: Read `docs/interfaces.md`, update code or contract
+- Phase unclear: Check exit criteria, review journal
+- Multi-agent conflict: Check context boundaries
+- Lost work: Check `git stash list`, `git reflog`
+- Git conflicts: Resolve markers, stage, merge
+- Contract mismatch: Update code or contract
 
 ## Rollback
 
@@ -23,10 +23,4 @@ git reset --soft HEAD~1  # Undo commit, keep changes
 git reset --hard HEAD~1  # Undo commit, discard changes
 ```
 
-## Document
-
-Update `docs/journal.md` with issue, cause, solution.
-
-## Prevention
-
-Commit frequently, read contracts, update journal, follow exit criteria, respect boundaries.
+Document issues in `docs/journal.md`. Commit frequently, read contracts, update journal, follow exit criteria.

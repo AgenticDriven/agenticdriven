@@ -3,11 +3,9 @@
 ## ad.yaml (Root)
 
 ```yaml
-domain: "software"  # software | book | marketing | event | product | research | course | game
-mode: "feature"     # feature | project
-context_files:
-  - "README.md"
-  - "docs/decisions.md"
+domain: "software"
+mode: "feature"
+context_files: ["README.md", "docs/decisions.md"]
 active_features:
   - path: "docs/active/feature-name"
     description: "Feature description"
@@ -15,8 +13,6 @@ active_features:
 completed_features: []
 agents:
   enabled: false
-settings:
-  auto_commit: true
 ```
 
 ## Feature ad.yaml
@@ -30,9 +26,6 @@ version: "v0.4.2"
 status: "in-progress"
 context_files: []
 code_locations: []
-tasks: []
-agents:
-  enabled: false
 ```
 
 ## Feature Types
@@ -52,13 +45,8 @@ chore:    DEFINE → BUILD
 agents:
   enabled: true
   platform: "claude-sdk"
-  default_execution_mode: "parallel"
-  default_coordination: "message-passing"
   team:
     - id: "agent-id"
       role: "agent-role"
-      description: "What this agent does"
       context_dirs: ["src/area/"]
 ```
-
-Configure based on project's separation of concerns.

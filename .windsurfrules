@@ -94,63 +94,52 @@ project-root/
 ├── docs/
 │   ├── journal.md
 │   ├── decisions.md
-│   ├── conventions.md
 │   ├── active/       # Feature-driven
 │   ├── completed/
 │   └── archived/
 ├── src/              # Adapt by domain
-└── assets/           # Optional
+└── assets/
 ```
 
 ## Domain-Specific src/
 
-**Software**: `backend/`, `frontend/`, `shared/`
-**Book**: `chapters/`, `appendices/`, `resources/`
-**Marketing**: `campaigns/`, `content/`, `analytics/`
-**Event**: `program/`, `logistics/`, `promotion/`
-**Product**: `design/`, `specs/`, `prototypes/`
+**Software**: backend/, frontend/, shared/
+**Book**: chapters/, appendices/, resources/
+**Marketing**: campaigns/, content/, analytics/
+**Event**: program/, logistics/, promotion/
+**Product**: design/, specs/, prototypes/
 
-## Feature-Driven (mode: feature)
+## Feature-Driven
 
 ```
 docs/active/feature-name/
 ├── ad.yaml
 ├── 00-define/
-├── 01-discover/
 ├── 02-design/
 └── 04-build/
 ```
 
-## Project-Driven (mode: project)
+## Project-Driven
 
 ```
 docs/
 ├── 00-define/
-├── 01-discover/
 ├── 02-design/
-└── ...
+└── 04-build/
 ```
 
-## Phase Directories
+Phase directories: 00-define, 01-discover, 02-design, 03-setup, 04-build, 05-validate, 06-market, 07-launch, 08-support, 09-evolve
 
-`00-define/` `01-discover/` `02-design/` `03-setup/` `04-build/` `05-validate/` `06-market/` `07-launch/` `08-support/` `09-evolve/`
-
-## Rules
-
-- Standard base: README, ad.yaml, docs/, src/
-- All docs in `docs/`
-- Use kebab-case filenames
+Standard base: README, ad.yaml, docs/, src/
 
 # Project Config
 
 ## ad.yaml (Root)
 
 ```yaml
-domain: "software"  # software | book | marketing | event | product | research | course | game
-mode: "feature"     # feature | project
-context_files:
-  - "README.md"
-  - "docs/decisions.md"
+domain: "software"
+mode: "feature"
+context_files: ["README.md", "docs/decisions.md"]
 active_features:
   - path: "docs/active/feature-name"
     description: "Feature description"
@@ -158,8 +147,6 @@ active_features:
 completed_features: []
 agents:
   enabled: false
-settings:
-  auto_commit: true
 ```
 
 ## Feature ad.yaml
@@ -173,9 +160,6 @@ version: "v0.4.2"
 status: "in-progress"
 context_files: []
 code_locations: []
-tasks: []
-agents:
-  enabled: false
 ```
 
 ## Feature Types
@@ -195,16 +179,11 @@ chore:    DEFINE → BUILD
 agents:
   enabled: true
   platform: "claude-sdk"
-  default_execution_mode: "parallel"
-  default_coordination: "message-passing"
   team:
     - id: "agent-id"
       role: "agent-role"
-      description: "What this agent does"
       context_dirs: ["src/area/"]
 ```
-
-Configure based on project's separation of concerns.
 
 # Documentation
 
@@ -278,33 +257,21 @@ Skip: Obvious choices, trivial decisions, implementation details
 
 Required for multi-agent. Define specifications before implementation.
 
-## When
-
-**DESIGN**: Define all contracts
-**BUILD**: Implement exactly to spec
-
 ## Format
 
 ```markdown
 ## Interface: Name
-
 **Input**: What goes in
 **Output**: What comes out
 **Errors**: Possible failures
-**Validation**: How to verify
 ```
 
 ## Workflow
 
-1. DESIGN: Define contracts, review, commit
-2. BUILD: Read contracts, implement, use mocks for unimplemented deps
+DESIGN: Define contracts, review, commit
+BUILD: Read contracts, implement, use mocks for unimplemented deps
 
-## Rules
-
-- Define in DESIGN phase
-- Implement exactly to spec
-- Never deviate without updating contract first
-- Use mocks for dependencies not yet implemented
+Never deviate without updating contract first.
 
 # AI Workflow
 
@@ -489,37 +456,22 @@ AI: "✓ AD initialized: $domain ($mode)
 
 # Exit Criteria
 
-## By Phase
-
-**DEFINE**: Problem stated, objectives defined, scope documented, constraints identified, success criteria defined
-**DISCOVER**: Requirements gathered, options researched, feasibility assessed, decisions documented, risks identified
-**DESIGN**: Solution designed, architecture defined, interfaces specified, design approved, ready to build
-**SETUP**: Tools configured, environment ready, validation criteria defined, team ready
-**BUILD**: All components implemented, contracts fulfilled, docs updated, reviewed
-**VALIDATE**: Validation criteria met, quality acceptable, validation report complete, stakeholders approve
-**MARKET**: Materials created, docs complete, strategy defined, channels prepared, ready to launch
-**LAUNCH**: Deployed, monitoring active, metrics collected, no critical issues, ready for support
-**SUPPORT**: Stable period complete, critical issues resolved, support working, feedback collected, ready to evolve
-**EVOLVE**: Improvements implemented, optimized, features added, roadmap updated, lessons documented
+**DEFINE**: Problem stated, objectives defined, scope documented
+**DISCOVER**: Requirements gathered, options researched, feasibility assessed
+**DESIGN**: Solution designed, architecture defined, interfaces specified
+**SETUP**: Tools configured, environment ready, validation criteria defined
+**BUILD**: All components implemented, contracts fulfilled, docs updated
+**VALIDATE**: Validation criteria met, quality acceptable, report complete
+**MARKET**: Materials created, docs complete, strategy defined
+**LAUNCH**: Deployed, monitoring active, no critical issues
+**SUPPORT**: Stable, critical issues resolved, feedback collected
+**EVOLVE**: Improvements implemented, optimized, roadmap updated
 
 ## Validation
 
-Before advancing:
-1. Review checklist
-2. Verify items complete
-3. Document exceptions
-4. Get approval
-5. Commit final work
-6. Update to next phase
+Before advancing: Review checklist, verify complete, document exceptions, get approval, commit
 
-```bash
-git commit -m "docs: complete DESIGN exit criteria"
-git commit -m "chore: start SETUP (v0.3.0)"
-```
-
-## Flexibility
-
-Guidelines, not rigid rules. Adapt to project needs. Document deviations. Focus on quality.
+Guidelines, not rigid rules. Adapt to project needs.
 
 # Troubleshooting
 
@@ -533,11 +485,11 @@ Guidelines, not rigid rules. Adapt to project needs. Document deviations. Focus 
 
 ## Common Issues
 
-- **Phase unclear**: Check exit criteria, review journal.md
-- **Multi-agent conflict**: Check context boundaries, coordinate via git
-- **Lost work**: Check `git stash list`, `git reflog`
-- **Git conflicts**: Resolve markers, stage, complete merge
-- **Contract mismatch**: Read `docs/interfaces.md`, update code or contract
+- Phase unclear: Check exit criteria, review journal
+- Multi-agent conflict: Check context boundaries
+- Lost work: Check `git stash list`, `git reflog`
+- Git conflicts: Resolve markers, stage, merge
+- Contract mismatch: Update code or contract
 
 ## Rollback
 
@@ -546,11 +498,5 @@ git reset --soft HEAD~1  # Undo commit, keep changes
 git reset --hard HEAD~1  # Undo commit, discard changes
 ```
 
-## Document
-
-Update `docs/journal.md` with issue, cause, solution.
-
-## Prevention
-
-Commit frequently, read contracts, update journal, follow exit criteria, respect boundaries.
+Document issues in `docs/journal.md`. Commit frequently, read contracts, update journal, follow exit criteria.
 
