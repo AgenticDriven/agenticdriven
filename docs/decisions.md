@@ -42,3 +42,21 @@ Negative:
 - Deleted existing tags (v0.0.0, v0.0.1, v0.1.0, v0.1.1, v0.2.0)
 
 **Related**: None (first ADR)
+
+## 2026-01-08 - Initialize AD Methodology
+
+**Status**: Accepted
+
+**Context**: Project existed without structured AD configuration (had old adw.yaml). Needed to adopt new AD 1.0 with feature-driven approach.
+
+**Decision**: Adopt Agentic Driven (AD) 1.0 methodology with feature-driven mode.
+
+**Consequences**:
+✅ Structured workflow with clear phases
+✅ Feature-driven development (work on individual features)
+✅ Better documentation practices with hierarchical ad.yaml
+✅ Auto-initialization system for future projects
+
+**Alternatives**:
+- Continue with old adw.yaml: Outdated, not feature-driven
+- Project-driven mode: Too rigid for this type of project
