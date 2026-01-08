@@ -1,0 +1,108 @@
+# Agentic Driven (AD) 1.0 - Root Configuration
+# This file manages the overall project state and links to active features
+
+# ========================================
+# PROJECT CONFIGURATION
+# ========================================
+
+# Domain: Type of project (adapts AI language and workflow)
+# Valid values: software, book, marketing, event, product, research, course, game
+domain: "software"
+
+# Mode: How to organize work
+# - feature: Work on individual features (recommended for most projects)
+# - project: Complete all 10 phases for the entire project (classic approach)
+mode: "feature"
+
+# Version: Overall project version (only used in project mode)
+# In feature mode, each feature has its own version
+version: "v0.0.0"
+
+# ========================================
+# GLOBAL CONTEXT FILES
+# ========================================
+
+# Files that provide context for ALL features
+# These are read at session start by the AI
+# Add important global documentation here
+context_files:
+  - "README.md"
+  - "docs/decisions.md"
+  - "docs/conventions.md"
+  # - "docs/interfaces.md"  # Add if using multi-agent
+
+# ========================================
+# ACTIVE FEATURES
+# ========================================
+
+# Features currently in progress
+# Each feature has its own ad.yaml in docs/active/feature-name/
+active_features: []
+  # Example:
+  # - path: "docs/active/user-auth"
+  #   description: "JWT-based authentication system"
+  #   status: "in-progress"  # in-progress | blocked | testing | review
+
+# ========================================
+# COMPLETED FEATURES
+# ========================================
+
+# Features that have been completed
+# Moved here from active_features when done
+completed_features: []
+  # Example:
+  # - path: "docs/completed/initial-setup"
+  #   completed_at: "2026-01-08"
+  #   description: "Project initialization and setup"
+
+# ========================================
+# MULTI-AGENT CONFIGURATION (Optional)
+# ========================================
+
+# Only needed if using multiple AI agents working in parallel
+# Leave disabled for solo development
+agents:
+  enabled: false
+
+  # When enabled, configure:
+  # default_execution_mode: "parallel"  # parallel | sequential | hybrid
+  # default_coordination: "message-passing"  # message-passing | shared-state | pipeline
+  # platform: "claude-sdk"  # claude-sdk | windsurf | cursor | manual
+
+  # Team of agents
+  # team:
+  #   - id: "backend-dev"
+  #     role: "backend-implementation"
+  #     phases: ["BUILD", "VALIDATE"]
+  #     capabilities: ["api", "database"]
+  #     context_dirs: ["src/backend/", "tests/backend/"]
+  #
+  #   - id: "frontend-dev"
+  #     role: "frontend-implementation"
+  #     phases: ["BUILD", "VALIDATE"]
+  #     capabilities: ["ui", "components"]
+  #     context_dirs: ["src/frontend/", "tests/frontend/"]
+
+# ========================================
+# PROJECT SETTINGS (Optional)
+# ========================================
+
+# Global project preferences
+settings:
+  # Automatically commit after completing tasks
+  auto_commit: true
+
+  # Require tests to pass before advancing phases
+  require_tests: true
+
+  # Minimum test coverage percentage
+  # min_coverage: 80
+
+# ========================================
+# NOTES
+# ========================================
+
+# Add project-wide notes or reminders here
+notes: []
+  # - "Remember to update API docs when changing endpoints"
+  # - "All features must have integration tests"

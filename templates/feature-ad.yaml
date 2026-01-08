@@ -1,0 +1,165 @@
+# Agentic Driven (AD) 1.0 - Feature Configuration
+# This file manages a single feature through its development lifecycle
+
+# ========================================
+# FEATURE IDENTITY
+# ========================================
+
+# Unique identifier (kebab-case, no spaces)
+# Should match the directory name: docs/active/{id}/
+id: "feature-name"
+
+# Type of work
+# - feat: New feature (full cycle: DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE)
+# - fix: Bug fix (short cycle: DEFINE → VALIDATE)
+# - spike: Research/experiment (DEFINE → DISCOVER only)
+# - refactor: Code improvement (DEFINE → BUILD → VALIDATE)
+# - docs: Documentation only (DEFINE → BUILD)
+# - chore: Maintenance work (DEFINE → BUILD)
+type: "feat"
+
+# Short description (1-2 sentences)
+description: "Brief description of what this feature does"
+
+# ========================================
+# CURRENT STATE
+# ========================================
+
+# Current phase in the development cycle
+# Phases: DEFINE, DISCOVER, DESIGN, SETUP, BUILD, VALIDATE, MARKET, LAUNCH, SUPPORT, EVOLVE
+# Each type uses different phases (see type above)
+phase: "DEFINE"
+
+# Current version (semantic versioning)
+# Format: v0.PHASE.ITERATION
+# Phase numbers: 0=DEFINE, 1=DISCOVER, 2=DESIGN, 3=SETUP, 4=BUILD, 5=VALIDATE, etc.
+# Example: v0.4.2 = BUILD phase, iteration 2
+version: "v0.0.0"
+
+# Current status
+# - in-progress: Actively being worked on
+# - blocked: Cannot proceed (waiting for something)
+# - testing: In testing/validation
+# - review: Awaiting review/approval
+# - completed: Done and merged
+status: "in-progress"
+
+# ========================================
+# CONTEXT FILES
+# ========================================
+
+# Documentation specific to this feature
+# These files are read when working on this feature
+# Add files as you create them during each phase
+context_files: []
+  # Example:
+  # - "docs/active/feature-name/00-define/problem.md"
+  # - "docs/active/feature-name/00-define/objectives.md"
+  # - "docs/active/feature-name/01-discover/requirements.md"
+  # - "docs/active/feature-name/02-design/design.md"
+  # - "docs/active/feature-name/02-design/api-contracts.md"
+  # - "docs/active/feature-name/04-build/build-log.md"
+
+# ========================================
+# CODE LOCATIONS
+# ========================================
+
+# Directories and files where code for this feature lives
+# Add locations as you create code
+code_locations: []
+  # Example:
+  # - "src/auth/"
+  # - "src/middleware/auth.js"
+  # - "tests/auth/"
+  # - "tests/integration/auth.test.js"
+
+# ========================================
+# TASKS
+# ========================================
+
+# Task breakdown for this feature
+# Add tasks as you plan work, update status as you complete
+tasks: []
+  # Example:
+  # - description: "Define authentication requirements"
+  #   status: "done"  # pending | in-progress | done | blocked
+  #   commit: "abc123"  # Git commit hash (optional)
+  #
+  # - description: "Design JWT token structure"
+  #   status: "done"
+  #
+  # - description: "Implement JWT generation"
+  #   status: "in-progress"
+  #
+  # - description: "Write authentication tests"
+  #   status: "pending"
+
+# ========================================
+# DEPENDENCIES
+# ========================================
+
+# Other features or systems this feature depends on
+dependencies: []
+  # Example:
+  # - feature: "user-model"
+  #   reason: "Needs User model for authentication"
+  #   status: "completed"
+  #
+  # - external: "Redis"
+  #   reason: "Token storage and session management"
+  #   status: "configured"
+
+# ========================================
+# MULTI-AGENT (Optional)
+# ========================================
+
+# Only needed if using multiple agents for this specific feature
+# Leave disabled for solo development
+agents:
+  enabled: false
+
+  # When enabled, configure:
+  # execution_mode: "parallel"
+  # coordination_technique: "message-passing"
+
+  # Active agents working on this feature
+  # active:
+  #   - id: "backend-dev"
+  #     status: "working"  # working | blocked | idle | completed
+  #     current_task: "Implement JWT generation"
+  #     context: ["src/auth/", "tests/auth/"]
+  #
+  #   - id: "frontend-dev"
+  #     status: "blocked"
+  #     blocked_by: "backend-dev"
+  #     blocked_reason: "Waiting for API endpoints"
+  #     context: ["src/components/Auth/"]
+
+  # Coordination state (if using message-passing or shared-state)
+  # coordination:
+  #   communication: []
+  #   shared_state: {}
+
+# ========================================
+# NOTES
+# ========================================
+
+# Important notes, decisions, or reminders for this feature
+notes: []
+  # Example:
+  # - "Using bcrypt for password hashing with 10 salt rounds"
+  # - "JWT tokens expire after 24 hours"
+  # - "Remember to update API documentation"
+
+# ========================================
+# METADATA
+# ========================================
+
+# Created date (ISO 8601 format)
+created_at: "2026-01-08"
+
+# Created by (agent or human)
+created_by: "human"
+
+# Last updated (automatically updated by AI)
+# updated_at: "2026-01-08T10:30:00Z"
