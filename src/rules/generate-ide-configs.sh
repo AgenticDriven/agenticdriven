@@ -7,13 +7,10 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RULES_DIR="$SCRIPT_DIR"
-OUTPUT_DIR="$SCRIPT_DIR/ide"
+OUTPUT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"  # Project root
 
 echo "🚀 Generating IDE configurations from ADD rules..."
 echo ""
-
-# Create output directory
-mkdir -p "$OUTPUT_DIR"
 
 # Function to concatenate all markdown files in order
 concat_rules() {
