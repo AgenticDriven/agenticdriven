@@ -68,7 +68,7 @@ git remote add origin https://github.com/agenticdriven/add.git
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── _site/                # Website build output (gitignored)
 ├── .cursorrules          # IDE configs (root)
-├── .clauderc
+├── claude.md
 ├── .windsurfrules
 ├── .aider.conf.yml
 ├── .aider-rules.md
@@ -103,7 +103,7 @@ cat adw.yaml
 
 **Generated Configs**:
 - `.cursorrules` - Cursor IDE
-- `.clauderc` - Claude Code
+- `claude.md` - Claude Code
 - `.windsurfrules` - Windsurf
 - `.github/copilot-instructions.md` - GitHub Copilot
 - `.aider.conf.yml` + `.aider-rules.md` - Aider
@@ -123,7 +123,7 @@ ls -lh src/rules/ide/
 ls -la | grep -E '\.(cursorrules|clauderc|windsurfrules|aider|continue)'
 
 # Verify total size < 600 lines per config
-wc -l .cursorrules .clauderc .windsurfrules
+wc -l .cursorrules claude.md .windsurfrules
 ```
 
 ### Website Development Setup

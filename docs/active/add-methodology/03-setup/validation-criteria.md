@@ -45,7 +45,7 @@ bash src/rules/generate-ide-configs.sh
 
 # Check output files
 test -f src/rules/ide/.cursorrules && echo "✅ Cursor" || echo "❌"
-test -f src/rules/ide/.clauderc && echo "✅ Claude" || echo "❌"
+test -f src/rules/ide/claude.md && echo "✅ Claude" || echo "❌"
 test -f src/rules/ide/.windsurfrules && echo "✅ Windsurf" || echo "❌"
 test -f src/rules/ide/.github/copilot-instructions.md && echo "✅ Copilot" || echo "❌"
 test -f src/rules/ide/.aider.conf.yml && echo "✅ Aider" || echo "❌"
@@ -53,11 +53,11 @@ test -f src/rules/ide/.continuerc.json && echo "✅ Continue" || echo "❌"
 
 # Check configs in root
 test -f .cursorrules && echo "✅" || echo "❌"
-test -f .clauderc && echo "✅" || echo "❌"
+test -f claude.md && echo "✅" || echo "❌"
 test -f .windsurfrules && echo "✅" || echo "❌"
 
 # Verify size constraint (< 600 lines ideal, < 1000 acceptable)
-wc -l .cursorrules .clauderc .windsurfrules
+wc -l .cursorrules claude.md .windsurfrules
 ```
 
 **Success**: All configs generated, copied to root, size acceptable
@@ -235,7 +235,7 @@ kill $SERVER_PID
 **Tests**:
 ```bash
 # Check IDE config size
-for file in .cursorrules .clauderc .windsurfrules; do
+for file in .cursorrules claude.md .windsurfrules; do
   LINES=$(wc -l < "$file")
   if [ $LINES -lt 1000 ]; then
     echo "✅ $file: $LINES lines"

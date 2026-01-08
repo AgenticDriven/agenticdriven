@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Quick download script for ADW 1.0 IDE configs
+# Quick download script for AD 1.0 IDE configs
 # Usage: curl -sSL https://agenticdriven.dev/download.sh | bash -s <ide>
 
 set -e
@@ -31,9 +31,9 @@ case "$IDE" in
         echo "✅ Created .cursorrules"
         ;;
     claude)
-        echo "📥 Downloading .clauderc..."
-        curl -sSL "$BASE_URL/.clauderc" -o .clauderc
-        echo "✅ Created .clauderc"
+        echo "📥 Downloading claude.md..."
+        curl -sSL "$BASE_URL/claude.md" -o claude.md
+        echo "✅ Created claude.md"
         ;;
     windsurf)
         echo "📥 Downloading .windsurfrules..."
@@ -65,5 +65,5 @@ case "$IDE" in
 esac
 
 echo ""
-echo "🎉 ADW 1.0 configuration installed!"
-echo "Now your AI assistant will follow ADW methodology."
+echo "🎉 AD 1.0 configuration installed!"
+echo "Now your AI assistant will follow AD methodology."

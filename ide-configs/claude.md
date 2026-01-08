@@ -83,7 +83,7 @@ chore: update to v0.4.3
 
 # Git Tags
 
-Git tags are not required in ADD 1.0. Use commits and version in adw.yaml to track progress.
+Git tags are not required in AD 1.0. Use commits and version in ad.yaml to track progress.
 
 # Project Structure
 
@@ -92,7 +92,7 @@ Git tags are not required in ADD 1.0. Use commits and version in adw.yaml to tra
 ```
 project-root/
 ├── README.md
-├── adw.yaml          # Optional, multi-agent only
+├── ad.yaml           # Optional, multi-agent only
 ├── docs/
 │   ├── journal.md
 │   └── ...
@@ -159,7 +159,7 @@ echo "# My Project" > README.md
 mkdir -p docs src tests
 touch docs/journal.md
 git add .
-git commit -m "chore: initialize ADD project"
+git commit -m "chore: initialize AD project"
 ```
 
 ## Rules
@@ -172,7 +172,7 @@ git commit -m "chore: initialize ADD project"
 
 # Project Config
 
-## File: adw.yaml
+## File: ad.yaml
 
 Optional. Only for multi-agent or domain hint.
 
@@ -469,13 +469,13 @@ Required for multi-agent. Define specifications before implementation.
 ## Session Start (9 steps)
 
 1. **Git status**: `git status`
-2. **Config**: `cat adw.yaml 2>/dev/null` (if exists)
+2. **Config**: `cat ad.yaml 2>/dev/null` (if exists)
 3. **README**: `cat README.md`
 4. **Phase**: `git describe --tags --abbrev=0` (latest tag = current phase)
 5. **Phase docs**: `cat docs/journal.md` + phase-specific docs
 6. **Contracts**: `cat docs/interfaces.md` (if BUILD/VALIDATE)
 7. **Recent commits**: `git log -5 --oneline`
-8. **Role**: Check adw.yaml for agent context (if multi-agent)
+8. **Role**: Check ad.yaml for agent context (if multi-agent)
 9. **Ask**: Ready to work
 
 ## During Work
@@ -490,7 +490,7 @@ Required for multi-agent. Define specifications before implementation.
 
 ## Multi-Agent
 
-If adw.yaml has agents:
+If ad.yaml has agents:
 - Identify your agent ID
 - Stay in context directories
 - Read contracts before implementing

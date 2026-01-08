@@ -90,7 +90,7 @@ Content...
 
 **Generated Files**:
 - `.cursorrules` - Cursor IDE
-- `.clauderc` - Claude Code
+- `claude.md` - Claude Code
 - `.windsurfrules` - Windsurf
 - `.github/copilot-instructions.md` - GitHub Copilot
 - `.aider.conf.yml` + `.aider-rules.md` - Aider
@@ -381,7 +381,7 @@ EVOLVE    → RELEASE  : v0.9.x → v1.0.0
 
 **Available Downloads**:
 - Cursor: `.cursorrules`
-- Claude Code: `.clauderc`
+- Claude Code: `claude.md`
 - Windsurf: `.windsurfrules`
 - GitHub Copilot: `copilot-instructions.md`
 - Aider: `.aider.conf.yml` + `.aider-rules.md`

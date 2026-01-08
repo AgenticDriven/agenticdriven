@@ -48,9 +48,9 @@ concat_rules() {
 echo "📝 Generating .cursorrules (Cursor)..."
 concat_rules > "$OUTPUT_DIR/.cursorrules"
 
-# Generate .clauderc (Claude Code)
-echo "📝 Generating .clauderc (Claude Code)..."
-concat_rules > "$OUTPUT_DIR/.clauderc"
+# Generate claude.md (Claude Code)
+echo "📝 Generating claude.md (Claude Code)..."
+concat_rules > "$OUTPUT_DIR/claude.md"
 
 # Generate .windsurfrules (Windsurf)
 echo "📝 Generating .windsurfrules (Windsurf)..."
@@ -208,7 +208,7 @@ cp .cursorrules /path/to/your/project/
 ### Claude Code
 
 ```bash
-cp .clauderc /path/to/your/project/
+cp claude.md /path/to/your/project/
 ```
 
 ### Windsurf
@@ -304,9 +304,9 @@ case "$IDE" in
         echo "✅ Created .cursorrules"
         ;;
     claude)
-        echo "📥 Downloading .clauderc..."
-        curl -sSL "$BASE_URL/.clauderc" -o .clauderc
-        echo "✅ Created .clauderc"
+        echo "📥 Downloading claude.md..."
+        curl -sSL "$BASE_URL/claude.md" -o claude.md
+        echo "✅ Created claude.md"
         ;;
     windsurf)
         echo "📥 Downloading .windsurfrules..."

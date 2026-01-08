@@ -50,12 +50,12 @@ Generated files in src/rules/ide/:
 
 Configs in root:
 ✅ .cursorrules
-✅ .clauderc
+✅ claude.md
 ✅ .windsurfrules
 
 Config sizes:
 558 .cursorrules
-558 .clauderc
+558 claude.md
 558 .windsurfrules
 ```
 
@@ -181,7 +181,7 @@ Recent commits:
 ```
 IDE Config Sizes:
 ✅ .cursorrules: 558 lines (target <1000)
-✅ .clauderc: 558 lines (target <1000)
+✅ claude.md: 558 lines (target <1000)
 ✅ .windsurfrules: 558 lines (target <1000)
 ```
 

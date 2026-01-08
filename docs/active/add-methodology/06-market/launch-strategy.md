@@ -164,7 +164,7 @@
 
 2. r/ClaudeAI: "ADD 1.0 - Methodology for structured development with Claude"
    - Tailored to Claude users
-   - Highlight .clauderc config
+   - Highlight claude.md config
 
 3. r/ChatGPT: "Structured approach to AI-assisted development projects"
    - Broader AI focus
@@ -335,7 +335,7 @@ All designed with AI agents in mind.
 
 3/ Works with your favorite AI IDE:
 ✅ Cursor (.cursorrules)
-✅ Claude Code (.clauderc)
+✅ Claude Code (claude.md)
 ✅ Windsurf (.windsurfrules)
 ✅ GitHub Copilot
 ✅ Aider

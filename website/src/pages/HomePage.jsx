@@ -7,7 +7,7 @@ function HomePage({ onNavigate, onSelectIDE }) {
 
   const ides = [
     { name: "Cursor", file: ".cursorrules", icon: "⚡" },
-    { name: "Claude Code", file: ".clauderc", icon: "🤖" },
+    { name: "Claude Code", file: "claude.md", icon: "🤖" },
     { name: "Windsurf", file: ".windsurfrules", icon: "🌊" },
     { name: "GitHub Copilot", file: ".github/copilot-instructions.md", icon: "🐙" },
     { name: "Aider", file: ".aider.conf.yml", icon: "🎨" },

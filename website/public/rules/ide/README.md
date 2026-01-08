@@ -13,7 +13,7 @@ cp .cursorrules /path/to/your/project/
 ### Claude Code
 
 ```bash
-cp .clauderc /path/to/your/project/
+cp claude.md /path/to/your/project/
 ```
 
 ### Windsurf

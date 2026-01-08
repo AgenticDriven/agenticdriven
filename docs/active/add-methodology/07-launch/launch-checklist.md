@@ -123,7 +123,7 @@ ls -lh ../_site             # Check output
 
 **Generated Configs**:
 - [x] .cursorrules (558 lines)
-- [x] .clauderc (558 lines)
+- [x] claude.md (558 lines)
 - [x] .windsurfrules (558 lines)
 - [x] .github/copilot-instructions.md
 - [x] .aider.conf.yml + .aider-rules.md

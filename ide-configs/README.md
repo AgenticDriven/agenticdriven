@@ -1,6 +1,6 @@
-# IDE Configurations for ADD 2.0 Universal
+# IDE Configurations for AD 2.0 Universal
 
-This directory contains configuration files for various IDEs and AI coding tools, adapted to work with ADD 2.0 Universal methodology.
+This directory contains configuration files for various IDEs and AI coding tools, adapted to work with AD 2.0 Universal methodology.
 
 ---
 
@@ -10,7 +10,7 @@ This directory contains configuration files for various IDEs and AI coding tools
 |----------|------|-------------|------------------|
 | **Cursor** | `.cursorrules` | 🟡 Workarounds | ⭐ Easy |
 | **Windsurf** | `.windsurfrules` | ✅ Native (Cascade) | ⭐ Easy |
-| **Claude Code** | `.clauderc` | ✅ With SDK | ⭐⭐⭐ Advanced |
+| **Claude Code** | `claude.md` | ✅ With SDK | ⭐⭐⭐ Advanced |
 | **GitHub Copilot** | `.github/copilot-instructions.md` | ❌ No | ⭐ Easy |
 | **Continue.dev** | `.continuerc.json` | ❌ No | ⭐⭐ Medium |
 | **Aider** | `.aider.conf.yml` | 🟡 Multi-process | ⭐⭐ Medium |
@@ -29,7 +29,7 @@ cp .cursorrules /path/to/your/project/
 ```
 
 **What it does:**
-- Instructs Cursor Composer to follow ADD 2.0 phases
+- Instructs Cursor Composer to follow AD 2.0 phases
 - Enforces contract-first in BUILD phase
 - Validates exit criteria before advancing
 - Generates proper commit messages
@@ -52,7 +52,7 @@ cp .windsurfrules /path/to/your/project/
 ```
 
 **What it does:**
-- Configures Cascade agents to coordinate via ADD 2.0
+- Configures Cascade agents to coordinate via AD 2.0
 - Code Agent + Terminal Agent + Review Agent work together
 - Automatic multi-agent coordination in BUILD phase
 - Contract-first enforcement
@@ -69,14 +69,14 @@ cp .windsurfrules /path/to/your/project/
 
 ```bash
 # Copy to project root
-cp .clauderc /path/to/your/project/
+cp claude.md /path/to/your/project/
 
 # Use in terminal
 claude-code "Implement POST /api/users following contract"
 ```
 
 **What it does:**
-- Guides Claude Code CLI to follow ADD 2.0
+- Guides Claude Code CLI to follow AD 2.0
 - Tool use protocol for filesystem, bash, web_search
 - Contract-first enforcement
 - Multi-agent ready (with Claude Agent SDK)
@@ -93,8 +93,8 @@ claude-code "Implement POST /api/users following contract"
 # coordinator.py (use Claude Agent SDK)
 from claude_agent import Agent, Coordinator
 
-backend = Agent(config_file=".clauderc", context_dirs=["src/backend/"])
-frontend = Agent(config_file=".clauderc", context_dirs=["src/frontend/"])
+backend = Agent(config_file="claude.md", context_dirs=["src/backend/"])
+frontend = Agent(config_file="claude.md", context_dirs=["src/frontend/"])
 
 coord = Coordinator([backend, frontend])
 await coord.run_parallel(...)
@@ -117,7 +117,7 @@ cp .github/copilot-instructions.md /path/to/your/project/.github/
 - Phase-aware suggestions
 - Contract compliance checking
 - Commit message generation
-- Issue → PR workflow with ADD 2.0
+- Issue → PR workflow with AD 2.0
 
 **Best for:**
 - Teams already using GitHub
@@ -140,14 +140,14 @@ export OPENAI_API_KEY="your-key"
 ```
 
 **What it does:**
-- Adds custom slash commands for ADD 2.0
+- Adds custom slash commands for AD 2.0
   - `/phase` - Show current phase
   - `/contracts` - Show contracts
   - `/implement` - Implement following contract
   - `/validate-contract` - Check compliance
   - `/mock` - Generate mock
   - `/advance` - Check if ready for next phase
-- Context providers for ADD docs
+- Context providers for AD docs
 - Phase-aware autocomplete
 - Local model support (Ollama)
 
@@ -170,7 +170,7 @@ aider --config .aider.conf.yml
 ```
 
 **What it does:**
-- Configures Aider for ADD 2.0
+- Configures Aider for AD 2.0
 - Architect mode (plan first, then implement)
 - Contract-first in BUILD
 - Auto-commit with proper messages
@@ -257,7 +257,7 @@ Setup: Copy .windsurfrules
 Primary: Claude Code + Agent SDK
 Secondary: Cursor (for UI work)
 Why: True parallel, full control
-Setup: Copy .clauderc + write coordinator.py
+Setup: Copy claude.md + write coordinator.py
 ```
 
 ### Enterprise - GitHub Integration
@@ -299,7 +299,7 @@ cp /var/add/ide-configs/.cursorrules .
 cursor .
 
 # 3. Chat with Composer
-"Initialize ADD 2.0 project for a web application"
+"Initialize AD 2.0 project for a web application"
 
 # Cursor will:
 # - Create add-project.yaml
@@ -311,10 +311,10 @@ cursor .
 **With Claude Code:**
 ```bash
 # 1. Copy config
-cp /var/add/ide-configs/.clauderc .
+cp /var/add/ide-configs/claude.md .
 
 # 2. Initialize
-claude-code "Initialize ADD 2.0 project for web app"
+claude-code "Initialize AD 2.0 project for web app"
 
 # 3. Start DISCOVER
 claude-code "Start DISCOVER phase: research authentication options"
@@ -345,7 +345,7 @@ cp /var/add/ide-configs/.windsurfrules .
 **With Claude Code + SDK (Maximum Control):**
 ```bash
 # 1. Copy config
-cp /var/add/ide-configs/.clauderc .
+cp /var/add/ide-configs/claude.md .
 
 # 2. Create coordinator.py:
 cat > coordinator.py << 'EOF'
@@ -353,12 +353,12 @@ from claude_agent import Agent, Coordinator
 import asyncio
 
 backend = Agent(
-    config_file=".clauderc",
+    config_file="claude.md",
     context_dirs=["src/backend/", "docs/"]
 )
 
 frontend = Agent(
-    config_file=".clauderc",
+    config_file="claude.md",
     context_dirs=["src/frontend/", "docs/"]
 )
 
@@ -527,7 +527,7 @@ Edit `.continuerc.json`:
 
 Create `.windsurf/flows/add-phase-transition.yaml`:
 ```yaml
-name: "ADD Phase Transition"
+name: "AD Phase Transition"
 trigger: "manual"
 steps:
   - agent: "reasoning"
@@ -583,16 +583,16 @@ Keep `docs/journal.md` current:
 
 ---
 
-## Migration from ADD 1.0 Configs
+## Migration from AD 1.0 Configs
 
-If you have ADD 1.0 `.cursorrules`:
+If you have AD 1.0 `.cursorrules`:
 
 1. **Backup old config:**
    ```bash
    mv .cursorrules .cursorrules.v1.backup
    ```
 
-2. **Copy new ADD 2.0 config:**
+2. **Copy new AD 2.0 config:**
    ```bash
    cp /var/add/ide-configs/.cursorrules .
    ```
@@ -617,7 +617,7 @@ If you have ADD 1.0 `.cursorrules`:
 ## Resources
 
 ### Documentation
-- **ADD 2.0 Universal**: `/var/add/ADD-UNIVERSAL.md`
+- **AD 2.0 Universal**: `/var/add/AD-UNIVERSAL.md`
 - **Multi-Agent Coordination**: `/var/add/agentes/COORDINACION-PARALELA.md`
 - **Advanced Techniques**: `/var/add/agentes/TECNICAS-AVANZADAS-MULTI-AGENTE.md`
 - **Framework Design**: `/var/add/FRAMEWORK-DESIGN.md`
@@ -641,7 +641,7 @@ If you have ADD 1.0 `.cursorrules`:
 
 ## Contributing
 
-Found a better way to configure an IDE for ADD 2.0?
+Found a better way to configure an IDE for AD 2.0?
 
 1. Fork the repo
 2. Improve the config
@@ -663,7 +663,7 @@ We appreciate:
 **Status**: ✅ Production Ready
 
 All configs tested with:
-- ADD 2.0 Universal methodology
+- AD 2.0 Universal methodology
 - Multi-agent coordination
 - Contract-first pattern
 - Phase-based workflow

@@ -22,7 +22,7 @@ Concrete rules for ADD 2.0, ready to export to IDE configurations.
 ## Usage
 
 These rules are designed to be:
-1. Exported to `.cursorrules`, `.clauderc`, `.continuerc`, etc.
+1. Exported to `.cursorrules`, `claude.md`, `.continuerc`, etc.
 2. Used as reference for team guidelines
 3. Integrated into CI/CD checks
 4. Adapted for specific project needs

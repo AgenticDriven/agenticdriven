@@ -31,9 +31,9 @@ case "$IDE" in
         echo "✅ Created .cursorrules"
         ;;
     claude)
-        echo "📥 Downloading .clauderc..."
-        curl -sSL "$BASE_URL/.clauderc" -o .clauderc
-        echo "✅ Created .clauderc"
+        echo "📥 Downloading claude.md..."
+        curl -sSL "$BASE_URL/claude.md" -o claude.md
+        echo "✅ Created claude.md"
         ;;
     windsurf)
         echo "📥 Downloading .windsurfrules..."

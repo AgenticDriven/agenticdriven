@@ -91,7 +91,7 @@ function RulesPage({ onNavigate }) {
                       className={`toc-link ${activeSection === 'working-with-adw' ? 'active' : ''}`}
                     >
                       <span className="toc-icon">💻</span>
-                      <span>{t('rules.toc.workingWithADW')}</span>
+                      <span>{t('rules.toc.workingWithAD')}</span>
                     </button>
                   </li>
                   <li>
@@ -229,60 +229,60 @@ function RulesPage({ onNavigate }) {
                 </p>
               </section>
 
-              {/* 3. Working with ADW Section */}
+              {/* 3. Working with AD Section */}
               <section id="working-with-adw" className="rules-section">
                 <div className="section-header-fancy">
                   <span className="section-icon">💻</span>
-                  <h2 className="rules-section-title">{t('rules.workingWithADW.title')}</h2>
+                  <h2 className="rules-section-title">{t('rules.workingWithAD.title')}</h2>
                 </div>
-                <p className="rules-intro">{t('rules.workingWithADW.intro')}</p>
+                <p className="rules-intro">{t('rules.workingWithAD.intro')}</p>
 
                 {/* Phases with Prompts */}
                 {['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'].map((phase) => (
                   <div key={phase} style={{marginTop: '3rem', padding: '2rem', background: 'var(--bg-white)', border: '2px solid var(--border-color)', borderRadius: 'var(--radius-lg)'}}>
-                    <h3 style={{marginTop: 0, color: 'var(--color-primary)'}}>{t(`rules.workingWithADW.phases.${phase}.name`)}</h3>
-                    <p style={{fontWeight: 600, marginBottom: '1rem'}}>🎯 {t(`rules.workingWithADW.phases.${phase}.goal`)}</p>
+                    <h3 style={{marginTop: 0, color: 'var(--color-primary)'}}>{t(`rules.workingWithAD.phases.${phase}.name`)}</h3>
+                    <p style={{fontWeight: 600, marginBottom: '1rem'}}>🎯 {t(`rules.workingWithAD.phases.${phase}.goal`)}</p>
                     
                     <h4 style={{marginTop: '1.5rem', marginBottom: '0.5rem'}}>Prompt para tu IA:</h4>
                     <div style={{background: '#f0f4ff', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--color-primary)'}}>
                       <pre style={{whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0, fontSize: '0.95rem'}}>
-                        {formatCode(t(`rules.workingWithADW.phases.${phase}.prompt`))}
+                        {formatCode(t(`rules.workingWithAD.phases.${phase}.prompt`))}
                       </pre>
                     </div>
 
                     <div style={{marginTop: '1rem', display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
                       <div style={{flex: 1, minWidth: '200px'}}>
                         <strong>Entregables:</strong>
-                        <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem'}}>{t(`rules.workingWithADW.phases.${phase}.deliverables`)}</p>
+                        <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem'}}>{t(`rules.workingWithAD.phases.${phase}.deliverables`)}</p>
                       </div>
                       <div style={{flex: 1, minWidth: '200px'}}>
                         <strong>Exit Criteria:</strong>
-                        <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem'}}>{t(`rules.workingWithADW.phases.${phase}.exit`)}</p>
+                        <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem'}}>{t(`rules.workingWithAD.phases.${phase}.exit`)}</p>
                       </div>
                     </div>
                   </div>
                 ))}
 
                 {/* Common Commands */}
-                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.workingWithADW.commonCommands.title')}</h3>
+                <h3 className="subsection-title" style={{marginTop: '3rem'}}>{t('rules.workingWithAD.commonCommands.title')}</h3>
                 <ul style={{listStyle: 'none', padding: 0, marginTop: '1rem'}}>
                   <li style={{padding: '0.75rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)', marginBottom: '0.5rem'}}>
-                    <code>{t('rules.workingWithADW.commonCommands.status')}</code>
+                    <code>{t('rules.workingWithAD.commonCommands.status')}</code>
                   </li>
                   <li style={{padding: '0.75rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)', marginBottom: '0.5rem'}}>
-                    <code>{t('rules.workingWithADW.commonCommands.log')}</code>
+                    <code>{t('rules.workingWithAD.commonCommands.log')}</code>
                   </li>
                   <li style={{padding: '0.75rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)', marginBottom: '0.5rem'}}>
-                    <code>{t('rules.workingWithADW.commonCommands.journal')}</code>
+                    <code>{t('rules.workingWithAD.commonCommands.journal')}</code>
                   </li>
                   <li style={{padding: '0.75rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)', marginBottom: '0.5rem'}}>
-                    <code>{t('rules.workingWithADW.commonCommands.version')}</code>
+                    <code>{t('rules.workingWithAD.commonCommands.version')}</code>
                   </li>
                   <li style={{padding: '0.75rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)', marginBottom: '0.5rem'}}>
-                    <code>{t('rules.workingWithADW.commonCommands.commit')}</code>
+                    <code>{t('rules.workingWithAD.commonCommands.commit')}</code>
                   </li>
                   <li style={{padding: '0.75rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)', marginBottom: '0.5rem'}}>
-                    <code>{t('rules.workingWithADW.commonCommands.tag')}</code>
+                    <code>{t('rules.workingWithAD.commonCommands.tag')}</code>
                   </li>
                 </ul>
               </section>
@@ -331,16 +331,207 @@ function RulesPage({ onNavigate }) {
                 </div>
               </section>
 
-              {/* 5. Detailed Documentation - Placeholder for now */}
+              {/* 5. Detailed Documentation */}
               <section id="detailed" className="rules-section">
                 <div className="section-header-fancy">
                   <span className="section-icon">📚</span>
                   <h2 className="rules-section-title">{t('rules.detailed.title')}</h2>
                 </div>
                 <p className="rules-intro">{t('rules.detailed.intro')}</p>
-                <p className="rules-intro" style={{marginTop: '1rem', padding: '1rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-md)'}}>
-                  🚧 Esta sección contendrá toda la documentación detallada (13 Principios explicados, 10 Fases con ejemplos, Configuraciones avanzadas, etc.). En desarrollo.
-                </p>
+
+                {/* Internal TOC for Detailed section */}
+                <div style={{background: 'var(--bg-light)', padding: '1.5rem', borderRadius: 'var(--radius-md)', marginTop: '2rem'}}>
+                  <h3 style={{marginTop: 0, marginBottom: '1rem'}}>{t('rules.detailed.toc.title')}</h3>
+                  <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '0.5rem'}}>
+                    {['principles', 'phases', 'versioning', 'gitCommits', 'projectStructure', 'projectConfig', 'multiAgent', 'documentation', 'journal', 'decisions', 'contracts', 'aiWorkflow', 'exitCriteria', 'troubleshooting'].map((section) => (
+                      <li key={section}>
+                        <button
+                          onClick={() => scrollToSection(`detailed-${section}`)}
+                          style={{background: 'none', border: 'none', color: 'var(--color-primary)', cursor: 'pointer', textAlign: 'left', padding: '0.25rem 0', fontSize: '0.95rem'}}
+                        >
+                          → {t(`rules.detailed.toc.${section}`)}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* 13 Principles Detailed */}
+                <div id="detailed-principles" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>⚡ {t('principles.title')}</h2>
+                  <p className="rules-intro">{t('principles.intro')}</p>
+                  <div className="rules-grid-cards" style={{marginTop: '2rem'}}>
+                    {Array.from({ length: 13 }, (_, i) => i + 1).map((num) => (
+                      <div key={num} className="rule-card">
+                        <div className="rule-card-header">
+                          <h3 className="rule-card-title">{t(`principles.items.${num}.title`)}</h3>
+                        </div>
+                        <p className="rule-card-desc">{t(`principles.items.${num}.desc`)}</p>
+                        <p className="rule-card-detail">{t(`principles.items.${num}.detail`)}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 10 Phases Detailed */}
+                <div id="detailed-phases" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>🎯 {t('phases.title')}</h2>
+                  <p className="rules-intro">{t('phases.intro')}</p>
+                  
+                  <div className="phases-timeline" style={{marginTop: '2rem'}}>
+                    {['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'].map((phase, index) => (
+                      <div key={phase} style={{marginBottom: '3rem', padding: '2rem', background: 'var(--bg-white)', border: '2px solid var(--border-color)', borderRadius: 'var(--radius-lg)'}}>
+                        <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem'}}>
+                          <span style={{fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)'}}>0.{index}</span>
+                          <h3 style={{margin: 0}}>{t(`phases.${phase}.name`)}</h3>
+                        </div>
+                        <p style={{fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem'}}>{t(`phases.${phase}.description`)}</p>
+                        
+                        <h4 style={{marginTop: '1.5rem', marginBottom: '0.5rem'}}>Ejemplos por Dominio:</h4>
+                        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem'}}>
+                          {['software', 'book', 'marketing', 'event', 'product'].map((domain) => (
+                            <div key={domain} style={{padding: '1rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)'}}>
+                              <strong style={{textTransform: 'capitalize'}}>{domain}:</strong>
+                              <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem'}}>{t(`phases.${phase}.examples.${domain}`)}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Versioning Detailed */}
+                <div id="detailed-versioning" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>🔖 {t('rules.versioning.title')}</h2>
+                  <p className="rules-intro">{t('rules.versioning.intro')}</p>
+                  
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.versioning.prerelease.title')}</h3>
+                  <p className="rules-intro">{t('rules.versioning.prerelease.desc')}</p>
+                  <div className="code-block" style={{marginTop: '1rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.versioning.prerelease.example'))}
+                    </code></pre>
+                  </div>
+
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.versioning.release.title')}</h3>
+                  <p className="rules-intro">{t('rules.versioning.release.desc')}</p>
+                  <div className="code-block" style={{marginTop: '1rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.versioning.release.example'))}
+                    </code></pre>
+                  </div>
+                </div>
+
+                {/* Git Commits Detailed */}
+                <div id="detailed-gitCommits" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>💾 {t('rules.gitCommits.title')}</h2>
+                  <p className="rules-intro">{t('rules.gitCommits.intro')}</p>
+                  
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.gitCommits.format.title')}</h3>
+                  <p className="rules-intro">{t('rules.gitCommits.format.desc')}</p>
+                  <div className="code-block" style={{marginTop: '1rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.gitCommits.format.example'))}
+                    </code></pre>
+                  </div>
+
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.gitCommits.types.title')}</h3>
+                  <p className="rules-intro">{t('rules.gitCommits.types.desc')}</p>
+                </div>
+
+                {/* Project Structure Detailed */}
+                <div id="detailed-projectStructure" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>📁 {t('rules.projectStructure.title')}</h2>
+                  <p className="rules-intro">{t('rules.projectStructure.intro')}</p>
+                  <div className="code-block" style={{marginTop: '1rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.projectStructure.example'))}
+                    </code></pre>
+                  </div>
+
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.projectStructure.files.title')}</h3>
+                  <ul style={{marginLeft: '1.5rem', marginTop: '1rem', lineHeight: '1.8'}}>
+                    <li><strong>README.md:</strong> {t('rules.projectStructure.files.readme')}</li>
+                    <li><strong>adw.yaml:</strong> {t('rules.projectStructure.files.adw')}</li>
+                    <li><strong>docs/journal.md:</strong> {t('rules.projectStructure.files.journal')}</li>
+                    <li><strong>src/:</strong> {t('rules.projectStructure.files.src')}</li>
+                    <li><strong>tests/:</strong> {t('rules.projectStructure.files.tests')}</li>
+                  </ul>
+                </div>
+
+                {/* Project Config Detailed */}
+                <div id="detailed-projectConfig" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>⚙️ {t('rules.projectConfig.title')}</h2>
+                  <p className="rules-intro">{t('rules.projectConfig.intro')}</p>
+
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.projectConfig.when.title')}</h3>
+                  <ul style={{marginLeft: '1.5rem', marginTop: '1rem', lineHeight: '1.8'}}>
+                    <li>{t('rules.projectConfig.when.solo')}</li>
+                    <li>{t('rules.projectConfig.when.multi')}</li>
+                  </ul>
+
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.projectConfig.specification.title')}</h3>
+                  <p className="rules-intro">{t('rules.projectConfig.specification.intro')}</p>
+                  <div className="code-block" style={{marginTop: '1rem'}}>
+                    <pre><code style={{whiteSpace: 'pre-wrap'}}>
+                      {formatCode(t('rules.projectConfig.specification.schema'))}
+                    </code></pre>
+                  </div>
+
+                  <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.projectConfig.domainField.title')}</h3>
+                  <p className="rules-intro">{t('rules.projectConfig.domainField.desc')}</p>
+                  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem'}}>
+                    {['software', 'book', 'marketing', 'event', 'product', 'research', 'course', 'game'].map((domain) => (
+                      <div key={domain} style={{padding: '1rem', background: 'var(--bg-light)', borderRadius: 'var(--radius-sm)'}}>
+                        <code style={{fontWeight: 'bold'}}>{domain}</code>
+                        <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem'}}>{t(`rules.projectConfig.domainField.values.${domain}`)}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Rest of sections with similar structure... */}
+                <div id="detailed-multiAgent" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>🤝 {t('rules.multiAgent.title')}</h2>
+                  <p className="rules-intro">{t('rules.multiAgent.intro')}</p>
+                </div>
+
+                <div id="detailed-documentation" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>📚 {t('rules.documentation.title')}</h2>
+                  <p className="rules-intro">{t('rules.documentation.intro')}</p>
+                </div>
+
+                <div id="detailed-journal" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>📓 {t('rules.journal.title')}</h2>
+                  <p className="rules-intro">{t('rules.journal.intro')}</p>
+                </div>
+
+                <div id="detailed-decisions" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>⚖️ {t('rules.decisions.title')}</h2>
+                  <p className="rules-intro">{t('rules.decisions.intro')}</p>
+                </div>
+
+                <div id="detailed-contracts" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>📋 {t('rules.contracts.title')}</h2>
+                  <p className="rules-intro">{t('rules.contracts.intro')}</p>
+                </div>
+
+                <div id="detailed-aiWorkflow" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>🤖 {t('rules.aiWorkflow.title')}</h2>
+                  <p className="rules-intro">{t('rules.aiWorkflow.intro')}</p>
+                </div>
+
+                <div id="detailed-exitCriteria" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>🎯 {t('rules.exitCriteria.title')}</h2>
+                  <p className="rules-intro">{t('rules.exitCriteria.intro')}</p>
+                </div>
+
+                <div id="detailed-troubleshooting" style={{marginTop: '4rem'}}>
+                  <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>🔧 {t('rules.troubleshooting.title')}</h2>
+                  <p className="rules-intro">{t('rules.troubleshooting.intro')}</p>
+                </div>
+
               </section>
 
             </main>

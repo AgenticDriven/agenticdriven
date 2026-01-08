@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "Agentic Driven Workflow",
+    "title": "Agentic Driven",
     "version": "1.0",
     "subtitle": "La primera metodología nativa de IA para desarrollo estructurado",
     "badge": "Ya Disponible",
@@ -21,9 +21,9 @@
   "what": {
     "title": "¿Qué es Agentic Driven?",
     "subtitle": "Una metodología estructurada diseñada específicamente para la colaboración con agentes de IA",
-    "lead": "<strong>Agentic Driven Workflow (ADW)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>13 principios</strong> y <strong>10 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
-    "p1": "Las metodologías tradicionales como Agile y Waterfall no fueron diseñadas para la colaboración con IA. Asumen que los humanos escriben código y toman cada decisión. ADW cambia esto: <strong>los humanos definen la estrategia, la IA ejecuta</strong>.",
-    "p2": "Ya sea que estés construyendo una aplicación con Cursor, escribiendo un libro con Claude o gestionando un proyecto con Copilot, ADW te da el marco para trabajar eficazmente con agentes de IA.",
+    "lead": "<strong>Agentic Driven (AD)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>13 principios</strong> y <strong>10 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
+    "p1": "Las metodologías tradicionales como Agile y Waterfall no fueron diseñadas para la colaboración con IA. Asumen que los humanos escriben código y toman cada decisión. AD cambia esto: <strong>los humanos definen la estrategia, la IA ejecuta</strong>.",
+    "p2": "Ya sea que estés construyendo una aplicación con Cursor, escribiendo un libro con Claude o gestionando un proyecto con Copilot, AD te da el marco para trabajar eficazmente con agentes de IA.",
     "features": {
       "phases": {
         "title": "Fases Claras",
@@ -87,7 +87,7 @@
       },
       "collaboration": {
         "title": "Mejor Colaboración con IA",
-        "desc": "Los agentes de IA funcionan mejor con estructura. ADW proporciona el marco para un trabajo en equipo efectivo entre humanos e IA en cualquier proyecto."
+        "desc": "Los agentes de IA funcionan mejor con estructura. AD proporciona el marco para un trabajo en equipo efectivo entre humanos e IA en cualquier proyecto."
       },
       "documentation": {
         "title": "Documentación Integrada",
@@ -95,7 +95,7 @@
       },
       "universal": {
         "title": "Aplicación Universal",
-        "desc": "No solo para software. Usa ADW para creación de contenido, campañas de marketing, planificación de eventos, investigación y más."
+        "desc": "No solo para software. Usa AD para creación de contenido, campañas de marketing, planificación de eventos, investigación y más."
       },
       "quality": {
         "title": "Enfoque en la Calidad",
@@ -103,13 +103,13 @@
       },
       "iterative": {
         "title": "Progreso Iterativo",
-        "desc": "Mejora dentro de las fases, documenta cuando retrocedas. El progreso real no es lineal, y ADW lo reconoce."
+        "desc": "Mejora dentro de las fases, documenta cuando retrocedas. El progreso real no es lineal, y AD lo reconoce."
       }
     }
   },
   "gitFlow": {
     "title": "Commits Continuos: Claridad Total",
-    "subtitle": "Con ADW, cada cambio queda registrado y nada se pierde",
+    "subtitle": "Con AD, cada cambio queda registrado y nada se pierde",
     "intro": "Los commits continuos no son solo buenas prácticas: son la base para mantener claridad total en proyectos colaborativos con IA.",
     "items": {
       "noLoss": {
@@ -133,7 +133,7 @@
   "principles": {
     "title": "13 Principios Fundamentales",
     "subtitle": "La base de una colaboración efectiva con IA",
-    "intro": "Estos principios son la columna vertebral de ADW. Cada uno aborda un aspecto específico del trabajo con agentes de IA, desde cómo documentar hasta cómo estructurar el código y gestionar cambios.",
+    "intro": "Estos principios son la columna vertebral de AD. Cada uno aborda un aspecto específico del trabajo con agentes de IA, desde cómo documentar hasta cómo estructurar el código y gestionar cambios.",
     "items": {
       "1": {
         "title": "Impulsado por Agentes",
@@ -205,7 +205,7 @@
   "workflow": {
     "title": "Flujo de Trabajo: 10 Fases",
     "subtitle": "Haz clic en cualquier fase para ver detalles",
-    "intro": "ADW estructura el desarrollo en 10 fases secuenciales. Cada fase tiene objetivos claros, entregables específicos y criterios de salida. No puedes avanzar hasta completar la fase actual. Esto garantiza que cada aspecto del proyecto reciba la atención necesaria.",
+    "intro": "AD estructura el desarrollo en 10 fases secuenciales. Cada fase tiene objetivos claros, entregables específicos y criterios de salida. No puedes avanzar hasta completar la fase actual. Esto garantiza que cada aspecto del proyecto reciba la atención necesaria.",
     "legend": {
       "completed": "Completada",
       "current": "Actual",
@@ -375,7 +375,7 @@
     }
   },
   "rules": {
-    "title": "Metodología Completa ADW 1.0",
+    "title": "Metodología Completa AD 1.0",
     "subtitle": "La guía definitiva para trabajar con agentes de IA",
     "backToHome": "Volver al Inicio",
     "backToTop": "Volver Arriba",
@@ -383,13 +383,13 @@
       "title": "Contenido",
       "installation": "1. Instalar Configuración IDE",
       "quickStart": "2. Inicio Rápido",
-      "workingWithADW": "3. Trabajar con ADW",
+      "workingWithAD": "3. Trabajar con AD",
       "reference": "Referencia Rápida",
       "detailed": "Documentación Detallada"
     },
     "installation": {
       "title": "1. Instala la Configuración de tu IDE",
-      "intro": "Primero, descarga la configuración preconfigurada para tu IDE favorito. Esto hace que tu asistente de IA siga automáticamente la metodología ADW.",
+      "intro": "Primero, descarga la configuración preconfigurada para tu IDE favorito. Esto hace que tu asistente de IA siga automáticamente la metodología AD.",
       "chooseIDE": "Elige tu IDE:",
       "ides": {
         "cursor": {
@@ -400,8 +400,8 @@
         },
         "claude": {
           "name": "Claude Code",
-          "file": ".clauderc",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.clauderc -o .clauderc",
+          "file": "claude.md",
+          "command": "curl -sSL https://agenticdriven.dev/rules/ide/claude.md -o claude.md",
           "desc": "CLI oficial de Anthropic"
         },
         "windsurf": {
@@ -434,11 +434,11 @@
       "quickExample": "# Ejemplo para Cursor\\ncurl -sSL https://agenticdriven.dev/download.sh | bash -s cursor",
       "manualDownload": "Descarga Manual",
       "manualLink": "https://github.com/agenticdriven/adw/tree/main/src/rules/ide",
-      "afterInstall": "Después de instalar: Reinicia tu IDE y tu asistente de IA seguirá automáticamente ADW."
+      "afterInstall": "Después de instalar: Reinicia tu IDE y tu asistente de IA seguirá automáticamente AD."
     },
     "quickStart": {
-      "title": "2. Inicio Rápido: Tu Primer Proyecto ADW",
-      "intro": "Crea tu primer proyecto ADW en 5 pasos. Copia y pega cada comando.",
+      "title": "2. Inicio Rápido: Tu Primer Proyecto AD",
+      "intro": "Crea tu primer proyecto AD en 5 pasos. Copia y pega cada comando.",
       "step1": {
         "title": "Paso 1: Crea el proyecto",
         "commands": "mkdir mi-proyecto\\ncd mi-proyecto\\ngit init"
@@ -454,8 +454,8 @@
       "step4": {
         "title": "Paso 4: Define el problema",
         "prompt": "Prompt para tu IA:",
-        "promptText": "Estoy iniciando un proyecto ADW. Estamos en fase DEFINE (v0.0.x). \\n\\nAyúdame a crear los siguientes documentos en docs/:\\n- problem-statement.md: [explica qué problema resuelves]\\n- objectives.md: [qué quieres lograr]\\n- scope.md: [qué incluyes y qué no]\\n\\nCuando terminemos, haz commit con: 'docs: define problem and objectives'",
-        "note": "Tu IA creará los documentos siguiendo ADW automáticamente."
+        "promptText": "Estoy iniciando un proyecto AD. Estamos en fase DEFINE (v0.0.x). \\n\\nAyúdame a crear los siguientes documentos en docs/:\\n- problem-statement.md: [explica qué problema resuelves]\\n- objectives.md: [qué quieres lograr]\\n- scope.md: [qué incluyes y qué no]\\n\\nCuando terminemos, haz commit con: 'docs: define problem and objectives'",
+        "note": "Tu IA creará los documentos siguiendo AD automáticamente."
       },
       "step5": {
         "title": "Paso 5: Completa DEFINE y avanza",
@@ -463,10 +463,10 @@
         "promptText": "Hemos completado la fase DEFINE. \\n\\nVerifica que tenemos:\\n- problem-statement.md ✓\\n- objectives.md ✓\\n- scope.md ✓\\n\\nHaz commit de completar DEFINE y avanza a DISCOVER (v0.1.0).",
         "commands": "# Tu IA hará estos commits:\\ngit commit -m \"chore: complete DEFINE (v0.1.0)\"\\ngit tag v0.1.0"
       },
-      "done": "¡Listo! Ya tienes un proyecto ADW funcionando. Ahora lee la sección 3 para trabajar en cada fase."
+      "done": "¡Listo! Ya tienes un proyecto AD funcionando. Ahora lee la sección 3 para trabajar en cada fase."
     },
-    "workingWithADW": {
-      "title": "3. Trabajar con ADW: Prompts por Fase",
+    "workingWithAD": {
+      "title": "3. Trabajar con AD: Prompts por Fase",
       "intro": "Usa estos prompts con tu IA para trabajar en cada fase. Cópialos y adapta según tu proyecto.",
       "phases": {
         "define": {
@@ -552,7 +552,7 @@
     },
     "reference": {
       "title": "Referencia Rápida",
-      "intro": "Resumen de los conceptos clave de ADW para consulta rápida.",
+      "intro": "Resumen de los conceptos clave de AD para consulta rápida.",
       "principles": {
         "title": "13 Principios (Resumen)",
         "list": "1. Agent-Driven: Humanos estrategia, IA ejecución\\n2. Documentation-First: Documenta antes, durante, después\\n3. Phased: 10 fases secuenciales\\n4. Validation-Driven: Valida antes y después\\n5. Iterative: Mejora dentro de fases\\n6. Traceable: Todo en git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: Sin magic numbers, definir todo\\n10. Single Responsibility: Un propósito por componente\\n11. Contract-Driven: Define specs antes de implementar\\n12. Test-First: Define éxito antes de empezar\\n13. Proven Solutions: Usa patrones establecidos"
@@ -576,10 +576,27 @@
     },
     "detailed": {
       "title": "Documentación Detallada",
-      "intro": "Explicaciones completas de todos los conceptos, reglas y mejores prácticas de ADW."
+      "intro": "Explicaciones completas de todos los conceptos, reglas y mejores prácticas de AD.",
+      "toc": {
+        "title": "En esta sección:",
+        "principles": "13 Principios Explicados",
+        "phases": "10 Fases con Ejemplos",
+        "versioning": "Versionado Detallado",
+        "gitCommits": "Git Commits",
+        "projectStructure": "Estructura del Proyecto",
+        "projectConfig": "Configuración ad.yaml",
+        "multiAgent": "Multi-Agente",
+        "documentation": "Documentación",
+        "journal": "Journal",
+        "decisions": "Decisiones (ADR)",
+        "contracts": "Contratos",
+        "aiWorkflow": "Flujo de Trabajo IA",
+        "exitCriteria": "Criterios de Salida",
+        "troubleshooting": "Solución de Problemas"
+      }
     },
     "gettingStarted": {
-      "title": "Cómo Empezar un Proyecto ADW",
+      "title": "Cómo Empezar un Proyecto AD",
       "step1": {
         "title": "1. Crea el proyecto",
         "commands": "mkdir my-project\\ncd my-project\\ngit init"
@@ -608,8 +625,8 @@
       "multiAgent": {
         "title": "Para Multi-Agente",
         "desc": "Si múltiples personas/IAs trabajarán en paralelo:",
-        "commands": "# Crea adw.yaml en la raíz\\necho 'domain: \"software\"' > adw.yaml\\necho '' >> adw.yaml\\necho 'agents:' >> adw.yaml\\necho '  - id: \"backend\"' >> adw.yaml\\necho '    context: [\"src/backend/\"]' >> adw.yaml\\necho '  - id: \"frontend\"' >> adw.yaml\\necho '    context: [\"src/frontend/\"]' >> adw.yaml",
-        "commit": "git add adw.yaml\\ngit commit -m \"chore: configure multi-agent\""
+        "commands": "# Crea ad.yaml en la raíz\\necho 'domain: \"software\"' > ad.yaml\\necho '' >> ad.yaml\\necho 'agents:' >> ad.yaml\\necho '  - id: \"backend\"' >> ad.yaml\\necho '    context: [\"src/backend/\"]' >> ad.yaml\\necho '  - id: \"frontend\"' >> ad.yaml\\necho '    context: [\"src/frontend/\"]' >> ad.yaml",
+        "commit": "git add ad.yaml\\ngit commit -m \"chore: configure multi-agent\""
       },
       "tips": {
         "title": "Tips",
@@ -617,12 +634,12 @@
         "2": "Actualiza docs/journal.md diariamente",
         "3": "No saltes fases - son secuenciales",
         "4": "Valida antes de avanzar (exit criteria)",
-        "5": "Las tags son opcionales en ADW 1.0"
+        "5": "Las tags son opcionales en AD 1.0"
       }
     },
     "versioning": {
       "title": "Versionado Semántico",
-      "intro": "ADW utiliza versionado semántico (semver) con un esquema específico para las fases pre-lanzamiento.",
+      "intro": "AD utiliza versionado semántico (semver) con un esquema específico para las fases pre-lanzamiento.",
       "prerelease": {
         "title": "Pre-lanzamiento (v0.x.x)",
         "desc": "Durante las 10 fases, el formato es v0.FASE.ITERACION. Por ejemplo, v0.4.15 significa fase BUILD, iteración 15.",
@@ -636,7 +653,7 @@
     },
     "gitCommits": {
       "title": "Commits Git",
-      "intro": "ADW utiliza Conventional Commits para mensajes de commit claros y consistentes. Cada commit debe ser atómico: un cambio lógico por commit.",
+      "intro": "AD utiliza Conventional Commits para mensajes de commit claros y consistentes. Cada commit debe ser atómico: un cambio lógico por commit.",
       "format": {
         "title": "Formato",
         "desc": "Cada commit sigue el formato: <tipo>: <descripción>. La descripción debe ser clara y comenzar con minúscula.",
@@ -649,8 +666,8 @@
     },
     "projectStructure": {
       "title": "Estructura del Proyecto",
-      "intro": "ADW recomienda una estructura de proyecto clara y consistente. Esta estructura se adapta según el dominio (software, contenido, eventos, etc.).",
-      "example": "project-root/\\n├── README.md\\n├── adw.yaml          # Opcional, multi-agente\\n├── docs/\\n│   ├── journal.md\\n│   └── ...\\n├── src/              # Adaptar por dominio\\n├── tests/            # Adaptar por dominio\\n└── ...",
+      "intro": "AD recomienda una estructura de proyecto clara y consistente. Esta estructura se adapta según el dominio (software, contenido, eventos, etc.).",
+      "example": "project-root/\\n├── README.md\\n├── ad.yaml          # Opcional, multi-agente\\n├── docs/\\n│   ├── journal.md\\n│   └── ...\\n├── src/              # Adaptar por dominio\\n├── tests/            # Adaptar por dominio\\n└── ...",
       "files": {
         "title": "Archivos Clave",
         "readme": "Visión general del proyecto, cómo empezar, información esencial.",
@@ -661,10 +678,10 @@
       }
     },
     "projectConfig": {
-      "title": "Configuración del Proyecto (adw.yaml)",
-      "intro": "El archivo adw.yaml define la configuración del proyecto ADW. Es OPCIONAL para proyectos solo y REQUERIDO para proyectos multi-agente. Se coloca en la raíz del proyecto.",
+      "title": "Configuración del Proyecto (ad.yaml)",
+      "intro": "El archivo ad.yaml define la configuración del proyecto AD. Es OPCIONAL para proyectos solo y REQUERIDO para proyectos multi-agente. Se coloca en la raíz del proyecto.",
       "when": {
-        "title": "¿Cuándo usar adw.yaml?",
+        "title": "¿Cuándo usar ad.yaml?",
         "solo": "Proyecto Solo: OPCIONAL. Solo si quieres que la IA adapte su lenguaje al dominio.",
         "multi": "Multi-Agente: REQUERIDO. Define límites de contexto para prevenir conflictos."
       },
@@ -681,8 +698,8 @@
       },
       "specification": {
         "title": "Especificación Completa del Schema",
-        "intro": "El archivo adw.yaml tiene SOLO 2 campos posibles. Es un formato simple y claro:",
-        "schema": "# Schema completo de adw.yaml\\n\\ndomain: string              # REQUERIDO\\nagents: array<Agent>        # OPCIONAL (requerido para multi-agente)\\n\\n# Estructura de Agent:\\nAgent {\\n  id: string               # REQUERIDO: identificador único\\n  context: array<string>   # REQUERIDO: directorios donde trabaja\\n}"
+        "intro": "El archivo ad.yaml tiene SOLO 2 campos posibles. Es un formato simple y claro:",
+        "schema": "# Schema completo de ad.yaml\\n\\ndomain: string              # REQUERIDO\\nagents: array<Agent>        # OPCIONAL (requerido para multi-agente)\\n\\n# Estructura de Agent:\\nAgent {\\n  id: string               # REQUERIDO: identificador único\\n  context: array<string>   # REQUERIDO: directorios donde trabaja\\n}"
       },
       "domainField": {
         "title": "Campo: domain (string, REQUERIDO)",
@@ -772,14 +789,14 @@
         "title": "Reglas Importantes",
         "1": "Un agente NO debe modificar archivos fuera de su context",
         "2": "Los contexts NO deben solaparse entre agentes",
-        "3": "El archivo adw.yaml va en la raíz del proyecto",
+        "3": "El archivo ad.yaml va en la raíz del proyecto",
         "4": "Usa kebab-case para IDs de agentes: backend-api, frontend-web",
         "5": "Los paths en context siempre terminan en / para indicar directorios"
       }
     },
     "multiAgent": {
       "title": "Coordinación Multi-Agente",
-      "intro": "ADW soporta múltiples agentes trabajando en paralelo en el mismo proyecto. La clave es coordinación clara y límites de contexto bien definidos.",
+      "intro": "AD soporta múltiples agentes trabajando en paralelo en el mismo proyecto. La clave es coordinación clara y límites de contexto bien definidos.",
       "principles": {
         "1": {
           "title": "Fases Secuenciales, Trabajo Paralelo",
@@ -799,7 +816,7 @@
         "4": {
           "title": "Límites de Contexto Claros",
           "desc": "Cada agente tiene directorios específicos",
-          "detail": "Usar adw.yaml para definir qué agente trabaja en qué directorios. Esto previene conflictos de merge y mantiene la responsabilidad clara."
+          "detail": "Usar ad.yaml para definir qué agente trabaja en qué directorios. Esto previene conflictos de merge y mantiene la responsabilidad clara."
         }
       },
       "coordination": {
@@ -823,7 +840,7 @@
     },
     "documentation": {
       "title": "Documentación",
-      "intro": "ADW es documentación-primero. Documenta antes, durante y después. La documentación no es opcional, está integrada en cada fase.",
+      "intro": "AD es documentación-primero. Documenta antes, durante y después. La documentación no es opcional, está integrada en cada fase.",
       "principle": "Documento antes, durante y después de cada tarea",
       "byPhase": {
         "title": "Documentación Requerida por Fase",
@@ -954,17 +971,17 @@
     },
     "aiWorkflow": {
       "title": "Flujo de Trabajo IA",
-      "intro": "Cómo los agentes de IA deben trabajar dentro de la metodología ADW.",
+      "intro": "Cómo los agentes de IA deben trabajar dentro de la metodología AD.",
       "sessionStart": {
         "title": "Inicio de Sesión (9 pasos)",
         "1": "Git status: git status",
-        "2": "Config: cat adw.yaml 2>/dev/null (si existe)",
+        "2": "Config: cat ad.yaml 2>/dev/null (si existe)",
         "3": "README: cat README.md",
         "4": "Phase: git describe --tags --abbrev=0 (última tag = fase actual)",
         "5": "Phase docs: cat docs/journal.md + docs específicos de fase",
         "6": "Contracts: cat docs/interfaces.md (si BUILD/VALIDATE)",
         "7": "Recent commits: git log -5 --oneline",
-        "8": "Role: Verificar adw.yaml para contexto de agente (si multi-agente)",
+        "8": "Role: Verificar ad.yaml para contexto de agente (si multi-agente)",
         "9": "Ask: Listo para trabajar"
       },
       "duringWork": {
@@ -979,7 +996,7 @@
       },
       "multiAgent": {
         "title": "Multi-Agente",
-        "desc": "Si adw.yaml tiene agents:",
+        "desc": "Si ad.yaml tiene agents:",
         "1": "Identificar tu agent ID",
         "2": "Permanecer en directorios de contexto",
         "3": "Leer contratos antes de implementar",
@@ -1112,7 +1129,7 @@
     },
     "download": {
       "title": "Descarga las Reglas",
-      "desc": "Descarga las configuraciones IDE pre-configuradas para empezar a usar ADW inmediatamente en tu editor favorito.",
+      "desc": "Descarga las configuraciones IDE pre-configuradas para empezar a usar AD inmediatamente en tu editor favorito.",
       "getIDEConfigs": "Obtener Configuraciones IDE",
       "viewGitHub": "Ver en GitHub"
     }
@@ -1130,7 +1147,7 @@
     "items": {
       "fullRules": {
         "title": "Metodología Completa",
-        "desc": "Todos los principios, fases y reglas explicados en detalle. La guía completa de ADW 1.0.",
+        "desc": "Todos los principios, fases y reglas explicados en detalle. La guía completa de AD 1.0.",
         "link": "Ver Metodología →"
       },
       "docs": {
@@ -1140,23 +1157,23 @@
       },
       "community": {
         "title": "Comunidad",
-        "desc": "Únete a las discusiones, comparte experiencias y obtén ayuda de la comunidad ADW.",
+        "desc": "Únete a las discusiones, comparte experiencias y obtén ayuda de la comunidad AD.",
         "link": "Unirse a Discusiones →"
       },
       "books": {
         "title": "Libros",
-        "desc": "Guías completas sobre la metodología ADW, mejores prácticas y ejemplos del mundo real.",
+        "desc": "Guías completas sobre la metodología AD, mejores prácticas y ejemplos del mundo real.",
         "comingSoon": "Próximamente"
       },
       "courses": {
         "title": "Cursos",
-        "desc": "Cursos en video paso a paso que te enseñan cómo implementar ADW en tus proyectos.",
+        "desc": "Cursos en video paso a paso que te enseñan cómo implementar AD en tus proyectos.",
         "comingSoon": "Próximamente"
       }
     }
   },
   "footer": {
-    "title": "ADW 1.0",
+    "title": "AD 1.0",
     "subtitle": "Agentic Driven Workflow",
     "tagline": "Construido para la era de la IA",
     "sections": {
@@ -1177,7 +1194,7 @@
       }
     },
     "copyright": "© 2026 Agentic Driven Workflow. Código Abierto bajo Licencia MIT.",
-    "built": "Construido usando ADW 1.0 mismo (dogfooding desde el primer día)"
+    "built": "Construido usando AD 1.0 mismo (dogfooding desde el primer día)"
   },
   "modal": {
     "close": "Cerrar",

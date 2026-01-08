@@ -64,12 +64,12 @@ ADD 1.0 is a **documentation-driven methodology** delivered through:
 
 **Process**:
 ```bash
-Source Rules (*.md) → Concatenate → IDE Configs (.cursorrules, .clauderc, etc.)
+Source Rules (*.md) → Concatenate → IDE Configs (.cursorrules, claude.md, etc.)
 ```
 
 **Supported IDEs**:
 - Cursor → `.cursorrules`
-- Claude Code → `.clauderc`
+- Claude Code → `claude.md`
 - Windsurf → `.windsurfrules`
 - GitHub Copilot → `.github/copilot-instructions.md`
 - Aider → `.aider.conf.yml` + `.aider-rules.md`

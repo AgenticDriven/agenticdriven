@@ -49,7 +49,7 @@ src/rules/versioning.md
 
 **Generated Configs**:
 - `.cursorrules` (13,641 bytes)
-- `.clauderc` (13,641 bytes)
+- `claude.md` (13,641 bytes)
 - `.windsurfrules` (13,641 bytes)
 - `.github/copilot-instructions.md` (13,641 bytes)
 - `.aider.conf.yml` (906 bytes) + `.aider-rules.md` (13,641 bytes)

@@ -12,7 +12,7 @@
 
 ### IDE Integrations
 - ✅ Cursor (.cursorrules)
-- ✅ Claude Code (.clauderc)
+- ✅ Claude Code (claude.md)
 - ✅ Windsurf (.windsurfrules)
 - ✅ GitHub Copilot (.github/copilot-instructions.md)
 - ✅ Aider (.aider.conf.yml + .aider-rules.md)

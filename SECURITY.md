@@ -34,7 +34,7 @@ If you discover a security vulnerability in ADD 1.0, please report it by:
 When using ADD 1.0:
 
 1. **Never commit secrets**: Don't commit API keys, passwords, tokens to `docs/` or anywhere
-2. **Review IDE configs**: Check generated `.cursorrules`, `.clauderc` etc. before committing
+2. **Review IDE configs**: Check generated `.cursorrules`, `claude.md` etc. before committing
 3. **Validate inputs**: If building tools that generate code, validate all inputs
 4. **Keep dependencies updated**: Regularly update project dependencies
 5. **Follow principle of least privilege**: AI agents should only access what they need
