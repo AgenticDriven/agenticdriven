@@ -5,12 +5,12 @@
 **DEFINE**: Problem stated, objectives defined, scope documented, constraints identified, success criteria defined
 **DISCOVER**: Requirements gathered, options researched, feasibility assessed, decisions documented, risks identified
 **DESIGN**: Solution designed, architecture defined, interfaces specified, design approved, ready to build
-**SETUP**: Tools configured, environment ready, testing setup, validation criteria defined, team ready
-**BUILD**: All components implemented, contracts fulfilled, tests passing, docs updated, code reviewed
-**VALIDATE**: All tests passing, coverage met (80%+), performance acceptable, validation report complete, stakeholders approve
+**SETUP**: Tools configured, environment ready, validation criteria defined, team ready
+**BUILD**: All components implemented, contracts fulfilled, docs updated, reviewed
+**VALIDATE**: Validation criteria met, quality acceptable, validation report complete, stakeholders approve
 **MARKET**: Materials created, docs complete, strategy defined, channels prepared, ready to launch
 **LAUNCH**: Deployed, monitoring active, metrics collected, no critical issues, ready for support
-**SUPPORT**: Stable period complete, critical bugs resolved, support working, feedback collected, ready to evolve
+**SUPPORT**: Stable period complete, critical issues resolved, support working, feedback collected, ready to evolve
 **EVOLVE**: Improvements implemented, optimized, features added, roadmap updated, lessons documented
 
 ## Validation

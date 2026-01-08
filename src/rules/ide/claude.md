@@ -92,258 +92,94 @@ Git tags are not required in ADD 1.0. Use commits and version in adw.yaml to tra
 ```
 project-root/
 ├── README.md
-├── ad.yaml           # Root configuration (optional but recommended)
+├── ad.yaml           # Root configuration
 ├── docs/
 │   ├── journal.md
 │   ├── decisions.md
 │   ├── conventions.md
 │   ├── active/       # Feature-driven: one dir per active feature
-│   │   ├── feature-1/
-│   │   │   ├── ad.yaml      # Feature configuration
-│   │   │   ├── 00-define/
-│   │   │   ├── 01-discover/
-│   │   │   ├── 02-design/
-│   │   │   └── 04-build/
-│   │   └── feature-2/
-│   │       └── ad.yaml
 │   ├── completed/    # Finished features
 │   ├── planning/     # Future work
 │   └── archived/     # Old docs
 ├── src/              # Adapt by domain
-├── tests/            # Adapt by domain
 └── assets/           # Optional
 ```
 
 ## Core Directories
 
-**docs/**: All documentation, phase docs, journal, decisions, contracts
-**src/**: Main content (adapt by domain)
-**tests/**: Validation (adapt by domain)
-**assets/**: Resources (optional)
+- **docs/**: All documentation
+- **src/**: Main content (adapt by domain)
+- **assets/**: Resources (optional)
 
 ## Domain-Specific src/
 
-**Software**: `backend/`, `frontend/`, `shared/`
-**Book**: `chapters/`, `appendices/`, `resources/`
-**Marketing**: `campaigns/`, `content/`, `analytics/`
-**Event**: `program/`, `logistics/`, `promotion/`
-**Product**: `design/`, `specs/`, `prototypes/`
+- **Software**: `backend/`, `frontend/`, `shared/`
+- **Book**: `chapters/`, `appendices/`, `resources/`
+- **Marketing**: `campaigns/`, `content/`, `analytics/`
+- **Event**: `program/`, `logistics/`, `promotion/`
+- **Product**: `design/`, `specs/`, `prototypes/`
 
-## Feature-Driven Structure (Recommended)
-
-For projects using feature-driven development (mode: feature):
+## Feature-Driven (mode: feature)
 
 ```
-project-root/
-├── ad.yaml                    # Root config: domain, mode, active_features
-├── README.md
-├── docs/
-│   ├── journal.md            # Global journal (all features)
-│   ├── decisions.md          # Global architecture decisions
-│   ├── conventions.md        # Global conventions
-│   ├── interfaces.md         # Global contracts (if multi-agent)
-│   │
-│   ├── active/               # Features in progress
-│   │   ├── user-auth/
-│   │   │   ├── ad.yaml      # Feature config (phase, version, context_files, code_locations)
-│   │   │   ├── 00-define/
-│   │   │   │   ├── problem.md
-│   │   │   │   ├── objectives.md
-│   │   │   │   └── scope.md
-│   │   │   ├── 01-discover/
-│   │   │   │   ├── requirements.md
-│   │   │   │   └── decisions.md
-│   │   │   ├── 02-design/
-│   │   │   │   ├── design.md
-│   │   │   │   └── api-contracts.md
-│   │   │   └── 04-build/
-│   │   │       ├── build-log.md
-│   │   │       └── status.md
-│   │   │
-│   │   ├── api-endpoints/
-│   │   │   ├── ad.yaml
-│   │   │   └── ...
-│   │   │
-│   │   └── fix-memory-leak/
-│   │       ├── ad.yaml
-│   │       ├── 00-define/
-│   │       └── 05-validate/
-│   │
-│   ├── completed/           # Finished features (moved from active/)
-│   │   └── initial-setup/
-│   │       ├── ad.yaml
-│   │       └── ...
-│   │
-│   ├── planning/            # Future work, proposals
-│   └── archived/            # Old/deprecated docs
-│
-├── src/                     # Code (organized by feature or module)
-│   ├── auth/               # Code for user-auth feature
-│   ├── api/                # Code for api-endpoints feature
-│   └── ...
-│
-└── tests/                   # Tests (organized by feature)
-    ├── auth/               # Tests for user-auth feature
-    ├── api/                # Tests for api-endpoints feature
-    └── ...
+docs/active/feature-name/
+├── ad.yaml           # Feature config
+├── 00-define/
+├── 01-discover/
+├── 02-design/
+└── 04-build/
 ```
 
-### Feature Directory Phases
+Each feature has phase directories as needed. Not all features use all phases.
 
-Each feature in `docs/active/feature-name/` can have phase directories:
+## Project-Driven (mode: project)
+
+```
+docs/
+├── journal.md
+├── decisions.md
+├── conventions.md
+├── 00-define/
+├── 01-discover/
+├── 02-design/
+└── ...
+```
+
+Phase docs at root level for entire project.
+
+## Phase Directories
 
 - `00-define/` - Problem, objectives, scope
 - `01-discover/` - Requirements, research, decisions
 - `02-design/` - Design, architecture, contracts
 - `03-setup/` - Setup, validation criteria
 - `04-build/` - Build log, implementation status
-- `05-validate/` - Validation reports, test results
-- `06-market/` - Marketing materials (if applicable)
+- `05-validate/` - Validation reports
+- `06-market/` - Marketing materials
 - `07-launch/` - Launch documentation
-- `08-support/` - Support logs, hotfixes
-- `09-evolve/` - Evolution plans, improvements
-
-**Note**: Not all features use all phases. Feature types:
-- `feat`: DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE
-- `fix`: DEFINE → VALIDATE
-- `spike`: DEFINE → DISCOVER
-- `refactor`: DEFINE → BUILD → VALIDATE
-- `docs`: DEFINE → BUILD
-- `chore`: DEFINE → BUILD
-
-## Project-Driven Structure (Classic)
-
-For projects using project-driven development (mode: project):
-
-```
-project-root/
-├── ad.yaml                # Root config
-├── README.md
-├── docs/
-│   ├── journal.md
-│   ├── decisions.md
-│   ├── conventions.md
-│   ├── 00-define/        # Phase docs at root level
-│   ├── 01-discover/
-│   ├── 02-design/
-│   ├── 03-setup/
-│   ├── 04-build/
-│   ├── 05-validate/
-│   └── ...
-├── src/
-└── tests/
-```
-
-## Organizing docs/ (optional)
-
-Simple projects: keep docs/ flat
-Complex projects: use subdirectories
-
-```
-docs/
-├── journal.md        # References other docs
-├── decisions.md
-├── interfaces.md
-├── conventions.md
-├── planning/         # Future work
-├── active/           # Current features
-├── completed/        # Finished features
-├── archived/         # Old/deprecated
-├── spikes/           # Experiments
-└── reports/          # Analysis
-```
-
-Use only if needed. Simple projects: keep flat.
+- `08-support/` - Support logs
+- `09-evolve/` - Evolution plans
 
 ## Required Files
 
 **Minimum**: README.md, ad.yaml, docs/journal.md, src/
 
-**Feature-Driven**:
-- Root: ad.yaml, README.md, docs/journal.md, docs/decisions.md, docs/conventions.md
-- Per Feature: docs/active/feature-name/ad.yaml + phase docs as needed
+**Feature-Driven**: Root + per-feature ad.yaml
+**Project-Driven**: Root + phase docs
 
-**Project-Driven**:
-- Root: ad.yaml, README.md, docs/journal.md
-- Phase docs as you progress through phases
+## Organizing docs/
 
-## Initialize New Project
-
-```bash
-# Initialize git
-git init
-
-# Create basic structure
-echo "# My Project" > README.md
-mkdir -p docs src tests
-
-# Create ad.yaml
-cat > ad.yaml << EOF
-domain: "software"
-mode: "feature"
-context_files:
-  - "README.md"
-  - "docs/decisions.md"
-  - "docs/conventions.md"
-active_features: []
-completed_features: []
-agents:
-  enabled: false
-settings:
-  auto_commit: true
-  require_tests: true
-EOF
-
-# Create docs
-mkdir -p docs/active docs/completed docs/planning
-
-cat > docs/journal.md << EOF
-# Project Journal
-
-## $(date +%Y-%m-%d) - Project Initialization
-
-- **Action**: Created project structure
-- **Next**: Start first feature
-EOF
-
-cat > docs/decisions.md << EOF
-# Architecture Decision Records
-EOF
-
-cat > docs/conventions.md << EOF
-# Project Conventions
-
-## Git Workflow
-- Use Conventional Commits
-- One feature per branch
-
-## Documentation
-- Feature docs in docs/active/feature-name/
-- Follow AD phase structure
-
-## Testing
-- Write tests for all features
-- Aim for 80%+ coverage
-EOF
-
-# Initial commit
-git add .
-git commit -m "chore: initialize AD project"
-```
-
-## Initialize Existing Project
-
-If project already exists without ad.yaml, see AI Workflow → Auto-Initialization section.
+Simple: keep flat
+Complex: use subdirectories (planning/, active/, completed/, archived/, spikes/, reports/)
 
 ## Rules
 
-1. Standard base: README, ad.yaml, docs/, src/, tests/
+1. Standard base: README, ad.yaml, docs/, src/
 2. All docs in `docs/`
-3. Feature-driven: organize docs/active/ by feature
-4. Project-driven: organize docs/ by phase
+3. Feature-driven: organize by feature
+4. Project-driven: organize by phase
 5. Use kebab-case filenames
-6. Each feature has its own ad.yaml
-7. Keep simple when possible
+6. Keep simple when possible
 
 # Project Config
 
@@ -351,184 +187,103 @@ If project already exists without ad.yaml, see AI Workflow → Auto-Initializati
 
 Optional configuration for project-level settings and feature management.
 
-### Solo Development (Basic)
+### Minimal
+
+```yaml
+domain: "software"  # software | book | marketing | event | product | research | course | game
+```
+
+### Full Example
 
 ```yaml
 domain: "software"
-```
+mode: "feature"  # feature | project
 
-Most solo projects need only this to adapt AI language.
-
-### Feature-Driven Development (Recommended)
-
-```yaml
-# Root ad.yaml - Project configuration
-
-domain: "software"          # software | book | marketing | event | product
-mode: "feature"            # feature | project
-
-# Global context files (read by all features)
 context_files:
   - "README.md"
   - "docs/decisions.md"
   - "docs/conventions.md"
 
-# Active features (links to feature directories)
 active_features:
-  - path: "docs/active/user-auth"
-    description: "JWT authentication system"
-    status: "in-progress"    # in-progress | blocked | testing | review
+  - path: "docs/active/feature-name"
+    description: "Feature description"
+    status: "in-progress"  # in-progress | blocked | review
 
-  - path: "docs/active/api-endpoints"
-    description: "REST API implementation"
-    status: "in-progress"
-
-# Completed features (moved from active)
 completed_features:
-  - path: "docs/completed/initial-setup"
+  - path: "docs/completed/feature-name"
     completed_at: "2026-01-08"
-    description: "Project initialization"
+    description: "What was done"
 
-# Agents (optional - for multi-agent workflows)
 agents:
   enabled: false
 
-# Settings
 settings:
   auto_commit: true
-  require_tests: true
 ```
 
-### Feature ad.yaml (Feature-Specific Configuration)
+## Feature ad.yaml
 
 Each feature has its own `ad.yaml` in `docs/active/feature-name/ad.yaml`:
 
 ```yaml
-# Feature configuration
+id: "feature-name"
+type: "feat"  # feat | fix | spike | refactor | docs | chore
+description: "What this feature does"
+phase: "BUILD"
+version: "v0.4.2"
+status: "in-progress"
 
-id: "user-auth"
-type: "feat"                # feat | fix | spike | refactor | docs | chore
-description: "JWT-based authentication system"
-
-# Current state
-phase: "BUILD"              # DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE
-version: "v0.4.2"          # v0.PHASE.ITERATION
-status: "in-progress"      # in-progress | blocked | testing | review | completed
-
-# Context files specific to this feature
 context_files:
-  - "docs/active/user-auth/00-define/problem.md"
-  - "docs/active/user-auth/02-design/design.md"
-  - "docs/active/user-auth/04-build/build-log.md"
+  - "docs/active/feature-name/00-define/problem.md"
+  - "docs/active/feature-name/02-design/design.md"
 
-# Code locations for this feature
 code_locations:
-  - "src/auth/"
-  - "src/middleware/auth.js"
-  - "tests/auth/"
+  - "src/feature/"
 
-# Tasks
 tasks:
-  - description: "Define requirements"
-    status: "done"
-  - description: "Implement JWT generation"
-    status: "in-progress"
-  - description: "Write tests"
-    status: "pending"
+  - description: "Task description"
+    status: "done"  # pending | in-progress | done | blocked
 
-# Dependencies
 dependencies:
-  - feature: "user-model"
-    reason: "Needs User model"
+  - feature: "other-feature"
+    reason: "Why needed"
     status: "completed"
 
-# Agents (optional)
 agents:
   enabled: false
 
-# Notes
 notes:
-  - "Using bcrypt with 10 salt rounds"
-  - "JWT tokens expire after 24 hours"
+  - "Important decisions or context"
 ```
 
 ## Fields
 
-### Root ad.yaml Fields
+### Root ad.yaml
 
-**domain** (required): Project type
-- Valid values: software, book, marketing, event, product, research, course, game
-- Adapts AI language and workflow to your domain
+- **domain**: Project type (adapts AI language)
+- **mode**: `feature` (individual features) or `project` (10 phases for whole project)
+- **context_files**: Global docs read at session start
+- **active_features**: Features in progress
+- **completed_features**: Finished features
+- **agents**: Multi-agent configuration
+- **settings**: Project preferences
 
-**mode** (required): Work organization
-- `feature`: Work on individual features (recommended)
-- `project`: Complete all 10 phases for entire project (classic)
+### Feature ad.yaml
 
-**context_files** (optional): Global documentation
-- Files read at session start for ALL features
-- Examples: README.md, decisions.md, conventions.md, interfaces.md
+- **id**: Unique identifier (kebab-case)
+- **type**: feat | fix | spike | refactor | docs | chore
+- **description**: Brief description
+- **phase**: Current phase
+- **version**: v0.PHASE.ITERATION
+- **status**: in-progress | blocked | review | completed
+- **context_files**: Docs for this feature
+- **code_locations**: Code for this feature
+- **tasks**: Task breakdown (optional)
+- **dependencies**: What this depends on (optional)
+- **agents**: Multi-agent for this feature (optional)
+- **notes**: Important context (optional)
 
-**active_features** (optional): Features in progress
-- `path`: Directory containing feature ad.yaml
-- `description`: What the feature does
-- `status`: in-progress | blocked | testing | review
-
-**completed_features** (optional): Finished features
-- `path`: Where feature was moved after completion
-- `completed_at`: ISO date
-- `description`: What was completed
-
-**agents** (optional): Multi-agent configuration
-- `enabled`: true | false
-- When true, configure team, coordination, platform
-
-**settings** (optional): Project preferences
-- `auto_commit`: Auto-commit after tasks
-- `require_tests`: Tests must pass before advancing
-
-### Feature ad.yaml Fields
-
-**id** (required): Unique feature identifier (kebab-case)
-
-**type** (required): Type of work
-- `feat`: New feature (DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE)
-- `fix`: Bug fix (DEFINE → VALIDATE)
-- `spike`: Research (DEFINE → DISCOVER)
-- `refactor`: Code improvement (DEFINE → BUILD → VALIDATE)
-- `docs`: Documentation (DEFINE → BUILD)
-- `chore`: Maintenance (DEFINE → BUILD)
-
-**description** (required): Brief description
-
-**phase** (required): Current phase (DEFINE, DISCOVER, DESIGN, etc.)
-
-**version** (required): v0.PHASE.ITERATION (e.g., v0.4.2)
-
-**status** (required): in-progress | blocked | testing | review | completed
-
-**context_files** (required): Feature-specific documentation
-- Files to read when working on this feature
-- Add as you create docs in each phase
-
-**code_locations** (required): Code for this feature
-- Directories and files containing implementation
-- Add as you write code
-
-**tasks** (optional): Task breakdown
-- `description`: What to do
-- `status`: pending | in-progress | done | blocked
-- `commit`: Git commit hash (optional)
-
-**dependencies** (optional): What this feature depends on
-- Other features or external systems
-
-**agents** (optional): Multi-agent config for this feature
-
-**notes** (optional): Important notes and decisions
-
-## Feature Types and Phases
-
-Different types go through different phases:
+## Feature Types
 
 ```
 feat:     DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE
@@ -539,80 +294,27 @@ docs:     DEFINE → BUILD
 chore:    DEFINE → BUILD
 ```
 
-## Workflow
-
-### Starting a New Feature
-
-1. User: "I want to add user authentication"
-2. AI creates `docs/active/user-auth/ad.yaml`
-3. AI adds to root `ad.yaml` active_features
-4. AI starts DEFINE phase
-
-### Working on a Feature
-
-1. AI reads root ad.yaml → gets global context
-2. AI reads feature ad.yaml → gets feature context
-3. AI reads all context_files (global + feature)
-4. AI works on feature
-5. AI updates feature ad.yaml (phase, version, context_files, code_locations)
-6. AI commits changes
-
-### Completing a Feature
-
-1. AI moves feature from active to completed in root ad.yaml
-2. AI moves docs from docs/active/ to docs/completed/
-3. AI updates completed_features with date
-4. AI commits
-
 ## Multi-Agent
 
-When agents.enabled = true:
+When `agents.enabled = true`:
 
 ```yaml
-# Root ad.yaml
 agents:
   enabled: true
-  platform: "claude-sdk"              # claude-sdk | windsurf | cursor
-  default_execution_mode: "parallel"  # parallel | sequential | hybrid
-  default_coordination: "message-passing"  # message-passing | shared-state | pipeline
+  platform: "claude-sdk"
+  default_execution_mode: "parallel"
+  default_coordination: "message-passing"
 
   team:
-    - id: "backend-dev"
-      role: "backend-implementation"
+    - id: "agent-id"
+      role: "agent-role"
+      description: "What this agent does"
       phases: ["BUILD", "VALIDATE"]
-      capabilities: ["api", "database"]
-      context_dirs: ["src/backend/", "tests/backend/"]
-
-    - id: "frontend-dev"
-      role: "frontend-implementation"
-      phases: ["BUILD", "VALIDATE"]
-      capabilities: ["ui", "components"]
-      context_dirs: ["src/frontend/", "tests/frontend/"]
+      capabilities: ["capability-1", "capability-2"]
+      context_dirs: ["src/area/"]
 ```
 
-```yaml
-# Feature ad.yaml
-agents:
-  enabled: true
-  execution_mode: "parallel"
-  coordination_technique: "message-passing"
-
-  active:
-    - id: "backend-dev"
-      status: "working"
-      current_task: "Implement JWT generation"
-      context: ["src/auth/"]
-
-    - id: "frontend-dev"
-      status: "blocked"
-      blocked_by: "backend-dev"
-      blocked_reason: "Waiting for API endpoints"
-      context: ["src/components/Auth/"]
-```
-
-## Templates
-
-See `/templates/root-ad.yaml` and `/templates/feature-ad.yaml` for complete commented templates.
+Configure agents based on your project's separation of concerns.
 
 # Documentation
 
@@ -812,70 +514,31 @@ Required for multi-agent. Define specifications before implementation.
 
 ## When
 
-**DESIGN (v0.2.x)**: Define all contracts
-**BUILD (v0.4.x)**: Implement exactly to spec
+**DESIGN**: Define all contracts
+**BUILD**: Implement exactly to spec
 
 ## Format
 
 ```markdown
-## API: POST /api/users
+## Interface: Name
 
-**Input**:
-- name: string (1-100)
-- email: string (valid)
-- password: string (min 8)
-
-**Output**:
-- id: integer
-- name: string
-- email: string
-- created_at: timestamp
-
-**Errors**:
-- 400: Validation failed
-- 409: Email exists
-- 500: Server error
-
-**Tests**:
-1. Valid input → 201
-2. Missing name → 400
-3. Duplicate email → 409
+**Input**: What goes in
+**Output**: What comes out
+**Errors**: Possible failures
+**Validation**: How to verify
 ```
 
-## Multi-Agent Workflow
+## Workflow
 
-**DESIGN**: Define contracts, review, commit
-**BUILD**: Read contracts, implement, use mocks for dependencies, test, work in parallel
+1. DESIGN: Define contracts, review, commit
+2. BUILD: Read contracts, implement, use mocks for unimplemented deps
 
 ## Rules
 
-1. Define in DESIGN
-2. Implement exactly to spec
-3. Use mocks for unimplemented deps
-4. Never deviate without updating contract first
-
-## Examples
-
-**Component**:
-```markdown
-## Component: Button
-
-**Props**:
-- label: string
-- onClick: () => void
-- disabled: boolean (default: false)
-- variant: "primary" | "secondary"
-```
-
-**Data**:
-```markdown
-## Table: users
-
-**Fields**:
-- id: serial PRIMARY KEY
-- email: varchar(255) UNIQUE NOT NULL
-- created_at: timestamp DEFAULT now()
-```
+- Define in DESIGN phase
+- Implement exactly to spec
+- Never deviate without updating contract first
+- Use mocks for dependencies not yet implemented
 
 # AI Workflow
 
@@ -1078,8 +741,8 @@ AI: "I don't see an ad.yaml file. I can initialize AD for this project.
        b) No, leave them as-is
 
     5. Do you want to use multi-agent workflows?
-       a) Yes, suggest agents based on project structure
-       b) No, single agent for now
+       a) Yes, I'll configure agents
+       b) No, single agent
 
     Please answer these questions so I can initialize AD properly."
 ```
@@ -1147,28 +810,27 @@ present features to user for confirmation
 
 **Infer Agents**:
 ```python
-def infer_agents(user_wants_agents):
-    """
-    Configure multi-agent based on user preference.
-    Only enabled if user answered 5a (Yes to multi-agent).
-    No automatic detection - user configures agents manually after initialization.
-    """
-    if not user_wants_agents:
-        return {"enabled": False}
+if user_answer_5 != "a":
+    return {"enabled": False}
 
-    # Enable multi-agent with empty team - user will configure based on their project needs
-    agents_config = {
-        "enabled": True,
-        "platform": "claude-sdk",
-        "default_execution_mode": "parallel",
-        "default_coordination": "message-passing",
-        "team": []  # User configures agents manually based on their domain/structure
-    }
+# Detect significant directories (>3 files or >100 lines total)
+agents = []
+for dir in find_dirs("src/*/", "docs/*/", "*/"):
+    if is_significant(dir):
+        agents.append({
+            "id": to_kebab(dir),
+            "role": infer_role(dir),
+            "description": f"Works on {dir}",
+            "context_dirs": [dir]
+        })
 
-    return agents_config
-
-# Execute agent inference
-inferred_agents = infer_agents(user_answer_5a)
+return {
+    "enabled": len(agents) > 0,
+    "platform": "claude-sdk",
+    "default_execution_mode": "parallel",
+    "default_coordination": "message-passing",
+    "team": agents
+}
 ```
 
 ### Step 4: Reorganize Markdown Files (If User Said Yes)
@@ -1207,28 +869,13 @@ done
 ### Step 5: Create Root ad.yaml
 
 ```bash
-# Generate agent configuration based on user preference
-if [ "$user_answer_5" = "a" ]; then
-    # User wants multi-agent - enable with empty team for manual configuration
-    agents_section="# Agents (enabled - configure team based on your project structure)
-agents:
-  enabled: true
-  platform: \"claude-sdk\"                 # claude-sdk | windsurf | cursor
-  default_execution_mode: \"parallel\"      # parallel | sequential | hybrid
-  default_coordination: \"message-passing\" # message-passing | shared-state | pipeline
-
-  # Configure your team based on project needs:
-  # For software: backend-dev, frontend-dev, qa-engineer, devops
-  # For books: chapter-writers, editor, designer, publisher
-  # For marketing: content-creator, designer, analyst, campaign-manager
-  # For events: logistics, promotion, program, registration
-  team: []"
-else
-    # User doesn't want agents
-    agents_section="# Agents (disabled)
-agents:
-  enabled: false"
-fi
+# Generate agents from detected structure
+agents_section=$(python3 <<EOF
+import yaml
+agents = inferred_agents  # From Step 3
+print(yaml.dump({"agents": agents}, default_flow_style=False))
+EOF
+)
 
 cat > ad.yaml << EOF
 # Auto-generated by AD initialization
@@ -1383,42 +1030,12 @@ echo "✓ Committed AD initialization"
 ### Step 9: Report to User
 
 ```
-AI: "✓ AD initialization complete!
+AI: "✓ AD initialized: $domain ($mode)
+    Features: $feature_count
+    Agents: $agent_count detected
+    Phase: $inferred_phase
 
-    Created:
-    - ad.yaml (root configuration)
-    - docs/ directory structure
-    - $feature_count feature ad.yaml files
-    - Initial documentation
-
-    Domain: $domain
-    Mode: $mode
-
-    [If agents enabled:]
-    Multi-agent: Enabled (team: [] - needs configuration)
-    ⚠️  You need to configure your team in ad.yaml based on your project:
-       - For software: backend-dev, frontend-dev, qa-engineer, devops
-       - For books: chapter-writers, editor, designer, publisher
-       - For marketing: content-creator, designer, analyst, campaign-manager
-       - For events: logistics, promotion, program, registration
-       See ad.yaml for examples and structure.
-
-    Detected features ($feature_count):
-    1. feature-name (path) - Description
-    2. ...
-
-    Current phase: $inferred_phase (inferred from codebase)
-
-    You can now:
-    - Review ad.yaml and configure agents (if enabled)
-    - Review feature configurations
-    - Continue working with AD workflow
-    - Ask me to work on any feature
-
-    Would you like me to:
-    a) Show you the generated ad.yaml?
-    b) Start working on a specific feature?
-    c) Explain how to configure multi-agent?"
+    Review ad.yaml and start working"
 ```
 
 ### Special Cases
@@ -1602,12 +1219,12 @@ If ad.yaml has agents enabled:
 **DEFINE**: Problem stated, objectives defined, scope documented, constraints identified, success criteria defined
 **DISCOVER**: Requirements gathered, options researched, feasibility assessed, decisions documented, risks identified
 **DESIGN**: Solution designed, architecture defined, interfaces specified, design approved, ready to build
-**SETUP**: Tools configured, environment ready, testing setup, validation criteria defined, team ready
-**BUILD**: All components implemented, contracts fulfilled, tests passing, docs updated, code reviewed
-**VALIDATE**: All tests passing, coverage met (80%+), performance acceptable, validation report complete, stakeholders approve
+**SETUP**: Tools configured, environment ready, validation criteria defined, team ready
+**BUILD**: All components implemented, contracts fulfilled, docs updated, reviewed
+**VALIDATE**: Validation criteria met, quality acceptable, validation report complete, stakeholders approve
 **MARKET**: Materials created, docs complete, strategy defined, channels prepared, ready to launch
 **LAUNCH**: Deployed, monitoring active, metrics collected, no critical issues, ready for support
-**SUPPORT**: Stable period complete, critical bugs resolved, support working, feedback collected, ready to evolve
+**SUPPORT**: Stable period complete, critical issues resolved, support working, feedback collected, ready to evolve
 **EVOLVE**: Improvements implemented, optimized, features added, roadmap updated, lessons documented
 
 ## Validation
@@ -1633,52 +1250,32 @@ Guidelines, not rigid rules. Adapt to project needs. Document deviations. Focus 
 
 ## Process
 
-1. **Identify**: What's failing?
-2. **Isolate**: Where's the problem?
-3. **Document**: What did you try?
-4. **Solve**: Fix it
-5. **Prevent**: Avoid repeat
+1. Identify: What's failing?
+2. Isolate: Where's the problem?
+3. Document: What did you try?
+4. Solve: Fix it
+5. Prevent: Avoid repeat
 
 ## Common Issues
 
-**Tests failing**: Read error, run single test, check recent changes, fix code/test
-**Build failing**: Check syntax, dependencies, env vars, clear cache
-**Git conflicts**: Open file, resolve markers, test, stage, complete merge
-**Phase unclear**: Read `/var/add/fases/`, check exit criteria, review journal.md
-**Multi-agent conflict**: Check context boundaries, coordinate via git
-**Lost work**: Check `git stash list`, `git reflog`, backup branches
-**Dependencies**: Delete packages, delete lock file, reinstall fresh
-**Contract mismatch**: Read `docs/interfaces.md`, fix code or update contract
+- **Phase unclear**: Check exit criteria, review journal.md
+- **Multi-agent conflict**: Check context boundaries, coordinate via git
+- **Lost work**: Check `git stash list`, `git reflog`
+- **Git conflicts**: Resolve markers, stage, complete merge
+- **Contract mismatch**: Read `docs/interfaces.md`, update code or contract
 
 ## Rollback
 
 ```bash
-# Undo last commit (keep changes)
-git reset --soft HEAD~1
-
-# Undo last commit (discard changes)
-git reset --hard HEAD~1
-
-# Go back to tag
-git checkout v0.4.2
+git reset --soft HEAD~1  # Undo commit, keep changes
+git reset --hard HEAD~1  # Undo commit, discard changes
 ```
-
-## Getting Help
-
-Provide: exact error, what you did, what you expected, what happened, what you tried
 
 ## Document
 
-Update `docs/journal.md`:
-```markdown
-## 2026-01-06
-**Issue**: Tests failing
-**Cause**: Outdated fixtures
-**Solution**: Updated tests/fixtures.js
-**Time**: 15 min
-```
+Update `docs/journal.md` with issue, cause, solution.
 
 ## Prevention
 
-Commit frequently, write tests, read contracts, update journal, follow exit criteria, respect boundaries
+Commit frequently, read contracts, update journal, follow exit criteria, respect boundaries.
 
