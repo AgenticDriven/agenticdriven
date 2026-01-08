@@ -186,3 +186,27 @@
   - Track GitHub stars, forks, and engagement
   - Update documentation based on user questions
   - Prepare for EVOLVE phase improvements
+
+## 2026-01-08 - Complete Rules System Refactor
+
+- **Phase**: Architecture redesign
+- **Agent**: Backend + Documentation
+- **Major Work**: 
+  - Refactored entire rules system to be modular
+  - Source files in src/rules/*.md
+  - ai-workflow.md: Complete auto-initialization (9 steps)
+  - project-config.md: Hierarchical ad.yaml documentation
+  - project-structure.md: Feature-driven structure
+  - Generated all IDE configs (claude.md, .cursorrules, etc.) from source
+  
+- **Decisions**:
+  - Rules are source .md files, not single claude.md
+  - generate-ide-configs.sh concatenates all .md files
+  - All IDEs get the same comprehensive rules (42KB)
+  - Auto-initialization is now the first step in AI workflow
+  
+- **Templates Created**:
+  - templates/root-ad.yaml: Complete commented template
+  - templates/feature-ad.yaml: Complete commented template
+  
+- **Next**: Test auto-initialization with a real project
