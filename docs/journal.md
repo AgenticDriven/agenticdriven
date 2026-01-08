@@ -209,19 +209,22 @@
   - Step 5 hardcoded `agents: enabled: false`
 - **Fix Applied**:
   - Added question 5: "Do you want to use multi-agent workflows?"
-  - Implemented agent inference logic in Step 3 with 4 generic detection strategies:
-    1. Backend/API (src/backend/, backend/, api/, server/)
-    2. Frontend/website (src/frontend/, frontend/, website/, client/)
-    3. Testing/QA infrastructure (tests/ with >10 test files)
-    4. DevOps/Infrastructure (infrastructure/, deploy/, .github/workflows/)
-  - Updated Step 5 to conditionally generate agent configuration based on:
-    - User's answer to question 5
-    - Detected project structure
-  - Removed project-specific detection strategies (methodology-dev, templates-dev)
-  - Rules are now fully generic for any software project
+  - Removed ALL automatic agent detection (was software-specific, not generic)
+  - Step 3: Simplified to just enable/disable based on user choice
+  - Step 5: Generate agents section with:
+    - `team: []` empty array for manual configuration
+    - Helpful comments with examples for different domains:
+      - Software: backend-dev, frontend-dev, qa-engineer, devops
+      - Books: chapter-writers, editor, designer, publisher
+      - Marketing: content-creator, designer, analyst, campaign-manager
+      - Events: logistics, promotion, program, registration
+  - Step 9: Notify user that agents need manual configuration
+  - Rules are now completely domain-agnostic - work for ANY project type
+  - No assumptions about project structure
+  - User configures agents based on their specific needs
   - Regenerated all IDE configs with fixed rules
-  - Updated claude.md in root with complete agent detection logic
-- **Decisions**: ADR-002: Auto-initialize agents based on project structure analysis
+  - Updated claude.md in root with generic agent initialization
+- **Decisions**: ADR-002: Enable multi-agent without automatic detection (domain-agnostic)
 - **Next**: Continue refining auto-initialization based on real-world usage
   
 - **Decisions**:

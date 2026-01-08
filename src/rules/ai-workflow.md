@@ -268,93 +268,28 @@ present features to user for confirmation
 
 **Infer Agents**:
 ```python
-def infer_agents(project_structure, user_wants_agents):
+def infer_agents(user_wants_agents):
     """
-    Infer multi-agent configuration based on project structure.
+    Configure multi-agent based on user preference.
     Only enabled if user answered 5a (Yes to multi-agent).
+    No automatic detection - user configures agents manually after initialization.
     """
     if not user_wants_agents:
         return {"enabled": False}
 
+    # Enable multi-agent with empty team - user will configure based on their project needs
     agents_config = {
         "enabled": True,
         "platform": "claude-sdk",
         "default_execution_mode": "parallel",
         "default_coordination": "message-passing",
-        "team": []
+        "team": []  # User configures agents manually based on their domain/structure
     }
-
-    # Strategy 1: Detect backend/API
-    if os.path.isdir("src/backend") or os.path.isdir("backend") or os.path.isdir("api") or os.path.isdir("server"):
-        context = []
-        if os.path.isdir("src/backend"): context.append("src/backend/")
-        if os.path.isdir("backend"): context.append("backend/")
-        if os.path.isdir("api"): context.append("api/")
-        if os.path.isdir("server"): context.append("server/")
-
-        agents_config["team"].append({
-            "id": "backend-dev",
-            "role": "backend-implementation",
-            "description": "Implements backend services and APIs",
-            "phases": ["BUILD", "VALIDATE"],
-            "capabilities": ["api", "database", "services"],
-            "context_dirs": context
-        })
-
-    # Strategy 2: Detect frontend/website
-    if os.path.isdir("src/frontend") or os.path.isdir("frontend") or os.path.isdir("website") or os.path.isdir("src/website") or os.path.isdir("client"):
-        context = []
-        if os.path.isdir("src/frontend"): context.append("src/frontend/")
-        if os.path.isdir("frontend"): context.append("frontend/")
-        if os.path.isdir("website"): context.append("website/")
-        if os.path.isdir("src/website"): context.append("src/website/")
-        if os.path.isdir("client"): context.append("client/")
-
-        agents_config["team"].append({
-            "id": "frontend-dev",
-            "role": "frontend-implementation",
-            "description": "Implements user interface and client-side logic",
-            "phases": ["BUILD", "VALIDATE"],
-            "capabilities": ["ui", "components", "client-logic"],
-            "context_dirs": context
-        })
-
-    # Strategy 3: Detect testing/QA infrastructure
-    if os.path.isdir("tests") and count_files("tests/**/*.{test,spec}.*") > 10:
-        agents_config["team"].append({
-            "id": "qa-engineer",
-            "role": "quality-assurance",
-            "description": "Writes tests and validates quality",
-            "phases": ["VALIDATE"],
-            "capabilities": ["testing", "validation", "quality"],
-            "context_dirs": ["tests/"]
-        })
-
-    # Strategy 4: Detect DevOps/Infrastructure
-    if os.path.isdir("infrastructure") or os.path.isdir("deploy") or os.path.isdir(".github/workflows") or os.path.isdir(".gitlab-ci.yml"):
-        context = []
-        if os.path.isdir("infrastructure"): context.append("infrastructure/")
-        if os.path.isdir("deploy"): context.append("deploy/")
-        if os.path.isdir(".github/workflows"): context.append(".github/workflows/")
-
-        agents_config["team"].append({
-            "id": "devops-engineer",
-            "role": "devops-infrastructure",
-            "description": "Manages deployment and infrastructure",
-            "phases": ["SETUP", "LAUNCH", "SUPPORT"],
-            "capabilities": ["deployment", "ci-cd", "monitoring"],
-            "context_dirs": context
-        })
-
-    # If no agents detected, provide a generic single agent
-    if len(agents_config["team"]) == 0:
-        agents_config["enabled"] = False
-        return agents_config
 
     return agents_config
 
 # Execute agent inference
-inferred_agents = infer_agents(project_structure, user_answer_5a)
+inferred_agents = infer_agents(user_answer_5a)
 ```
 
 ### Step 4: Reorganize Markdown Files (If User Said Yes)
@@ -393,37 +328,25 @@ done
 ### Step 5: Create Root ad.yaml
 
 ```bash
-# Generate agent configuration based on inference
-if [ "$user_answer_5" = "a" ] && [ ${#inferred_agents_team[@]} -gt 0 ]; then
-    # User wants agents AND we detected project structure for agents
-    agents_section=$(cat <<'AGENTS'
-# Agents (enabled - inferred from project structure)
+# Generate agent configuration based on user preference
+if [ "$user_answer_5" = "a" ]; then
+    # User wants multi-agent - enable with empty team for manual configuration
+    agents_section="# Agents (enabled - configure team based on your project structure)
 agents:
   enabled: true
-  platform: "claude-sdk"
-  default_execution_mode: "parallel"
-  default_coordination: "message-passing"
+  platform: \"claude-sdk\"                 # claude-sdk | windsurf | cursor
+  default_execution_mode: \"parallel\"      # parallel | sequential | hybrid
+  default_coordination: \"message-passing\" # message-passing | shared-state | pipeline
 
-  # Inferred from project structure analysis
-  team:
-AGENTS
-)
-    # Add each inferred agent
-    for agent in $inferred_agents_team; do
-        agents_section+="
-    - id: \"${agent_id}\"
-      role: \"${agent_role}\"
-      description: \"${agent_description}\"
-      phases: [\"${agent_phases}\"]
-      capabilities: [\"${agent_capabilities}\"]
-      context_dirs:
-$(for dir in $agent_context_dirs; do
-    echo "        - \"$dir\""
-done)"
-    done
+  # Configure your team based on project needs:
+  # For software: backend-dev, frontend-dev, qa-engineer, devops
+  # For books: chapter-writers, editor, designer, publisher
+  # For marketing: content-creator, designer, analyst, campaign-manager
+  # For events: logistics, promotion, program, registration
+  team: []"
 else
-    # User doesn't want agents OR no suitable project structure detected
-    agents_section="# Agents (disabled by default)
+    # User doesn't want agents
+    agents_section="# Agents (disabled)
 agents:
   enabled: false"
 fi
@@ -589,21 +512,34 @@ AI: "✓ AD initialization complete!
     - $feature_count feature ad.yaml files
     - Initial documentation
 
-    Detected features:
-    1. auth (src/auth/) - Authentication system
-    2. api (src/api/) - API layer
+    Domain: $domain
+    Mode: $mode
 
-    Current phase: BUILD (inferred from codebase)
+    [If agents enabled:]
+    Multi-agent: Enabled (team: [] - needs configuration)
+    ⚠️  You need to configure your team in ad.yaml based on your project:
+       - For software: backend-dev, frontend-dev, qa-engineer, devops
+       - For books: chapter-writers, editor, designer, publisher
+       - For marketing: content-creator, designer, analyst, campaign-manager
+       - For events: logistics, promotion, program, registration
+       See ad.yaml for examples and structure.
+
+    Detected features ($feature_count):
+    1. feature-name (path) - Description
+    2. ...
+
+    Current phase: $inferred_phase (inferred from codebase)
 
     You can now:
-    - Review ad.yaml and feature configurations
+    - Review ad.yaml and configure agents (if enabled)
+    - Review feature configurations
     - Continue working with AD workflow
     - Ask me to work on any feature
 
     Would you like me to:
     a) Show you the generated ad.yaml?
     b) Start working on a specific feature?
-    c) Explain the AD workflow?"
+    c) Explain how to configure multi-agent?"
 ```
 
 ### Special Cases

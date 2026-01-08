@@ -43,82 +43,80 @@ Negative:
 
 **Related**: None (first ADR)
 
-## ADR-002: Auto-Initialize Multi-Agent Configuration Based on Project Structure
+## ADR-002: Enable Multi-Agent Configuration Without Automatic Detection
 
 **Date**: 2026-01-08
 **Status**: Accepted
 **Phase**: BUILD (v0.4.x)
 
 **Context**:
-During testing of the auto-initialization system, we discovered that the AI was not configuring multi-agent setups even when the project structure clearly indicated multiple specialized areas (e.g., src/rules/, website/, templates/). This was because:
-1. The initialization questions didn't ask about multi-agent preferences
-2. There was no logic to infer appropriate agents from project structure
-3. Step 5 hardcoded `agents: enabled: false` in all cases
-
-For projects with clear separation of concerns (backend, frontend, testing, infrastructure, etc.), a multi-agent setup provides better organization and parallel work capabilities.
+During testing of the auto-initialization system, we discovered that the AI was not asking about multi-agent preferences, always defaulting to `agents: enabled: false`. Additionally, initial implementations tried to auto-detect agent configurations based on project structure (e.g., detecting backend/, frontend/, tests/), but this was problematic because:
+1. AD is a generic methodology for ANY domain (software, books, marketing, events, products, research)
+2. Auto-detection for software projects (backend/frontend/QA) doesn't apply to books, marketing campaigns, events, etc.
+3. Each domain has different ways to organize work and different agent roles
+4. Making assumptions about structure is not generic enough
 
 **Decision**:
-Implement intelligent agent inference during auto-initialization:
+Enable multi-agent during auto-initialization WITHOUT automatic detection:
 1. Add question 5: "Do you want to use multi-agent workflows?" (a=yes, b=no)
-2. If user chooses yes (5a), analyze project structure to detect:
-   - Backend/API (src/backend/, backend/, api/, server/)
-   - Frontend/website (src/frontend/, frontend/, website/, client/)
-   - Testing/QA infrastructure (tests/ with >10 test files)
-   - DevOps/Infrastructure (infrastructure/, deploy/, .github/workflows/)
-3. Generate appropriate agent configurations with context_dirs matching detected areas
-4. If no suitable structure detected OR user chooses no (5b), disable agents
+2. If user chooses yes (5a):
+   - Enable `agents: enabled: true` with `team: []` empty
+   - Add helpful comments showing examples for different domains:
+     - Software: backend-dev, frontend-dev, qa-engineer, devops
+     - Books: chapter-writers, editor, designer, publisher
+     - Marketing: content-creator, designer, analyst, campaign-manager
+     - Events: logistics, promotion, program, registration
+3. User configures agents manually based on their specific project needs
+4. If user chooses no (5b), disable agents
 
 **Rationale**:
-- Automatic detection reduces manual configuration burden
-- Project structure naturally reveals separation of concerns
-- Multi-agent setup provides clear boundaries and parallel work
-- Context directories help agents stay focused on their domain
-- Asking the user first respects their preferences (don't force multi-agent)
-- Fallback to single agent ensures it works for all projects
+- AD must remain domain-agnostic - works for any type of project
+- No single detection algorithm works for all domains
+- Users know their project structure better than any heuristic
+- Providing examples for common domains helps users configure correctly
+- Keeps initialization generic and exportable to any project
+- Users can always enable/configure agents later if they change their mind
 
 **Consequences**:
 
 Positive:
-- ✅ Better default configuration for complex projects
-- ✅ Clear agent boundaries from initialization
-- ✅ Reduces manual ad.yaml editing
-- ✅ Agents automatically get appropriate context directories
-- ✅ Scalable pattern (easy to add more detection strategies)
+- ✅ Completely generic - works for any domain
+- ✅ No incorrect assumptions about project structure
+- ✅ User retains full control over agent configuration
+- ✅ Examples guide users without forcing decisions
+- ✅ Simple, predictable behavior
 
 Negative:
-- ❌ Inference logic might not detect all project structures (can be improved)
-- ❌ User must answer an additional question during initialization
+- ❌ Requires manual configuration if user wants agents
+- ❌ User must understand their project structure to configure agents
 
 **Implementation**:
 - Updated `/var/ad/src/rules/ai-workflow.md`:
   - Added question 5 to Step 2
-  - Added "Infer Agents" section to Step 3 with 5 detection strategies
-  - Updated Step 5 to conditionally generate agent configuration
+  - Simplified "Infer Agents" in Step 3 (just enable/disable, no detection)
+  - Updated Step 5 to generate agents section with helpful comments and examples
+  - Updated Step 9 report to notify user if agents need configuration
 - Regenerated all IDE configs (claude.md, .cursorrules, etc.)
-- Verified logic appears in generated claude.md at lines 1148 (Infer Agents) and 1268 (conditional generation)
 
 **Example**:
-For a typical web application project with src/backend/, src/frontend/, and tests/:
+After initialization with multi-agent enabled, user gets this in ad.yaml:
 ```yaml
+# Agents (enabled - configure team based on your project structure)
 agents:
   enabled: true
   platform: "claude-sdk"
   default_execution_mode: "parallel"
   default_coordination: "message-passing"
-  team:
-    - id: "backend-dev"
-      role: "backend-implementation"
-      description: "Implements backend services and APIs"
-      context_dirs: ["src/backend/"]
-    - id: "frontend-dev"
-      role: "frontend-implementation"
-      description: "Implements user interface and client-side logic"
-      context_dirs: ["src/frontend/"]
-    - id: "qa-engineer"
-      role: "quality-assurance"
-      description: "Writes tests and validates quality"
-      context_dirs: ["tests/"]
+
+  # Configure your team based on project needs:
+  # For software: backend-dev, frontend-dev, qa-engineer, devops
+  # For books: chapter-writers, editor, designer, publisher
+  # For marketing: content-creator, designer, analyst, campaign-manager
+  # For events: logistics, promotion, program, registration
+  team: []
 ```
+
+User then adds their specific agents based on their domain and project structure.
 
 **Related**: None
 
