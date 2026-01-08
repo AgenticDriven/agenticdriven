@@ -87,201 +87,96 @@ Git tags are not required in ADD 1.0. Use commits and version in adw.yaml to tra
 
 # Project Structure
 
-## Standard Layout
-
 ```
 project-root/
 ├── README.md
-├── ad.yaml           # Root configuration
+├── ad.yaml
 ├── docs/
 │   ├── journal.md
 │   ├── decisions.md
 │   ├── conventions.md
-│   ├── active/       # Feature-driven: one dir per active feature
-│   ├── completed/    # Finished features
-│   ├── planning/     # Future work
-│   └── archived/     # Old docs
+│   ├── active/       # Feature-driven
+│   ├── completed/
+│   └── archived/
 ├── src/              # Adapt by domain
 └── assets/           # Optional
 ```
 
-## Core Directories
-
-- **docs/**: All documentation
-- **src/**: Main content (adapt by domain)
-- **assets/**: Resources (optional)
-
 ## Domain-Specific src/
 
-- **Software**: `backend/`, `frontend/`, `shared/`
-- **Book**: `chapters/`, `appendices/`, `resources/`
-- **Marketing**: `campaigns/`, `content/`, `analytics/`
-- **Event**: `program/`, `logistics/`, `promotion/`
-- **Product**: `design/`, `specs/`, `prototypes/`
+**Software**: `backend/`, `frontend/`, `shared/`
+**Book**: `chapters/`, `appendices/`, `resources/`
+**Marketing**: `campaigns/`, `content/`, `analytics/`
+**Event**: `program/`, `logistics/`, `promotion/`
+**Product**: `design/`, `specs/`, `prototypes/`
 
 ## Feature-Driven (mode: feature)
 
 ```
 docs/active/feature-name/
-├── ad.yaml           # Feature config
+├── ad.yaml
 ├── 00-define/
 ├── 01-discover/
 ├── 02-design/
 └── 04-build/
 ```
 
-Each feature has phase directories as needed. Not all features use all phases.
-
 ## Project-Driven (mode: project)
 
 ```
 docs/
-├── journal.md
-├── decisions.md
-├── conventions.md
 ├── 00-define/
 ├── 01-discover/
 ├── 02-design/
 └── ...
 ```
 
-Phase docs at root level for entire project.
-
 ## Phase Directories
 
-- `00-define/` - Problem, objectives, scope
-- `01-discover/` - Requirements, research, decisions
-- `02-design/` - Design, architecture, contracts
-- `03-setup/` - Setup, validation criteria
-- `04-build/` - Build log, implementation status
-- `05-validate/` - Validation reports
-- `06-market/` - Marketing materials
-- `07-launch/` - Launch documentation
-- `08-support/` - Support logs
-- `09-evolve/` - Evolution plans
-
-## Required Files
-
-**Minimum**: README.md, ad.yaml, docs/journal.md, src/
-
-**Feature-Driven**: Root + per-feature ad.yaml
-**Project-Driven**: Root + phase docs
-
-## Organizing docs/
-
-Simple: keep flat
-Complex: use subdirectories (planning/, active/, completed/, archived/, spikes/, reports/)
+`00-define/` `01-discover/` `02-design/` `03-setup/` `04-build/` `05-validate/` `06-market/` `07-launch/` `08-support/` `09-evolve/`
 
 ## Rules
 
-1. Standard base: README, ad.yaml, docs/, src/
-2. All docs in `docs/`
-3. Feature-driven: organize by feature
-4. Project-driven: organize by phase
-5. Use kebab-case filenames
-6. Keep simple when possible
+- Standard base: README, ad.yaml, docs/, src/
+- All docs in `docs/`
+- Use kebab-case filenames
 
 # Project Config
 
-## File: ad.yaml (Root Configuration)
-
-Optional configuration for project-level settings and feature management.
-
-### Minimal
+## ad.yaml (Root)
 
 ```yaml
 domain: "software"  # software | book | marketing | event | product | research | course | game
-```
-
-### Full Example
-
-```yaml
-domain: "software"
-mode: "feature"  # feature | project
-
+mode: "feature"     # feature | project
 context_files:
   - "README.md"
   - "docs/decisions.md"
-  - "docs/conventions.md"
-
 active_features:
   - path: "docs/active/feature-name"
     description: "Feature description"
-    status: "in-progress"  # in-progress | blocked | review
-
-completed_features:
-  - path: "docs/completed/feature-name"
-    completed_at: "2026-01-08"
-    description: "What was done"
-
+    status: "in-progress"
+completed_features: []
 agents:
   enabled: false
-
 settings:
   auto_commit: true
 ```
 
 ## Feature ad.yaml
 
-Each feature has its own `ad.yaml` in `docs/active/feature-name/ad.yaml`:
-
 ```yaml
 id: "feature-name"
 type: "feat"  # feat | fix | spike | refactor | docs | chore
-description: "What this feature does"
+description: "What this does"
 phase: "BUILD"
 version: "v0.4.2"
 status: "in-progress"
-
-context_files:
-  - "docs/active/feature-name/00-define/problem.md"
-  - "docs/active/feature-name/02-design/design.md"
-
-code_locations:
-  - "src/feature/"
-
-tasks:
-  - description: "Task description"
-    status: "done"  # pending | in-progress | done | blocked
-
-dependencies:
-  - feature: "other-feature"
-    reason: "Why needed"
-    status: "completed"
-
+context_files: []
+code_locations: []
+tasks: []
 agents:
   enabled: false
-
-notes:
-  - "Important decisions or context"
 ```
-
-## Fields
-
-### Root ad.yaml
-
-- **domain**: Project type (adapts AI language)
-- **mode**: `feature` (individual features) or `project` (10 phases for whole project)
-- **context_files**: Global docs read at session start
-- **active_features**: Features in progress
-- **completed_features**: Finished features
-- **agents**: Multi-agent configuration
-- **settings**: Project preferences
-
-### Feature ad.yaml
-
-- **id**: Unique identifier (kebab-case)
-- **type**: feat | fix | spike | refactor | docs | chore
-- **description**: Brief description
-- **phase**: Current phase
-- **version**: v0.PHASE.ITERATION
-- **status**: in-progress | blocked | review | completed
-- **context_files**: Docs for this feature
-- **code_locations**: Code for this feature
-- **tasks**: Task breakdown (optional)
-- **dependencies**: What this depends on (optional)
-- **agents**: Multi-agent for this feature (optional)
-- **notes**: Important context (optional)
 
 ## Feature Types
 
@@ -296,215 +191,86 @@ chore:    DEFINE → BUILD
 
 ## Multi-Agent
 
-When `agents.enabled = true`:
-
 ```yaml
 agents:
   enabled: true
   platform: "claude-sdk"
   default_execution_mode: "parallel"
   default_coordination: "message-passing"
-
   team:
     - id: "agent-id"
       role: "agent-role"
       description: "What this agent does"
-      phases: ["BUILD", "VALIDATE"]
-      capabilities: ["capability-1", "capability-2"]
       context_dirs: ["src/area/"]
 ```
 
-Configure agents based on your project's separation of concerns.
+Configure based on project's separation of concerns.
 
 # Documentation
 
-## Principle
-Document before, during, after
+Document before, during, after.
 
-## Required by Phase
-**DEFINE**: problem-statement, objectives, scope
-**DISCOVER**: discovery, requirements, decisions
+## By Phase
+
+**DEFINE**: problem, objectives, scope
+**DISCOVER**: requirements, decisions
 **DESIGN**: design, architecture, interfaces
 **SETUP**: setup, validation-criteria
-**BUILD**: build-log, changes, issues
-**VALIDATE**: validation-report, test-results
-**MARKET**: marketing-plan, launch-strategy
-**LAUNCH**: launch-log, go-live-report
-**SUPPORT**: support-log, hotfixes
-**EVOLVE**: evolution-plan, roadmap
+**BUILD**: build-log
+**VALIDATE**: validation-report
+**MARKET**: marketing-plan
+**LAUNCH**: launch-log
+**SUPPORT**: support-log
+**EVOLVE**: evolution-plan
 
 ## Location
 
-**Simple Projects**: All in `docs/` at root. Use kebab-case filenames. Markdown format.
+Simple: `docs/` flat
+Complex: `docs/active/`, `docs/completed/`, `docs/archived/`
 
-**Complex Projects**: Use subdirectories:
+Always at root: `journal.md`, `decisions.md`
 
-```
-docs/
-├── planning/          # Future work, proposals, ideas
-├── active/           # Work in progress
-│   └── feature-name/  # Current feature/project
-│       ├── 00-define/
-│       ├── 01-discover/
-│       ├── 02-design/
-│       └── ...
-├── completed/        # Finished features
-├── archived/         # Old/deprecated docs
-├── reports/          # Standalone reports
-├── spikes/           # Research, experiments
-├── journal.md        # Always at root
-└── decisions.md      # Always at root
-```
-
-**Workflow**:
-1. Start feature in `active/feature-name/`
-2. Organize by phases: 00-define/, 01-discover/, etc.
-3. When feature complete, move to `completed/feature-name/`
-4. Old features go to `archived/`
-
-**Always at Root**:
-- `journal.md` - Daily progress
-- `decisions.md` - Architecture decisions (ADRs)
-
-## Updates
-Update docs in same commit as code
+Update docs in same commit as code.
 
 # Journal
 
 ## File: docs/journal.md
 
-Daily progress log. References other docs for details.
+Daily progress log. Most recent at top.
 
 ## Format
 
 ```markdown
 ## YYYY-MM-DD
-
-- **Phase**: PHASE (vX.Y.Z)
-- **Agent**: Role/name
-- **Progress**: What completed (reference docs for details)
-- **Decisions**: Key decisions (or reference decisions.md)
-- **Blockers**: Issues
-- **Next**: Next steps
+- Phase: PHASE (vX.Y.Z)
+- Progress: What completed
+- Next: Next steps
 ```
 
-## Example
-
-```markdown
-## 2026-01-06
-
-- **Phase**: BUILD (v0.4.3)
-- **Agent**: Backend Dev
-- **Progress**:
-  - POST /api/users done
-  - Tests passing (12/12)
-  - Details: active/feature-auth.md
-- **Decisions**: bcrypt for passwords (see decisions.md)
-- **Blockers**: Waiting DB schema approval
-- **Next**: GET /api/users/:id
-
-## 2026-01-05
-
-- **Phase**: BUILD (v0.4.2)
-- **Agent**: Backend Dev
-- **Progress**: Express setup, DB connection, user model
-- **Decisions**: PostgreSQL + Sequelize (see decisions.md)
-- **Blockers**: None
-- **Next**: Start user endpoints
-```
-
-## Rules
-
-- Update daily
-- Most recent at top
-- Reference other docs
-- Use actual dates (YYYY-MM-DD)
-- Include phase version
-
-## Multi-Agent
-
-Each agent adds section:
-
-```markdown
-## 2026-01-06
-
-### Backend
-- **Phase**: BUILD (v0.4.3)
-- **Progress**: API 3/5 complete
-
-### Frontend
-- **Phase**: BUILD (v0.4.3)
-- **Progress**: Login form done
-```
+Multi-agent: Each agent adds section.
 
 # Decisions
 
 ## File: docs/decisions.md
 
-Architecture Decision Records (ADRs) for important decisions.
+Architecture Decision Records (ADRs). Newest at top.
 
 ## Format
 
 ```markdown
 ## [Date] - [Title]
 
-**Status**: Accepted | Rejected | Deprecated | Superseded
-
-**Context**: Problem description (2-3 sentences)
-
-**Decision**: What we decided (1-2 sentences)
-
-**Consequences**:
-✅ Positive outcome
-✅ Positive outcome
-❌ Negative outcome
-
-**Alternatives**:
-- Option 1: Why rejected
-- Option 2: Why rejected
-```
-
-## Example
-
-```markdown
-## 2026-01-06 - Use JSON:API 1.1
-
-**Status**: Accepted
-
-**Context**: Need standardized API format for frontend-backend communication.
-
-**Decision**: Use JSON:API 1.1 for all endpoints.
-
-**Consequences**:
-✅ Standardized format
-✅ Better tooling
-❌ Learning curve
-
-**Alternatives**:
-- Custom REST: Too much freedom
-- GraphQL: Overkill
+**Status**: Accepted | Rejected | Deprecated
+**Context**: Problem (2-3 sentences)
+**Decision**: What decided (1-2 sentences)
+**Consequences**: ✅ Positive, ❌ Negative
+**Alternatives**: Options rejected and why
 ```
 
 ## When to Document
 
-Document when:
-- Technical choice with multiple options
-- Architectural change
-- Trade-off decision
-- Team disagreement resolved
-
-Don't document:
-- Obvious choices
-- Trivial decisions
-- Implementation details
-
-## Rules
-
-1. One file: `docs/decisions.md`
-2. Newest at top
-3. Include date
-4. Be concise
-5. Update status if changed
+Document: Technical choices with multiple options, architectural changes, trade-offs
+Skip: Obvious choices, trivial decisions, implementation details
 
 # Contracts
 
