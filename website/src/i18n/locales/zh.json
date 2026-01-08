@@ -502,18 +502,41 @@
       "viewGitHub": "在GitHub上查看"
     },
     "projectConfig": {
-      "title": "Project Configuration (ad.yaml)",
-      "intro": "The ad.yaml file defines AD project configuration. It's OPTIONAL for solo projects and REQUIRED for multi-agent projects. Place it at project root.",
+      "title": "项目配置 (ad.yaml)",
+      "intro": "ad.yaml 文件定义 AD 项目配置。包含 domain、模式 (feature/project)、活跃 features 和可选的多代理配置。",
       "when": {
-        "title": "When to use ad.yaml?",
-        "solo": "Solo Project: OPTIONAL. Only if you want AI to adapt its language to the domain.",
-        "multi": "Multi-Agent: REQUIRED. Defines context boundaries to prevent conflicts."
+        "title": "何时使用 ad.yaml？",
+        "solo": "单个项目：建议用于跟踪 features 和模式。帮助 AI 理解您的项目结构。",
+        "multi": "多代理：必需。定义上下文边界和代理间协调。"
+      },
+      "mode": {
+        "title": "模式：Feature vs Project",
+        "intro": "AD 支持两种组织模式。两者都使用 features，但以不同方式管理阶段。",
+        "feature": {
+          "title": "mode: \"feature\" (推荐)",
+          "desc": "每个 feature 都有自己的小周期通过各个阶段。Features 可以同时处于不同阶段（例如：feature-A 在 BUILD 而 feature-B 在 DESIGN）。更灵活，支持并行工作。每个 feature 有 docs/active/feature-name/ad.yaml"
+        },
+        "project": {
+          "title": "mode: \"project\"",
+          "desc": "整个项目作为一个单元通过各个阶段。所有工作遵循相同的阶段进展。更结构化、顺序化的方法。Features 仍然存在并有自己的 ad.yaml，但与项目阶段对齐。"
+        },
+        "important": "两种模式都使用 features。区别在于阶段管理：Feature 模式 = 每个 feature 独立跟踪阶段。Project 模式 = features 遵循项目的整体阶段。"
+      },
+      "featureTypes": {
+        "title": "Feature 类型",
+        "intro": "不同的 feature 类型通过不同的阶段子集：",
+        "feat": "feat: DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE (完整周期)",
+        "fix": "fix: DEFINE → VALIDATE (快速修复)",
+        "spike": "spike: DEFINE → DISCOVER (研究/探索)",
+        "refactor": "refactor: DEFINE → BUILD → VALIDATE (代码改进)",
+        "docs": "docs: DEFINE → BUILD (仅文档)",
+        "chore": "chore: DEFINE → BUILD (维护任务)"
       },
       "solo": {
-        "title": "Solo Configuration (Optional)",
-        "desc": "For single-agent projects, you only need to specify the domain. This makes AI agents adapt their language and suggestions to the project type.",
-        "example": "domain: \"software\"",
-        "domains": "Valid domains: software, book, marketing, event, product, research, course, game"
+        "title": "基本配置",
+        "desc": "入门所需的最小 ad.yaml。指定 domain 和模式，可选地跟踪 features。",
+        "example": "domain: \"software\"\\nmode: \"feature\"\\n\\ncontext_files:\\n  - \"README.md\"\\n  - \"docs/decisions.md\"\\n\\nactive_features: []\\ncompleted_features: []\\n\\nagents:\\n  enabled: false",
+        "domains": "有效域：software, book, marketing, event, product, research, course, game"
       },
       "multiAgent": {
         "title": "Multi-Agent Configuration (Required)",
@@ -521,9 +544,9 @@
         "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\", \"tests/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\", \"tests/frontend/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \".github/\"]"
       },
       "specification": {
-        "title": "Complete Schema Specification",
-        "intro": "The ad.yaml file has ONLY 2 possible fields. It's a simple and clear format:",
-        "schema": "# Complete ad.yaml schema\\n\\ndomain: string              # REQUIRED\\nagents: array<Agent>        # OPTIONAL (required for multi-agent)\\n\\n# Agent structure:\\nAgent {\\n  id: string               # REQUIRED: unique identifier\\n  context: array<string>   # REQUIRED: directories where agent works\\n}"
+        "title": "完整模式规范",
+        "intro": "ad.yaml 文件结构及所有可用字段：",
+        "schema": "# 完整 ad.yaml 模式\\n\\ndomain: string                    # 必需：software|book|marketing|event|product|research|course|game\\nmode: string                      # 必需：\"feature\" | \"project\"\\n\\ncontext_files: array<string>      # 可选：会话开始时读取的全局文档\\n  - \"README.md\"\\n  - \"docs/decisions.md\"\\n\\nactive_features: array<Feature>   # 可选：进行中的 Features\\n  - path: string                  # Feature 目录路径\\n    description: string           # 此 feature 的功能\\n    status: string                # \"in-progress\" | \"blocked\" | \"review\"\\n\\ncompleted_features: array         # 可选：已完成的 Features\\n\\nagents:                           # 可选（多代理必需）\\n  enabled: boolean\\n  platform: string                # \"claude-sdk\" | \"windsurf\" | \"cursor\"\\n  default_execution_mode: string  # \"parallel\" | \"sequential\" | \"hybrid\"\\n  default_coordination: string    # \"message-passing\" | \"shared-state\" | \"pipeline\"\\n  team: array<Agent>\\n    - id: string\\n      role: string\\n      description: string\\n      phases: array<string>\\n      capabilities: array<string>\\n      context_dirs: array<string>\\n\\nsettings:                         # 可选\\n  auto_commit: boolean            # 任务后自动提交\\n  require_tests: boolean          # 阶段推进前需要测试"
       },
       "domainField": {
         "title": "Field: domain (string, REQUIRED)",
@@ -794,19 +817,34 @@
       }
     },
     "aiWorkflow": {
-      "title": "AI Workflow",
-      "intro": "How AI agents should work within the AD methodology.",
+      "title": "AI 工作流程",
+      "intro": "AI 代理应如何在 AD 方法论中工作。包括现有项目的自动初始化。",
+      "autoInit": {
+        "title": "自动初始化",
+        "intro": "当未找到 ad.yaml 时，AD 可以自动为现有项目初始化。",
+        "detect": "AI 检测：Git 仓库状态、现有目录（docs/、src/）、markdown 文件数量、项目类型指标",
+        "questions": {
+          "title": "初始化问题",
+          "domain": "1. Domain？(software | book | marketing | event | product | research | course | game)",
+          "mode": "2. 模式？(feature | project)",
+          "detectFeatures": "3. 检测现有 features？(是 | 否) - AI 分析 src/ 子目录、git 分支",
+          "reorganize": "4. 将 markdown 文件重组到 docs/？(是 | 否)",
+          "multiAgent": "5. 使用多代理？(是 | 否) - AI 检测重要目录"
+        },
+        "process": "AI 推断项目状态 → 创建 ad.yaml → 重组文件（如果请求）→ 创建 feature ad.yaml 文件 → 初始化 docs（journal、decisions、conventions）→ 提交初始化 → 向用户报告"
+      },
       "sessionStart": {
-        "title": "Session Start (9 steps)",
-        "1": "Git status: git status",
-        "2": "Config: cat ad.yaml 2>/dev/null (if exists)",
-        "3": "README: cat README.md",
-        "4": "Phase: git describe --tags --abbrev=0 (latest tag = current phase)",
-        "5": "Phase docs: cat docs/journal.md + phase-specific docs",
-        "6": "Contracts: cat docs/interfaces.md (if BUILD/VALIDATE)",
-        "7": "Recent commits: git log -5 --oneline",
-        "8": "Role: Check ad.yaml for agent context (if multi-agent)",
-        "9": "Ask: Ready to work"
+        "title": "会话开始（10 步）",
+        "0": "检查 ad.yaml：如果未找到 → 触发自动初始化",
+        "1": "读取根 ad.yaml：提取 domain、mode、context_files、active_features、agents",
+        "2": "读取 README.md：获取项目概述和当前状态",
+        "3": "读取所有全局 context_files：构建对标准、决策、约定的理解",
+        "4": "列出活跃 features：显示 active_features 数组中的所有 features",
+        "5": "询问哪个 feature：用户从活跃 features 中选择或创建新的",
+        "6": "读取 feature ad.yaml：加载 feature 特定配置、phase、version、status",
+        "7": "读取 feature context_files：加载此 feature 特定的文档",
+        "8": "检查多代理配置：识别正在工作的代理，加载代理上下文",
+        "9": "呈现状态：显示完成的内容、下一步、当前阶段、阻塞项、准备工作"
       },
       "duringWork": {
         "title": "During Work",

@@ -502,18 +502,41 @@
       "viewGitHub": "GitHub पर देखें"
     },
     "projectConfig": {
-      "title": "Project Configuration (ad.yaml)",
-      "intro": "The ad.yaml file defines AD project configuration. It's OPTIONAL for solo projects and REQUIRED for multi-agent projects. Place it at project root.",
+      "title": "प्रोजेक्ट कॉन्फ़िगरेशन (ad.yaml)",
+      "intro": "ad.yaml फ़ाइल AD प्रोजेक्ट कॉन्फ़िगरेशन को परिभाषित करती है। इसमें domain, mode (feature/project), सक्रिय features और वैकल्पिक multi-agent कॉन्फ़िगरेशन शामिल है।",
       "when": {
-        "title": "When to use ad.yaml?",
-        "solo": "Solo Project: OPTIONAL. Only if you want AI to adapt its language to the domain.",
-        "multi": "Multi-Agent: REQUIRED. Defines context boundaries to prevent conflicts."
+        "title": "ad.yaml का उपयोग कब करें?",
+        "solo": "एकल प्रोजेक्ट: Features और mode को ट्रैक करने के लिए अनुशंसित। AI को आपकी प्रोजेक्ट संरचना समझने में मदद करता है।",
+        "multi": "Multi-Agent: आवश्यक। Context सीमाओं और agents के बीच समन्वय को परिभाषित करता है।"
+      },
+      "mode": {
+        "title": "Mode: Feature vs Project",
+        "intro": "AD दो संगठनात्मक modes का समर्थन करता है। दोनों features का उपयोग करते हैं, लेकिन phases को अलग तरीके से प्रबंधित करते हैं।",
+        "feature": {
+          "title": "mode: \"feature\" (अनुशंसित)",
+          "desc": "प्रत्येक feature की phases के माध्यम से अपनी mini-cycle होती है। Features एक साथ विभिन्न phases में हो सकते हैं (उदा: feature-A BUILD में जबकि feature-B DESIGN में)। अधिक लचीला, समानांतर कार्य की अनुमति देता है। प्रत्येक feature में docs/active/feature-name/ad.yaml है"
+        },
+        "project": {
+          "title": "mode: \"project\"",
+          "desc": "संपूर्ण प्रोजेक्ट एक इकाई के रूप में phases से गुजरता है। सभी कार्य एक ही phase progression का पालन करते हैं। अधिक संरचित, क्रमिक दृष्टिकोण। Features अभी भी अपने ad.yaml के साथ मौजूद हैं लेकिन प्रोजेक्ट phase के साथ संरेखित होते हैं।"
+        },
+        "important": "दोनों modes features का उपयोग करते हैं। अंतर phase प्रबंधन में है: Feature mode = प्रति feature स्वतंत्र phase tracking। Project mode = features प्रोजेक्ट के समग्र phase का पालन करते हैं।"
+      },
+      "featureTypes": {
+        "title": "Feature प्रकार",
+        "intro": "विभिन्न feature प्रकार विभिन्न phase subsets से गुजरते हैं:",
+        "feat": "feat: DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE (पूर्ण चक्र)",
+        "fix": "fix: DEFINE → VALIDATE (त्वरित सुधार)",
+        "spike": "spike: DEFINE → DISCOVER (अनुसंधान/अन्वेषण)",
+        "refactor": "refactor: DEFINE → BUILD → VALIDATE (कोड सुधार)",
+        "docs": "docs: DEFINE → BUILD (केवल documentation)",
+        "chore": "chore: DEFINE → BUILD (रखरखाव कार्य)"
       },
       "solo": {
-        "title": "Solo Configuration (Optional)",
-        "desc": "For single-agent projects, you only need to specify the domain. This makes AI agents adapt their language and suggestions to the project type.",
-        "example": "domain: \"software\"",
-        "domains": "Valid domains: software, book, marketing, event, product, research, course, game"
+        "title": "बुनियादी कॉन्फ़िगरेशन",
+        "desc": "शुरुआत के लिए न्यूनतम ad.yaml। Domain और mode निर्दिष्ट करें, वैकल्पिक रूप से features को ट्रैक करें।",
+        "example": "domain: \"software\"\\nmode: \"feature\"\\n\\ncontext_files:\\n  - \"README.md\"\\n  - \"docs/decisions.md\"\\n\\nactive_features: []\\ncompleted_features: []\\n\\nagents:\\n  enabled: false",
+        "domains": "वैध domains: software, book, marketing, event, product, research, course, game"
       },
       "multiAgent": {
         "title": "Multi-Agent Configuration (Required)",
@@ -521,9 +544,9 @@
         "example": "domain: \"software\"\\n\\nagents:\\n  - id: \"backend\"\\n    context: [\"src/backend/\", \"tests/backend/\"]\\n  - id: \"frontend\"\\n    context: [\"src/frontend/\", \"tests/frontend/\"]\\n  - id: \"devops\"\\n    context: [\"infra/\", \".github/\"]"
       },
       "specification": {
-        "title": "Complete Schema Specification",
-        "intro": "The ad.yaml file has ONLY 2 possible fields. It's a simple and clear format:",
-        "schema": "# Complete ad.yaml schema\\n\\ndomain: string              # REQUIRED\\nagents: array<Agent>        # OPTIONAL (required for multi-agent)\\n\\n# Agent structure:\\nAgent {\\n  id: string               # REQUIRED: unique identifier\\n  context: array<string>   # REQUIRED: directories where agent works\\n}"
+        "title": "पूर्ण Schema विनिर्देश",
+        "intro": "सभी उपलब्ध fields के साथ ad.yaml फ़ाइल संरचना:",
+        "schema": "# पूर्ण ad.yaml schema\\n\\ndomain: string                    # आवश्यक: software|book|marketing|event|product|research|course|game\\nmode: string                      # आवश्यक: \"feature\" | \"project\"\\n\\ncontext_files: array<string>      # वैकल्पिक: Session शुरू होने पर पढ़े गए वैश्विक docs\\n  - \"README.md\"\\n  - \"docs/decisions.md\"\\n\\nactive_features: array<Feature>   # वैकल्पिक: प्रगति में Features\\n  - path: string                  # Feature डायरेक्टरी पथ\\n    description: string           # यह feature क्या करता है\\n    status: string                # \"in-progress\" | \"blocked\" | \"review\"\\n\\ncompleted_features: array         # वैकल्पिक: पूर्ण किए गए Features\\n\\nagents:                           # वैकल्पिक (multi-agent के लिए आवश्यक)\\n  enabled: boolean\\n  platform: string                # \"claude-sdk\" | \"windsurf\" | \"cursor\"\\n  default_execution_mode: string  # \"parallel\" | \"sequential\" | \"hybrid\"\\n  default_coordination: string    # \"message-passing\" | \"shared-state\" | \"pipeline\"\\n  team: array<Agent>\\n    - id: string\\n      role: string\\n      description: string\\n      phases: array<string>\\n      capabilities: array<string>\\n      context_dirs: array<string>\\n\\nsettings:                         # वैकल्पिक\\n  auto_commit: boolean            # कार्यों के बाद auto-commit\\n  require_tests: boolean          # Phases आगे बढ़ने से पहले tests आवश्यक"
       },
       "domainField": {
         "title": "Field: domain (string, REQUIRED)",
@@ -795,18 +818,33 @@
     },
     "aiWorkflow": {
       "title": "AI Workflow",
-      "intro": "How AI agents should work within the AD methodology.",
+      "intro": "AD पद्धति में AI agents को कैसे काम करना चाहिए। मौजूदा प्रोजेक्ट्स के लिए auto-initialization शामिल है।",
+      "autoInit": {
+        "title": "Auto-Initialization",
+        "intro": "जब ad.yaml नहीं मिलता है, तो AD मौजूदा प्रोजेक्ट्स के लिए स्वचालित रूप से initialize कर सकता है।",
+        "detect": "AI पता लगाता है: Git repository स्थिति, मौजूदा डायरेक्टरीज़ (docs/, src/), markdown फ़ाइलों की संख्या, प्रोजेक्ट प्रकार के संकेतक",
+        "questions": {
+          "title": "Initialization प्रश्न",
+          "domain": "1. Domain? (software | book | marketing | event | product | research | course | game)",
+          "mode": "2. Mode? (feature | project)",
+          "detectFeatures": "3. मौजूदा features का पता लगाएं? (हाँ | नहीं) - AI src/ उप-डायरेक्टरीज़, git branches का विश्लेषण करता है",
+          "reorganize": "4. Markdown फ़ाइलों को docs/ में पुनर्व्यवस्थित करें? (हाँ | नहीं)",
+          "multiAgent": "5. Multi-agent उपयोग करें? (हाँ | नहीं) - AI महत्वपूर्ण डायरेक्टरीज़ का पता लगाता है"
+        },
+        "process": "AI प्रोजेक्ट स्थिति का अनुमान लगाता है → ad.yaml बनाता है → फ़ाइलों को पुनर्व्यवस्थित करता है (यदि अनुरोध किया गया) → Feature ad.yaml फ़ाइलें बनाता है → Docs initialize करता है (journal, decisions, conventions) → Initialization commit करता है → उपयोगकर्ता को रिपोर्ट करता है"
+      },
       "sessionStart": {
-        "title": "Session Start (9 steps)",
-        "1": "Git status: git status",
-        "2": "Config: cat ad.yaml 2>/dev/null (if exists)",
-        "3": "README: cat README.md",
-        "4": "Phase: git describe --tags --abbrev=0 (latest tag = current phase)",
-        "5": "Phase docs: cat docs/journal.md + phase-specific docs",
-        "6": "Contracts: cat docs/interfaces.md (if BUILD/VALIDATE)",
-        "7": "Recent commits: git log -5 --oneline",
-        "8": "Role: Check ad.yaml for agent context (if multi-agent)",
-        "9": "Ask: Ready to work"
+        "title": "Session शुरुआत (10 steps)",
+        "0": "ad.yaml जांचें: यदि नहीं मिला → auto-initialization ट्रिगर करें",
+        "1": "Root ad.yaml पढ़ें: domain, mode, context_files, active_features, agents निकालें",
+        "2": "README.md पढ़ें: प्रोजेक्ट overview और वर्तमान स्थिति प्राप्त करें",
+        "3": "सभी वैश्विक context_files पढ़ें: मानकों, निर्णयों, सम्मेलनों की समझ बनाएं",
+        "4": "सक्रिय features सूचीबद्ध करें: active_features array से सभी features दिखाएं",
+        "5": "कौन सा feature पूछें: उपयोगकर्ता सक्रिय features से चुनता है या नया बनाता है",
+        "6": "Feature ad.yaml पढ़ें: Feature-विशिष्ट कॉन्फ़िगरेशन, phase, version, status लोड करें",
+        "7": "Feature context_files पढ़ें: इस feature के लिए विशिष्ट docs लोड करें",
+        "8": "Multi-agent config जांचें: पहचानें कौन सा agent काम कर रहा है, agent context लोड करें",
+        "9": "स्थिति प्रस्तुत करें: क्या हो गया है, आगे क्या है, वर्तमान phase, अवरोधक, काम के लिए तैयार दिखाएं"
       },
       "duringWork": {
         "title": "During Work",
