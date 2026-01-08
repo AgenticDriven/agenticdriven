@@ -17,10 +17,39 @@ active_features: []
 # Completed features
 completed_features: []
 
-# Agents (disabled by default)
+# Agents (enabled - inferred from project structure)
 agents:
-  enabled: false
-  # Enable later if needed for multi-agent workflows
+  enabled: true
+  platform: "claude-sdk"
+  default_execution_mode: "parallel"
+  default_coordination: "message-passing"
+
+  # Inferred from project structure analysis
+  team:
+    - id: "methodology-dev"
+      role: "methodology-development"
+      description: "Develops AD methodology rules and architecture"
+      phases: ["DEFINE", "DISCOVER", "DESIGN", "BUILD"]
+      capabilities: ["rules-writing", "architecture-design", "documentation"]
+      context_dirs:
+        - "src/rules/"
+        - "docs/planning/"
+
+    - id: "website-dev"
+      role: "website-implementation"
+      description: "Maintains website and public documentation"
+      phases: ["BUILD", "VALIDATE", "MARKET"]
+      capabilities: ["frontend", "documentation", "deployment"]
+      context_dirs:
+        - "website/"
+
+    - id: "templates-dev"
+      role: "templates-management"
+      description: "Creates and maintains configuration templates"
+      phases: ["DESIGN", "BUILD"]
+      capabilities: ["yaml-design", "template-creation"]
+      context_dirs:
+        - "templates/"
 
 # Settings
 settings:
