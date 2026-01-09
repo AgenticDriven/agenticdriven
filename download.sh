@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Quick download script for ADD 2.0 IDE configs
+# Quick download script for AD 1.0 IDE configs
 # Usage: curl -sSL https://raw.githubusercontent.com/agentdriven/add/main/src/rules/ide/download.sh | bash
 
 set -e
@@ -65,5 +65,5 @@ case "$IDE" in
 esac
 
 echo ""
-echo "🎉 ADD 2.0 configuration installed!"
-echo "Now your AI assistant will follow ADD methodology."
+echo "🎉 AD 1.0 configuration installed!"
+echo "Now your AI assistant will follow AD methodology."

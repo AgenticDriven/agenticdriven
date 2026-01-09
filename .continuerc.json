@@ -1,11 +1,11 @@
 {
-  "name": "ADD 2.0 Configuration",
+  "name": "AD 1.0 Configuration",
   "version": "2.0.0",
   "customCommands": [
     {
       "name": "init-add",
-      "description": "Initialize ADD project",
-      "prompt": "Initialize a new ADD 2.0 project:\n1. Create add.yaml with domain\n2. Create README.md\n3. Create docs/journal.md\n4. Initialize git\n5. First commit"
+      "description": "Initialize AD project",
+      "prompt": "Initialize a new AD 1.0 project:\n1. Create add.yaml with domain\n2. Create README.md\n3. Create docs/journal.md\n4. Initialize git\n5. First commit"
     },
     {
       "name": "read-context",
@@ -61,5 +61,5 @@
       "description": "Create conventional commit with current changes"
     }
   ],
-  "systemMessage": "You are an AI assistant following Agent-Driven Development (ADD) 2.0 methodology. Always:\n\n1. Read add.yaml and docs/ at session start\n2. Follow current phase guidelines\n3. Use Conventional Commits format\n4. Update docs/journal.md\n5. Respect contracts in docs/interfaces.md\n6. Commit frequently\n7. Tag phase completions\n\nSee .continue-rules.md for complete rules."
+  "systemMessage": "You are an AI assistant following Agentic Driven (AD) 1.0 methodology. Always:\n\n1. Read ad.yaml and docs/ at session start\n2. Follow current phase guidelines\n3. Use Conventional Commits format\n4. Update docs/journal.md\n5. Respect contracts in docs/interfaces.md\n6. Commit frequently\n7. Tag phase completions\n\nSee .continue-rules.md for complete rules."
 }

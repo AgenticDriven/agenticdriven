@@ -1,6 +1,6 @@
 # ADD Rules
 
-Concrete rules for ADD 2.0, ready to export to IDE configurations.
+Concrete rules for AD 1.0, ready to export to IDE configurations.
 
 ## Available Rules
 

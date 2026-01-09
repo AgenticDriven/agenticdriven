@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Generate IDE configuration files from ADD rules
+# Generate IDE configuration files from AD rules
 # Usage: ./generate-ide-configs.sh
 
 set -e
@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RULES_DIR="$SCRIPT_DIR"
 OUTPUT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"  # Project root
 
-echo "🚀 Generating IDE configurations from ADD rules..."
+echo "🚀 Generating IDE configurations from AD rules..."
 echo ""
 
 # Function to concatenate all markdown files in order
@@ -61,7 +61,7 @@ concat_rules > "$OUTPUT_DIR/.github/copilot-instructions.md"
 # Generate .aider.conf.yml (Aider)
 echo "📝 Generating .aider.conf.yml (Aider)..."
 cat > "$OUTPUT_DIR/.aider.conf.yml" << 'EOF'
-# Aider configuration for ADD 2.0
+# Aider configuration for AD 1.0
 # https://aider.chat/docs/config.html
 
 # Model settings
@@ -82,7 +82,7 @@ read:
 
 # Message template
 message-template: |
-  Follow Agent-Driven Development (ADD) 2.0 methodology:
+  Follow Agentic Driven (AD) 1.0 methodology:
 
   1. Read add.yaml and docs/ before starting
   2. Follow current phase guidelines
@@ -117,13 +117,13 @@ concat_rules > "$OUTPUT_DIR/.aider-rules.md"
 echo "📝 Generating .continuerc (Continue)..."
 cat > "$OUTPUT_DIR/.continuerc.json" << 'EOF'
 {
-  "name": "ADD 2.0 Configuration",
+  "name": "AD 1.0 Configuration",
   "version": "2.0.0",
   "customCommands": [
     {
       "name": "init-add",
-      "description": "Initialize ADD project",
-      "prompt": "Initialize a new ADD 2.0 project:\n1. Create add.yaml with domain\n2. Create README.md\n3. Create docs/journal.md\n4. Initialize git\n5. First commit"
+      "description": "Initialize AD project",
+      "prompt": "Initialize a new AD 1.0 project:\n1. Create add.yaml with domain\n2. Create README.md\n3. Create docs/journal.md\n4. Initialize git\n5. First commit"
     },
     {
       "name": "read-context",
@@ -179,7 +179,7 @@ cat > "$OUTPUT_DIR/.continuerc.json" << 'EOF'
       "description": "Create conventional commit with current changes"
     }
   ],
-  "systemMessage": "You are an AI assistant following Agent-Driven Development (ADD) 2.0 methodology. Always:\n\n1. Read add.yaml and docs/ at session start\n2. Follow current phase guidelines\n3. Use Conventional Commits format\n4. Update docs/journal.md\n5. Respect contracts in docs/interfaces.md\n6. Commit frequently\n7. Tag phase completions\n\nSee .continue-rules.md for complete rules."
+  "systemMessage": "You are an AI assistant following Agentic Driven (AD) 1.0 methodology. Always:\n\n1. Read ad.yaml and docs/ at session start\n2. Follow current phase guidelines\n3. Use Conventional Commits format\n4. Update docs/journal.md\n5. Respect contracts in docs/interfaces.md\n6. Commit frequently\n7. Tag phase completions\n\nSee .continue-rules.md for complete rules."
 }
 EOF
 
@@ -190,9 +190,9 @@ concat_rules > "$OUTPUT_DIR/.continue-rules.md"
 # Generate README for the ide directory
 echo "📝 Generating README.md..."
 cat > "$OUTPUT_DIR/README.md" << 'EOF'
-# ADD 2.0 IDE Configurations
+# AD 1.0 IDE Configurations
 
-Pre-configured IDE settings for Agent-Driven Development (ADD) 2.0.
+Pre-configured IDE settings for Agentic Driven (AD) 1.0.
 
 ## Available Configurations
 
@@ -242,7 +242,7 @@ Copy the relevant configuration file(s) to your project root.
 ## What's Included
 
 All configurations include:
-- 6 core ADD principles
+- 6 core AD principles
 - 10 phases + exit criteria
 - Git workflow (commits, tags, versioning)
 - Documentation requirements
@@ -253,12 +253,12 @@ All configurations include:
 
 ## Customization
 
-Feel free to adapt these configurations to your project's specific needs while maintaining the core ADD principles.
+Feel free to adapt these configurations to your project's specific needs while maintaining the core AD principles.
 
 ## Version
 
 Generated: $(date +%Y-%m-%d)
-ADD Version: 2.0
+AD Version: 1.0
 
 ## Source
 
@@ -270,7 +270,7 @@ echo "📝 Generating download.sh..."
 cat > "$OUTPUT_DIR/download.sh" << 'EOF'
 #!/bin/bash
 
-# Quick download script for ADD 2.0 IDE configs
+# Quick download script for AD 1.0 IDE configs
 # Usage: curl -sSL https://raw.githubusercontent.com/agentdriven/add/main/src/rules/ide/download.sh | bash
 
 set -e
@@ -335,8 +335,8 @@ case "$IDE" in
 esac
 
 echo ""
-echo "🎉 ADD 2.0 configuration installed!"
-echo "Now your AI assistant will follow ADD methodology."
+echo "🎉 AD 1.0 configuration installed!"
+echo "Now your AI assistant will follow AD methodology."
 EOF
 
 chmod +x "$OUTPUT_DIR/download.sh"

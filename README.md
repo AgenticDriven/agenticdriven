@@ -1,6 +1,6 @@
-# ADD 2.0 IDE Configurations
+# AD 1.0 IDE Configurations
 
-Pre-configured IDE settings for Agent-Driven Development (ADD) 2.0.
+Pre-configured IDE settings for Agentic Driven (AD) 1.0.
 
 ## Available Configurations
 
@@ -50,7 +50,7 @@ Copy the relevant configuration file(s) to your project root.
 ## What's Included
 
 All configurations include:
-- 6 core ADD principles
+- 6 core AD principles
 - 10 phases + exit criteria
 - Git workflow (commits, tags, versioning)
 - Documentation requirements
@@ -61,12 +61,12 @@ All configurations include:
 
 ## Customization
 
-Feel free to adapt these configurations to your project's specific needs while maintaining the core ADD principles.
+Feel free to adapt these configurations to your project's specific needs while maintaining the core AD principles.
 
 ## Version
 
 Generated: $(date +%Y-%m-%d)
-ADD Version: 2.0
+AD Version: 1.0
 
 ## Source
 
