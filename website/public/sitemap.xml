@@ -8,7 +8,7 @@
   <!-- Homepage - Default (English) -->
   <url>
     <loc>https://agenticdriven.dev/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
@@ -23,7 +23,7 @@
   <!-- English Homepage -->
   <url>
     <loc>https://agenticdriven.dev/en/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
@@ -38,7 +38,7 @@
   <!-- Spanish Homepage -->
   <url>
     <loc>https://agenticdriven.dev/es/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
@@ -53,7 +53,7 @@
   <!-- Chinese Homepage -->
   <url>
     <loc>https://agenticdriven.dev/zh/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
@@ -68,7 +68,7 @@
   <!-- German Homepage -->
   <url>
     <loc>https://agenticdriven.dev/de/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
@@ -83,7 +83,7 @@
   <!-- Russian Homepage -->
   <url>
     <loc>https://agenticdriven.dev/ru/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
@@ -98,7 +98,7 @@
   <!-- Hindi Homepage -->
   <url>
     <loc>https://agenticdriven.dev/hi/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agenticdriven.dev/en/"/>
@@ -113,52 +113,52 @@
   <!-- Download Script -->
   <url>
     <loc>https://agenticdriven.dev/download.sh</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- IDE Configurations -->
   <url>
-    <loc>https://agenticdriven.dev/rules/ide/.cursorrules</loc>
-    <lastmod>2026-01-07</lastmod>
+    <loc>https://agenticdriven.dev/.cursorrules</loc>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://agenticdriven.dev/rules/ide/.clauderc</loc>
-    <lastmod>2026-01-07</lastmod>
+    <loc>https://agenticdriven.dev/claude.md</loc>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://agenticdriven.dev/rules/ide/.windsurfrules</loc>
-    <lastmod>2026-01-07</lastmod>
+    <loc>https://agenticdriven.dev/.windsurfrules</loc>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://agenticdriven.dev/rules/ide/.aider.conf.yml</loc>
-    <lastmod>2026-01-07</lastmod>
+    <loc>https://agenticdriven.dev/.aider-rules.md</loc>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://agenticdriven.dev/rules/ide/.continuerc.json</loc>
-    <lastmod>2026-01-07</lastmod>
+    <loc>https://agenticdriven.dev/.continue-rules.md</loc>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://agenticdriven.dev/rules/ide/.github/copilot-instructions.md</loc>
-    <lastmod>2026-01-07</lastmod>
+    <loc>https://agenticdriven.dev/.github/copilot-instructions.md</loc>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

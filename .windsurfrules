@@ -81,6 +81,10 @@ docs: update API docs
 chore: update to v0.4.3
 ```
 
+## Rules
+- Do NOT add IDE or AI signatures (Co-Authored-By, GitHub Copilot, Claude, etc.)
+- Keep commits clean and author-only
+
 # Git Tags
 
 Git tags are not required in ADD 1.0. Use commits and version in adw.yaml to track progress.
@@ -137,32 +141,92 @@ Standard base: README, ad.yaml, docs/, src/
 ## ad.yaml (Root)
 
 ```yaml
-domain: "software"
-mode: "feature"
-context_files: ["README.md", "docs/decisions.md"]
+domain: "software"  # software | book | marketing | event | product | research | course | game
+mode: "feature"     # feature | project
+
+context_files:
+  - "README.md"
+  - "docs/decisions.md"
+
 active_features:
   - path: "docs/active/feature-name"
     description: "Feature description"
     status: "in-progress"
+
 completed_features: []
+
 agents:
   enabled: false
+
+settings:
+  auto_commit: true
 ```
 
+## Mode: Feature vs Project
+
+**mode: "feature"** (Recommended)
+- Each feature has its own mini-cycle through phases
+- Features can be at different phases simultaneously
+- Example: feature-A in BUILD while feature-B in DESIGN
+- More flexible, parallel work possible
+- Each feature has `docs/active/feature-name/ad.yaml`
+
+**mode: "project"**
+- Entire project advances through phases as one unit
+- All work follows the same phase progression
+- More structured, sequential approach
+- Still uses features, but all features align to project phase
+- Features still have their own `docs/active/feature-name/ad.yaml`
+
+**Important**: Both modes use features. The difference is how phases are managed:
+- Feature mode: Each feature has independent phase tracking
+- Project mode: Features exist but follow project's overall phase
+
 ## Feature ad.yaml
+
+Located at `docs/active/feature-name/ad.yaml`:
 
 ```yaml
 id: "feature-name"
 type: "feat"  # feat | fix | spike | refactor | docs | chore
-description: "What this does"
+description: "What this feature does"
+
+# Phase tracking (independent in feature mode, follows project in project mode)
 phase: "BUILD"
 version: "v0.4.2"
 status: "in-progress"
-context_files: []
-code_locations: []
+
+# Feature-specific documentation
+context_files:
+  - "docs/active/feature-name/00-define/problem.md"
+  - "docs/active/feature-name/02-design/design.md"
+
+# Code locations for this feature
+code_locations:
+  - "src/feature-area/"
+  - "tests/feature-area/"
+
+# Task tracking (optional)
+tasks:
+  - description: "Task description"
+    status: "done"
+
+# Dependencies (optional)
+dependencies:
+  - feature: "other-feature"
+    reason: "Why needed"
+    status: "completed"
+
+agents:
+  enabled: false
+
+notes:
+  - "Important context"
 ```
 
 ## Feature Types
+
+Different feature types go through different phases:
 
 ```
 feat:     DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE
@@ -173,17 +237,25 @@ docs:     DEFINE → BUILD
 chore:    DEFINE → BUILD
 ```
 
-## Multi-Agent
+## Multi-Agent Configuration
 
 ```yaml
 agents:
   enabled: true
   platform: "claude-sdk"
+  default_execution_mode: "parallel"
+  default_coordination: "message-passing"
+
   team:
     - id: "agent-id"
       role: "agent-role"
+      description: "What this agent does"
+      phases: ["BUILD", "VALIDATE"]
+      capabilities: ["capability-1", "capability-2"]
       context_dirs: ["src/area/"]
 ```
+
+Configure agents based on your project's separation of concerns. Each agent works in specific directories and phases.
 
 # Documentation
 
@@ -277,54 +349,200 @@ Never deviate without updating contract first.
 
 ## Session Start
 
-1. Check `ad.yaml` exists → No: auto-initialize | Yes: continue
-2. Read `ad.yaml`: domain, mode, context_files, active_features, agents
-3. Read README.md and all context_files
-4. List active features, ask user which one
-5. Read feature `ad.yaml` and context_files
-6. Present status
+Every session begins with these steps:
+
+1. **Check if `ad.yaml` exists**
+   - Not found → Trigger auto-initialization (see below)
+   - Found → Continue with normal workflow
+
+2. **Read root `ad.yaml`**
+   - Extract: domain, mode, context_files, active_features, agents
+   - Understand project configuration
+
+3. **Read README.md**
+   - Get project overview and current state
+
+4. **Read all global context_files**
+   - Read each file listed in root ad.yaml context_files
+   - Build understanding of project standards, decisions, conventions
+
+5. **List active features**
+   - Show all features from active_features array
+   - Display their current phase, status, description
+
+6. **Ask user which feature to work on**
+   - User selects from active features
+   - Or user says "new" to create a new feature
+
+7. **Read feature ad.yaml**
+   - Load feature-specific configuration
+   - Get phase, version, status, context_files, code_locations
+
+8. **Read feature context_files**
+   - Load all docs specific to this feature
+   - Build complete context for working on this feature
+
+9. **Check multi-agent configuration**
+   - If agents enabled, identify which agent is working
+   - Load agent-specific context directories
+   - Check for blocked agents or dependencies
+
+10. **Present status to user**
+    - Show what's been done, what's next
+    - Display current phase, blockers, recent progress
+    - Ready to start working
 
 ## Auto-Initialization
 
-### Analyze Project
+When no `ad.yaml` is found, initialize AD for existing project.
+
+### Step 1: Analyze Project
+
 ```bash
-git status; ls README.md docs/ src/; find . -name "*.md" | wc -l
+# Check git repository
+git status
+
+# Check directory structure
+ls README.md docs/ src/
+
+# Count documentation files
+find . -name "*.md" | wc -l
+
+# Detect project type (optional)
+ls package.json requirements.txt Cargo.toml go.mod
 ```
 
-### Ask User
+Detect:
+- Git repository status
+- Existing directories (docs/, src/, tests/)
+- Number of markdown files
+- Project type indicators (optional)
+
+### Step 2: Ask User
+
 ```
-AI: "No ad.yaml. Initialize AD?
+AI: "No ad.yaml found. Initialize AD for this project?
 
-Questions:
-1. Domain? (software|book|marketing|event|product|research|course|game)
-2. Mode? (feature|project)
-3. Detect existing features? (yes|no)
-4. Reorganize markdown into docs/? (yes|no)
-5. Use multi-agent? (yes|no)"
+    Detected:
+    - Git repository: [yes/no]
+    - Structure: [directories found]
+    - Documentation: [X markdown files]
+    - Type: [detected or unknown]
+
+    Questions:
+    1. Domain? (software | book | marketing | event | product | research | course | game)
+    2. Mode? (feature | project)
+    3. Detect existing features? (yes | no)
+    4. Reorganize markdown files into docs/? (yes | no)
+    5. Use multi-agent? (yes | no)
+
+    Answer: "
 ```
 
-### Infer State
-- **Domain**: User answer or infer from structure
-- **Phase**: DEFINE (minimal) or BUILD (substantial code)
-- **Features**: Analyze src/ subdirectories, git branches
-- **Agents**: If user wants multi-agent, detect significant directories
+**Question 1 - Domain**: What type of project?
+- Adapts AI language to your domain
+- Examples: software (code), book (chapters), marketing (campaigns)
 
+**Question 2 - Mode**: How to organize work?
+- feature: Each feature has independent phase tracking (recommended)
+- project: All work follows same phase progression
+
+**Question 3 - Detect features**: Analyze existing code structure?
+- yes: AI analyzes src/ subdirectories, git branches to suggest features
+- no: Start with empty active_features, user creates first feature
+
+**Question 4 - Reorganize markdown**: Move scattered .md files into docs/?
+- yes: AI categorizes and moves files (decisions, conventions, etc.)
+- no: Leave files where they are
+
+**Question 5 - Multi-agent**: Enable multi-agent workflows?
+- yes: AI detects significant directories and suggests agent configuration
+- no: Single agent workflow
+
+### Step 3: Infer State
+
+Based on project analysis and user answers:
+
+**Infer Domain**:
+```python
+if user_specified_domain:
+    domain = user_answer
+elif has_code_structure:
+    domain = "software"
+elif mostly_markdown_files:
+    domain = "book"
+else:
+    domain = "software"  # safe default
+```
+
+**Infer Phase**:
+```python
+if has_tests_and_passing:
+    phase = "VALIDATE"
+elif lines_of_code > 1000:
+    phase = "BUILD"
+elif has_design_docs:
+    phase = "DESIGN"
+elif has_requirements_docs:
+    phase = "DISCOVER"
+elif only_has_readme:
+    phase = "DEFINE"
+else:
+    phase = "DEFINE"  # safe default
+```
+
+**Infer Features**:
+```python
+features = []
+
+# Strategy 1: Analyze src/ subdirectories
+for subdir in list_dirs("src/"):
+    if is_significant(subdir):  # >3 files or >100 lines
+        features.append({
+            "id": subdir,
+            "path": f"docs/active/{subdir}",
+            "description": f"{subdir.capitalize()} module"
+        })
+
+# Strategy 2: Check git branches
+for branch in git_branches():
+    if branch.startswith("feature/"):
+        name = branch.replace("feature/", "")
+        features.append({
+            "id": name,
+            "path": f"docs/active/{name}",
+            "description": f"Feature: {name}"
+        })
+
+# Strategy 3: Ask user to confirm detected features
+present_features_for_confirmation()
+```
+
+**Infer Agents** (if user chose yes):
 ```python
 if user_answer_5 != "a":
     return {"enabled": False}
 
 agents = []
+
+# Detect significant directories
 for dir in find_dirs("src/*/", "docs/*/"):
-    if is_significant(dir):  # >3 files or >100 lines
+    if is_significant(dir):  # >3 files or >100 lines total
         agents.append({
             "id": to_kebab(dir),
             "role": infer_role(dir),
             "description": f"Works on {dir}",
+            "phases": infer_phases(dir),
+            "capabilities": infer_capabilities(dir),
             "context_dirs": [dir]
         })
 
+# Only enable if agents detected
+if len(agents) == 0:
+    return {"enabled": False}
+
 return {
-    "enabled": len(agents) > 0,
+    "enabled": True,
     "platform": "claude-sdk",
     "default_execution_mode": "parallel",
     "default_coordination": "message-passing",
@@ -332,127 +550,298 @@ return {
 }
 ```
 
-### Reorganize Files (if yes)
+### Step 4: Reorganize Files (if user said yes)
+
 ```bash
 mkdir -p docs/active docs/completed docs/planning docs/archived
-# Categorize .md files by keywords → move to appropriate location
+
+# Categorize existing .md files by content keywords
+# Move to appropriate location (decisions.md, interfaces.md, etc.)
+for file in $(find . -name "*.md"); do
+    # Skip standard files
+    [[ "$file" == "./README.md" ]] && continue
+
+    # Read and categorize by content
+    if grep -qi "decision" "$file"; then
+        mv "$file" docs/decisions.md  # or append
+    elif grep -qi "interface\|contract" "$file"; then
+        mv "$file" docs/interfaces.md
+    # ... more categorization
+    fi
+done
 ```
 
-### Create ad.yaml
+### Step 5: Create Root ad.yaml
+
 ```bash
 cat > ad.yaml << EOF
-domain: "$domain"
-mode: "$mode"
-context_files: ["README.md", "docs/decisions.md", "docs/conventions.md"]
+# Auto-generated by AD initialization
+# Date: $(date -Iseconds)
+
+domain: "$inferred_domain"
+mode: "$user_chosen_mode"
+
+context_files:
+  - "README.md"
+  - "docs/decisions.md"
+  - "docs/conventions.md"
+
 active_features:
-$(for f in $features; do echo "  - path: \"docs/active/$f\""; done)
+$(for f in $detected_features; do
+    echo "  - path: \"docs/active/$f\""
+    echo "    description: \"$f_description\""
+    echo "    status: \"in-progress\""
+done)
+
 completed_features: []
-$agents_section
+
+agents:
+$(if [ "$agents_enabled" = "true" ]; then
+    echo "  enabled: true"
+    echo "  platform: \"claude-sdk\""
+    echo "  default_execution_mode: \"parallel\""
+    echo "  default_coordination: \"message-passing\""
+    echo "  team:"
+    for agent in $detected_agents; do
+        echo "    - id: \"$agent_id\""
+        echo "      role: \"$agent_role\""
+        echo "      context_dirs: [\"$agent_dirs\"]"
+    done
+else
+    echo "  enabled: false"
+fi)
+
 settings:
   auto_commit: true
 EOF
 ```
 
-### Create Feature ad.yaml
+### Step 6: Create Feature ad.yaml Files
+
 ```bash
-for f in $features; do
-  mkdir -p "docs/active/$f"
-  cat > "docs/active/$f/ad.yaml" << EOF
-id: "$f"
+for feature in $detected_features; do
+    mkdir -p "docs/active/$feature_id"
+
+    cat > "docs/active/$feature_id/ad.yaml" << EOF
+id: "$feature_id"
 type: "feat"
-phase: "$phase"
-version: "v0.$phase_num.0"
+description: "$feature_description"
+phase: "$inferred_phase"
+version: "v0.$phase_number.0"
 status: "in-progress"
 context_files: []
-code_locations: []
+code_locations:
+$(for path in $feature_code_paths; do
+    echo "  - \"$path\""
+done)
+tasks: []
+agents:
+  enabled: false
+notes:
+  - "Auto-generated during AD initialization"
 EOF
 done
 ```
 
-### Create Initial Docs
+### Step 7: Create Initial Documentation
+
 ```bash
+# Create journal.md
 cat > docs/journal.md << EOF
 # Project Journal
+
 ## $(date +%Y-%m-%d) - AD Initialization
+
+- Action: Initialized AD for existing project
 - Domain: $domain
 - Mode: $mode
-- Features: $count
+- Features: $feature_count detected
+- Phase: $inferred_phase
+
+### Next Steps
+- Review ad.yaml configuration
+- Review detected features
+- Start working with AD workflow
 EOF
 
-[ ! -f "docs/decisions.md" ] && echo "# Architecture Decision Records" > docs/decisions.md
+# Create decisions.md (if doesn't exist)
+[ ! -f "docs/decisions.md" ] && cat > docs/decisions.md << EOF
+# Architecture Decision Records
+
+## $(date +%Y-%m-%d) - Initialize AD Methodology
+
+**Status**: Accepted
+**Context**: Project existed without structured methodology.
+**Decision**: Adopt Agentic Driven (AD) methodology.
+**Consequences**:
+✅ Structured workflow with clear phases
+✅ Feature-driven development
+✅ Better documentation practices
+EOF
+
+# Create conventions.md (if doesn't exist)
 [ ! -f "docs/conventions.md" ] && cat > docs/conventions.md << EOF
 # Project Conventions
+
 ## Git Workflow
 - Use Conventional Commits
 - One feature per branch
+- Commit frequently
+
 ## Documentation
 - All docs in docs/
 - Feature docs in docs/active/feature-name/
+- Follow AD phase structure
 EOF
 ```
 
-### Commit
+### Step 8: Commit Initialization
+
 ```bash
 git add .
+
 git commit -m "chore: initialize AD methodology
 
 - Created ad.yaml (domain: $domain, mode: $mode)
-- Reorganized documentation
-- Created $count feature ad.yaml files
+- Reorganized documentation into docs/
+- Created $feature_count feature ad.yaml files
+- Detected $agent_count agents
+- Current inferred phase: $inferred_phase
 
 Auto-initialized by AD system.
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
 ```
 
-### Report
+### Step 9: Report to User
+
 ```
-AI: "✓ AD initialized: $domain ($mode)
-    Features: $count
-    Agents: $agent_count detected
-    Phase: $phase"
+AI: "✓ AD initialization complete!
+
+    Configuration:
+    - Domain: $domain
+    - Mode: $mode
+    - Phase: $inferred_phase (inferred)
+
+    Features detected: $feature_count
+    $(for f in $features; do echo "    - $f: $f_description"; done)
+
+    Agents detected: $agent_count
+    $(for a in $agents; do echo "    - $a: $a_description"; done)
+
+    Next steps:
+    - Review ad.yaml and feature configurations
+    - Adjust agent assignments if needed
+    - Start working on a feature
+
+    What would you like to do?"
 ```
 
 ### Special Cases
-- No Git: Prompt to initialize git first
-- Very Early: Create minimal ad.yaml with no features
-- Mature: Reorganize carefully
+
+**No Git Repository**:
+```
+AI: "⚠️  This project is not a git repository.
+    AD relies on git for version control.
+    Would you like me to initialize git first?"
+```
+
+**Very Early Project** (only README):
+Create minimal ad.yaml with no features, user creates first one.
+
+**Mature Project**:
+Reorganize carefully, preserve existing structure, ask before moving files.
 
 ## During Work
 
-**Before changes**: Read files, check contracts
-**After task**: Verify, update docs, update ad.yaml, update journal.md, commit
+**Before making changes**:
+- Read relevant files
+- Check contracts (if multi-agent)
+- Verify you're in correct directory
+
+**After completing task**:
+- Verify changes work
+- Update documentation
+- Update ad.yaml (feature or root as needed)
+- Update journal.md with progress
+- Commit changes with clear message
+- Report to user what was done
 
 ### ad.yaml Update Rules
 
-**NEVER Modify** (Root):
-- domain, mode, version, settings (unless user asks)
+**NEVER Modify** (Root ad.yaml):
+- `domain` - Never change
+- `mode` - Never change
+- `version` - Not used at root level
+- `settings` - Only if user explicitly asks
 
-**Allowed** (Root):
-- Add/update active_features
-- Move to completed_features
-- Add context_files (with permission)
+**Allowed** (Root ad.yaml):
+- Add/update `active_features` array
+- Move features to `completed_features`
+- Add `context_files` (with user permission)
+- Update agent configuration (if user asks)
 
-**ALWAYS Update** (Feature):
-- Phase and version when advancing
-- context_files when creating docs
-- code_locations when creating code
-- tasks status
+**ALWAYS Update** (Feature ad.yaml):
+- `phase` and `version` when advancing phases
+- `context_files` array when creating new docs
+- `code_locations` array when creating new code
+- `tasks` status when completing tasks
+- `status` when feature state changes
 
-**Validation**: `yq eval ad.yaml > /dev/null 2>&1 || { git restore ad.yaml; exit 1; }`
+**Validation After Every Modification**:
+```bash
+# Validate YAML syntax
+yq eval ad.yaml > /dev/null 2>&1
+
+# If validation fails, restore and report error
+if [ $? -ne 0 ]; then
+    git restore ad.yaml
+    echo "ERROR: Invalid YAML syntax"
+    exit 1
+fi
+```
 
 ## Session End
 
-**Clean**: Commit all, update journal, push if ready
-**Interrupted**: Commit with `wip:`, note incomplete
+**Clean Exit**:
+- Commit all completed work
+- Update journal.md with final status
+- Leave working tree clean
+- Push to remote if ready
 
-## Multi-Agent
+**Interrupted Exit**:
+- Commit with `wip:` prefix
+- Update journal noting incomplete work
+- Leave clear notes about what's in progress
 
-- Identify your agent ID
-- Stay in context directories
-- Read contracts before implementing
-- Use mocks for dependencies
-- Don't touch other agents' files
+## Multi-Agent Workflow
+
+When agents are enabled:
+
+**Identify Your Agent**:
+- Check which agent you are from root ad.yaml
+- Understand your role, capabilities, context_dirs
+
+**Stay in Context**:
+- Only work in your assigned context_dirs
+- Don't modify files outside your context
+- Respect other agents' boundaries
+
+**Read Contracts First**:
+- Check docs/interfaces.md for specifications
+- Implement exactly to spec
+- Don't deviate without updating contract
+
+**Use Mocks for Dependencies**:
+- If another agent's work not ready, use mocks
+- Document mock usage in notes
+- Replace mocks when real implementation available
+
+**Communicate via Git**:
+- Commit frequently with clear messages
+- Update journal.md with your progress
+- Read journal.md to see other agents' status
+- Coordinate handoffs via feature ad.yaml status
 
 # Exit Criteria
 

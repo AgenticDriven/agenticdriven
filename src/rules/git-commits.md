@@ -16,3 +16,7 @@ fix: correct validation
 docs: update API docs
 chore: update to v0.4.3
 ```
+
+## Rules
+- Do NOT add IDE or AI signatures (Co-Authored-By, GitHub Copilot, Claude, etc.)
+- Keep commits clean and author-only
