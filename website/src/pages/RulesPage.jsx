@@ -453,7 +453,7 @@ function RulesPage({ onNavigate }) {
                   <h3 className="subsection-title" style={{marginTop: '2rem'}}>{t('rules.projectStructure.files.title')}</h3>
                   <ul style={{marginLeft: '1.5rem', marginTop: '1rem', lineHeight: '1.8'}}>
                     <li><strong>README.md:</strong> {t('rules.projectStructure.files.readme')}</li>
-                    <li><strong>adw.yaml:</strong> {t('rules.projectStructure.files.adw')}</li>
+                    <li><strong>ad.yaml:</strong> {t('rules.projectStructure.files.ad')}</li>
                     <li><strong>docs/journal.md:</strong> {t('rules.projectStructure.files.journal')}</li>
                     <li><strong>src/:</strong> {t('rules.projectStructure.files.src')}</li>
                     <li><strong>tests/:</strong> {t('rules.projectStructure.files.tests')}</li>

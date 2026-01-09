@@ -489,7 +489,7 @@
       "files": {
         "title": "Wichtige Dateien",
         "readme": "Projektübersicht, wie man anfängt, wesentliche Informationen.",
-        "adw": "Projektkonfiguration (Domäne, Phase, Version). Optional, nützlich für Multi-Agent.",
+        "ad": "Projektkonfiguration (Domäne, Phase, Version). Optional, nützlich für Multi-Agent.",
         "journal": "Chronologisches Protokoll von Entscheidungen, wichtigen Änderungen und Überlegungen.",
         "src": "Quellcode, Inhalt oder andere Hauptprojektarbeit.",
         "tests": "Tests, Validierungen, Verifizierungsskripte."

@@ -4,11 +4,11 @@
 
 This document defines the contracts and interfaces between ADD 1.0 components. Following the Contract-Driven principle, these specifications must be implemented exactly as defined.
 
-## 1. adw.yaml Configuration Interface
+## 1. ad.yaml Configuration Interface
 
 **Purpose**: Project configuration and state tracking
 
-**Location**: `/adw.yaml` (repository root)
+**Location**: `/ad.yaml` (repository root)
 
 **Format**: YAML
 
@@ -350,7 +350,7 @@ refactor: remove git tags from methodology
 1. Verify current phase exit criteria met
 2. Update journal.md with phase completion
 3. Commit: `git commit -m "docs: complete PHASE exit criteria"`
-4. Update `adw.yaml` to next phase
+4. Update `ad.yaml` to next phase
 5. Commit: `git commit -m "chore: start NEXTPHASE (vX.Y.0)"`
 
 **Version Changes**:

@@ -671,7 +671,7 @@
       "files": {
         "title": "Archivos Clave",
         "readme": "Visión general del proyecto, cómo empezar, información esencial.",
-        "adw": "Configuración del proyecto (dominio, fase, versión). Opcional, útil para multi-agente.",
+        "ad": "Configuración del proyecto (dominio, fase, versión). Opcional, útil para multi-agente.",
         "journal": "Registro cronológico de decisiones, cambios importantes y reflexiones.",
         "src": "Código fuente, contenido u otro trabajo principal del proyecto.",
         "tests": "Pruebas, validaciones, scripts de verificación."

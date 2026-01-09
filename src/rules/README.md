@@ -1,10 +1,10 @@
-# ADD Rules
+# AD Rules
 
 Concrete rules for AD 1.0, ready to export to IDE configurations.
 
 ## Available Rules
 
-- [principles.md](./principles.md) - 6 core principles of ADD
+- [principles.md](./principles.md) - 6 core principles of AD
 - [phases.md](./phases.md) - 10 phases + exit criteria
 - [versioning.md](./versioning.md) - Semantic versioning system
 - [git-commits.md](./git-commits.md) - Conventional commits format
@@ -12,7 +12,7 @@ Concrete rules for AD 1.0, ready to export to IDE configurations.
 - [documentation.md](./documentation.md) - Documentation requirements
 - [journal.md](./journal.md) - Daily progress log
 - [project-structure.md](./project-structure.md) - Standard directory layout
-- [project-config.md](./project-config.md) - adw.yaml format (optional)
+- [project-config.md](./project-config.md) - ad.yaml format (optional)
 - [contracts.md](./contracts.md) - Interface contracts (multi-agent)
 - [ai-workflow.md](./ai-workflow.md) - AI session workflow
 - [exit-criteria.md](./exit-criteria.md) - Phase completion validation

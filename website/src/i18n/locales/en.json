@@ -739,7 +739,7 @@
       "files": {
         "title": "Key Files",
         "readme": "Project overview, how to start, essential information.",
-        "adw": "Project configuration (domain, phase, version). Optional, useful for multi-agent.",
+        "ad": "Project configuration (domain, phase, version). Optional, useful for multi-agent.",
         "journal": "Chronological log of decisions, important changes and reflections.",
         "src": "Source code, content or other main project work.",
         "tests": "Tests, validations, verification scripts."

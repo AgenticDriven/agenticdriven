@@ -12,13 +12,13 @@ Initially, the ADD 1.0 methodology included git tagging as part of phase transit
 **Decision**:
 Remove git tags from the ADD 1.0 methodology. Use only:
 1. Commits with clear messages (Conventional Commits format)
-2. Version tracking in `adw.yaml` file
+2. Version tracking in `ad.yaml` file
 3. Journal entries for progress tracking
 
 **Rationale**:
 - Simplicity: Tags add an extra step without clear benefit
 - Commits alone provide sufficient history
-- `adw.yaml` version field clearly shows current state
+- `ad.yaml` version field clearly shows current state
 - Journal provides human-readable progress log
 - Reduces cognitive overhead for users
 - Aligns with "simplicity first" principle
@@ -124,7 +124,7 @@ User then adds their specific agents based on their domain and project structure
 
 **Status**: Accepted
 
-**Context**: Project existed without structured AD configuration (had old adw.yaml). Needed to adopt new AD 1.0 with feature-driven approach.
+**Context**: Project existed without structured AD configuration (had old ad.yaml). Needed to adopt new AD 1.0 with feature-driven approach.
 
 **Decision**: Adopt Agentic Driven (AD) 1.0 methodology with feature-driven mode.
 
@@ -135,5 +135,5 @@ User then adds their specific agents based on their domain and project structure
 ✅ Auto-initialization system for future projects
 
 **Alternatives**:
-- Continue with old adw.yaml: Outdated, not feature-driven
+- Continue with old ad.yaml: Outdated, not feature-driven
 - Project-driven mode: Too rigid for this type of project

@@ -87,7 +87,7 @@ chore: update to v0.4.3
 
 # Git Tags
 
-Git tags are not required in ADD 1.0. Use commits and version in adw.yaml to track progress.
+Git tags are not required in AD 1.0. Use commits and version in ad.yaml to track progress.
 
 # Project Structure
 
