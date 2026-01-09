@@ -1,6 +1,6 @@
-# ADD 2.0 Website
+# AD 1.0 Website
 
-Official website for Agent-Driven Development (ADD) 2.0 methodology.
+Official website for Agentic Driven (AD) 1.0 methodology.
 
 ## Development
 
