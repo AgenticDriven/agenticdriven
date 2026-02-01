@@ -118,6 +118,22 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Rules/Methodology Page -->
+  <url>
+    <loc>https://agenticdriven.dev/rules</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- LLMs.txt for AI assistants -->
+  <url>
+    <loc>https://agenticdriven.dev/llms.txt</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- IDE Configurations -->
   <url>
     <loc>https://agenticdriven.dev/.cursorrules</loc>

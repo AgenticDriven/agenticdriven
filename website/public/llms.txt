@@ -1,0 +1,86 @@
+# Agentic Driven (AD) 1.0
+
+> The first AI-native methodology for structured development with AI agents.
+
+Agentic Driven (AD) is a universal methodology designed for effective human-AI collaboration. It provides clear structure for any project type: software, content, marketing, events, and more.
+
+## 7 Core Principles
+
+1. **Agentic-Driven**: AI agent leads execution, human supervises and decides strategy
+2. **Documentation-First**: Document before implementing, update docs with code
+3. **Context-Aware**: Manage AI context explicitly via ad.yaml context_files
+4. **Contract-Driven**: Define interfaces in docs/interfaces.md before implementation
+5. **Continuous Validation**: Validate at every step, exit criteria gate phase transitions
+6. **Git-Traceable**: Everything tracked in git with Conventional Commits and semantic versioning
+7. **Standards-First**: Use established standards (Conventional Commits, JSON:API, ISO-8601, semver)
+
+## 6 Development Phases
+
+```
+v0.0.x → DEFINE      Define problem, objectives, scope
+v0.1.x → DISCOVER    Investigate options, viability
+v0.2.x → DESIGN      Design solution, architecture
+v0.3.x → SETUP       Prepare development and validation infrastructure
+v0.4.x → BUILD       Build/create solution
+v0.5.x → VALIDATE    Verify quality, testing
+v1.0.0 → RELEASE     First stable version
+```
+
+## IDE Configuration Files
+
+Pre-configured rules for AI assistants:
+
+- Cursor: https://agenticdriven.dev/.cursorrules
+- Claude Code: https://agenticdriven.dev/claude.md
+- Windsurf: https://agenticdriven.dev/.windsurfrules
+- GitHub Copilot: https://agenticdriven.dev/.github/copilot-instructions.md
+- Aider: https://agenticdriven.dev/.aider-rules.md
+- Continue: https://agenticdriven.dev/.continue-rules.md
+
+## Quick Install
+
+```bash
+# Download for any IDE
+curl -sSL https://agenticdriven.dev/download.sh | bash -s <ide>
+
+# Examples
+curl -sSL https://agenticdriven.dev/download.sh | bash -s cursor
+curl -sSL https://agenticdriven.dev/download.sh | bash -s claude
+```
+
+## Project Configuration (ad.yaml)
+
+```yaml
+domain: "software"  # software | book | marketing | event | product | research | course | game
+mode: "feature"     # feature | project
+
+context_files:
+  - "README.md"
+  - "docs/decisions.md"
+
+active_features:
+  - path: "docs/active/feature-name"
+    description: "Feature description"
+    status: "in-progress"
+
+agents:
+  enabled: false
+```
+
+## Key Concepts
+
+- **ad.yaml**: Project configuration file defining domain, mode, features, and agent settings
+- **context_files**: Files AI agents should read to understand the project
+- **Exit Criteria**: Requirements to complete before advancing to next phase
+- **Conventional Commits**: Standardized commit message format (feat:, fix:, docs:, etc.)
+- **Semantic Versioning**: v0.PHASE.ITERATION during development, v1.0.0+ after release
+
+## Links
+
+- Website: https://agenticdriven.dev
+- GitHub: https://github.com/AgenticDriven/agenticdriven
+- Full Methodology: https://agenticdriven.dev/rules
+
+## License
+
+MIT License - Open source, free to use and modify.

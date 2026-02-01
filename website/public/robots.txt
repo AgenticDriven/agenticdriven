@@ -7,6 +7,10 @@ Allow: /
 # Sitemaps
 Sitemap: https://agenticdriven.dev/sitemap.xml
 
+# LLM-friendly content summary
+# See https://llmstxt.org for specification
+LLMs-Txt: https://agenticdriven.dev/llms.txt
+
 # AI Crawlers - Allow for training and indexing
 User-agent: GPTBot
 Allow: /
