@@ -4,7 +4,7 @@
     "version": "1.0",
     "subtitle": "संरचित विकास के लिए पहली AI-नेटिव पद्धति",
     "badge": "अब उपलब्ध",
-    "description": "13 सिद्धांत • 6 चरण • यूनिवर्सल फ्रेमवर्क<br/>AI एजेंट के साथ आइडिया से रिलीज़ तक",
+    "description": "7 सिद्धांत • 6 चरण • यूनिवर्सल फ्रेमवर्क<br/>AI एजेंट के साथ आइडिया से रिलीज़ तक",
     "aiLabel": "प्रमुख AI असिस्टेंट के साथ काम करता है:",
     "cta": {
       "getStarted": "शुरू करें",
@@ -21,7 +21,7 @@
   "what": {
     "title": "एजेंटिक ड्रिवेन क्या है?",
     "subtitle": "AI-एजेंट सहयोग के लिए विशेष रूप से डिज़ाइन की गई संरचित पद्धति",
-    "lead": "<strong>एजेंटिक ड्रिवेन (AD)</strong> AI युग के लिए बनाई गई पहली यूनिवर्सल पद्धति है। यह <strong>13 सिद्धांतों</strong> और <strong>6 चरणों</strong> के माध्यम से स्पष्ट संरचना प्रदान करती है जो किसी भी परियोजना के लिए काम करते हैं—सॉफ्टवेयर, कंटेंट, मार्केटिंग, इवेंट और बहुत कुछ।",
+    "lead": "<strong>एजेंटिक ड्रिवेन (AD)</strong> AI युग के लिए बनाई गई पहली यूनिवर्सल पद्धति है। यह <strong>7 सिद्धांतों</strong> और <strong>6 चरणों</strong> के माध्यम से स्पष्ट संरचना प्रदान करती है जो किसी भी परियोजना के लिए काम करते हैं—सॉफ्टवेयर, कंटेंट, मार्केटिंग, इवेंट और बहुत कुछ।",
     "p1": "एजाइल और वॉटरफॉल जैसी पारंपरिक पद्धतियां AI सहयोग के लिए डिज़ाइन नहीं की गई थीं। वे मानती हैं कि मनुष्य कोड लिखते हैं और हर निर्णय लेते हैं। AD इसे पलट देता है: <strong>मनुष्य रणनीति तय करते हैं, AI निष्पादित करता है</strong>।",
     "p2": "चाहे आप Cursor के साथ ऐप बना रहे हों, Claude के साथ किताब लिख रहे हों, या Copilot के साथ प्रोजेक्ट मैनेज कर रहे हों, AD आपको AI एजेंट के साथ प्रभावी ढंग से काम करने के लिए फ्रेमवर्क देता है।",
     "features": {
@@ -363,7 +363,7 @@
       "title": "यहाँ से शुरू करें",
       "subtitle": "3 प्रमुख अवधारणाओं में कार्यप्रणाली की मूल बातें",
       "principles": {
-        "title": "13 सिद्धांत",
+        "title": "7 सिद्धांत",
         "desc": "मौलिक नियम जो सभी AI कार्य का मार्गदर्शन करते हैं। दस्तावेज़ीकरण-पहले से निरंतर कमिट तक, प्रत्येक सिद्धांत का एक स्पष्ट उद्देश्य है।"
       },
       "phases": {
@@ -1086,8 +1086,8 @@
       "title": "Quick Reference",
       "intro": "Summary of AD key concepts for quick reference.",
       "principles": {
-        "title": "13 Principles (Summary)",
-        "list": "1. Agent-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 6 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
+        "title": "7 Principles (Summary)",
+        "list": "1. Agentic-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 6 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
       },
       "phases": {
         "title": "6 Phases (Summary)",

@@ -356,7 +356,7 @@ function RulesPage({ onNavigate }) {
                   </ul>
                 </div>
 
-                {/* 13 Principles Detailed */}
+                {/* 7 Principles Detailed */}
                 <div id="detailed-principles" style={{marginTop: '4rem'}}>
                   <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>⚡ {t('principles.title')}</h2>
                   <p className="rules-intro">{t('principles.intro')}</p>

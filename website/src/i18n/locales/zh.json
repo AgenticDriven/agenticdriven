@@ -1086,8 +1086,8 @@
       "title": "Quick Reference",
       "intro": "Summary of AD key concepts for quick reference.",
       "principles": {
-        "title": "13 Principles (Summary)",
-        "list": "1. Agent-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 6 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
+        "title": "7 Principles (Summary)",
+        "list": "1. Agentic-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 6 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
       },
       "phases": {
         "title": "6 Phases (Summary)",

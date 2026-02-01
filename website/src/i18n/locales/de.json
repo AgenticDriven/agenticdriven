@@ -4,7 +4,7 @@
     "version": "1.0",
     "subtitle": "Die erste KI-native Methodik für strukturierte Entwicklung",
     "badge": "Jetzt verfügbar",
-    "description": "13 Prinzipien • 6 Phasen • Universelles Framework<br/>Von der Idee bis zur Veröffentlichung mit KI-Agenten",
+    "description": "7 Prinzipien • 6 Phasen • Universelles Framework<br/>Von der Idee bis zur Veröffentlichung mit KI-Agenten",
     "aiLabel": "Funktioniert mit führenden KI-Assistenten:",
     "cta": {
       "getStarted": "Loslegen",
@@ -21,7 +21,7 @@
   "what": {
     "title": "Was ist Agentic Driven?",
     "subtitle": "Eine strukturierte Methodik speziell für die Zusammenarbeit mit KI-Agenten entwickelt",
-    "lead": "<strong>Agentic Driven (AD)</strong> ist die erste universelle Methodik für das KI-Zeitalter. Sie bietet klare Struktur durch <strong>13 Prinzipien</strong> und <strong>6 Phasen</strong>, die für jedes Projekt funktionieren – Software, Inhalt, Marketing, Veranstaltungen und mehr.",
+    "lead": "<strong>Agentic Driven (AD)</strong> ist die erste universelle Methodik für das KI-Zeitalter. Sie bietet klare Struktur durch <strong>7 Prinzipien</strong> und <strong>6 Phasen</strong>, die für jedes Projekt funktionieren – Software, Inhalt, Marketing, Veranstaltungen und mehr.",
     "p1": "Traditionelle Methodiken wie Agile und Waterfall wurden nicht für die KI-Zusammenarbeit entwickelt. Sie gehen davon aus, dass Menschen Code schreiben und jede Entscheidung treffen. AD dreht das um: <strong>Menschen definieren die Strategie, KI führt aus</strong>.",
     "p2": "Ob Sie eine App mit Cursor entwickeln, ein Buch mit Claude schreiben oder ein Projekt mit Copilot verwalten – AD bietet Ihnen den Rahmen für effektive Zusammenarbeit mit KI-Agenten.",
     "features": {
@@ -363,7 +363,7 @@
       "title": "Hier beginnen",
       "subtitle": "Grundlagen der Methodik in 3 Schlüsselkonzepten",
       "principles": {
-        "title": "13 Prinzipien",
+        "title": "7 Prinzipien",
         "desc": "Grundlegende Regeln, die alle KI-Arbeit leiten. Von Dokumentation-zuerst bis zu kontinuierlichen Commits hat jedes Prinzip einen klaren Zweck."
       },
       "phases": {
@@ -1086,8 +1086,8 @@
       "title": "Quick Reference",
       "intro": "Summary of AD key concepts for quick reference.",
       "principles": {
-        "title": "13 Principles (Summary)",
-        "list": "1. Agent-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 6 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
+        "title": "7 Principles (Summary)",
+        "list": "1. Agentic-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 6 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
       },
       "phases": {
         "title": "6 Phases (Summary)",

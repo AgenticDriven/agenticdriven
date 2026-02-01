@@ -50,7 +50,7 @@ Copy the relevant configuration file(s) to your project root.
 ## What's Included
 
 All configurations include:
-- 13 core AD principles
+- 7 core AD principles
 - 6 phases + exit criteria
 - Git workflow (commits, tags, versioning)
 - Documentation requirements

@@ -4,7 +4,7 @@
     "version": "1.0",
     "subtitle": "The first AI-native methodology for structured development",
     "badge": "Now Available",
-    "description": "13 principles • 6 phases • Universal framework<br/>From idea to release with AI agents",
+    "description": "7 principles • 6 phases • Universal framework<br/>From idea to release with AI agents",
     "aiLabel": "Works with leading AI assistants:",
     "cta": {
       "getStarted": "Get Started",
@@ -21,7 +21,7 @@
   "what": {
     "title": "What is Agentic Driven?",
     "subtitle": "A structured methodology designed specifically for AI-agent collaboration",
-    "lead": "<strong>Agentic Driven (AD)</strong> is the first universal methodology created for the AI era. It provides clear structure through <strong>13 principles</strong> and <strong>6 phases</strong> that work for any project—software, content, marketing, events, and more.",
+    "lead": "<strong>Agentic Driven (AD)</strong> is the first universal methodology created for the AI era. It provides clear structure through <strong>7 core principles</strong> and <strong>6 phases</strong> that work for any project—software, content, marketing, events, and more.",
     "p1": "Traditional methodologies like Agile and Waterfall weren't designed for AI collaboration. They assume humans write code and make every decision. AD flips this: <strong>humans define strategy, AI executes</strong>.",
     "p2": "Whether you're building an app with Cursor, writing a book with Claude, or managing a project with Copilot, AD gives you the framework to work effectively with AI agents.",
     "features": {
@@ -111,76 +111,46 @@
     }
   },
   "principles": {
-    "title": "13 Core Principles",
+    "title": "7 Core Principles",
     "subtitle": "The foundation of effective AI collaboration",
     "items": {
       "1": {
-        "title": "Agent-Driven",
-        "desc": "Humans decide strategy, AI executes",
-        "detail": "You define what needs to be done and why. AI agents handle the how, freeing you to focus on high-level decisions and creative work."
+        "title": "Agentic-Driven",
+        "desc": "AI leads execution, human supervises",
+        "detail": "AI agent leads execution, human supervises and decides strategy. Clear ownership with human oversight. You focus on what and why, AI handles the how."
       },
       "2": {
         "title": "Documentation-First",
-        "desc": "Document before, during, after",
-        "detail": "Clear documentation is essential for AI collaboration. Write docs before coding, update during work, and polish after completion."
+        "desc": "Document before implementing",
+        "detail": "Document before implementing. Update docs in same commit as code. Maintain journal.md for session continuity. Essential for AI context."
       },
       "3": {
-        "title": "Phased & Structured",
-        "desc": "6 phases with clear objectives",
-        "detail": "From DEFINE to VALIDATE, each phase has specific goals and exit criteria. Know exactly where you are and what comes next."
+        "title": "Context-Aware",
+        "desc": "Manage AI context explicitly",
+        "detail": "Manage AI context explicitly via ad.yaml context_files. Define what files the agent needs to understand the project. Critical for effective AI collaboration."
       },
       "4": {
-        "title": "Validation-Driven",
-        "desc": "Validate before and after building",
-        "detail": "Test assumptions early, validate continuously. Catch issues before they become problems. Quality built-in, not bolted-on."
-      },
-      "5": {
-        "title": "Iterative",
-        "desc": "Improve within phases",
-        "detail": "Refinement is expected. Iterate quickly within phases, but document when you need to go back. Progress isn't always linear."
-      },
-      "6": {
-        "title": "Traceable",
-        "desc": "Every change in git with clear history",
-        "detail": "Complete audit trail of all changes. Know who changed what, when, and why. Essential for AI collaboration and team transparency."
-      },
-      "7": {
-        "title": "Git-First",
-        "desc": "Complete task = commit immediately",
-        "detail": "One logical change per commit. Clear messages using Conventional Commits. Commit when task is done and verified."
-      },
-      "8": {
-        "title": "Standards-First",
-        "desc": "Prefer rigid standards over custom solutions",
-        "detail": "Use Conventional Commits, semver, ISO-8601, JSON:API. Established patterns reduce decisions and improve AI understanding."
-      },
-      "9": {
-        "title": "Explicit over Implicit",
-        "desc": "No magic numbers, define everything",
-        "detail": "Named constants, clear variable names, explicit interfaces. Code that reads like documentation. AI and humans both benefit."
-      },
-      "10": {
-        "title": "Single Responsibility",
-        "desc": "One component = one purpose",
-        "detail": "Keep functions, files, and components focused. Easier to understand, test, and maintain. Simpler for AI to work with."
-      },
-      "11": {
         "title": "Contract-Driven",
         "desc": "Define interfaces before implementation",
-        "detail": "Specify exactly what you're building in docs/interfaces.md. Then implement to spec. No surprises, clear expectations."
+        "detail": "Define interfaces in docs/interfaces.md before implementation. Code must match spec exactly. Enables parallel work and clear expectations."
       },
-      "12": {
-        "title": "Test-First",
-        "desc": "Define success criteria upfront",
-        "detail": "Know what 'done' looks like before starting. Write tests or acceptance criteria first. Validate as you build."
+      "5": {
+        "title": "Continuous Validation",
+        "desc": "Validate at every step",
+        "detail": "Validate at every step, not just at the end. Test assumptions early. Exit criteria gate phase transitions. Quality built-in, not bolted-on."
       },
-      "13": {
-        "title": "Proven Solutions",
-        "desc": "Use established patterns and frameworks",
-        "detail": "Don't reinvent the wheel. Leverage design patterns, proven frameworks, and standard structures. Build on solid foundations."
+      "6": {
+        "title": "Git-Traceable",
+        "desc": "Everything tracked in git",
+        "detail": "Everything tracked in git. Conventional Commits format. Semantic versioning. Tag phase completions. One commit per completed task. Complete audit trail."
+      },
+      "7": {
+        "title": "Standards-First",
+        "desc": "Use established standards",
+        "detail": "Prefer established standards over custom solutions: Conventional Commits, JSON:API, ISO-8601, semver, proven patterns, existing frameworks."
       }
     },
-    "intro": "These principles are the backbone of AD. Each addresses a specific aspect of working with AI agents, from how to document to how to structure code and manage changes."
+    "intro": "These 7 principles are the backbone of AD. Each addresses a critical aspect of working effectively with AI agents."
   },
   "workflow": {
     "title": "Workflow: 6 Phases",
@@ -242,8 +212,8 @@
       "setup": {
         "name": "SETUP",
         "version": "v0.3.x",
-        "desc": "Prepare tools, environment",
-        "detail": "Get organized. Configure tools, set up environment, define validation criteria. Everything ready so you can focus on building.",
+        "desc": "Prepare development and validation infrastructure",
+        "detail": "Build the factory before building the product. Set up dev environment, configure test framework, establish CI pipeline, scaffold project structure, define validation criteria. Everything ready to produce quality code.",
         "examples": {
           "title": "Examples by Domain",
           "items": {
@@ -363,8 +333,8 @@
       "title": "Start Here",
       "subtitle": "Methodology fundamentals in 3 key concepts",
       "principles": {
-        "title": "13 Principles",
-        "desc": "Fundamental rules that guide all AI work. From documentation-first to continuous commits, each principle has a clear purpose."
+        "title": "7 Principles",
+        "desc": "Core rules that guide all AI work: Agentic-Driven, Documentation-First, Context-Aware, Contract-Driven, Continuous Validation, Git-Traceable, Standards-First."
       },
       "phases": {
         "title": "6 Phases",
@@ -530,8 +500,8 @@
       "title": "Quick Reference",
       "intro": "Summary of AD key concepts for quick reference.",
       "principles": {
-        "title": "13 Principles (Summary)",
-        "list": "1. Agent-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 6 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
+        "title": "7 Principles (Summary)",
+        "list": "1. Agentic-Driven: AI leads execution, human supervises\\n2. Documentation-First: Document before implementing\\n3. Context-Aware: Manage AI context via ad.yaml\\n4. Contract-Driven: Define interfaces before implementation\\n5. Continuous Validation: Validate at every step\\n6. Git-Traceable: Everything tracked in git\\n7. Standards-First: Use established standards"
       },
       "phases": {
         "title": "6 Phases (Summary)",
@@ -555,7 +525,7 @@
       "intro": "Complete explanations of all AD concepts, rules, and best practices.",
       "toc": {
         "title": "In this section:",
-        "principles": "13 Principles Explained",
+        "principles": "7 Principles Explained",
         "phases": "6 Phases with Examples",
         "versioning": "Detailed Versioning",
         "gitCommits": "Git Commits",
@@ -846,7 +816,7 @@
         "define": "problem-statement.md, objectives.md, scope.md",
         "discover": "discovery.md, requirements.md, decisions.md",
         "design": "design.md, architecture.md, interfaces.md",
-        "setup": "setup.md, validation-criteria.md",
+        "setup": "docs/setup/environment.md, dependencies.md, testing.md, ci-cd.md",
         "build": "build-log.md, changes.md, issues.md",
         "validate": "validation-report.md, test-results.md"
       },
@@ -1032,7 +1002,7 @@
         },
         "setup": {
           "title": "SETUP (v0.3.x)",
-          "items": "Tools configured, Environment ready, Testing setup, Validation criteria defined, Team ready"
+          "items": "Dev environment functional, ad.yaml with context_files, Test framework with first test passing, CI pipeline basic (lint, test, build), Validation criteria documented, Project structure scaffolded"
         },
         "build": {
           "title": "BUILD (v0.4.x)",

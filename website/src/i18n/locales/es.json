@@ -4,7 +4,7 @@
     "version": "1.0",
     "subtitle": "La primera metodología nativa de IA para desarrollo estructurado",
     "badge": "Ya Disponible",
-    "description": "13 principios • 6 fases • Marco universal<br/>De la idea al release con agentes de IA",
+    "description": "7 principios • 6 fases • Marco universal<br/>De la idea al release con agentes de IA",
     "aiLabel": "Funciona con los principales asistentes de IA:",
     "cta": {
       "getStarted": "Comenzar",
@@ -21,7 +21,7 @@
   "what": {
     "title": "¿Qué es Agentic Driven?",
     "subtitle": "Una metodología estructurada diseñada específicamente para la colaboración con agentes de IA",
-    "lead": "<strong>Agentic Driven (AD)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>13 principios</strong> y <strong>6 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
+    "lead": "<strong>Agentic Driven (AD)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>7 principios fundamentales</strong> y <strong>6 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
     "p1": "Las metodologías tradicionales como Agile y Waterfall no fueron diseñadas para la colaboración con IA. Asumen que los humanos escriben código y toman cada decisión. AD cambia esto: <strong>los humanos definen la estrategia, la IA ejecuta</strong>.",
     "p2": "Ya sea que estés construyendo una aplicación con Cursor, escribiendo un libro con Claude o gestionando un proyecto con Copilot, AD te da el marco para trabajar eficazmente con agentes de IA.",
     "features": {
@@ -48,8 +48,8 @@
       "title": "Comienza Aquí",
       "subtitle": "Fundamentos de la metodología en 3 conceptos clave",
       "principles": {
-        "title": "13 Principios",
-        "desc": "Reglas fundamentales que guían todo el trabajo con IA. Desde documentación-primero hasta commits continuos, cada principio tiene un propósito claro."
+        "title": "7 Principios",
+        "desc": "Reglas fundamentales: Agentic-Driven, Documentation-First, Context-Aware, Contract-Driven, Continuous Validation, Git-Traceable, Standards-First."
       },
       "phases": {
         "title": "6 Fases",
@@ -131,73 +131,43 @@
     }
   },
   "principles": {
-    "title": "13 Principios Fundamentales",
+    "title": "7 Principios Fundamentales",
     "subtitle": "La base de una colaboración efectiva con IA",
-    "intro": "Estos principios son la columna vertebral de AD. Cada uno aborda un aspecto específico del trabajo con agentes de IA, desde cómo documentar hasta cómo estructurar el código y gestionar cambios.",
+    "intro": "Estos 7 principios son la columna vertebral de AD. Cada uno aborda un aspecto crítico del trabajo efectivo con agentes de IA.",
     "items": {
       "1": {
-        "title": "Impulsado por Agentes",
-        "desc": "Los humanos deciden la estrategia, la IA ejecuta",
-        "detail": "Tú defines qué debe hacerse y por qué. Los agentes de IA manejan el cómo, liberándote para enfocarte en decisiones de alto nivel y trabajo creativo."
+        "title": "Agentic-Driven",
+        "desc": "La IA lidera la ejecución, el humano supervisa",
+        "detail": "El agente IA lidera la ejecución, el humano supervisa y decide la estrategia. Propiedad clara con supervisión humana. Tú te enfocas en qué y por qué, la IA maneja el cómo."
       },
       "2": {
-        "title": "Documentación Primero",
-        "desc": "Documenta antes, durante y después",
-        "detail": "La documentación clara es esencial para la colaboración con IA. Escribe documentos antes de codificar, actualiza durante el trabajo y pule después de completar."
+        "title": "Documentation-First",
+        "desc": "Documenta antes de implementar",
+        "detail": "Documenta antes de implementar. Actualiza docs en el mismo commit que el código. Mantén journal.md para continuidad de sesión. Esencial para el contexto de IA."
       },
       "3": {
-        "title": "Estructurado por Fases",
-        "desc": "6 fases con objetivos claros",
-        "detail": "Desde DEFINIR hasta VALIDAR, cada fase tiene objetivos específicos y criterios de salida. Sabe exactamente dónde estás y qué viene después."
+        "title": "Context-Aware",
+        "desc": "Gestiona el contexto de IA explícitamente",
+        "detail": "Gestiona el contexto de IA explícitamente via ad.yaml context_files. Define qué archivos necesita el agente para entender el proyecto. Crítico para colaboración efectiva con IA."
       },
       "4": {
-        "title": "Impulsado por Validación",
-        "desc": "Valida antes y después de construir",
-        "detail": "Prueba suposiciones temprano, valida continuamente. Detecta problemas antes de que se conviertan en problemas. Calidad incorporada, no atornillada."
+        "title": "Contract-Driven",
+        "desc": "Define interfaces antes de implementar",
+        "detail": "Define interfaces en docs/interfaces.md antes de la implementación. El código debe coincidir exactamente con la especificación. Permite trabajo paralelo y expectativas claras."
       },
       "5": {
-        "title": "Iterativo",
-        "desc": "Mejora dentro de las fases",
-        "detail": "Se espera refinamiento. Itera rápidamente dentro de las fases, pero documenta cuando necesites retroceder. El progreso no siempre es lineal."
+        "title": "Continuous Validation",
+        "desc": "Valida en cada paso",
+        "detail": "Valida en cada paso, no solo al final. Prueba suposiciones temprano. Los criterios de salida regulan las transiciones de fase. Calidad incorporada, no atornillada."
       },
       "6": {
-        "title": "Rastreable",
-        "desc": "Cada cambio en git con historial claro",
-        "detail": "Registro de auditoría completo de todos los cambios. Sabe quién cambió qué, cuándo y por qué. Esencial para la colaboración con IA y la transparencia del equipo."
+        "title": "Git-Traceable",
+        "desc": "Todo rastreado en git",
+        "detail": "Todo rastreado en git. Formato Conventional Commits. Versionado semántico. Etiqueta completaciones de fase. Un commit por tarea completada. Registro de auditoría completo."
       },
       "7": {
-        "title": "Git Primero",
-        "desc": "Tarea completa = commit inmediato",
-        "detail": "Un cambio lógico por commit. Mensajes claros usando Conventional Commits. Haz commit cuando la tarea esté hecha y verificada."
-      },
-      "8": {
-        "title": "Estándares Primero",
-        "desc": "Prefiere estándares rígidos sobre soluciones personalizadas",
-        "detail": "Usa Conventional Commits, semver, ISO-8601, JSON:API. Los patrones establecidos reducen decisiones y mejoran la comprensión de la IA."
-      },
-      "9": {
-        "title": "Explícito sobre Implícito",
-        "desc": "Sin números mágicos, define todo",
-        "detail": "Constantes nombradas, nombres de variables claros, interfaces explícitas. Código que se lee como documentación. Tanto la IA como los humanos se benefician."
-      },
-      "10": {
-        "title": "Responsabilidad Única",
-        "desc": "Un componente = un propósito",
-        "detail": "Mantén funciones, archivos y componentes enfocados. Más fácil de entender, probar y mantener. Más simple para que la IA trabaje."
-      },
-      "11": {
-        "title": "Impulsado por Contratos",
-        "desc": "Define interfaces antes de la implementación",
-        "detail": "Especifica exactamente qué estás construyendo en docs/interfaces.md. Luego implementa según la especificación. Sin sorpresas, expectativas claras."
-      },
-      "12": {
-        "title": "Pruebas Primero",
-        "desc": "Define criterios de éxito por adelantado",
-        "detail": "Sabe cómo se ve 'hecho' antes de comenzar. Escribe pruebas o criterios de aceptación primero. Valida mientras construyes."
-      },
-      "13": {
-        "title": "Soluciones Probadas",
-        "desc": "Usa patrones y frameworks establecidos",
+        "title": "Standards-First",
+        "desc": "Usa estándares establecidos",
         "detail": "No reinventes la rueda. Aprovecha patrones de diseño, frameworks probados y estructuras estándar. Construye sobre bases sólidas."
       }
     }
@@ -462,8 +432,8 @@
       "title": "Referencia Rápida",
       "intro": "Resumen de los conceptos clave de AD para consulta rápida.",
       "principles": {
-        "title": "13 Principios (Resumen)",
-        "list": "1. Agent-Driven: Humanos estrategia, IA ejecución\\n2. Documentation-First: Documenta antes, durante, después\\n3. Phased: 6 fases secuenciales\\n4. Validation-Driven: Valida antes y después\\n5. Iterative: Mejora dentro de fases\\n6. Traceable: Todo en git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: Sin magic numbers, definir todo\\n10. Single Responsibility: Un propósito por componente\\n11. Contract-Driven: Define specs antes de implementar\\n12. Test-First: Define éxito antes de empezar\\n13. Proven Solutions: Usa patrones establecidos"
+        "title": "7 Principios (Resumen)",
+        "list": "1. Agentic-Driven: La IA lidera, el humano supervisa\\n2. Documentation-First: Documenta antes de implementar\\n3. Context-Aware: Gestiona contexto IA via ad.yaml\\n4. Contract-Driven: Define interfaces antes de implementar\\n5. Continuous Validation: Valida en cada paso\\n6. Git-Traceable: Todo rastreado en git\\n7. Standards-First: Usa estándares establecidos"
       },
       "phases": {
         "title": "6 Fases (Resumen)",
@@ -487,7 +457,7 @@
       "intro": "Explicaciones completas de todos los conceptos, reglas y mejores prácticas de AD.",
       "toc": {
         "title": "En esta sección:",
-        "principles": "13 Principios Explicados",
+        "principles": "7 Principios Explicados",
         "phases": "6 Fases con Ejemplos",
         "versioning": "Versionado Detallado",
         "gitCommits": "Git Commits",

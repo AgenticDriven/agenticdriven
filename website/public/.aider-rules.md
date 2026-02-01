@@ -1,18 +1,20 @@
 # Principles
 
-**1. Agent-Driven**: Humans decide strategy, AI executes
-**2. Documentation-First**: Document before, during, after
-**3. Phased & Structured**: 6 phases with clear objectives and exit criteria
-**4. Validation-Driven**: Validate before building and what's built
-**5. Iterative**: Improve within phases, document if going back
-**6. Traceable**: Every change in git with clear history
-**7. Git-First**: Complete + verify = commit immediately. One commit per completed task.
-**8. Standards-First**: Always prefer rigid standards: Conventional Commits, JSON:API, ISO-8601, semver, established patterns
-**9. Explicit over Implicit**: No magic numbers/strings, define terms before use, named constants
-**10. Single Responsibility**: One component = one purpose. Keep small and focused.
-**11. Contract-Driven**: Define specifications in `docs/interfaces.md` before implementation. Implement exactly to spec.
-**12. Test-First**: Define success criteria before starting. Validate during work.
-**13. Proven Solutions First**: Use established solutions: design patterns, proven frameworks, standard structures
+## 7 Core Principles
+
+**1. Agentic-Driven**: AI agent leads execution, human supervises and decides strategy. Clear ownership with human oversight.
+
+**2. Documentation-First**: Document before implementing. Update docs in same commit as code. Maintain journal.md for session continuity.
+
+**3. Context-Aware**: Manage AI context explicitly via ad.yaml context_files. Define what files the agent needs to understand the project.
+
+**4. Contract-Driven**: Define interfaces in docs/interfaces.md before implementation. Code must match spec exactly.
+
+**5. Continuous Validation**: Validate at every step, not just at the end. Test assumptions early. Exit criteria gate phase transitions.
+
+**6. Git-Traceable**: Everything tracked in git. Conventional Commits format. Semantic versioning. Tag phase completions. One commit per completed task.
+
+**7. Standards-First**: Prefer established standards over custom solutions: Conventional Commits, JSON:API, ISO-8601, semver, proven patterns, existing frameworks.
 
 # Phases
 
@@ -22,18 +24,36 @@
 v0.0.x → DEFINE      Define problem, objectives, scope
 v0.1.x → DISCOVER    Investigate options, viability
 v0.2.x → DESIGN      Design solution, architecture
-v0.3.x → SETUP       Prepare tools, environment
+v0.3.x → SETUP       Prepare development and validation infrastructure
 v0.4.x → BUILD       Build/create solution
 v0.5.x → VALIDATE    Verify quality, testing
 v1.0.0 → RELEASE     First stable version
 ```
 
+## Phase Details
+
+### SETUP (v0.3.x)
+
+SETUP prepares the "factory" - the infrastructure needed to build and validate the solution.
+
+**Purpose**: Before writing product code, establish:
+- Development environment (dependencies, configs, tooling)
+- Test infrastructure (framework configured, first test passing)
+- CI pipeline (lint, test, build automation)
+- Project structure (scaffolding per DESIGN)
+- Context files (ad.yaml with context_files defined)
+- Validation criteria (what "done" looks like)
+
+**Key difference from BUILD**:
+- SETUP = Build the factory (tools, pipelines, structure)
+- BUILD = Use the factory to produce the product (functional code)
+
 ## Rules
 
-- Sequential (no skipping)
+- Phases are sequential but not rigid - document if going back
 - Work within phase can be parallel
 - Exit criteria required before advancing
-- Tag phase completions
+- Tag phase completions (v0.X.0)
 
 # Versioning
 
@@ -128,7 +148,7 @@ docs/
 └── 04-build/
 ```
 
-Phase directories: 00-define, 01-discover, 02-design, 03-setup, 04-build, 05-validate, 06-market, 07-launch, 08-support, 09-evolve
+Phase directories: 00-define, 01-discover, 02-design, 03-setup, 04-build, 05-validate
 
 Standard base: README, ad.yaml, docs/, src/
 
@@ -259,21 +279,29 @@ Document before, during, after.
 
 ## By Phase
 
-**DEFINE**: problem, objectives, scope
-**DISCOVER**: requirements, decisions
-**DESIGN**: design, architecture, interfaces
-**SETUP**: setup, validation-criteria
-**BUILD**: build-log
-**VALIDATE**: validation-report
+**DEFINE**: problem.md, objectives.md, scope.md
+**DISCOVER**: requirements.md, decisions.md
+**DESIGN**: design.md, architecture.md, interfaces.md
+**SETUP**:
+  - docs/setup/environment.md (dev environment config)
+  - docs/setup/dependencies.md (versions, requirements)
+  - docs/setup/testing.md (test strategy, framework)
+  - docs/setup/ci-cd.md (pipeline configuration)
+**BUILD**: build-log.md (progress, issues, solutions)
+**VALIDATE**: validation-report.md (results, metrics, issues)
 
 ## Location
 
-Simple: `docs/` flat
-Complex: `docs/active/`, `docs/completed/`, `docs/archived/`
+Simple projects: `docs/` flat structure
+Complex projects: `docs/active/`, `docs/completed/`, `docs/archived/`
 
 Always at root: `journal.md`, `decisions.md`
 
-Update docs in same commit as code.
+## Rules
+
+- Update docs in same commit as code
+- Journal updated each session
+- Decisions documented with rationale
 
 # Journal
 
@@ -837,16 +865,34 @@ When agents are enabled:
 
 # Exit Criteria
 
-**DEFINE**: Problem stated, objectives defined, scope documented
-**DISCOVER**: Requirements gathered, options researched, feasibility assessed
-**DESIGN**: Solution designed, architecture defined, interfaces specified
-**SETUP**: Tools configured, environment ready, validation criteria defined
-**BUILD**: All components implemented, contracts fulfilled, docs updated
-**VALIDATE**: Validation criteria met, quality acceptable, report complete
+## By Phase
 
-## Validation
+**DEFINE**: Problem stated, objectives defined, scope documented, success criteria clear
 
-Before advancing: Review checklist, verify complete, document exceptions, get approval, commit
+**DISCOVER**: Requirements gathered, options researched, feasibility assessed, risks identified
+
+**DESIGN**: Solution designed, architecture defined, interfaces specified in docs/interfaces.md
+
+**SETUP**:
+- Development environment functional (dependencies installed, configs working)
+- ad.yaml with context_files defined
+- Test framework configured with first test passing
+- CI pipeline basic (lint, test, build)
+- Validation criteria documented
+- Project structure scaffolded per DESIGN
+
+**BUILD**: All components implemented, contracts fulfilled, docs updated, tests passing
+
+**VALIDATE**: Validation criteria met, quality acceptable, report complete, ready for release
+
+## Validation Process
+
+Before advancing phase:
+1. Review checklist for current phase
+2. Verify all criteria complete
+3. Document any exceptions
+4. Get human approval
+5. Commit and tag (v0.X.0)
 
 Guidelines, not rigid rules. Adapt to project needs.
 

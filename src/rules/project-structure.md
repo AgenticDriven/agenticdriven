@@ -41,6 +41,6 @@ docs/
 └── 04-build/
 ```
 
-Phase directories: 00-define, 01-discover, 02-design, 03-setup, 04-build, 05-validate, 06-market, 07-launch, 08-support, 09-evolve
+Phase directories: 00-define, 01-discover, 02-design, 03-setup, 04-build, 05-validate
 
 Standard base: README, ad.yaml, docs/, src/
