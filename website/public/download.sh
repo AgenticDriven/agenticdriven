@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Quick download script for AD 1.0 IDE configs
-# Usage: curl -sSL https://agenticdriven.dev/download.sh | bash -s <ide>
+# Usage: curl -sSL https://raw.githubusercontent.com/agentdriven/add/main/src/rules/ide/download.sh | bash
 
 set -e
 
@@ -22,7 +22,7 @@ if [ -z "$IDE" ]; then
     exit 1
 fi
 
-BASE_URL="https://agenticdriven.dev/rules/ide"
+BASE_URL="https://agenticdriven.dev"
 
 case "$IDE" in
     cursor)

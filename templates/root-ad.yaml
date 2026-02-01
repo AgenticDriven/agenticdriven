@@ -11,7 +11,7 @@ domain: "software"
 
 # Mode: How to organize work
 # - feature: Work on individual features (recommended for most projects)
-# - project: Complete all 10 phases for the entire project (classic approach)
+# - project: Complete all 6 phases for the entire project (classic approach)
 mode: "feature"
 
 # Version: Overall project version (only used in project mode)

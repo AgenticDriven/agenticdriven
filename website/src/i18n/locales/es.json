@@ -4,7 +4,7 @@
     "version": "1.0",
     "subtitle": "La primera metodología nativa de IA para desarrollo estructurado",
     "badge": "Ya Disponible",
-    "description": "13 principios • 10 fases • Marco universal<br/>De la idea al lanzamiento con agentes de IA",
+    "description": "13 principios • 6 fases • Marco universal<br/>De la idea al release con agentes de IA",
     "aiLabel": "Funciona con los principales asistentes de IA:",
     "cta": {
       "getStarted": "Comenzar",
@@ -21,13 +21,13 @@
   "what": {
     "title": "¿Qué es Agentic Driven?",
     "subtitle": "Una metodología estructurada diseñada específicamente para la colaboración con agentes de IA",
-    "lead": "<strong>Agentic Driven (AD)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>13 principios</strong> y <strong>10 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
+    "lead": "<strong>Agentic Driven (AD)</strong> es la primera metodología universal creada para la era de la IA. Proporciona estructura clara a través de <strong>13 principios</strong> y <strong>6 fases</strong> que funcionan para cualquier proyecto: software, contenido, marketing, eventos y más.",
     "p1": "Las metodologías tradicionales como Agile y Waterfall no fueron diseñadas para la colaboración con IA. Asumen que los humanos escriben código y toman cada decisión. AD cambia esto: <strong>los humanos definen la estrategia, la IA ejecuta</strong>.",
     "p2": "Ya sea que estés construyendo una aplicación con Cursor, escribiendo un libro con Claude o gestionando un proyecto con Copilot, AD te da el marco para trabajar eficazmente con agentes de IA.",
     "features": {
       "phases": {
         "title": "Fases Claras",
-        "desc": "10 fases desde DEFINIR hasta EVOLUCIONAR. Siempre sabrás dónde estás y qué viene después."
+        "desc": "6 fases desde DEFINIR hasta VALIDAR. Siempre sabrás dónde estás y qué viene después."
       },
       "exitCriteria": {
         "title": "Criterios de Salida",
@@ -52,8 +52,8 @@
         "desc": "Reglas fundamentales que guían todo el trabajo con IA. Desde documentación-primero hasta commits continuos, cada principio tiene un propósito claro."
       },
       "phases": {
-        "title": "10 Fases",
-        "desc": "De DEFINIR a EVOLUCIONAR. Cada fase tiene objetivos claros y criterios de salida. Siempre sabrás dónde estás y qué viene después."
+        "title": "6 Fases",
+        "desc": "De DEFINIR a VALIDAR. Cada fase tiene objetivos claros y criterios de salida. Siempre sabrás dónde estás y qué viene después."
       },
       "git": {
         "title": "Git Flow Continuo",
@@ -147,8 +147,8 @@
       },
       "3": {
         "title": "Estructurado por Fases",
-        "desc": "10 fases con objetivos claros",
-        "detail": "Desde DEFINIR hasta EVOLUCIONAR, cada fase tiene objetivos específicos y criterios de salida. Sabe exactamente dónde estás y qué viene después."
+        "desc": "6 fases con objetivos claros",
+        "detail": "Desde DEFINIR hasta VALIDAR, cada fase tiene objetivos específicos y criterios de salida. Sabe exactamente dónde estás y qué viene después."
       },
       "4": {
         "title": "Impulsado por Validación",
@@ -203,9 +203,9 @@
     }
   },
   "workflow": {
-    "title": "Flujo de Trabajo: 10 Fases",
+    "title": "Flujo de Trabajo: 6 Fases",
     "subtitle": "Haz clic en cualquier fase para ver detalles",
-    "intro": "AD estructura el desarrollo en 10 fases secuenciales. Cada fase tiene objetivos claros, entregables específicos y criterios de salida. No puedes avanzar hasta completar la fase actual. Esto garantiza que cada aspecto del proyecto reciba la atención necesaria.",
+    "intro": "AD estructura el desarrollo en 6 fases secuenciales. Cada fase tiene objetivos claros, entregables específicos y criterios de salida. No puedes avanzar hasta completar la fase actual. Esto garantiza que cada aspecto del proyecto reciba la atención necesaria.",
     "legend": {
       "completed": "Completada",
       "current": "Actual",
@@ -307,70 +307,6 @@
             "product": "Testing de calidad, pruebas de durabilidad, certificaciones requeridas, feedback de usuarios beta, ajustes finales."
           }
         }
-      },
-      "market": {
-        "name": "MERCADEO",
-        "version": "v0.6.x",
-        "desc": "Prepara materiales de lanzamiento",
-        "detail": "Prepárate para compartir. Crea materiales de marketing, prepara documentación, planifica estrategia de lanzamiento. Genera conciencia antes del lanzamiento.",
-        "examples": {
-          "title": "Ejemplos por dominio",
-          "items": {
-            "software": "Crea landing page, docs, video demo, plan de lanzamiento en ProductHunt/HackerNews, press kit, social media strategy.",
-            "book": "Prepara sinopsis, materiales promocionales, contacta reviewers, plan de lanzamiento, presencia en redes, eventos.",
-            "movie": "Trailer, poster, press kit, submissions a festivales, estrategia de distribución, campaña en redes, entrevistas.",
-            "marketing": "Calienta audiencia, teaser content, buzz building, partnerships, influencer outreach, pre-launch announcements.",
-            "product": "Materiales de producto, fotograía profesional, videos demostrativos, estrategia de lanzamiento, partnerships con retailers."
-          }
-        }
-      },
-      "launch": {
-        "name": "LANZAR",
-        "version": "v0.7.x",
-        "desc": "Despliega, activa, en vivo",
-        "detail": "Hazlo público. Despliega a producción, anuncia a usuarios, monitorea respuesta inicial. Ejecución del día de lanzamiento y seguimiento inmediato.",
-        "examples": {
-          "title": "Ejemplos por dominio",
-          "items": {
-            "software": "Deploy a producción, anuncia en todos los canales, monitorea métricas, responde a usuarios iniciales, hotfixes si necesario.",
-            "book": "Publicación oficial, tour de presentaciones, entrevistas, promoción activa, monitorea ventas y reviews.",
-            "movie": "Estreno oficial, premiere, distribución a cines/plataformas, promoción activa, monitorea reacciones y ventas.",
-            "marketing": "Lanza campaña completa, ejecuta todos los canales simultáneamente, monitorea rendimiento en tiempo real, responde a audiencia.",
-            "product": "Lanzamiento a mercado, disponibilidad en canales de venta, promoción activa, monitorea inventario y feedback inicial."
-          }
-        }
-      },
-      "support": {
-        "name": "SOPORTE",
-        "version": "v0.8.x",
-        "desc": "Mantiene, corrige problemas",
-        "detail": "Manténlo funcionando. Maneja reportes de errores, responde a usuarios, mantén estabilidad. Correcciones críticas y soporte inmediato. Genera confianza.",
-        "examples": {
-          "title": "Ejemplos por dominio",
-          "items": {
-            "software": "Responde reportes de bugs, monitorea uptime, actualiza docs según preguntas frecuentes, soporte a usuarios.",
-            "book": "Responde a lectores, gestiona reviews, corrige erratas para siguientes ediciones, eventos de seguimiento.",
-            "movie": "Gestiona distribución continua, responde a feedback, correcciones técnicas si necesario, eventos de Q&A.",
-            "marketing": "Monitorea métricas, optimiza elementos bajo rendimiento, responde a audiencia, gestiona crisis si surgen.",
-            "product": "Servicio al cliente, manejo de devoluciones/quejas, correcciones de producción, restock según demanda."
-          }
-        }
-      },
-      "evolve": {
-        "name": "EVOLUCIONAR",
-        "version": "v0.9.x",
-        "desc": "Mejora, optimiza, crece",
-        "detail": "Hazlo mejor. Agrega características, optimiza rendimiento, responde a retroalimentación. Planifica la próxima versión. Ciclo de mejora continua.",
-        "examples": {
-          "title": "Ejemplos por dominio",
-          "items": {
-            "software": "Agrega features pedidas, optimiza performance, refactoriza código, planifica v2.0 basado en feedback.",
-            "book": "Edición revisada con mejoras, contenido adicional, adaptaciones a otros formatos, planifica siguiente libro.",
-            "movie": "Director's cut, contenido extra, adaptaciones, secuelas o spin-offs basados en éxito.",
-            "marketing": "Campañas de seguimiento, retargeting, optimización continua, expansión a nuevos canales, iteración de mensaje.",
-            "product": "Mejoras de diseño, nuevas variantes, optimización de costos, expansión de línea de producto."
-          }
-        }
       }
     }
   },
@@ -395,37 +331,37 @@
         "cursor": {
           "name": "Cursor",
           "file": ".cursorrules",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.cursorrules -o .cursorrules",
+          "command": "curl -sSL https://agenticdriven.dev/.cursorrules -o .cursorrules",
           "desc": "IDE de código con IA integrada"
         },
         "claude": {
           "name": "Claude Code",
           "file": "claude.md",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/claude.md -o claude.md",
+          "command": "curl -sSL https://agenticdriven.dev/claude.md -o claude.md",
           "desc": "CLI oficial de Anthropic"
         },
         "windsurf": {
           "name": "Windsurf",
           "file": ".windsurfrules",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.windsurfrules -o .windsurfrules",
+          "command": "curl -sSL https://agenticdriven.dev/.windsurfrules -o .windsurfrules",
           "desc": "IDE agentic flow"
         },
         "copilot": {
           "name": "GitHub Copilot",
           "file": ".github/copilot-instructions.md",
-          "command": "mkdir -p .github && curl -sSL https://agenticdriven.dev/rules/ide/.github/copilot-instructions.md -o .github/copilot-instructions.md",
+          "command": "mkdir -p .github && curl -sSL https://agenticdriven.dev/.github/copilot-instructions.md -o .github/copilot-instructions.md",
           "desc": "Copilot de GitHub"
         },
         "aider": {
           "name": "Aider",
           "file": ".aider.conf.yml + .aider-rules.md",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.aider.conf.yml -o .aider.conf.yml && curl -sSL https://agenticdriven.dev/rules/ide/.aider-rules.md -o .aider-rules.md",
+          "command": "curl -sSL https://agenticdriven.dev/.aider.conf.yml -o .aider.conf.yml && curl -sSL https://agenticdriven.dev/.aider-rules.md -o .aider-rules.md",
           "desc": "AI pair programming en terminal"
         },
         "continue": {
           "name": "Continue",
           "file": ".continuerc.json + .continue-rules.md",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.continuerc.json -o .continuerc.json && curl -sSL https://agenticdriven.dev/rules/ide/.continue-rules.md -o .continue-rules.md",
+          "command": "curl -sSL https://agenticdriven.dev/.continuerc.json -o .continuerc.json && curl -sSL https://agenticdriven.dev/.continue-rules.md -o .continue-rules.md",
           "desc": "Copilot open-source"
         }
       },
@@ -507,37 +443,9 @@
         "validate": {
           "name": "VALIDATE (v0.5.x)",
           "goal": "Valida calidad y testing",
-          "prompt": "Estamos en fase VALIDATE. Ayúdame a:\\n\\n1. Ejecutar todos los tests\\n2. Verificar coverage (objetivo 80%+)\\n3. Validar según docs/validation-criteria.md\\n4. Hacer testing manual/QA\\n5. Documentar resultados en docs/validation-report.md\\n\\nCommit fixes. Al finalizar VALIDATE, marca v0.6.0.",
+          "prompt": "Estamos en fase VALIDATE. Ayúdame a:\\n\\n1. Ejecutar todos los tests\\n2. Verificar coverage (objetivo 80%+)\\n3. Validar según docs/validation-criteria.md\\n4. Hacer testing manual/QA\\n5. Documentar resultados en docs/validation-report.md\\n\\nCommit fixes. Al finalizar VALIDATE, marca v1.0.0.",
           "deliverables": "validation-report.md, test-results.md, coverage report",
-          "exit": "Tests passing, coverage >80%, calidad validada"
-        },
-        "market": {
-          "name": "MARKET (v0.6.x)",
-          "goal": "Prepara materiales de lanzamiento",
-          "prompt": "Estamos en fase MARKET. Ayúdame a:\\n\\n1. Crear plan de marketing en docs/marketing-plan.md\\n2. Preparar materiales (landing, demos, docs)\\n3. Definir estrategia de lanzamiento en docs/launch-strategy.md\\n4. Crear contenido promocional\\n\\nCommit cada material. Al finalizar MARKET, marca v0.7.0.",
-          "deliverables": "marketing-plan.md, launch-strategy.md, materiales listos",
-          "exit": "Materiales creados, estrategia definida, listo para lanzar"
-        },
-        "launch": {
-          "name": "LAUNCH (v0.7.x)",
-          "goal": "Despliega y activa",
-          "prompt": "Estamos en fase LAUNCH. Ayúdame a:\\n\\n1. Hacer deploy a producción\\n2. Activar monitoring y alertas\\n3. Verificar que todo funciona en prod\\n4. Documentar el lanzamiento en docs/launch-log.md\\n5. Crear go-live report en docs/go-live-report.md\\n\\nCommit cada paso. Al finalizar LAUNCH, marca v0.8.0.",
-          "deliverables": "launch-log.md, go-live-report.md, producción activa",
-          "exit": "Desplegado, monitoring activo, sin issues críticos"
-        },
-        "support": {
-          "name": "SUPPORT (v0.8.x)",
-          "goal": "Mantén y soporta",
-          "prompt": "Estamos en fase SUPPORT. Ayúdame a:\\n\\n1. Monitorear métricas y logs\\n2. Resolver bugs críticos (hotfixes)\\n3. Atender feedback de usuarios\\n4. Documentar issues en docs/support-log.md\\n5. Mantener estabilidad\\n\\nCommit cada fix. Al completar período de soporte, marca v0.9.0.",
-          "deliverables": "support-log.md, hotfixes aplicados, sistema estable",
-          "exit": "Estable, bugs críticos resueltos, feedback recopilado"
-        },
-        "evolve": {
-          "name": "EVOLVE (v0.9.x)",
-          "goal": "Mejora y optimiza",
-          "prompt": "Estamos en fase EVOLVE. Ayúdame a:\\n\\n1. Implementar mejoras basadas en feedback\\n2. Optimizar performance\\n3. Añadir features menores\\n4. Planificar futuro en docs/roadmap.md\\n5. Documentar lecciones en docs/evolution-plan.md\\n\\nCommit cada mejora. Al finalizar EVOLVE, lanza v1.0.0.",
-          "deliverables": "evolution-plan.md, roadmap.md, mejoras implementadas",
-          "exit": "Mejorado, optimizado, roadmap definido, listo para v1.0.0"
+          "exit": "Tests passing, coverage >80%, calidad validada, listo para v1.0.0"
         }
       },
       "commonCommands": {
@@ -555,11 +463,11 @@
       "intro": "Resumen de los conceptos clave de AD para consulta rápida.",
       "principles": {
         "title": "13 Principios (Resumen)",
-        "list": "1. Agent-Driven: Humanos estrategia, IA ejecución\\n2. Documentation-First: Documenta antes, durante, después\\n3. Phased: 10 fases secuenciales\\n4. Validation-Driven: Valida antes y después\\n5. Iterative: Mejora dentro de fases\\n6. Traceable: Todo en git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: Sin magic numbers, definir todo\\n10. Single Responsibility: Un propósito por componente\\n11. Contract-Driven: Define specs antes de implementar\\n12. Test-First: Define éxito antes de empezar\\n13. Proven Solutions: Usa patrones establecidos"
+        "list": "1. Agent-Driven: Humanos estrategia, IA ejecución\\n2. Documentation-First: Documenta antes, durante, después\\n3. Phased: 6 fases secuenciales\\n4. Validation-Driven: Valida antes y después\\n5. Iterative: Mejora dentro de fases\\n6. Traceable: Todo en git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: Sin magic numbers, definir todo\\n10. Single Responsibility: Un propósito por componente\\n11. Contract-Driven: Define specs antes de implementar\\n12. Test-First: Define éxito antes de empezar\\n13. Proven Solutions: Usa patrones establecidos"
       },
       "phases": {
-        "title": "10 Fases (Resumen)",
-        "list": "DEFINE (v0.0.x): Problema, objetivos, scope\\nDISCOVER (v0.1.x): Investigar opciones\\nDESIGN (v0.2.x): Diseñar solución\\nSETUP (v0.3.x): Preparar ambiente\\nBUILD (v0.4.x): Construir solución\\nVALIDATE (v0.5.x): Validar calidad\\nMARKET (v0.6.x): Preparar lanzamiento\\nLAUNCH (v0.7.x): Desplegar\\nSUPPORT (v0.8.x): Mantener\\nEVOLVE (v0.9.x): Mejorar\\nRELEASE (v1.0.0): Primer versión estable"
+        "title": "6 Fases (Resumen)",
+        "list": "DEFINE (v0.0.x): Problema, objetivos, scope\\nDISCOVER (v0.1.x): Investigar opciones\\nDESIGN (v0.2.x): Diseñar solución\\nSETUP (v0.3.x): Preparar ambiente\\nBUILD (v0.4.x): Construir solución\\nVALIDATE (v0.5.x): Validar calidad\\nRELEASE (v1.0.0): Primera versión estable"
       },
       "versioning": {
         "title": "Versionado (Resumen)",
@@ -580,7 +488,7 @@
       "toc": {
         "title": "En esta sección:",
         "principles": "13 Principios Explicados",
-        "phases": "10 Fases con Ejemplos",
+        "phases": "6 Fases con Ejemplos",
         "versioning": "Versionado Detallado",
         "gitCommits": "Git Commits",
         "projectStructure": "Estructura del Proyecto",
@@ -642,7 +550,7 @@
       "intro": "AD utiliza versionado semántico (semver) con un esquema específico para las fases pre-lanzamiento.",
       "prerelease": {
         "title": "Pre-lanzamiento (v0.x.x)",
-        "desc": "Durante las 10 fases, el formato es v0.FASE.ITERACION. Por ejemplo, v0.4.15 significa fase BUILD, iteración 15.",
+        "desc": "Durante las 6 fases, el formato es v0.FASE.ITERACION. Por ejemplo, v0.4.15 significa fase BUILD, iteración 15.",
         "example": "v0.0.0  Primer commit\\nv0.1.0  Inicio DISCOVER\\nv0.4.15 BUILD iteración 15"
       },
       "release": {
@@ -872,11 +780,7 @@
         "design": "design.md, architecture.md, interfaces.md",
         "setup": "setup.md, validation-criteria.md",
         "build": "build-log.md, changes.md, issues.md",
-        "validate": "validation-report.md, test-results.md",
-        "market": "marketing-plan.md, launch-strategy.md",
-        "launch": "launch-log.md, go-live-report.md",
-        "support": "support-log.md, hotfixes.md",
-        "evolve": "evolution-plan.md, roadmap.md"
+        "validate": "validation-report.md, test-results.md"
       },
       "location": {
         "title": "Ubicación de la Documentación",
@@ -1068,23 +972,7 @@
         },
         "validate": {
           "title": "VALIDATE (v0.5.x)",
-          "items": "Todos los tests pasando, Cobertura cumplida (80%+), Performance aceptable, Reporte de validación completo, Stakeholders aprueban"
-        },
-        "market": {
-          "title": "MARKET (v0.6.x)",
-          "items": "Materiales creados, Docs completos, Estrategia definida, Canales preparados, Listo para lanzar"
-        },
-        "launch": {
-          "title": "LAUNCH (v0.7.x)",
-          "items": "Desplegado, Monitoreo activo, Métricas recolectadas, Sin issues críticos, Listo para soporte"
-        },
-        "support": {
-          "title": "SUPPORT (v0.8.x)",
-          "items": "Periodo estable completo, Bugs críticos resueltos, Soporte funcionando, Feedback recolectado, Listo para evolucionar"
-        },
-        "evolve": {
-          "title": "EVOLVE (v0.9.x)",
-          "items": "Mejoras implementadas, Optimizado, Features añadidos, Roadmap actualizado, Lecciones documentadas"
+          "items": "Todos los tests pasando, Cobertura cumplida (80%+), Performance aceptable, Reporte de validación completo, Stakeholders aprueban, Listo para v1.0.0"
         }
       },
       "validation": {

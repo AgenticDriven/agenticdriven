@@ -26,13 +26,13 @@ description: "Brief description of what this feature does"
 # ========================================
 
 # Current phase in the development cycle
-# Phases: DEFINE, DISCOVER, DESIGN, SETUP, BUILD, VALIDATE, MARKET, LAUNCH, SUPPORT, EVOLVE
+# Phases: DEFINE, DISCOVER, DESIGN, SETUP, BUILD, VALIDATE
 # Each type uses different phases (see type above)
 phase: "DEFINE"
 
 # Current version (semantic versioning)
 # Format: v0.PHASE.ITERATION
-# Phase numbers: 0=DEFINE, 1=DISCOVER, 2=DESIGN, 3=SETUP, 4=BUILD, 5=VALIDATE, etc.
+# Phase numbers: 0=DEFINE, 1=DISCOVER, 2=DESIGN, 3=SETUP, 4=BUILD, 5=VALIDATE
 # Example: v0.4.2 = BUILD phase, iteration 2
 version: "v0.0.0"
 

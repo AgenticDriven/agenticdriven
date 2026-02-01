@@ -151,7 +151,7 @@
     },
     "phase": {
       "type": "string",
-      "enum": ["DEFINE", "DISCOVER", "DESIGN", "SETUP", "BUILD", "VALIDATE", "MARKET", "LAUNCH", "SUPPORT", "EVOLVE"],
+      "enum": ["DEFINE", "DISCOVER", "DESIGN", "SETUP", "BUILD", "VALIDATE"],
       "comment": "AI MUST update when advancing phase"
     },
     "version": {
@@ -507,7 +507,7 @@ validate_feature_ad_yaml() {
 
     # Validate phase
     local phase=$(yq eval '.phase' "$file")
-    local valid_phases=("DEFINE" "DISCOVER" "DESIGN" "SETUP" "BUILD" "VALIDATE" "MARKET" "LAUNCH" "SUPPORT" "EVOLVE")
+    local valid_phases=("DEFINE" "DISCOVER" "DESIGN" "SETUP" "BUILD" "VALIDATE")
     if [[ ! " ${valid_phases[@]} " =~ " ${phase} " ]]; then
         echo -e "${RED}✗ Invalid phase: $phase${NC}"
         echo -e "${YELLOW}  Valid phases: ${valid_phases[*]}${NC}"

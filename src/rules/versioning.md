@@ -6,7 +6,7 @@ Use semantic versioning (semver).
 
 Phase-based versioning: `v0.PHASE.ITERATION`
 
-Phases: 0=DEFINE, 1=DISCOVER, 2=DESIGN, 3=SETUP, 4=BUILD, 5=VALIDATE, 6=MARKET, 7=LAUNCH, 8=SUPPORT, 9=EVOLVE
+Phases: 0=DEFINE, 1=DISCOVER, 2=DESIGN, 3=SETUP, 4=BUILD, 5=VALIDATE
 
 Examples:
 ```

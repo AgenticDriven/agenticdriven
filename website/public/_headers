@@ -36,5 +36,20 @@
   Cache-Control: public, max-age=3600
 
 # IDE configs - allow longer cache
-/rules/ide/*
+/*.cursorrules
+  Cache-Control: public, max-age=3600
+
+/*.windsurfrules
+  Cache-Control: public, max-age=3600
+
+/claude.md
+  Cache-Control: public, max-age=3600
+
+/.aider*
+  Cache-Control: public, max-age=3600
+
+/.continue*
+  Cache-Control: public, max-age=3600
+
+/.github/*
   Cache-Control: public, max-age=3600

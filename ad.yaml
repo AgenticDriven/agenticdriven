@@ -12,7 +12,7 @@ domain: "software"
 # MODE - How do you organize work?
 # =============================================================================
 # feature: Work on individual features with their own mini-cycles (recommended)
-# project: Complete all 10 phases for entire project (classic waterfall-style)
+# project: Complete all 6 phases for entire project (classic waterfall-style)
 mode: "feature"
 
 # =============================================================================
@@ -98,7 +98,7 @@ agents:
     - id: "website-dev"
       role: "website-implementation"
       description: "Maintains website and public documentation"
-      phases: ["BUILD", "VALIDATE", "MARKET"]
+      phases: ["BUILD", "VALIDATE"]
       capabilities: ["frontend", "documentation", "deployment"]
       context_dirs:
         - "website/"

@@ -1,236 +1,65 @@
 {
-  "name": "ADD 2.0 Universal Configuration",
+  "name": "AD 1.0 Configuration",
   "version": "2.0.0",
-  "description": "Configuration for Continue.dev to work with ADD 2.0 methodology",
-
-  "systemMessage": "You are an AI assistant helping with a project following ADD (Agent-Driven Development) 2.0 Universal methodology. Always read project documentation before suggesting code: add-project.yaml, docs/discovery.md, docs/design.md, docs/interfaces.md (if BUILD phase). Respect the current phase and its constraints. Follow contracts strictly in BUILD phase. Never commit changes across different phases.",
-
-  "slashCommands": [
+  "customCommands": [
     {
-      "name": "phase",
-      "description": "Show current ADD phase and exit criteria",
-      "prompt": "Read add-project.yaml to determine current phase. Show: 1) Current phase name, 2) Phase version, 3) Exit criteria for this phase, 4) Status of each criterion. Format as checklist."
+      "name": "init-add",
+      "description": "Initialize AD project",
+      "prompt": "Initialize a new AD 1.0 project:\n1. Create add.yaml with domain\n2. Create README.md\n3. Create docs/journal.md\n4. Initialize git\n5. First commit"
     },
     {
-      "name": "contracts",
-      "description": "Show defined contracts for BUILD phase",
-      "prompt": "Read docs/interfaces.md and summarize all defined contracts: APIs, components, data structures. Format clearly showing inputs, outputs, and validation rules for each contract."
+      "name": "read-context",
+      "description": "Read project context",
+      "prompt": "Read and summarize:\n1. add.yaml\n2. Current git status\n3. Latest git tag (current phase)\n4. docs/journal.md\n5. Current phase documentation"
     },
     {
-      "name": "implement",
-      "description": "Implement feature following contract",
-      "prompt": "First read docs/interfaces.md to find the contract for {{{input}}}. Then implement exactly following the contract specification. Include: input validation, output format, error handling, and tests. Add comment showing contract compliance."
+      "name": "update-journal",
+      "description": "Update journal",
+      "prompt": "Update docs/journal.md with today's date and current progress"
     },
     {
-      "name": "validate-contract",
-      "description": "Validate code follows contract",
-      "prompt": "Read docs/interfaces.md for {{{input}}} contract. Compare the current implementation against the contract specification. Report: what matches ✓, what doesn't match ✗, and suggestions to fix violations."
+      "name": "check-exit-criteria",
+      "description": "Check phase exit criteria",
+      "prompt": "Check if current phase exit criteria are met. Review checklist and report status."
     },
     {
-      "name": "mock",
-      "description": "Generate contract-based mock",
-      "prompt": "Read contract for {{{input}}} from docs/interfaces.md. Generate a mock implementation that returns data matching the contract output format. Include JSDoc comments showing it's a mock and referencing the contract."
-    },
-    {
-      "name": "advance",
-      "description": "Check if ready to advance to next phase",
-      "prompt": "Read add-project.yaml for current phase. Check all exit criteria for this phase. For each criterion, validate if it's met by reading relevant files. Report: which criteria are met ✓, which aren't ✗, and what needs to be done before advancing."
-    },
-    {
-      "name": "commit-msg",
-      "description": "Generate ADD 2.0 compliant commit message",
-      "prompt": "Generate commit message for staged changes following ADD 2.0 format: type(scope): description. Use phase-appropriate type (discover, design, prepare, build, validate, deliver, support, evolve). Include: what changed, why, contract compliance status (if BUILD), tests status. Current phase from add-project.yaml."
-    },
-    {
-      "name": "setup-phase",
-      "description": "Setup files for new phase",
-      "prompt": "Read add-project.yaml for next phase. Create directory structure and placeholder docs for the new phase: docs/[phase].md with template. Show what files were created and what should be done next."
+      "name": "validate-contracts",
+      "description": "Validate contract compliance",
+      "prompt": "Check if implementation matches contracts in docs/interfaces.md"
     }
   ],
-
   "contextProviders": [
     {
       "name": "add-config",
-      "description": "Project ADD configuration",
+      "description": "ADD project configuration",
       "params": {
-        "files": ["add-project.yaml"]
-      }
-    },
-    {
-      "name": "add-discovery",
-      "description": "Discovery phase documentation",
-      "params": {
-        "files": ["docs/discovery.md", "docs/requirements.md", "docs/stakeholders.md"]
-      }
-    },
-    {
-      "name": "add-design",
-      "description": "Design phase documentation",
-      "params": {
-        "files": ["docs/design.md", "docs/interfaces.md", "docs/architecture.md"]
-      }
-    },
-    {
-      "name": "add-contracts",
-      "description": "Interface contracts for BUILD",
-      "params": {
-        "files": ["docs/interfaces.md"]
+        "files": ["add.yaml"]
       }
     },
     {
       "name": "add-journal",
-      "description": "Project progress journal",
+      "description": "Project journal",
       "params": {
         "files": ["docs/journal.md"]
       }
+    },
+    {
+      "name": "add-contracts",
+      "description": "Interface contracts",
+      "params": {
+        "files": ["docs/interfaces.md"]
+      }
     }
   ],
-
-  "customCommands": [
+  "slashCommands": [
     {
-      "name": "Read Phase Docs",
-      "prompt": "Read and summarize the documentation for the current ADD phase from docs/ directory. Show: phase purpose, key activities, deliverables, and exit criteria.",
-      "description": "Get current phase information"
+      "name": "add-phase",
+      "description": "Show current phase info and exit criteria"
     },
     {
-      "name": "Contract Check",
-      "prompt": "If in BUILD phase (v0.4.x), read docs/interfaces.md and list all contracts. If not in BUILD, say 'Not in BUILD phase, contracts not relevant yet'.",
-      "description": "Check if contracts exist"
-    },
-    {
-      "name": "Multi-Agent Status",
-      "prompt": "Read docs/status.md (if exists) and show status of all parallel agents. If file doesn't exist, suggest creating it for team coordination.",
-      "description": "Check multi-agent coordination status"
+      "name": "add-commit",
+      "description": "Create conventional commit with current changes"
     }
   ],
-
-  "rules": [
-    {
-      "name": "Phase Awareness",
-      "pattern": ".*",
-      "action": "Always consider current ADD phase (from add-project.yaml version field) when suggesting code or changes"
-    },
-    {
-      "name": "Contract Compliance",
-      "pattern": ".*\\.(ts|js|py|java)$",
-      "action": "If in BUILD phase, always check docs/interfaces.md for contracts before implementing. Implement exactly to contract specification."
-    },
-    {
-      "name": "No Cross-Phase Commits",
-      "pattern": "commit|stage",
-      "action": "Group files by ADD phase. Never suggest committing files from different phases together (e.g., don't commit design docs with implementation code)."
-    },
-    {
-      "name": "Exit Criteria Before Advancing",
-      "pattern": "advance|next phase|complete",
-      "action": "Before suggesting phase completion, validate ALL exit criteria for current phase. List what's done and what's pending."
-    }
-  ],
-
-  "models": [
-    {
-      "title": "Claude 3.5 Sonnet (Recommended for ADD)",
-      "provider": "anthropic",
-      "model": "claude-3-5-sonnet-20241022",
-      "apiKey": "$ANTHROPIC_API_KEY",
-      "contextLength": 200000,
-      "systemMessage": "You are an expert in ADD 2.0 methodology and software development."
-    },
-    {
-      "title": "GPT-4",
-      "provider": "openai",
-      "model": "gpt-4",
-      "apiKey": "$OPENAI_API_KEY"
-    },
-    {
-      "title": "Local Model (Ollama)",
-      "provider": "ollama",
-      "model": "codellama:13b",
-      "apiBase": "http://localhost:11434"
-    }
-  ],
-
-  "tabAutocompleteModel": {
-    "title": "Fast Autocomplete",
-    "provider": "ollama",
-    "model": "deepseek-coder:6.7b-instruct",
-    "apiBase": "http://localhost:11434"
-  },
-
-  "embeddingsProvider": {
-    "provider": "ollama",
-    "model": "nomic-embed-text",
-    "apiBase": "http://localhost:11434"
-  },
-
-  "docs": [
-    {
-      "title": "ADD 2.0 Documentation",
-      "startUrl": "file:///var/add/ADD-UNIVERSAL.md",
-      "faviconUrl": "",
-      "depth": 2
-    },
-    {
-      "title": "Multi-Agent Coordination",
-      "startUrl": "file:///var/add/agentes/COORDINACION-PARALELA.md"
-    },
-    {
-      "title": "Advanced Techniques",
-      "startUrl": "file:///var/add/agentes/TECNICAS-AVANZADAS-MULTI-AGENTE.md"
-    }
-  ],
-
-  "experimental": {
-    "contextProviderQueries": {
-      "add-phase-info": "SELECT * FROM context WHERE file LIKE 'add-project.yaml' OR file LIKE 'docs/%.md'"
-    },
-    "promptReranking": true,
-    "useCodeGraph": true
-  },
-
-  "ui": {
-    "fontSize": 14,
-    "displayRawMarkdown": false,
-    "showBanner": true
-  },
-
-  "allowAnonymousTelemetry": false,
-
-  "gitIntegration": {
-    "enabled": true,
-    "autoStage": false,
-    "commitMessageTemplate": "{type}({scope}): {description}\n\nADD 2.0 Phase: {phase}\nContract Compliance: {contract_status}\nTests: {test_status}"
-  },
-
-  "comments": [
-    "ADD 2.0 Universal Configuration for Continue.dev",
-    "Place this file at .continue/config.json in your project root",
-    "",
-    "Key Features:",
-    "- /phase - Show current phase and exit criteria",
-    "- /contracts - Show all defined contracts",
-    "- /implement <feature> - Implement following contract",
-    "- /validate-contract <feature> - Check contract compliance",
-    "- /mock <feature> - Generate contract-based mock",
-    "- /advance - Check if ready for next phase",
-    "- /commit-msg - Generate proper commit message",
-    "",
-    "Context Providers:",
-    "- @add-config - Project configuration",
-    "- @add-discovery - Discovery docs",
-    "- @add-design - Design docs",
-    "- @add-contracts - Interface contracts",
-    "- @add-journal - Progress journal",
-    "",
-    "Usage:",
-    "1. Configure your API keys in environment variables",
-    "2. Use slash commands for ADD-specific tasks",
-    "3. Use context providers for relevant docs",
-    "4. Follow contract-first in BUILD phase",
-    "",
-    "Documentation:",
-    "Full ADD 2.0 docs: /var/add/ADD-UNIVERSAL.md",
-    "Multi-agent: /var/add/agentes/COORDINACION-PARALELA.md",
-    "Framework: /var/add/FRAMEWORK-DESIGN.md"
-  ]
+  "systemMessage": "You are an AI assistant following Agentic Driven (AD) 1.0 methodology. Always:\n\n1. Read ad.yaml and docs/ at session start\n2. Follow current phase guidelines\n3. Use Conventional Commits format\n4. Update docs/journal.md\n5. Respect contracts in docs/interfaces.md\n6. Commit frequently\n7. Tag phase completions\n\nSee .continue-rules.md for complete rules."
 }

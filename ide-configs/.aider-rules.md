@@ -2,7 +2,7 @@
 
 **1. Agent-Driven**: Humans decide strategy, AI executes
 **2. Documentation-First**: Document before, during, after
-**3. Phased & Structured**: 10 phases with clear objectives and exit criteria
+**3. Phased & Structured**: 6 phases with clear objectives and exit criteria
 **4. Validation-Driven**: Validate before building and what's built
 **5. Iterative**: Improve within phases, document if going back
 **6. Traceable**: Every change in git with clear history
@@ -16,7 +16,7 @@
 
 # Phases
 
-## 10 Phases + Release
+## 6 Phases + Release
 
 ```
 v0.0.x → DEFINE      Define problem, objectives, scope
@@ -25,10 +25,6 @@ v0.2.x → DESIGN      Design solution, architecture
 v0.3.x → SETUP       Prepare tools, environment
 v0.4.x → BUILD       Build/create solution
 v0.5.x → VALIDATE    Verify quality, testing
-v0.6.x → MARKET      Prepare launch materials
-v0.7.x → LAUNCH      Deploy, activate, go-live
-v0.8.x → SUPPORT     Maintain, fix issues
-v0.9.x → EVOLVE      Improve, optimize, grow
 v1.0.0 → RELEASE     First stable version
 ```
 
@@ -47,7 +43,7 @@ Use semantic versioning (semver).
 
 Phase-based versioning: `v0.PHASE.ITERATION`
 
-Phases: 0=DEFINE, 1=DISCOVER, 2=DESIGN, 3=SETUP, 4=BUILD, 5=VALIDATE, 6=MARKET, 7=LAUNCH, 8=SUPPORT, 9=EVOLVE
+Phases: 0=DEFINE, 1=DISCOVER, 2=DESIGN, 3=SETUP, 4=BUILD, 5=VALIDATE
 
 Examples:
 ```
@@ -269,10 +265,6 @@ Document before, during, after.
 **SETUP**: setup, validation-criteria
 **BUILD**: build-log
 **VALIDATE**: validation-report
-**MARKET**: marketing-plan
-**LAUNCH**: launch-log
-**SUPPORT**: support-log
-**EVOLVE**: evolution-plan
 
 ## Location
 
@@ -851,10 +843,6 @@ When agents are enabled:
 **SETUP**: Tools configured, environment ready, validation criteria defined
 **BUILD**: All components implemented, contracts fulfilled, docs updated
 **VALIDATE**: Validation criteria met, quality acceptable, report complete
-**MARKET**: Materials created, docs complete, strategy defined
-**LAUNCH**: Deployed, monitoring active, no critical issues
-**SUPPORT**: Stable, critical issues resolved, feedback collected
-**EVOLVE**: Improvements implemented, optimized, roadmap updated
 
 ## Validation
 

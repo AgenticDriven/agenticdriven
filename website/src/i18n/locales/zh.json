@@ -4,7 +4,7 @@
     "version": "1.0",
     "subtitle": "首个AI原生的结构化开发方法论",
     "badge": "现已推出",
-    "description": "13个原则 • 10个阶段 • 通用框架<br/>从构思到上线,借助AI智能体",
+    "description": "13个原则 • 6个阶段 • 通用框架<br/>从构思到发布,借助AI智能体",
     "aiLabel": "支持主流AI助手:",
     "cta": {
       "getStarted": "开始使用",
@@ -21,13 +21,13 @@
   "what": {
     "title": "什么是智能体驱动?",
     "subtitle": "专为AI智能体协作设计的结构化方法论",
-    "lead": "<strong>Agentic Driven Workflow (AD)</strong>是为AI时代创建的首个通用方法论。通过<strong>13个原则</strong>和<strong>10个阶段</strong>提供清晰的结构,适用于任何项目——软件、内容、营销、活动等。",
+    "lead": "<strong>Agentic Driven (AD)</strong>是为AI时代创建的首个通用方法论。通过<strong>13个原则</strong>和<strong>6个阶段</strong>提供清晰的结构,适用于任何项目——软件、内容、营销、活动等。",
     "p1": "传统方法论如敏捷和瀑布不是为AI协作设计的。它们假设人类编写代码并做出每个决定。AD颠覆了这一点:<strong>人类定义策略,AI执行</strong>。",
     "p2": "无论您是使用Cursor构建应用、使用Claude撰写书籍,还是使用Copilot管理项目,AD都为您提供与AI智能体有效协作的框架。",
     "features": {
       "phases": {
         "title": "清晰阶段",
-        "desc": "从定义到进化的10个阶段。始终知道您所处位置和接下来要做什么。"
+        "desc": "从定义到验证的6个阶段。始终知道您所处位置和接下来要做什么。"
       },
       "exitCriteria": {
         "title": "退出标准",
@@ -126,8 +126,8 @@
       },
       "3": {
         "title": "分阶段与结构化",
-        "desc": "10个阶段,目标明确",
-        "detail": "从定义到进化,每个阶段都有具体目标和退出标准。准确了解您所处位置和接下来要做什么。"
+        "desc": "6个阶段,目标明确",
+        "detail": "从定义到验证,每个阶段都有具体目标和退出标准。准确了解您所处位置和接下来要做什么。"
       },
       "4": {
         "title": "验证驱动",
@@ -183,7 +183,7 @@
     "intro": "这些原则是AD的支柱。每一条都针对与AI代理合作的特定方面，从如何记录到如何构建代码和管理更改。"
   },
   "workflow": {
-    "title": "工作流程：10个阶段",
+    "title": "工作流程：6个阶段",
     "subtitle": "点击任意阶段查看详情",
     "legend": {
       "completed": "已完成",
@@ -286,73 +286,9 @@
             "product": "Quality testing, durability tests, required certifications, beta user feedback, final adjustments."
           }
         }
-      },
-      "market": {
-        "name": "营销",
-        "version": "v0.6.x",
-        "desc": "准备发布材料",
-        "detail": "准备分享。创建营销材料,准备文档,规划发布策略。发布前建立认知度。",
-        "examples": {
-          "title": "Examples by Domain",
-          "items": {
-            "software": "Create landing page, docs, demo video, launch plan on ProductHunt/HackerNews, press kit, social media strategy.",
-            "book": "Prepare synopsis, promotional materials, contact reviewers, launch plan, social media presence, events.",
-            "movie": "Trailer, poster, press kit, festival submissions, distribution strategy, social media campaign, interviews.",
-            "marketing": "Warm up audience, teaser content, buzz building, partnerships, influencer outreach, pre-launch announcements.",
-            "product": "Product materials, professional photography, demo videos, launch strategy, retailer partnerships."
-          }
-        }
-      },
-      "launch": {
-        "name": "发布",
-        "version": "v0.7.x",
-        "desc": "部署、激活、上线",
-        "detail": "公之于众。部署到生产环境,向用户发布,监控初始反应。发布日执行和即时跟进。",
-        "examples": {
-          "title": "Examples by Domain",
-          "items": {
-            "software": "Deploy to production, announce on all channels, monitor metrics, respond to initial users, hotfixes if needed.",
-            "book": "Official publication, presentation tour, interviews, active promotion, monitor sales and reviews.",
-            "movie": "Official premiere, premiere event, distribution to theaters/platforms, active promotion, monitor reactions and sales.",
-            "marketing": "Launch full campaign, execute all channels simultaneously, monitor real-time performance, respond to audience.",
-            "product": "Market launch, availability in sales channels, active promotion, monitor inventory and initial feedback."
-          }
-        }
-      },
-      "support": {
-        "name": "支持",
-        "version": "v0.8.x",
-        "desc": "维护、修复问题",
-        "detail": "保持运行。处理错误报告,响应用户,维护稳定性。关键修复和即时支持。建立信心。",
-        "examples": {
-          "title": "Examples by Domain",
-          "items": {
-            "software": "Respond to bug reports, monitor uptime, update docs per frequent questions, user support.",
-            "book": "Respond to readers, manage reviews, correct errata for next editions, follow-up events.",
-            "movie": "Manage ongoing distribution, respond to feedback, technical corrections if needed, Q&A events.",
-            "marketing": "Monitor metrics, optimize underperforming elements, respond to audience, manage crises if they arise.",
-            "product": "Customer service, handling returns/complaints, production corrections, restock per demand."
-          }
-        }
-      },
-      "evolve": {
-        "name": "进化",
-        "version": "v0.9.x",
-        "desc": "改进、优化、成长",
-        "detail": "让它更好。添加功能,优化性能,响应反馈。规划下一个版本。持续改进循环。",
-        "examples": {
-          "title": "Examples by Domain",
-          "items": {
-            "software": "Add requested features, optimize performance, refactor code, plan v2.0 based on feedback.",
-            "book": "Revised edition with improvements, additional content, adaptations to other formats, plan next book.",
-            "movie": "Director's cut, extra content, adaptations, sequels or spin-offs based on success.",
-            "marketing": "Follow-up campaigns, retargeting, continuous optimization, expansion to new channels, message iteration.",
-            "product": "Design improvements, new variants, cost optimization, product line expansion."
-          }
-        }
       }
     },
-    "intro": "AD将开发结构化为10个连续阶段。每个阶段都有明确的目标、具体的交付成果和退出标准。在完成当前阶段之前无法前进。这确保了项目的每个方面都得到必要的关注。"
+    "intro": "AD将开发结构化为6个连续阶段。每个阶段都有明确的目标、具体的交付成果和退出标准。在完成当前阶段之前无法前进。这确保了项目的每个方面都得到必要的关注。"
   },
   "quickStart": {
     "title": "快速开始",
@@ -431,8 +367,8 @@
         "desc": "指导所有AI工作的基本规则。从文档优先到持续提交，每个原则都有明确的目的。"
       },
       "phases": {
-        "title": "10个阶段",
-        "desc": "从定义到演进。每个阶段都有明确的目标和退出标准。始终知道你在哪里以及接下来会发生什么。"
+        "title": "6个阶段",
+        "desc": "从定义到验证。每个阶段都有明确的目标和退出标准。始终知道你在哪里以及接下来会发生什么。"
       },
       "git": {
         "title": "持续Git流程",
@@ -460,7 +396,7 @@
       "intro": "AD使用语义化版本控制(semver)，并为预发布阶段提供特定方案。",
       "prerelease": {
         "title": "预发布 (v0.x.x)",
-        "desc": "在10个阶段期间，格式为v0.阶段.迭代。例如，v0.4.15表示构建阶段，迭代15。",
+        "desc": "在6个阶段期间，格式为v0.阶段.迭代。例如，v0.4.15表示构建阶段，迭代15。",
         "example": "v0.0.0  首次提交\\nv0.1.0  开始发现\\nv0.4.15 构建迭代15"
       },
       "release": {
@@ -696,11 +632,7 @@
         "design": "design.md, architecture.md, interfaces.md",
         "setup": "setup.md, validation-criteria.md",
         "build": "build-log.md, changes.md, issues.md",
-        "validate": "validation-report.md, test-results.md",
-        "market": "marketing-plan.md, launch-strategy.md",
-        "launch": "launch-log.md, go-live-report.md",
-        "support": "support-log.md, hotfixes.md",
-        "evolve": "evolution-plan.md, roadmap.md"
+        "validate": "validation-report.md, test-results.md"
       },
       "location": {
         "title": "Documentation Location",
@@ -892,23 +824,7 @@
         },
         "validate": {
           "title": "VALIDATE (v0.5.x)",
-          "items": "All tests passing, Coverage met (80%+), Performance acceptable, Validation report complete, Stakeholders approve"
-        },
-        "market": {
-          "title": "MARKET (v0.6.x)",
-          "items": "Materials created, Docs complete, Strategy defined, Channels prepared, Ready to launch"
-        },
-        "launch": {
-          "title": "LAUNCH (v0.7.x)",
-          "items": "Deployed, Monitoring active, Metrics collected, No critical issues, Ready for support"
-        },
-        "support": {
-          "title": "SUPPORT (v0.8.x)",
-          "items": "Stable period complete, Critical bugs resolved, Support working, Feedback collected, Ready to evolve"
-        },
-        "evolve": {
-          "title": "EVOLVE (v0.9.x)",
-          "items": "Improvements implemented, Optimized, Features added, Roadmap updated, Lessons documented"
+          "items": "All tests passing, Coverage met (80%+), Performance acceptable, Validation report complete, Stakeholders approve, Ready for v1.0.0"
         }
       },
       "validation": {
@@ -1039,37 +955,37 @@
         "cursor": {
           "name": "Cursor",
           "file": ".cursorrules",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.cursorrules -o .cursorrules",
+          "command": "curl -sSL https://agenticdriven.dev/.cursorrules -o .cursorrules",
           "desc": "Code IDE with integrated AI"
         },
         "claude": {
           "name": "Claude Code",
           "file": "claude.md",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/claude.md -o claude.md",
+          "command": "curl -sSL https://agenticdriven.dev/claude.md -o claude.md",
           "desc": "Official Anthropic CLI"
         },
         "windsurf": {
           "name": "Windsurf",
           "file": ".windsurfrules",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.windsurfrules -o .windsurfrules",
+          "command": "curl -sSL https://agenticdriven.dev/.windsurfrules -o .windsurfrules",
           "desc": "Agentic flow IDE"
         },
         "copilot": {
           "name": "GitHub Copilot",
           "file": ".github/copilot-instructions.md",
-          "command": "mkdir -p .github && curl -sSL https://agenticdriven.dev/rules/ide/.github/copilot-instructions.md -o .github/copilot-instructions.md",
+          "command": "mkdir -p .github && curl -sSL https://agenticdriven.dev/.github/copilot-instructions.md -o .github/copilot-instructions.md",
           "desc": "GitHub Copilot"
         },
         "aider": {
           "name": "Aider",
           "file": ".aider.conf.yml + .aider-rules.md",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.aider.conf.yml -o .aider.conf.yml && curl -sSL https://agenticdriven.dev/rules/ide/.aider-rules.md -o .aider-rules.md",
+          "command": "curl -sSL https://agenticdriven.dev/.aider.conf.yml -o .aider.conf.yml && curl -sSL https://agenticdriven.dev/.aider-rules.md -o .aider-rules.md",
           "desc": "AI pair programming in terminal"
         },
         "continue": {
           "name": "Continue",
           "file": ".continuerc.json + .continue-rules.md",
-          "command": "curl -sSL https://agenticdriven.dev/rules/ide/.continuerc.json -o .continuerc.json && curl -sSL https://agenticdriven.dev/rules/ide/.continue-rules.md -o .continue-rules.md",
+          "command": "curl -sSL https://agenticdriven.dev/.continuerc.json -o .continuerc.json && curl -sSL https://agenticdriven.dev/.continue-rules.md -o .continue-rules.md",
           "desc": "Open-source Copilot"
         }
       },
@@ -1151,37 +1067,9 @@
         "validate": {
           "name": "VALIDATE (v0.5.x)",
           "goal": "Validate quality and testing",
-          "prompt": "Estamos en fase VALIDATE. Ayúdame a:\\n\\n1. Ejecutar todos los tests\\n2. Verificar coverage (objetivo 80%+)\\n3. Validar según docs/validation-criteria.md\\n4. Hacer testing manual/QA\\n5. Documentar resultados en docs/validation-report.md\\n\\nCommit fixes. Al finalizar VALIDATE, marca v0.6.0.",
+          "prompt": "Estamos en fase VALIDATE. Ayúdame a:\\n\\n1. Ejecutar todos los tests\\n2. Verificar coverage (objetivo 80%+)\\n3. Validar según docs/validation-criteria.md\\n4. Hacer testing manual/QA\\n5. Documentar resultados en docs/validation-report.md\\n\\nCommit fixes. Al finalizar VALIDATE, marca v1.0.0.",
           "deliverables": "validation-report.md, test-results.md, coverage report",
-          "exit": "Tests passing, coverage >80%, calidad validada"
-        },
-        "market": {
-          "name": "MARKET (v0.6.x)",
-          "goal": "Prepare launch materials",
-          "prompt": "Estamos en fase MARKET. Ayúdame a:\\n\\n1. Crear plan de marketing en docs/marketing-plan.md\\n2. Preparar materiales (landing, demos, docs)\\n3. Definir estrategia de lanzamiento en docs/launch-strategy.md\\n4. Crear contenido promocional\\n\\nCommit cada material. Al finalizar MARKET, marca v0.7.0.",
-          "deliverables": "marketing-plan.md, launch-strategy.md, materiales listos",
-          "exit": "Materiales creados, estrategia definida, listo para lanzar"
-        },
-        "launch": {
-          "name": "LAUNCH (v0.7.x)",
-          "goal": "Deploy and activate",
-          "prompt": "Estamos en fase LAUNCH. Ayúdame a:\\n\\n1. Hacer deploy a producción\\n2. Activar monitoring y alertas\\n3. Verificar que todo funciona en prod\\n4. Documentar el lanzamiento en docs/launch-log.md\\n5. Crear go-live report en docs/go-live-report.md\\n\\nCommit cada paso. Al finalizar LAUNCH, marca v0.8.0.",
-          "deliverables": "launch-log.md, go-live-report.md, producción activa",
-          "exit": "Desplegado, monitoring activo, sin issues críticos"
-        },
-        "support": {
-          "name": "SUPPORT (v0.8.x)",
-          "goal": "Maintain and support",
-          "prompt": "Estamos en fase SUPPORT. Ayúdame a:\\n\\n1. Monitorear métricas y logs\\n2. Resolver bugs críticos (hotfixes)\\n3. Atender feedback de usuarios\\n4. Documentar issues en docs/support-log.md\\n5. Mantener estabilidad\\n\\nCommit cada fix. Al completar período de soporte, marca v0.9.0.",
-          "deliverables": "support-log.md, hotfixes aplicados, sistema estable",
-          "exit": "Estable, bugs críticos resueltos, feedback recopilado"
-        },
-        "evolve": {
-          "name": "EVOLVE (v0.9.x)",
-          "goal": "Improve and optimize",
-          "prompt": "Estamos en fase EVOLVE. Ayúdame a:\\n\\n1. Implementar mejoras basadas en feedback\\n2. Optimizar performance\\n3. Añadir features menores\\n4. Planificar futuro en docs/roadmap.md\\n5. Documentar lecciones en docs/evolution-plan.md\\n\\nCommit cada mejora. Al finalizar EVOLVE, lanza v1.0.0.",
-          "deliverables": "evolution-plan.md, roadmap.md, mejoras implementadas",
-          "exit": "Mejorado, optimizado, roadmap definido, listo para v1.0.0"
+          "exit": "Tests passing, coverage >80%, quality validated, ready for v1.0.0"
         }
       },
       "commonCommands": {
@@ -1199,11 +1087,11 @@
       "intro": "Summary of AD key concepts for quick reference.",
       "principles": {
         "title": "13 Principles (Summary)",
-        "list": "1. Agent-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 10 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
+        "list": "1. Agent-Driven: Humans strategy, AI execution\\n2. Documentation-First: Document before, during, after\\n3. Phased: 6 sequential phases\\n4. Validation-Driven: Validate before and after\\n5. Iterative: Improve within phases\\n6. Traceable: Everything in git\\n7. Git-First: Complete + verify = commit\\n8. Standards-First: Conventional Commits, semver, JSON:API\\n9. Explicit: No magic numbers, define everything\\n10. Single Responsibility: One purpose per component\\n11. Contract-Driven: Define specs before implementing\\n12. Test-First: Define success before starting\\n13. Proven Solutions: Use established patterns"
       },
       "phases": {
-        "title": "10 Phases (Summary)",
-        "list": "DEFINE (v0.0.x): Problem, objectives, scope\\nDISCOVER (v0.1.x): Research options\\nDESIGN (v0.2.x): Design solution\\nSETUP (v0.3.x): Prepare environment\\nBUILD (v0.4.x): Build solution\\nVALIDATE (v0.5.x): Validate quality\\nMARKET (v0.6.x): Prepare launch\\nLAUNCH (v0.7.x): Deploy\\nSUPPORT (v0.8.x): Maintain\\nEVOLVE (v0.9.x): Improve\\nRELEASE (v1.0.0): First stable version"
+        "title": "6 Phases (Summary)",
+        "list": "DEFINE (v0.0.x): Problem, objectives, scope\\nDISCOVER (v0.1.x): Research options\\nDESIGN (v0.2.x): Design solution\\nSETUP (v0.3.x): Prepare environment\\nBUILD (v0.4.x): Build solution\\nVALIDATE (v0.5.x): Validate quality\\nRELEASE (v1.0.0): First stable version"
       },
       "versioning": {
         "title": "Versioning (Summary)",

@@ -22,7 +22,7 @@ if [ -z "$IDE" ]; then
     exit 1
 fi
 
-BASE_URL="https://agenticdriven.dev/rules/ide"
+BASE_URL="https://agenticdriven.dev"
 
 case "$IDE" in
     cursor)

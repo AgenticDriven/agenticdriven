@@ -115,7 +115,7 @@ function App() {
             <div className="modal-filename">{selectedIDE.file}</div>
             <div className="modal-actions">
               <a
-                href={`/rules/ide/${selectedIDE.file}`}
+                href={`/${selectedIDE.file}`}
                 className="modal-btn modal-btn-view"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -124,7 +124,7 @@ function App() {
                 <span>{t('modal.viewRaw')}</span>
               </a>
               <a
-                href={`/rules/ide/${selectedIDE.file}`}
+                href={`/${selectedIDE.file}`}
                 className="modal-btn modal-btn-download"
                 download={selectedIDE.file.split('/').pop()}
               >

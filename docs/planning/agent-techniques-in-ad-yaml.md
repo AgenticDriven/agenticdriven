@@ -191,7 +191,7 @@ agents:
     - id: "devops"
       role: "infrastructure"
       description: "Deploy y CI/CD"
-      phases: ["SETUP", "LAUNCH"]
+      phases: ["SETUP", "VALIDATE"]
       capabilities:
         - "ci-cd"
         - "deployment"

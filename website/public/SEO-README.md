@@ -122,7 +122,7 @@ You need to create two images for social sharing:
 - **Content**:
   - AD 1.0 branding
   - Tagline: "The first AI-native methodology"
-  - Key stats: 13 principles, 10 phases
+  - Key stats: 13 principles, 6 phases
   - Gradient background matching site colors
 - **Location**: `/og-image.png`
 

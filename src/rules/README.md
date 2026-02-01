@@ -5,7 +5,7 @@ Concrete rules for AD 1.0, ready to export to IDE configurations.
 ## Available Rules
 
 - [principles.md](./principles.md) - 6 core principles of AD
-- [phases.md](./phases.md) - 10 phases + exit criteria
+- [phases.md](./phases.md) - 6 phases + exit criteria
 - [versioning.md](./versioning.md) - Semantic versioning system
 - [git-commits.md](./git-commits.md) - Conventional commits format
 - [git-tags.md](./git-tags.md) - Tagging strategy

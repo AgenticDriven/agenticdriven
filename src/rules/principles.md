@@ -2,7 +2,7 @@
 
 **1. Agent-Driven**: Humans decide strategy, AI executes
 **2. Documentation-First**: Document before, during, after
-**3. Phased & Structured**: 10 phases with clear objectives and exit criteria
+**3. Phased & Structured**: 6 phases with clear objectives and exit criteria
 **4. Validation-Driven**: Validate before building and what's built
 **5. Iterative**: Improve within phases, document if going back
 **6. Traceable**: Every change in git with clear history

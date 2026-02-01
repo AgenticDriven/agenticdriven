@@ -242,8 +242,8 @@ Copy the relevant configuration file(s) to your project root.
 ## What's Included
 
 All configurations include:
-- 6 core AD principles
-- 10 phases + exit criteria
+- 13 core AD principles
+- 6 phases + exit criteria
 - Git workflow (commits, tags, versioning)
 - Documentation requirements
 - Testing guidelines
@@ -292,7 +292,7 @@ if [ -z "$IDE" ]; then
     exit 1
 fi
 
-BASE_URL="https://agenticdriven.dev/rules/ide"
+BASE_URL="https://agenticdriven.dev"
 
 case "$IDE" in
     cursor)

@@ -1,308 +1,46 @@
-# ADD 2.0 Universal Configuration for Aider
-# Place this file at .aider.conf.yml in your project root
+# Aider configuration for AD 1.0
+# https://aider.chat/docs/config.html
 
-##############################################################################
-# AIDER CONFIGURATION FOR ADD 2.0
-##############################################################################
+# Model settings
+model: gpt-4
+edit-format: diff
 
-# Model Configuration
-model: claude-3-5-sonnet-20241022
-editor-model: claude-3-5-sonnet-20241022  # For editing
-architect-model: claude-3-5-sonnet-20241022  # For planning
-
-# Use architect mode by default (plan first, then implement)
-architect: true
-
-# Git Integration
-auto-commits: true
-commit-message-template: |
-  {msg}
-
-  ADD 2.0 Phase: {phase}
-  Contract Compliance: {contract_status}
-
-  Co-authored-by: Aider <aider@agenticdriven.dev>
-
-# Dirty commits (commit even with unstaged changes)
+# Git settings
+auto-commits: false
 dirty-commits: false
+commit: false
 
-# Show diffs before committing
-show-diffs: true
-
-# Context Files (always include)
+# Read-only files (always include in context)
 read:
-  - add-project.yaml
+  - add.yaml
   - README.md
-  - docs/discovery.md
-  - docs/design.md
-  - docs/interfaces.md
   - docs/journal.md
+  - docs/interfaces.md
 
-# Excluded patterns
+# Message template
+message-template: |
+  Follow Agentic Driven (AD) 1.0 methodology:
+
+  1. Read add.yaml and docs/ before starting
+  2. Follow current phase guidelines
+  3. Use Conventional Commits format
+  4. Update docs/journal.md with progress
+  5. Respect contracts in docs/interfaces.md
+  6. Commit frequently with clear messages
+  7. Tag phase completions
+
+  See full rules in .aider-rules.md
+
+# Additional settings
+show-diffs: true
+pretty: true
+stream: true
+
+# Ignored patterns
 ignore:
   - "*.log"
   - "node_modules/*"
+  - "venv/*"
   - ".git/*"
   - "dist/*"
   - "build/*"
-  - ".next/*"
-  - "coverage/*"
-
-# Test command
-test-cmd: npm test
-
-# Linting
-lint: true
-lint-cmd: npm run lint
-
-##############################################################################
-# ADD 2.0 SPECIFIC CONFIGURATION
-##############################################################################
-
-# Custom system prompt for ADD 2.0
-system-prompt: |
-  You are an AI pair programmer following ADD (Agent-Driven Development) 2.0 Universal methodology.
-
-  CRITICAL RULES:
-  1. ALWAYS read project documentation first (add-project.yaml, docs/*.md)
-  2. Determine current phase from add-project.yaml version field
-  3. In BUILD phase (v0.4.x), read docs/interfaces.md for contracts BEFORE implementing
-  4. Implement EXACTLY to contract specification - no deviations
-  5. Use mocks for dependencies not yet implemented
-  6. Never commit changes across different phases
-  7. Validate exit criteria before considering phase complete
-  8. Update docs/journal.md with progress
-
-  PHASES:
-  - v0.1.x DISCOVER: Research, requirements, analysis
-  - v0.2.x DESIGN: Architecture, contracts, design
-  - v0.3.x PREPARE: Setup, configuration, tools
-  - v0.4.x BUILD: Implementation (CONTRACT-FIRST if multi-agent)
-  - v0.5.x VALIDATE: Testing, QA, validation
-  - v0.6.x DELIVER: Deployment, launch
-  - v0.7.x SUPPORT: Maintenance, bug fixes
-  - v0.8.x EVOLVE: Optimization, enhancements
-
-  CONTRACT-FIRST (in BUILD phase):
-  1. Read docs/interfaces.md first
-  2. Implement exactly as specified
-  3. Use mocks for missing dependencies
-  4. Add contract compliance comments
-  5. Include tests validating contract
-
-  When in doubt, ask which phase we're in and what the goal is.
-
-# Ask before running commands
-ask-before-commit: true
-
-# Pretty output
-pretty: true
-
-# Check for updates
-check-update: false
-
-##############################################################################
-# MULTI-AGENT COORDINATION
-##############################################################################
-
-# If working with other Aider instances (multi-agent):
-# Each agent should have its own branch and context directories
-
-# Example for backend agent:
-# aider --config .aider.conf.yml \
-#       --read src/backend/ \
-#       --read docs/interfaces.md \
-#       --message "Implement API endpoints per contracts"
-
-# Example for frontend agent:
-# aider --config .aider.conf.yml \
-#       --read src/frontend/ \
-#       --read docs/interfaces.md \
-#       --message "Implement UI components per contracts"
-
-##############################################################################
-# USAGE EXAMPLES
-##############################################################################
-
-# Start session for current phase:
-# aider --config .aider.conf.yml
-
-# Architect mode (plan first):
-# aider --architect --message "Plan implementation of user authentication"
-
-# Implement following contract:
-# aider --message "Implement POST /api/users following contract in docs/interfaces.md"
-
-# Generate tests:
-# aider --message "Write tests for POST /api/users based on contract"
-
-# Validate phase completion:
-# aider --message "Check if BUILD phase exit criteria are met"
-
-# Multi-agent coordination:
-# Terminal 1 (Backend):
-# aider --read src/backend/ --message "Implement backend per contracts"
-#
-# Terminal 2 (Frontend):
-# aider --read src/frontend/ --message "Implement frontend per contracts (use mocks)"
-#
-# Coordination via Git:
-# - Each agent commits to their feature branch
-# - Integration happens when both complete
-
-##############################################################################
-# COMMIT MESSAGE TEMPLATES BY PHASE
-##############################################################################
-
-# DISCOVER phase:
-# discover(requirements): document user authentication requirements
-#
-# Research findings documented in docs/discovery.md
-# ADD 2.0 Phase: DISCOVER
-
-# DESIGN phase:
-# design(architecture): define API contracts for user service
-#
-# All endpoints specified in docs/interfaces.md
-# ADD 2.0 Phase: DESIGN
-# Contract Compliance: N/A (defining contracts)
-
-# PREPARE phase:
-# prepare(setup): configure Jest testing framework
-#
-# Test framework ready for BUILD phase
-# ADD 2.0 Phase: PREPARE
-
-# BUILD phase:
-# build(api): implement POST /api/users endpoint
-#
-# Implements contract from docs/interfaces.md:
-# - Input validation: name, email required
-# - Email format validation
-# - Duplicate check
-# - Output: {id, name, email, created_at}
-# - Error handling: 400, 409, 500
-#
-# ADD 2.0 Phase: BUILD
-# Contract Compliance: Yes
-# Tests: Included (5/5 passing)
-
-# VALIDATE phase:
-# validate(api): add integration tests for user endpoints
-#
-# Coverage increased to 85%
-# ADD 2.0 Phase: VALIDATE
-
-# DELIVER phase:
-# deliver(deploy): configure production deployment
-#
-# Kubernetes configs ready
-# ADD 2.0 Phase: DELIVER
-
-# SUPPORT phase:
-# fix(security): patch authentication bypass vulnerability
-#
-# Hotfix for CVE-2026-12345
-# ADD 2.0 Phase: SUPPORT
-
-# EVOLVE phase:
-# evolve(performance): optimize database queries
-#
-# 40% faster response time
-# ADD 2.0 Phase: EVOLVE
-
-##############################################################################
-# TIPS FOR EFFECTIVE USE WITH ADD 2.0
-##############################################################################
-
-# 1. Start each session by reading phase docs:
-#    aider --message "What phase are we in? Show exit criteria."
-
-# 2. In BUILD phase, always start with contracts:
-#    aider --message "Read docs/interfaces.md and list all contracts"
-
-# 3. Implement incrementally:
-#    aider --message "Implement POST /api/users per contract"
-#    aider --message "Now implement GET /api/users/:id per contract"
-
-# 4. Validate as you go:
-#    aider --message "Run tests and validate contract compliance"
-
-# 5. Update journal regularly:
-#    aider --message "Update docs/journal.md with today's progress"
-
-# 6. Before advancing phase:
-#    aider --message "Check all exit criteria for BUILD phase"
-
-# 7. Use architect mode for complex tasks:
-#    aider --architect --message "Design caching strategy for API"
-
-##############################################################################
-# TROUBLESHOOTING
-##############################################################################
-
-# If Aider doesn't follow contracts:
-# - Explicitly mention the contract file:
-#   aider --message "Read docs/interfaces.md for POST /api/users contract, then implement exactly as specified"
-
-# If commits span multiple phases:
-# - Be explicit about phase:
-#   aider --message "This is BUILD phase work only. Don't include DESIGN files."
-
-# If multiple Aider instances conflict:
-# - Use separate branches:
-#   git checkout -b feature/v0.4.x-backend
-#   aider --message "Work on backend"
-#
-# - Coordinate via Git:
-#   git commit -m "build(backend): API ready"
-#   git push
-#   # Other agent pulls and integrates
-
-##############################################################################
-# ADVANCED: MULTI-AGENT WITH MESSAGE PASSING
-##############################################################################
-
-# Using Git for coordination between Aider instances:
-
-# 1. Backend Aider completes work:
-#    git commit -m "build(api): all endpoints ready
-#
-#    Frontend team: you can now replace mocks with real API
-#    All contracts from docs/interfaces.md implemented
-#    Tests: 20/20 passing"
-#    git push
-
-# 2. Frontend Aider sees the commit:
-#    git pull
-#    aider --message "Backend API is ready. Replace mocks in src/frontend/api-mock.ts with real API client"
-
-# 3. Integration:
-#    git checkout main
-#    git merge feature/v0.4.x-backend
-#    git merge feature/v0.4.x-frontend
-#    npm test  # Validate integration
-
-##############################################################################
-# REFERENCE
-##############################################################################
-
-# Full ADD 2.0 Documentation: /var/add/ADD-UNIVERSAL.md
-# Multi-Agent Coordination: /var/add/agentes/COORDINACION-PARALELA.md
-# Advanced Techniques: /var/add/agentes/TECNICAS-AVANZADAS-MULTI-AGENTE.md
-# Framework Design: /var/add/FRAMEWORK-DESIGN.md
-# Migration Guide: /var/add/MIGRACION-1.0-A-2.0.md
-
-# Aider Documentation: https://aider.chat/docs
-# ADD 2.0 Website: https://agenticdriven.dev/2.0
-# GitHub: https://github.com/add-framework/add-framework
-
-##############################################################################
-# VERSION INFO
-##############################################################################
-
-# Configuration Version: 2.0.0
-# For: Aider
-# ADD Methodology: 2.0 Universal
-# Last Updated: 2026-01-06
-# Author: AgentDriven

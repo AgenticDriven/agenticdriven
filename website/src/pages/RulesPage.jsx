@@ -238,7 +238,7 @@ function RulesPage({ onNavigate }) {
                 <p className="rules-intro">{t('rules.workingWithAD.intro')}</p>
 
                 {/* Phases with Prompts */}
-                {['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'].map((phase) => (
+                {['define', 'discover', 'design', 'setup', 'build', 'validate'].map((phase) => (
                   <div key={phase} style={{marginTop: '3rem', padding: '2rem', background: 'var(--bg-white)', border: '2px solid var(--border-color)', borderRadius: 'var(--radius-lg)'}}>
                     <h3 style={{marginTop: 0, color: 'var(--color-primary)'}}>{t(`rules.workingWithAD.phases.${phase}.name`)}</h3>
                     <p style={{fontWeight: 600, marginBottom: '1rem'}}>🎯 {t(`rules.workingWithAD.phases.${phase}.goal`)}</p>
@@ -373,13 +373,13 @@ function RulesPage({ onNavigate }) {
                   </div>
                 </div>
 
-                {/* 10 Phases Detailed */}
+                {/* 6 Phases Detailed */}
                 <div id="detailed-phases" style={{marginTop: '4rem'}}>
                   <h2 className="rules-section-title" style={{marginBottom: '1rem'}}>🎯 {t('phases.title')}</h2>
                   <p className="rules-intro">{t('phases.intro')}</p>
-                  
+
                   <div className="phases-timeline" style={{marginTop: '2rem'}}>
-                    {['define', 'discover', 'design', 'setup', 'build', 'validate', 'market', 'launch', 'support', 'evolve'].map((phase, index) => (
+                    {['define', 'discover', 'design', 'setup', 'build', 'validate'].map((phase, index) => (
                       <div key={phase} style={{marginBottom: '3rem', padding: '2rem', background: 'var(--bg-white)', border: '2px solid var(--border-color)', borderRadius: 'var(--radius-lg)'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem'}}>
                           <span style={{fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)'}}>0.{index}</span>

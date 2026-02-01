@@ -10,10 +10,6 @@ Document before, during, after.
 **SETUP**: setup, validation-criteria
 **BUILD**: build-log
 **VALIDATE**: validation-report
-**MARKET**: marketing-plan
-**LAUNCH**: launch-log
-**SUPPORT**: support-log
-**EVOLVE**: evolution-plan
 
 ## Location
 

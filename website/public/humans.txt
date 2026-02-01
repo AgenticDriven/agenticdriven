@@ -21,7 +21,7 @@ Repository: https://github.com/AgenticDriven/agenticdriven
 
 /* METHODOLOGY */
 Principles: 13 core principles
-Phases: 10 development phases (DEFINE to EVOLVE)
+Phases: 6 development phases (DEFINE to VALIDATE)
 Versioning: v0.PHASE.ITERATION format
 AI-First: Built for human-AI collaboration
 Universal: Works for software, content, products, marketing, and more

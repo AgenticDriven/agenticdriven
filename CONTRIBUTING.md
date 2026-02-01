@@ -45,7 +45,7 @@ Types: `feat`, `fix`, `docs`, `chore`, `test`, `refactor`, `perf`, `style`, `ci`
 
 Examples:
 ```
-feat: add exit criteria for MARKET phase
+feat: add exit criteria for VALIDATE phase
 fix: correct versioning example
 docs: update IDE configuration guide
 chore: update dependencies

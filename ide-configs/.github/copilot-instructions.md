@@ -1,669 +1,879 @@
-# GitHub Copilot Instructions for ADD 2.0
+# Principles
 
-**Version**: 2.0.0
-**Updated**: 2026-01-06
-**For**: GitHub Copilot (Chat, Workspace, CLI)
+**1. Agent-Driven**: Humans decide strategy, AI executes
+**2. Documentation-First**: Document before, during, after
+**3. Phased & Structured**: 6 phases with clear objectives and exit criteria
+**4. Validation-Driven**: Validate before building and what's built
+**5. Iterative**: Improve within phases, document if going back
+**6. Traceable**: Every change in git with clear history
+**7. Git-First**: Complete + verify = commit immediately. One commit per completed task.
+**8. Standards-First**: Always prefer rigid standards: Conventional Commits, JSON:API, ISO-8601, semver, established patterns
+**9. Explicit over Implicit**: No magic numbers/strings, define terms before use, named constants
+**10. Single Responsibility**: One component = one purpose. Keep small and focused.
+**11. Contract-Driven**: Define specifications in `docs/interfaces.md` before implementation. Implement exactly to spec.
+**12. Test-First**: Define success criteria before starting. Validate during work.
+**13. Proven Solutions First**: Use established solutions: design patterns, proven frameworks, standard structures
 
----
+# Phases
 
-## Overview
+## 6 Phases + Release
 
-This file configures GitHub Copilot to assist with projects following the ADD (Agent-Driven Development) 2.0 Universal methodology.
+```
+v0.0.x → DEFINE      Define problem, objectives, scope
+v0.1.x → DISCOVER    Investigate options, viability
+v0.2.x → DESIGN      Design solution, architecture
+v0.3.x → SETUP       Prepare tools, environment
+v0.4.x → BUILD       Build/create solution
+v0.5.x → VALIDATE    Verify quality, testing
+v1.0.0 → RELEASE     First stable version
+```
 
-## How to Use
+## Rules
 
-Place this file at `.github/copilot-instructions.md` in your repository root. GitHub Copilot will automatically use these instructions for context.
+- Sequential (no skipping)
+- Work within phase can be parallel
+- Exit criteria required before advancing
+- Tag phase completions
 
----
+# Versioning
 
-## CRITICAL RULES FOR COPILOT
+Use semantic versioning (semver).
 
-When assisting with this project:
+## Pre-release (v0.x.x)
 
-1. **ALWAYS read project configuration** first:
-   - `add-project.yaml` - Project config
-   - `README.md` - Overview
-   - `docs/discovery.md` - Problem understanding
-   - `docs/design.md` - Solution design
+Phase-based versioning: `v0.PHASE.ITERATION`
 
-2. **NEVER skip phases** - Each phase must complete before advancing
+Phases: 0=DEFINE, 1=DISCOVER, 2=DESIGN, 3=SETUP, 4=BUILD, 5=VALIDATE
 
-3. **ALWAYS respect contracts** (in BUILD phase):
-   - Read `docs/interfaces.md` before implementing
-   - Implement exactly as specified
-   - Don't break contracts
+Examples:
+```
+v0.0.0  First commit
+v0.1.0  Start DISCOVER
+v0.4.15 BUILD iteration 15
+```
 
-4. **NEVER commit across phases** - Group related changes from same phase
+## Release (v1.0.0+)
 
-5. **ALWAYS validate exit criteria** before considering phase complete
+After completing all phases: `v1.0.0`
 
----
+Use semver format: vMAJOR.MINOR.PATCH
 
-## ADD 2.0 PHASES
+# Git Commits
 
-Current project phase is in `add-project.yaml` → `version` field.
+## Format
+Use Conventional Commits standard
 
-### v0.1.x - DISCOVER (Understanding)
-**Purpose**: Understand the problem, context, and requirements
+```
+<type>: <description>
+```
 
-**When you're asked to help with**:
-- Research questions
-- Requirements gathering
-- Problem analysis
-- Feasibility studies
+Types: feat, fix, docs, chore, test, refactor, perf, style, ci, build
 
-**You should**:
-- Ask clarifying questions
-- Suggest research approaches
-- Help document findings in `docs/discovery.md`
-- Identify stakeholders and constraints
+## Examples
+```bash
+feat: add user authentication
+fix: correct validation
+docs: update API docs
+chore: update to v0.4.3
+```
 
-**Example prompts**:
-- "Help me understand the market for [product]"
-- "What are the key requirements for [feature]?"
-- "Who are the stakeholders for this project?"
+## Rules
+- Do NOT add IDE or AI signatures (Co-Authored-By, GitHub Copilot, Claude, etc.)
+- Keep commits clean and author-only
 
----
+# Git Tags
 
-### v0.2.x - DESIGN (Solution Design)
-**Purpose**: Design the complete solution
+Git tags are not required in AD 1.0. Use commits and version in ad.yaml to track progress.
 
-**When you're asked to help with**:
-- Architecture design
-- Component design
-- Interface/contract definitions
-- Prototyping
+# Project Structure
 
-**You should**:
-- Suggest architecture patterns
-- Design component interactions
-- **CRITICALLY**: Help define contracts in `docs/interfaces.md` if parallel work expected
-- Validate design decisions
+```
+project-root/
+├── README.md
+├── ad.yaml
+├── docs/
+│   ├── journal.md
+│   ├── decisions.md
+│   ├── active/       # Feature-driven
+│   ├── completed/
+│   └── archived/
+├── src/              # Adapt by domain
+└── assets/
+```
 
-**Contract Definition Example**:
+## Domain-Specific src/
+
+**Software**: backend/, frontend/, shared/
+**Book**: chapters/, appendices/, resources/
+**Marketing**: campaigns/, content/, analytics/
+**Event**: program/, logistics/, promotion/
+**Product**: design/, specs/, prototypes/
+
+## Feature-Driven
+
+```
+docs/active/feature-name/
+├── ad.yaml
+├── 00-define/
+├── 02-design/
+└── 04-build/
+```
+
+## Project-Driven
+
+```
+docs/
+├── 00-define/
+├── 02-design/
+└── 04-build/
+```
+
+Phase directories: 00-define, 01-discover, 02-design, 03-setup, 04-build, 05-validate, 06-market, 07-launch, 08-support, 09-evolve
+
+Standard base: README, ad.yaml, docs/, src/
+
+# Project Config
+
+## ad.yaml (Root)
+
 ```yaml
-# docs/interfaces.md
+domain: "software"  # software | book | marketing | event | product | research | course | game
+mode: "feature"     # feature | project
 
-API_POST_/api/users:
-  input:
-    name: string (required, 1-100 chars)
-    email: string (required, email format)
-  output:
-    id: uuid
-    name: string
-    email: string
-    created_at: datetime (ISO 8601)
-  errors:
-    400: Invalid input
-    409: Email already exists
-    500: Server error
+context_files:
+  - "README.md"
+  - "docs/decisions.md"
 
-Component_LoginForm:
-  props:
-    onSubmit: (credentials: {email: string, password: string}) => Promise<void>
-    loading: boolean
-    error: string | null
-  events:
-    onSuccess: (user: User) => void
-    onError: (error: Error) => void
+active_features:
+  - path: "docs/active/feature-name"
+    description: "Feature description"
+    status: "in-progress"
+
+completed_features: []
+
+agents:
+  enabled: false
+
+settings:
+  auto_commit: true
 ```
 
-**Example prompts**:
-- "Design architecture for [system]"
-- "What's the best way to structure [component]?"
-- "Help me define contracts for parallel development"
+## Mode: Feature vs Project
 
----
+**mode: "feature"** (Recommended)
+- Each feature has its own mini-cycle through phases
+- Features can be at different phases simultaneously
+- Example: feature-A in BUILD while feature-B in DESIGN
+- More flexible, parallel work possible
+- Each feature has `docs/active/feature-name/ad.yaml`
 
-### v0.3.x - PREPARE (Setup)
-**Purpose**: Prepare all tools, resources, environment
+**mode: "project"**
+- Entire project advances through phases as one unit
+- All work follows the same phase progression
+- More structured, sequential approach
+- Still uses features, but all features align to project phase
+- Features still have their own `docs/active/feature-name/ad.yaml`
 
-**When you're asked to help with**:
-- Project setup
-- Tool configuration
-- Framework installation
-- CI/CD setup
+**Important**: Both modes use features. The difference is how phases are managed:
+- Feature mode: Each feature has independent phase tracking
+- Project mode: Features exist but follow project's overall phase
 
-**You should**:
-- Suggest appropriate tools
-- Generate configuration files
-- Help with setup scripts
-- Validate environment works
+## Feature ad.yaml
 
-**Example prompts**:
-- "Help me setup a Node.js project with TypeScript"
-- "Configure Jest for testing"
-- "Setup GitHub Actions CI/CD"
+Located at `docs/active/feature-name/ad.yaml`:
 
----
+```yaml
+id: "feature-name"
+type: "feat"  # feat | fix | spike | refactor | docs | chore
+description: "What this feature does"
 
-### v0.4.x - BUILD (Implementation)
-**Purpose**: Build/create/execute the solution
+# Phase tracking (independent in feature mode, follows project in project mode)
+phase: "BUILD"
+version: "v0.4.2"
+status: "in-progress"
 
-**⚠️ CRITICAL - CONTRACT-FIRST PATTERN**
+# Feature-specific documentation
+context_files:
+  - "docs/active/feature-name/00-define/problem.md"
+  - "docs/active/feature-name/02-design/design.md"
 
-**When you're asked to help implement**:
+# Code locations for this feature
+code_locations:
+  - "src/feature-area/"
+  - "tests/feature-area/"
 
-1. **ALWAYS read contracts first**:
-   ```bash
-   # Check if contracts exist
-   cat docs/interfaces.md
-   ```
+# Task tracking (optional)
+tasks:
+  - description: "Task description"
+    status: "done"
 
-2. **Implement EXACTLY to contract**:
-   - Input types match
-   - Output format matches
-   - Error handling as specified
-   - Validation rules followed
+# Dependencies (optional)
+dependencies:
+  - feature: "other-feature"
+    reason: "Why needed"
+    status: "completed"
 
-3. **Use mocks for dependencies**:
-   ```typescript
-   // If backend API not ready yet, use contract-based mock
-   const mockAPI = {
-     createUser: async (data: CreateUserInput): Promise<User> => ({
-       id: 'mock-uuid-' + Date.now(),
-       ...data,
-       created_at: new Date().toISOString()
-     })
-   };
-   ```
+agents:
+  enabled: false
 
-4. **Suggest tests based on contracts**:
-   ```typescript
-   describe('POST /api/users', () => {
-     it('should accept valid input', async () => {
-       const input = { name: 'John', email: 'john@example.com' };
-       const output = await createUser(input);
-
-       expect(output).toHaveProperty('id');
-       expect(output).toHaveProperty('created_at');
-       expect(output.name).toBe(input.name);
-       expect(output.email).toBe(input.email);
-     });
-
-     it('should reject invalid email', async () => {
-       const input = { name: 'John', email: 'invalid' };
-       await expect(createUser(input)).rejects.toThrow('Invalid email');
-     });
-   });
-   ```
-
-**Example prompts**:
-- "Implement POST /api/users following the contract"
-- "Create LoginForm component per contract"
-- "Generate tests for [component] based on contract"
-- "Create mock for [dependency] using contract"
-
----
-
-### v0.5.x - VALIDATE (Testing & QA)
-**Purpose**: Validate solution meets requirements
-
-**When you're asked to help with**:
-- Test writing
-- Test debugging
-- Quality validation
-- Requirements verification
-
-**You should**:
-- Generate comprehensive tests
-- Suggest test cases
-- Help debug failing tests
-- Validate against requirements from `docs/requirements.md`
-
-**Example prompts**:
-- "Write integration tests for [feature]"
-- "What edge cases should I test for [component]?"
-- "Help me debug this failing test"
-
----
-
-### v0.6.x - DELIVER (Deployment)
-**Purpose**: Deliver/launch the solution
-
-**When you're asked to help with**:
-- Deployment scripts
-- Configuration for production
-- Monitoring setup
-- Release preparation
-
-**You should**:
-- Generate deployment configs
-- Suggest monitoring strategies
-- Help with rollback plans
-- Validate production readiness
-
-**Example prompts**:
-- "Create Dockerfile for production"
-- "Setup monitoring for [service]"
-- "Generate deployment checklist"
-
----
-
-### v0.7.x - SUPPORT (Maintenance)
-**Purpose**: Support and maintain the solution
-
-**When you're asked to help with**:
-- Bug investigation
-- Hotfix implementation
-- Performance debugging
-- Incident response
-
-**You should**:
-- Help diagnose issues
-- Suggest fixes
-- Generate hotfix code
-- Document incidents
-
-**Example prompts**:
-- "Help me debug [error]"
-- "Create hotfix for [bug]"
-- "Investigate performance issue in [component]"
-
----
-
-### v0.8.x - EVOLVE (Optimization & Enhancement)
-**Purpose**: Improve, optimize, plan next version
-
-**When you're asked to help with**:
-- Performance optimization
-- Refactoring
-- Technical debt reduction
-- Feature enhancements
-
-**You should**:
-- Suggest optimizations
-- Identify technical debt
-- Propose refactoring strategies
-- Plan future improvements
-
-**Example prompts**:
-- "How can I optimize [component]?"
-- "Refactor [code] for better performance"
-- "What technical debt should we address?"
-
----
-
-## MULTI-AGENT COORDINATION
-
-**If this project has multiple developers/agents working in parallel:**
-
-### When suggesting code:
-1. **Check if in BUILD phase** (`v0.4.x`)
-2. **Verify contracts exist** (`docs/interfaces.md`)
-3. **Implement to contract** - Don't deviate
-4. **Use mocks** for dependencies not ready yet
-5. **Add contract compliance note** in comments:
-   ```typescript
-   /**
-    * POST /api/users endpoint
-    *
-    * Implements contract from docs/interfaces.md
-    * - Input validation: name (required), email (required, format)
-    * - Output format: {id, name, email, created_at}
-    * - Error handling: 400 (invalid), 409 (duplicate), 500 (server)
-    */
-   ```
-
-### When reviewing code:
-- Validate compliance with contracts
-- Check for contract violations
-- Suggest fixes that maintain contract compatibility
-
----
-
-## COMMIT MESSAGE GUIDANCE
-
-**When using Copilot Chat to generate commit messages:**
-
-Format:
-```
-type(scope): brief description
-
-Optional longer description:
-- What changed
-- Why changed
-- Breaking changes
-
-Follows ADD 2.0 [PHASE_NAME] phase
-Contract compliance: [Yes/No/N/A]
+notes:
+  - "Important context"
 ```
 
-**Types** (based on phase):
-- `discover`: Research, requirements
-- `design`: Architecture, contracts
-- `prepare`: Setup, configuration
-- `build`: Implementation
-- `validate`: Tests, QA
-- `deliver`: Deployment
-- `support`: Fixes, incidents
-- `evolve`: Optimization, enhancement
-- `docs`: Documentation only
-- `chore`: Maintenance
+## Feature Types
 
-**Example**:
+Different feature types go through different phases:
+
 ```
-build(api): implement POST /api/users endpoint
-
-Implements user creation according to contract in docs/interfaces.md:
-- Input validation for name and email
-- Email format validation
-- Duplicate email check
-- Returns user object with id, created_at
-
-Follows ADD 2.0 BUILD phase
-Contract compliance: Yes
-Tests: Included (5/5 passing)
+feat:     DEFINE → DISCOVER → DESIGN → BUILD → VALIDATE
+fix:      DEFINE → VALIDATE
+spike:    DEFINE → DISCOVER
+refactor: DEFINE → BUILD → VALIDATE
+docs:     DEFINE → BUILD
+chore:    DEFINE → BUILD
 ```
 
----
+## Multi-Agent Configuration
 
-## GITHUB COPILOT WORKSPACE
+```yaml
+agents:
+  enabled: true
+  platform: "claude-sdk"
+  default_execution_mode: "parallel"
+  default_coordination: "message-passing"
 
-**When using Copilot Workspace (Issue → PR flow):**
+  team:
+    - id: "agent-id"
+      role: "agent-role"
+      description: "What this agent does"
+      phases: ["BUILD", "VALIDATE"]
+      capabilities: ["capability-1", "capability-2"]
+      context_dirs: ["src/area/"]
+```
 
-### Issue Analysis
-When analyzing GitHub issue:
-1. Identify which ADD phase this belongs to
-2. Check current project phase in `add-project.yaml`
-3. Verify phase is appropriate for the issue
-4. If not, suggest: "This issue requires [PHASE], but project is in [CURRENT_PHASE]. Should we address this in current phase or defer?"
+Configure agents based on your project's separation of concerns. Each agent works in specific directories and phases.
 
-### Plan Generation
-When generating implementation plan:
-1. **Read phase requirements** from docs
-2. **Check for contracts** if BUILD phase
-3. **Respect phase boundaries** - Don't mix phases
-4. **Include exit criteria validation** in plan
+# Documentation
 
-### Implementation
-When implementing:
-1. **Follow contracts strictly** (if BUILD)
-2. **One phase per PR** - Don't mix
-3. **Include tests** (if BUILD/VALIDATE)
-4. **Update documentation** as needed
+Document before, during, after.
 
-### PR Description Template
+## By Phase
+
+**DEFINE**: problem, objectives, scope
+**DISCOVER**: requirements, decisions
+**DESIGN**: design, architecture, interfaces
+**SETUP**: setup, validation-criteria
+**BUILD**: build-log
+**VALIDATE**: validation-report
+
+## Location
+
+Simple: `docs/` flat
+Complex: `docs/active/`, `docs/completed/`, `docs/archived/`
+
+Always at root: `journal.md`, `decisions.md`
+
+Update docs in same commit as code.
+
+# Journal
+
+## File: docs/journal.md
+
+Daily progress log. Most recent at top.
+
+## Format
+
 ```markdown
-## Phase: [PHASE_NAME] (v0.X.x)
-
-### Changes
-- [List changes]
-
-### Contract Compliance
-- [ ] Follows contracts from docs/interfaces.md
-- [ ] No contract violations
-- [ ] Backwards compatible
-
-### Testing
-- [ ] Tests included
-- [ ] All tests passing
-- [ ] Coverage maintained/improved
-
-### Documentation
-- [ ] Documentation updated
-- [ ] Examples included (if applicable)
-
-### Exit Criteria
-[Check relevant criteria for current phase]
+## YYYY-MM-DD
+- Phase: PHASE (vX.Y.Z)
+- Progress: What completed
+- Next: Next steps
 ```
 
----
+Multi-agent: Each agent adds section.
 
-## COPILOT CLI
+# Decisions
 
-**When using `gh copilot` CLI:**
+## File: docs/decisions.md
 
-### Asking for help:
+Architecture Decision Records (ADRs). Newest at top.
+
+## Format
+
+```markdown
+## [Date] - [Title]
+
+**Status**: Accepted | Rejected | Deprecated
+**Context**: Problem (2-3 sentences)
+**Decision**: What decided (1-2 sentences)
+**Consequences**: ✅ Positive, ❌ Negative
+**Alternatives**: Options rejected and why
+```
+
+## When to Document
+
+Document: Technical choices with multiple options, architectural changes, trade-offs
+Skip: Obvious choices, trivial decisions, implementation details
+
+# Contracts
+
+## File: docs/interfaces.md
+
+Required for multi-agent. Define specifications before implementation.
+
+## Format
+
+```markdown
+## Interface: Name
+**Input**: What goes in
+**Output**: What comes out
+**Errors**: Possible failures
+```
+
+## Workflow
+
+DESIGN: Define contracts, review, commit
+BUILD: Read contracts, implement, use mocks for unimplemented deps
+
+Never deviate without updating contract first.
+
+# AI Workflow
+
+## Session Start
+
+Every session begins with these steps:
+
+1. **Check if `ad.yaml` exists**
+   - Not found → Trigger auto-initialization (see below)
+   - Found → Continue with normal workflow
+
+2. **Read root `ad.yaml`**
+   - Extract: domain, mode, context_files, active_features, agents
+   - Understand project configuration
+
+3. **Read README.md**
+   - Get project overview and current state
+
+4. **Read all global context_files**
+   - Read each file listed in root ad.yaml context_files
+   - Build understanding of project standards, decisions, conventions
+
+5. **List active features**
+   - Show all features from active_features array
+   - Display their current phase, status, description
+
+6. **Ask user which feature to work on**
+   - User selects from active features
+   - Or user says "new" to create a new feature
+
+7. **Read feature ad.yaml**
+   - Load feature-specific configuration
+   - Get phase, version, status, context_files, code_locations
+
+8. **Read feature context_files**
+   - Load all docs specific to this feature
+   - Build complete context for working on this feature
+
+9. **Check multi-agent configuration**
+   - If agents enabled, identify which agent is working
+   - Load agent-specific context directories
+   - Check for blocked agents or dependencies
+
+10. **Present status to user**
+    - Show what's been done, what's next
+    - Display current phase, blockers, recent progress
+    - Ready to start working
+
+## Auto-Initialization
+
+When no `ad.yaml` is found, initialize AD for existing project.
+
+### Step 1: Analyze Project
+
 ```bash
-# Good prompts that respect ADD 2.0:
-gh copilot suggest "implement POST /api/users following contract in docs/interfaces.md"
-gh copilot suggest "setup test framework for PREPARE phase"
-gh copilot suggest "create deployment config for DELIVER phase"
+# Check git repository
+git status
 
-# Bad prompts (cross-phase):
-gh copilot suggest "implement API and deploy to production"  # Mixing BUILD and DELIVER
+# Check directory structure
+ls README.md docs/ src/
+
+# Count documentation files
+find . -name "*.md" | wc -l
+
+# Detect project type (optional)
+ls package.json requirements.txt Cargo.toml go.mod
 ```
 
-### Explaining code:
-```bash
-gh copilot explain "why does this code violate the contract?"
-gh copilot explain "what phase should this change be in?"
+Detect:
+- Git repository status
+- Existing directories (docs/, src/, tests/)
+- Number of markdown files
+- Project type indicators (optional)
+
+### Step 2: Ask User
+
+```
+AI: "No ad.yaml found. Initialize AD for this project?
+
+    Detected:
+    - Git repository: [yes/no]
+    - Structure: [directories found]
+    - Documentation: [X markdown files]
+    - Type: [detected or unknown]
+
+    Questions:
+    1. Domain? (software | book | marketing | event | product | research | course | game)
+    2. Mode? (feature | project)
+    3. Detect existing features? (yes | no)
+    4. Reorganize markdown files into docs/? (yes | no)
+    5. Use multi-agent? (yes | no)
+
+    Answer: "
 ```
 
----
+**Question 1 - Domain**: What type of project?
+- Adapts AI language to your domain
+- Examples: software (code), book (chapters), marketing (campaigns)
 
-## QUALITY GATES
+**Question 2 - Mode**: How to organize work?
+- feature: Each feature has independent phase tracking (recommended)
+- project: All work follows same phase progression
 
-**Before suggesting code is complete, verify:**
+**Question 3 - Detect features**: Analyze existing code structure?
+- yes: AI analyzes src/ subdirectories, git branches to suggest features
+- no: Start with empty active_features, user creates first feature
 
-### DISCOVER Phase
-- [ ] Problem clearly documented
-- [ ] Requirements prioritized
-- [ ] Stakeholders identified
+**Question 4 - Reorganize markdown**: Move scattered .md files into docs/?
+- yes: AI categorizes and moves files (decisions, conventions, etc.)
+- no: Leave files where they are
 
-### DESIGN Phase
-- [ ] Design documented
-- [ ] Contracts defined (if parallel work expected)
-- [ ] Architecture validated
+**Question 5 - Multi-agent**: Enable multi-agent workflows?
+- yes: AI detects significant directories and suggests agent configuration
+- no: Single agent workflow
 
-### PREPARE Phase
-- [ ] Environment works
-- [ ] Tools configured
-- [ ] Tests can run
+### Step 3: Infer State
 
-### BUILD Phase
-- [ ] Contracts followed
-- [ ] Implementation complete
-- [ ] Basic tests pass
+Based on project analysis and user answers:
 
-### VALIDATE Phase
-- [ ] All tests pass
-- [ ] Requirements met
-- [ ] Quality criteria met
+**Infer Domain**:
+```python
+if user_specified_domain:
+    domain = user_answer
+elif has_code_structure:
+    domain = "software"
+elif mostly_markdown_files:
+    domain = "book"
+else:
+    domain = "software"  # safe default
+```
 
-### DELIVER Phase
-- [ ] Deployed successfully
-- [ ] Monitoring active
-- [ ] Stakeholders notified
+**Infer Phase**:
+```python
+if has_tests_and_passing:
+    phase = "VALIDATE"
+elif lines_of_code > 1000:
+    phase = "BUILD"
+elif has_design_docs:
+    phase = "DESIGN"
+elif has_requirements_docs:
+    phase = "DISCOVER"
+elif only_has_readme:
+    phase = "DEFINE"
+else:
+    phase = "DEFINE"  # safe default
+```
 
-### SUPPORT Phase
-- [ ] Issues resolved
-- [ ] SLAs met
-- [ ] Performance stable
+**Infer Features**:
+```python
+features = []
 
-### EVOLVE Phase
-- [ ] Optimizations done
-- [ ] Tech debt addressed
-- [ ] Roadmap defined
+# Strategy 1: Analyze src/ subdirectories
+for subdir in list_dirs("src/"):
+    if is_significant(subdir):  # >3 files or >100 lines
+        features.append({
+            "id": subdir,
+            "path": f"docs/active/{subdir}",
+            "description": f"{subdir.capitalize()} module"
+        })
 
----
+# Strategy 2: Check git branches
+for branch in git_branches():
+    if branch.startswith("feature/"):
+        name = branch.replace("feature/", "")
+        features.append({
+            "id": name,
+            "path": f"docs/active/{name}",
+            "description": f"Feature: {name}"
+        })
 
-## BEST PRACTICES FOR COPILOT WITH ADD 2.0
+# Strategy 3: Ask user to confirm detected features
+present_features_for_confirmation()
+```
 
-### 1. Context-Aware Suggestions
-Always consider:
-- Current phase
-- Existing contracts
-- Project structure
-- Team coordination needs
+**Infer Agents** (if user chose yes):
+```python
+if user_answer_5 != "a":
+    return {"enabled": False}
 
-### 2. Contract-First in BUILD
-When in BUILD phase, ALWAYS:
-- Read `docs/interfaces.md` first
-- Implement exactly to specification
-- Use mocks for missing dependencies
-- Include contract compliance in comments
+agents = []
 
-### 3. Phase Boundaries
-Respect phase boundaries:
-- Don't suggest deployment code in BUILD phase
-- Don't suggest implementation in DESIGN phase
-- Stay focused on current phase objectives
+# Detect significant directories
+for dir in find_dirs("src/*/", "docs/*/"):
+    if is_significant(dir):  # >3 files or >100 lines total
+        agents.append({
+            "id": to_kebab(dir),
+            "role": infer_role(dir),
+            "description": f"Works on {dir}",
+            "phases": infer_phases(dir),
+            "capabilities": infer_capabilities(dir),
+            "context_dirs": [dir]
+        })
 
-### 4. Team Coordination
-If multiple people:
-- Suggest branch names: `feature/v0.4.x-component-name`
-- Recommend contract-based mocks
-- Warn about potential conflicts
+# Only enable if agents detected
+if len(agents) == 0:
+    return {"enabled": False}
 
-### 5. Documentation
-Always suggest updating:
-- `docs/journal.md` - Daily progress
-- Phase-specific docs
-- Contract docs if interfaces change (with approval)
-
----
-
-## EXAMPLES
-
-### Example 1: Implementing API Endpoint
-
-**User**: "Help me implement the user creation endpoint"
-
-**Copilot should**:
-1. Check current phase (should be BUILD - v0.4.x)
-2. Read `docs/interfaces.md` for contract
-3. Generate implementation that matches contract exactly:
-
-```typescript
-import { Request, Response } from 'express';
-import { db } from './db';
-import { validateEmail } from './utils/validation';
-
-/**
- * POST /api/users - Create new user
- *
- * Implements contract from docs/interfaces.md
- * Input: {name: string, email: string}
- * Output: {id: uuid, name: string, email: string, created_at: datetime}
- * Errors: 400 (invalid), 409 (duplicate), 500 (server)
- */
-export async function createUser(req: Request, res: Response) {
-  try {
-    // Input validation (contract requirement)
-    const { name, email } = req.body;
-
-    if (!name || !email) {
-      return res.status(400).json({
-        error: 'name and email are required'
-      });
-    }
-
-    // Email format validation (contract requirement)
-    if (!validateEmail(email)) {
-      return res.status(400).json({
-        error: 'invalid email format'
-      });
-    }
-
-    // Check for duplicate (contract requirement)
-    const existing = await db.users.findByEmail(email);
-    if (existing) {
-      return res.status(409).json({
-        error: 'email already exists'
-      });
-    }
-
-    // Create user
-    const user = await db.users.create({ name, email });
-
-    // Output format (contract requirement)
-    return res.status(201).json({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      created_at: user.created_at.toISOString()
-    });
-
-  } catch (error) {
-    console.error('Error creating user:', error);
-    return res.status(500).json({
-      error: 'internal server error'
-    });
-  }
+return {
+    "enabled": True,
+    "platform": "claude-sdk",
+    "default_execution_mode": "parallel",
+    "default_coordination": "message-passing",
+    "team": agents
 }
 ```
 
-4. Suggest tests:
-```typescript
-describe('POST /api/users', () => {
-  it('creates user with valid input', async () => {
-    const response = await request(app)
-      .post('/api/users')
-      .send({ name: 'John Doe', email: 'john@example.com' });
+### Step 4: Reorganize Files (if user said yes)
 
-    expect(response.status).toBe(201);
-    expect(response.body).toMatchObject({
-      id: expect.any(String),
-      name: 'John Doe',
-      email: 'john@example.com',
-      created_at: expect.any(String)
-    });
-  });
+```bash
+mkdir -p docs/active docs/completed docs/planning docs/archived
 
-  it('rejects invalid email', async () => {
-    const response = await request(app)
-      .post('/api/users')
-      .send({ name: 'John Doe', email: 'invalid' });
+# Categorize existing .md files by content keywords
+# Move to appropriate location (decisions.md, interfaces.md, etc.)
+for file in $(find . -name "*.md"); do
+    # Skip standard files
+    [[ "$file" == "./README.md" ]] && continue
 
-    expect(response.status).toBe(400);
-  });
-
-  it('rejects duplicate email', async () => {
-    await createTestUser({ email: 'john@example.com' });
-
-    const response = await request(app)
-      .post('/api/users')
-      .send({ name: 'Jane Doe', email: 'john@example.com' });
-
-    expect(response.status).toBe(409);
-  });
-});
+    # Read and categorize by content
+    if grep -qi "decision" "$file"; then
+        mv "$file" docs/decisions.md  # or append
+    elif grep -qi "interface\|contract" "$file"; then
+        mv "$file" docs/interfaces.md
+    # ... more categorization
+    fi
+done
 ```
 
----
+### Step 5: Create Root ad.yaml
 
-### Example 2: Reviewing Contract Compliance
+```bash
+cat > ad.yaml << EOF
+# Auto-generated by AD initialization
+# Date: $(date -Iseconds)
 
-**User**: "@workspace is this code contract-compliant?"
+domain: "$inferred_domain"
+mode: "$user_chosen_mode"
 
-**Copilot should**:
-1. Read `docs/interfaces.md`
-2. Compare code against contract
-3. Report any violations:
+context_files:
+  - "README.md"
+  - "docs/decisions.md"
+  - "docs/conventions.md"
 
-```markdown
-## Contract Compliance Review
+active_features:
+$(for f in $detected_features; do
+    echo "  - path: \"docs/active/$f\""
+    echo "    description: \"$f_description\""
+    echo "    status: \"in-progress\""
+done)
 
-### POST /api/users implementation
+completed_features: []
 
-✅ Input validation: Correct
-✅ Email format check: Correct
-✅ Duplicate check: Correct
-✅ Output format: Correct
-❌ Error response: Missing 500 error handling
+agents:
+$(if [ "$agents_enabled" = "true" ]; then
+    echo "  enabled: true"
+    echo "  platform: \"claude-sdk\""
+    echo "  default_execution_mode: \"parallel\""
+    echo "  default_coordination: \"message-passing\""
+    echo "  team:"
+    for agent in $detected_agents; do
+        echo "    - id: \"$agent_id\""
+        echo "      role: \"$agent_role\""
+        echo "      context_dirs: [\"$agent_dirs\"]"
+    done
+else
+    echo "  enabled: false"
+fi)
 
-### Recommendation:
-Add try-catch for server errors to match contract:
-```typescript
-} catch (error) {
-  console.error('Error creating user:', error);
-  return res.status(500).json({ error: 'internal server error' });
-}
+settings:
+  auto_commit: true
+EOF
 ```
 
----
+### Step 6: Create Feature ad.yaml Files
 
-## REFERENCE
+```bash
+for feature in $detected_features; do
+    mkdir -p "docs/active/$feature_id"
 
-- **Full ADD 2.0 Documentation**: `/var/add/ADD-UNIVERSAL.md`
-- **Multi-Agent Coordination**: `/var/add/agentes/COORDINACION-PARALELA.md`
-- **Framework Design**: `/var/add/FRAMEWORK-DESIGN.md`
-- **GitHub**: https://github.com/add-framework/add-framework
+    cat > "docs/active/$feature_id/ad.yaml" << EOF
+id: "$feature_id"
+type: "feat"
+description: "$feature_description"
+phase: "$inferred_phase"
+version: "v0.$phase_number.0"
+status: "in-progress"
+context_files: []
+code_locations:
+$(for path in $feature_code_paths; do
+    echo "  - \"$path\""
+done)
+tasks: []
+agents:
+  enabled: false
+notes:
+  - "Auto-generated during AD initialization"
+EOF
+done
+```
 
----
+### Step 7: Create Initial Documentation
 
-**Version**: 2.0.0 for GitHub Copilot
-**Compatible With**: Copilot Chat, Workspace, CLI
-**Methodology**: ADD 2.0 Universal
+```bash
+# Create journal.md
+cat > docs/journal.md << EOF
+# Project Journal
+
+## $(date +%Y-%m-%d) - AD Initialization
+
+- Action: Initialized AD for existing project
+- Domain: $domain
+- Mode: $mode
+- Features: $feature_count detected
+- Phase: $inferred_phase
+
+### Next Steps
+- Review ad.yaml configuration
+- Review detected features
+- Start working with AD workflow
+EOF
+
+# Create decisions.md (if doesn't exist)
+[ ! -f "docs/decisions.md" ] && cat > docs/decisions.md << EOF
+# Architecture Decision Records
+
+## $(date +%Y-%m-%d) - Initialize AD Methodology
+
+**Status**: Accepted
+**Context**: Project existed without structured methodology.
+**Decision**: Adopt Agentic Driven (AD) methodology.
+**Consequences**:
+✅ Structured workflow with clear phases
+✅ Feature-driven development
+✅ Better documentation practices
+EOF
+
+# Create conventions.md (if doesn't exist)
+[ ! -f "docs/conventions.md" ] && cat > docs/conventions.md << EOF
+# Project Conventions
+
+## Git Workflow
+- Use Conventional Commits
+- One feature per branch
+- Commit frequently
+
+## Documentation
+- All docs in docs/
+- Feature docs in docs/active/feature-name/
+- Follow AD phase structure
+EOF
+```
+
+### Step 8: Commit Initialization
+
+```bash
+git add .
+
+git commit -m "chore: initialize AD methodology
+
+- Created ad.yaml (domain: $domain, mode: $mode)
+- Reorganized documentation into docs/
+- Created $feature_count feature ad.yaml files
+- Detected $agent_count agents
+- Current inferred phase: $inferred_phase
+
+Auto-initialized by AD system.
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+```
+
+### Step 9: Report to User
+
+```
+AI: "✓ AD initialization complete!
+
+    Configuration:
+    - Domain: $domain
+    - Mode: $mode
+    - Phase: $inferred_phase (inferred)
+
+    Features detected: $feature_count
+    $(for f in $features; do echo "    - $f: $f_description"; done)
+
+    Agents detected: $agent_count
+    $(for a in $agents; do echo "    - $a: $a_description"; done)
+
+    Next steps:
+    - Review ad.yaml and feature configurations
+    - Adjust agent assignments if needed
+    - Start working on a feature
+
+    What would you like to do?"
+```
+
+### Special Cases
+
+**No Git Repository**:
+```
+AI: "⚠️  This project is not a git repository.
+    AD relies on git for version control.
+    Would you like me to initialize git first?"
+```
+
+**Very Early Project** (only README):
+Create minimal ad.yaml with no features, user creates first one.
+
+**Mature Project**:
+Reorganize carefully, preserve existing structure, ask before moving files.
+
+## During Work
+
+**Before making changes**:
+- Read relevant files
+- Check contracts (if multi-agent)
+- Verify you're in correct directory
+
+**After completing task**:
+- Verify changes work
+- Update documentation
+- Update ad.yaml (feature or root as needed)
+- Update journal.md with progress
+- Commit changes with clear message
+- Report to user what was done
+
+### ad.yaml Update Rules
+
+**NEVER Modify** (Root ad.yaml):
+- `domain` - Never change
+- `mode` - Never change
+- `version` - Not used at root level
+- `settings` - Only if user explicitly asks
+
+**Allowed** (Root ad.yaml):
+- Add/update `active_features` array
+- Move features to `completed_features`
+- Add `context_files` (with user permission)
+- Update agent configuration (if user asks)
+
+**ALWAYS Update** (Feature ad.yaml):
+- `phase` and `version` when advancing phases
+- `context_files` array when creating new docs
+- `code_locations` array when creating new code
+- `tasks` status when completing tasks
+- `status` when feature state changes
+
+**Validation After Every Modification**:
+```bash
+# Validate YAML syntax
+yq eval ad.yaml > /dev/null 2>&1
+
+# If validation fails, restore and report error
+if [ $? -ne 0 ]; then
+    git restore ad.yaml
+    echo "ERROR: Invalid YAML syntax"
+    exit 1
+fi
+```
+
+## Session End
+
+**Clean Exit**:
+- Commit all completed work
+- Update journal.md with final status
+- Leave working tree clean
+- Push to remote if ready
+
+**Interrupted Exit**:
+- Commit with `wip:` prefix
+- Update journal noting incomplete work
+- Leave clear notes about what's in progress
+
+## Multi-Agent Workflow
+
+When agents are enabled:
+
+**Identify Your Agent**:
+- Check which agent you are from root ad.yaml
+- Understand your role, capabilities, context_dirs
+
+**Stay in Context**:
+- Only work in your assigned context_dirs
+- Don't modify files outside your context
+- Respect other agents' boundaries
+
+**Read Contracts First**:
+- Check docs/interfaces.md for specifications
+- Implement exactly to spec
+- Don't deviate without updating contract
+
+**Use Mocks for Dependencies**:
+- If another agent's work not ready, use mocks
+- Document mock usage in notes
+- Replace mocks when real implementation available
+
+**Communicate via Git**:
+- Commit frequently with clear messages
+- Update journal.md with your progress
+- Read journal.md to see other agents' status
+- Coordinate handoffs via feature ad.yaml status
+
+# Exit Criteria
+
+**DEFINE**: Problem stated, objectives defined, scope documented
+**DISCOVER**: Requirements gathered, options researched, feasibility assessed
+**DESIGN**: Solution designed, architecture defined, interfaces specified
+**SETUP**: Tools configured, environment ready, validation criteria defined
+**BUILD**: All components implemented, contracts fulfilled, docs updated
+**VALIDATE**: Validation criteria met, quality acceptable, report complete
+
+## Validation
+
+Before advancing: Review checklist, verify complete, document exceptions, get approval, commit
+
+Guidelines, not rigid rules. Adapt to project needs.
+
+# Troubleshooting
+
+## Process
+
+1. Identify: What's failing?
+2. Isolate: Where's the problem?
+3. Document: What did you try?
+4. Solve: Fix it
+5. Prevent: Avoid repeat
+
+## Common Issues
+
+- Phase unclear: Check exit criteria, review journal
+- Multi-agent conflict: Check context boundaries
+- Lost work: Check `git stash list`, `git reflog`
+- Git conflicts: Resolve markers, stage, merge
+- Contract mismatch: Update code or contract
+
+## Rollback
+
+```bash
+git reset --soft HEAD~1  # Undo commit, keep changes
+git reset --hard HEAD~1  # Undo commit, discard changes
+```
+
+Document issues in `docs/journal.md`. Commit frequently, read contracts, update journal, follow exit criteria.
+
